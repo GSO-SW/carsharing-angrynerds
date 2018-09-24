@@ -1,0 +1,51 @@
+Kunde:
+
+PK	KuID
+	Name
+	Nachname
+	E-Mail
+	Telefonnummer
+	Passwort
+	Geburtstag
+	Straße
+	Hausnummer
+	PLZ
+	Ort
+	Land
+	
+	
+Fahrzeug:
+
+PK	FaID
+FK	FtID (Fahrzeugtyp)
+	Kennzeichen
+	Kilometerstand
+	Letzte Wartung
+	Tankfüllung
+	Standort	
+	Verfügbarkeit
+	
+	
+Buchung:
+
+PK	BuID
+FK	FaID (Fahrzeug)
+FK	KuID (Kunde)
+	Startzeitpunkt
+	Startkilometerstand
+	Endzeitpunkt
+	Endkilometerstand
+	
+	
+Fahrzeugtyp:
+
+PK	FtID
+	Marke
+	Modell
+	Leistung
+	Baujahr
+	Schaltung
+	Tankvolumen maximal
+	Grundpreis
+	Preis/km
+	Preis/min
