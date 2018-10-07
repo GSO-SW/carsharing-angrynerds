@@ -28,10 +28,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>120</x>
-      <y>190</y>
-      <w>200</w>
-      <h>210</h>
+      <x>70</x>
+      <y>60</y>
+      <w>210</w>
+      <h>260</h>
     </coordinates>
     <panel_attributes>*Kunde*
 --
@@ -45,16 +45,19 @@
 - Hausnummer : string
 - PLZ : string
 - Stadt : string
-- Land  : string</panel_attributes>
+- Land  : string
+
+(- Admin_Rechte : bool ODER
+eigener Client)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>630</x>
-      <y>190</y>
+      <x>580</x>
+      <y>60</y>
       <w>200</w>
-      <h>300</h>
+      <h>270</h>
     </coordinates>
     <panel_attributes>*Fahrzeug*
 --
@@ -78,8 +81,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>360</x>
-      <y>190</y>
+      <x>310</x>
+      <y>60</y>
       <w>220</w>
       <h>140</h>
     </coordinates>
@@ -96,25 +99,142 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>310</x>
-      <y>180</y>
-      <w>70</w>
+      <x>270</x>
+      <y>50</y>
+      <w>60</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=-
 </panel_attributes>
-    <additional_attributes>10.0;20.0;50.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;40.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>570</x>
-      <y>180</y>
+      <x>520</x>
+      <y>50</y>
       <w>80</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=-
 </panel_attributes>
     <additional_attributes>10.0;20.0;60.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>570</x>
+      <y>390</y>
+      <w>170</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>*_DBController_*
+--
+"Datenbank Adapter"
+"Pfad zur Datenbank"
+"Fehlerhandler"</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>360</x>
+      <y>700</y>
+      <w>170</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>*main und andere Forms*
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>310</x>
+      <y>390</y>
+      <w>230</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>*_FormController_*
+--
+- FahrzeugListe : List&lt;Fahrzeug&gt;
+- BuchungsListe : List&lt;Buchung&gt;
+- "aktueller Nutzer" : Kunde
+- Forms...</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>890</x>
+      <y>60</y>
+      <w>120</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>*Karte*
+--
+kartendaten...</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>530</x>
+      <y>380</y>
+      <w>60</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;20.0;40.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>270</x>
+      <y>60</y>
+      <w>60</w>
+      <h>360</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;40.0;340.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>530</x>
+      <y>60</y>
+      <w>70</w>
+      <h>360</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;340.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>400</x>
+      <y>190</y>
+      <w>40</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;200.0;20.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>350</x>
+      <y>600</y>
+      <w>30</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
   </element>
 </diagram>
