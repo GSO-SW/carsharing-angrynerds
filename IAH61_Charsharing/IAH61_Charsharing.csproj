@@ -45,9 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Buchung.cs" />
+    <Compile Include="Booking.cs" />
     <Compile Include="DBController.cs" />
-    <Compile Include="Fahrzeug.cs" />
+    <Compile Include="Vehicle.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>

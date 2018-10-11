@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IAH61_Charsharing
 {
-	class Buchung
+	class Booking
 	{
 	}
 }

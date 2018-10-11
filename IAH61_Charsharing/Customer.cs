@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IAH61_Charsharing
 {
-	class Kunde
+	class Customer
 	{
 		#region Attributes
 		private string name;
