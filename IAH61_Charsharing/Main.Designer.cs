@@ -1,6 +1,6 @@
 ﻿namespace IAH61_Charsharing
 {
-    partial class Form1
+    partial class Main
     {
         /// <summary>
         /// Erforderliche Designervariable.
