@@ -11,8 +11,8 @@ namespace Carsharing
 		#region Attributes
 		private Customer customer;
 		private Vehicle vehicle;
-		private DateTime startTimePoint;
-		private DateTime endTimePoint;
+		private DateTime startTime;
+		private DateTime endTime;
 		private double startMileage;
 		private double endMileague;
 		#endregion
@@ -30,25 +30,25 @@ namespace Carsharing
 			set { vehicle = value; }
 		}
 
-		public DateTime StartTimePoint
+		public DateTime StartTime
 		{
-			get { return startTimePoint; }
-			set { startTimePoint = value; }
+			get { return startTime; }
+			set { startTime = value; }
 		}
 
-		public DateTime EndTimePoint
+		public DateTime EndTime
 		{
-			get { return endTimePoint; }
-			set { endTimePoint = value; }
+			get { return endTime; }
+			set { endTime = value; }
 		}
 
-		public double StartMilieage
+		public double StartMileage
 		{
 			get { return startMileage; }
 			set { startMileage = value; }
 		}
 
-		public double EndMileague
+		public double EndMileage
 		{
 			get { return endMileague; }
 			set { endMileague = value; }
