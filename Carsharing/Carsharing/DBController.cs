@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Carsharing
 {
-	class DBController
+	public static class DBController
 	{
+
 	}
 }
