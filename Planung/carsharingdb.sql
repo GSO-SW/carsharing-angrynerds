@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 26. Sep 2018 um 14:23
--- Server-Version: 10.1.36-MariaDB
--- PHP-Version: 7.2.10
+-- Erstellungszeit: 13. Okt 2018 um 12:52
+-- Server-Version: 10.1.35-MariaDB
+-- PHP-Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -87,6 +87,7 @@ CREATE TABLE `kunde` (
   `E-Mail Adresse` varchar(50) NOT NULL,
   `Telefonnummer` varchar(20) NOT NULL,
   `Passwort` varchar(30) NOT NULL,
+  `admin` tinyint(1) NOT NULL,
   `Geburtstag` date NOT NULL,
   `Straße` varchar(50) NOT NULL,
   `Hausnummer` varchar(10) NOT NULL,

@@ -15,6 +15,7 @@ namespace Carsharing
 		public Main()
 		{
 			InitializeComponent();
+			DBController.ConnectToDb();
 		}
 	}
 }
