@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Carsharing
 {
-	class Vehicle
+	public class Vehicle
 	{
 		#region Attributes
 		private string numberPlate;
@@ -117,5 +118,32 @@ namespace Carsharing
 			set { pricePerMinute = value; }
 		}
 		#endregion
+
+		#region Constructor
+		public Vehicle(string numberPlate, double mileage, DateTime lastMaintenance, double tankFilling, string position, bool available, string brand, string model, int power, DateTime constructionYear, 			string gearShift, double maxTankFilling, double basicPrice, double pricePerKilometre, double pricePerMinute)
+		{
+			NumberPlate = numberPlate;
+			Mileage = mileage;
+			LastMaintenance = lastMaintenance;
+			TankFilling = tankFilling;
+			Position = position;
+			Available = available;
+			Brand = brand;
+			Model = model;
+			Power = power;
+			ConstructionYear = constructionYear;
+			GearShift = gearShift;
+			MaxTankFilling = maxTankFilling;
+			BasicPrice = basicPrice;
+			PricePerKilometre = pricePerKilometre;
+			PricePerMinute = pricePerMinute;
+		}
+		#endregion
+
+		public string GetVehicleTypeString()
+		{
+			string s = Brand + ";" + Model + ";" + Power + ";" + ConstructionYear + ";" + GearShift + ";" + MaxTankFilling + ";" + BasicPrice + ";" + PricePerKilometre + ";" + PricePerKilometre;
+			return s;
+		}
 	}
 }
