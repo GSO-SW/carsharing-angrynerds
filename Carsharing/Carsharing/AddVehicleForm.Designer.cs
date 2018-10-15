@@ -69,9 +69,9 @@
 			this.labelNumberPlate.AutoSize = true;
 			this.labelNumberPlate.Location = new System.Drawing.Point(28, 75);
 			this.labelNumberPlate.Name = "labelNumberPlate";
-			this.labelNumberPlate.Size = new System.Drawing.Size(70, 13);
+			this.labelNumberPlate.Size = new System.Drawing.Size(79, 13);
 			this.labelNumberPlate.TabIndex = 0;
-			this.labelNumberPlate.Text = "Number plate";
+			this.labelNumberPlate.Text = "Nummernschild";
 			// 
 			// textNumberPlate
 			// 
@@ -95,27 +95,27 @@
 			this.labelMileage.AutoSize = true;
 			this.labelMileage.Location = new System.Drawing.Point(28, 101);
 			this.labelMileage.Name = "labelMileage";
-			this.labelMileage.Size = new System.Drawing.Size(44, 13);
+			this.labelMileage.Size = new System.Drawing.Size(76, 13);
 			this.labelMileage.TabIndex = 3;
-			this.labelMileage.Text = "Mileage";
+			this.labelMileage.Text = "Kilometerstand";
 			// 
 			// labelLastMaintenance
 			// 
 			this.labelLastMaintenance.AutoSize = true;
 			this.labelLastMaintenance.Location = new System.Drawing.Point(28, 127);
 			this.labelLastMaintenance.Name = "labelLastMaintenance";
-			this.labelLastMaintenance.Size = new System.Drawing.Size(91, 13);
+			this.labelLastMaintenance.Size = new System.Drawing.Size(80, 13);
 			this.labelLastMaintenance.TabIndex = 5;
-			this.labelLastMaintenance.Text = "Last maintenance";
+			this.labelLastMaintenance.Text = "Letzte Wartung";
 			// 
 			// labelTankFilling
 			// 
 			this.labelTankFilling.AutoSize = true;
 			this.labelTankFilling.Location = new System.Drawing.Point(28, 153);
 			this.labelTankFilling.Name = "labelTankFilling";
-			this.labelTankFilling.Size = new System.Drawing.Size(58, 13);
+			this.labelTankFilling.Size = new System.Drawing.Size(63, 13);
 			this.labelTankFilling.TabIndex = 7;
-			this.labelTankFilling.Text = "Tank filling";
+			this.labelTankFilling.Text = "Tankfüllung";
 			// 
 			// textPosition
 			// 
@@ -138,9 +138,9 @@
 			this.labelAvailable.AutoSize = true;
 			this.labelAvailable.Location = new System.Drawing.Point(28, 205);
 			this.labelAvailable.Name = "labelAvailable";
-			this.labelAvailable.Size = new System.Drawing.Size(50, 13);
+			this.labelAvailable.Size = new System.Drawing.Size(53, 13);
 			this.labelAvailable.TabIndex = 11;
-			this.labelAvailable.Text = "Available";
+			this.labelAvailable.Text = "Verfügbar";
 			// 
 			// textBrand
 			// 
@@ -154,9 +154,9 @@
 			this.labelBrand.AutoSize = true;
 			this.labelBrand.Location = new System.Drawing.Point(28, 231);
 			this.labelBrand.Name = "labelBrand";
-			this.labelBrand.Size = new System.Drawing.Size(35, 13);
+			this.labelBrand.Size = new System.Drawing.Size(37, 13);
 			this.labelBrand.TabIndex = 13;
-			this.labelBrand.Text = "Brand";
+			this.labelBrand.Text = "Marke";
 			// 
 			// textModel
 			// 
@@ -179,18 +179,18 @@
 			this.labelPower.AutoSize = true;
 			this.labelPower.Location = new System.Drawing.Point(28, 283);
 			this.labelPower.Name = "labelPower";
-			this.labelPower.Size = new System.Drawing.Size(37, 13);
+			this.labelPower.Size = new System.Drawing.Size(47, 13);
 			this.labelPower.TabIndex = 17;
-			this.labelPower.Text = "Power";
+			this.labelPower.Text = "Leistung";
 			// 
 			// labelConstructionYear
 			// 
 			this.labelConstructionYear.AutoSize = true;
 			this.labelConstructionYear.Location = new System.Drawing.Point(28, 309);
 			this.labelConstructionYear.Name = "labelConstructionYear";
-			this.labelConstructionYear.Size = new System.Drawing.Size(89, 13);
+			this.labelConstructionYear.Size = new System.Drawing.Size(43, 13);
 			this.labelConstructionYear.TabIndex = 19;
-			this.labelConstructionYear.Text = "Construction year";
+			this.labelConstructionYear.Text = "Baujahr";
 			// 
 			// textGearShift
 			// 
@@ -204,27 +204,27 @@
 			this.labelGear.AutoSize = true;
 			this.labelGear.Location = new System.Drawing.Point(28, 335);
 			this.labelGear.Name = "labelGear";
-			this.labelGear.Size = new System.Drawing.Size(30, 13);
+			this.labelGear.Size = new System.Drawing.Size(49, 13);
 			this.labelGear.TabIndex = 21;
-			this.labelGear.Text = "Gear";
+			this.labelGear.Text = "Schaltart";
 			// 
 			// labelMaxTankFilling
 			// 
 			this.labelMaxTankFilling.AutoSize = true;
 			this.labelMaxTankFilling.Location = new System.Drawing.Point(28, 361);
 			this.labelMaxTankFilling.Name = "labelMaxTankFilling";
-			this.labelMaxTankFilling.Size = new System.Drawing.Size(77, 13);
+			this.labelMaxTankFilling.Size = new System.Drawing.Size(110, 13);
 			this.labelMaxTankFilling.TabIndex = 23;
-			this.labelMaxTankFilling.Text = "Max tank filling";
+			this.labelMaxTankFilling.Text = "Maximale Tankfüllung";
 			// 
 			// labelBasicPrice
 			// 
 			this.labelBasicPrice.AutoSize = true;
 			this.labelBasicPrice.Location = new System.Drawing.Point(28, 387);
 			this.labelBasicPrice.Name = "labelBasicPrice";
-			this.labelBasicPrice.Size = new System.Drawing.Size(59, 13);
+			this.labelBasicPrice.Size = new System.Drawing.Size(54, 13);
 			this.labelBasicPrice.TabIndex = 25;
-			this.labelBasicPrice.Text = "Basic price";
+			this.labelBasicPrice.Text = "Basispreis";
 			// 
 			// labelPriceKilometre
 			// 
@@ -233,7 +233,7 @@
 			this.labelPriceKilometre.Name = "labelPriceKilometre";
 			this.labelPriceKilometre.Size = new System.Drawing.Size(84, 13);
 			this.labelPriceKilometre.TabIndex = 27;
-			this.labelPriceKilometre.Text = "Price / kilometre";
+			this.labelPriceKilometre.Text = "Preis / Kilometer";
 			// 
 			// label15
 			// 
@@ -242,7 +242,7 @@
 			this.label15.Name = "label15";
 			this.label15.Size = new System.Drawing.Size(73, 13);
 			this.label15.TabIndex = 29;
-			this.label15.Text = "Price / minute";
+			this.label15.Text = "Preis / Minute";
 			// 
 			// buttonAdd
 			// 
@@ -250,7 +250,7 @@
 			this.buttonAdd.Name = "buttonAdd";
 			this.buttonAdd.Size = new System.Drawing.Size(75, 23);
 			this.buttonAdd.TabIndex = 31;
-			this.buttonAdd.Text = "Add";
+			this.buttonAdd.Text = "Hinzufügen";
 			this.buttonAdd.UseVisualStyleBackColor = true;
 			this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
 			// 
@@ -260,7 +260,7 @@
 			this.buttonAbort.Name = "buttonAbort";
 			this.buttonAbort.Size = new System.Drawing.Size(75, 23);
 			this.buttonAbort.TabIndex = 32;
-			this.buttonAbort.Text = "Abort";
+			this.buttonAbort.Text = "Abbruch";
 			this.buttonAbort.UseVisualStyleBackColor = true;
 			this.buttonAbort.Click += new System.EventHandler(this.buttonAbort_Click);
 			// 
@@ -296,9 +296,9 @@
 			this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelTitle.Location = new System.Drawing.Point(31, 24);
 			this.labelTitle.Name = "labelTitle";
-			this.labelTitle.Size = new System.Drawing.Size(90, 20);
+			this.labelTitle.Size = new System.Drawing.Size(160, 20);
 			this.labelTitle.TabIndex = 36;
-			this.labelTitle.Text = "Add vehicle";
+			this.labelTitle.Text = "Fahrzeug hinzufügen";
 			// 
 			// maskedTextMileage
 			// 
