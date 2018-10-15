@@ -85,7 +85,7 @@ namespace Carsharing
 		public DateTime ConstructionYear
 		{
 			get { return constructionYear; }
-			set { constructionYear = value; }
+			set { constructionYear = new DateTime(value.Year, 1, 1); }
 		}
 
 		public string GearShift

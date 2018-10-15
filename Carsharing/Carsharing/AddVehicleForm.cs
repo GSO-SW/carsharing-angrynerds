@@ -23,7 +23,14 @@ namespace Carsharing
 
 		private void buttonAdd_Click(object sender, EventArgs e)
 		{
-			Vehicle vehicle = new Vehicle(textNumberPlate.Text, Convert.ToDouble(maskedTextMileage.Text), dateTimeLastMaintenance.Value, Convert.ToDouble(maskedTextTankFilling), textPosition.Text, checkAvailable.Checked, textBrand.Text, textModel.Text, Convert.ToInt32(maskedTextPower.Text), dateTimeConstructionYear.Value.Year, textGearShift.Text, Convert.ToInt32(maskedTextPower.Text), Convert.ToDouble(maskedTextBasicPrice.Text), Convert.ToDouble(maskedTextPricePerKilometre.Text), Convert.ToDouble(maskedTextPricePerMinute.Text)); ;
+			foreach (Control item in Controls)
+			{
+				if (item is MaskedTextBox)
+				{
+					item.Text = item.Text.Replace(' ', '0');
+				}
+			}
+			Vehicle vehicle = new Vehicle(textNumberPlate.Text, Convert.ToDouble(maskedTextMileage.Text), dateTimeLastMaintenance.Value, Convert.ToDouble(maskedTextTankFilling.Text), textPosition.Text, checkAvailable.Checked, textBrand.Text, textModel.Text, Convert.ToInt32(maskedTextPower.Text), dateTimeConstructionYear.Value.Year, textGearShift.Text, Convert.ToInt32(maskedTextPower.Text), Convert.ToDouble(maskedTextBasicPrice.Text), Convert.ToDouble(maskedTextPricePerKilometre.Text), Convert.ToDouble(maskedTextPricePerMinute.Text)); ;
 			DBController.AddVehicle(vehicle);
 		}
 

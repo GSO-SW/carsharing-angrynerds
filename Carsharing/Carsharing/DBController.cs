@@ -47,9 +47,7 @@ namespace Carsharing
 				Vehicle rowVehicle = new Vehicle(String.Empty, 0.0, new DateTime(0), 0.0, String.Empty, false, row["Marke"].ToString(), row["Modell"].ToString(), Convert.ToInt32(row["Leistung"].ToString()), Convert.ToInt32(row["Baujahr"].ToString()), row["Schaltung"].ToString(), Convert.ToDouble(row["Max_Tankvolumen"].ToString()), Convert.ToDouble(row["Grundpreis"].ToString()), Convert.ToDouble(row["Preis/km"].ToString()), Convert.ToDouble(row["Preis/min"].ToString()));
 
 				if (vehicle.GetVehicleTypeString() == rowVehicle.GetVehicleTypeString())
-				{
 					return Convert.ToInt32(row["Ft_ID"].ToString());
-				}
 			}
 			return null;
 		}
