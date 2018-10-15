@@ -170,9 +170,9 @@
 			this.labelModel.AutoSize = true;
 			this.labelModel.Location = new System.Drawing.Point(28, 257);
 			this.labelModel.Name = "labelModel";
-			this.labelModel.Size = new System.Drawing.Size(36, 13);
+			this.labelModel.Size = new System.Drawing.Size(38, 13);
 			this.labelModel.TabIndex = 15;
-			this.labelModel.Text = "Model";
+			this.labelModel.Text = "Modell";
 			// 
 			// labelPower
 			// 
@@ -246,7 +246,7 @@
 			// 
 			// buttonAdd
 			// 
-			this.buttonAdd.Location = new System.Drawing.Point(497, 826);
+			this.buttonAdd.Location = new System.Drawing.Point(497, 526);
 			this.buttonAdd.Name = "buttonAdd";
 			this.buttonAdd.Size = new System.Drawing.Size(75, 23);
 			this.buttonAdd.TabIndex = 31;
@@ -256,7 +256,7 @@
 			// 
 			// buttonAbort
 			// 
-			this.buttonAbort.Location = new System.Drawing.Point(416, 826);
+			this.buttonAbort.Location = new System.Drawing.Point(416, 526);
 			this.buttonAbort.Name = "buttonAbort";
 			this.buttonAbort.Size = new System.Drawing.Size(75, 23);
 			this.buttonAbort.TabIndex = 32;
@@ -368,7 +368,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(584, 861);
+			this.ClientSize = new System.Drawing.Size(584, 561);
 			this.Controls.Add(this.maskedTextPricePerMinute);
 			this.Controls.Add(this.maskedTextPricePerKilometre);
 			this.Controls.Add(this.maskedTextBasicPrice);

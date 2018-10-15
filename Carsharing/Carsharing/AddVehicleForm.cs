@@ -29,11 +29,9 @@ namespace Carsharing
 
 		private void buttonAbort_Click(object sender, EventArgs e)
 		{
-			DialogResult dialogResult = MessageBox.Show("Do you want to cancel your entry?", "Warning!", MessageBoxButtons.YesNo);
+			DialogResult dialogResult = MessageBox.Show("Wollen Sie ihre Eingabe wirklich verwerfen?", "Achtung!", MessageBoxButtons.YesNo);
 			if (dialogResult == DialogResult.Yes)
-			{
 				Close();
-			}
 		}
 
 		private void textBox_KeyPressOnlyNumber(object sender, KeyPressEventArgs e)
