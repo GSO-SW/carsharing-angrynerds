@@ -17,38 +17,7 @@ namespace Carsharing
 	{
 		static string connectionString = @"host=localhost;user=root;database=carsharingdb";
 
-		public static void ConnectToDb()
-		{
-			DataTable t = new DataTable();
-
-			// create SqlConnection object
-			using (MySqlConnection con = new MySqlConnection(connectionString))
-			{
-				try
-				{
-					// open connection to database
-					con.Open();
-					// INTERACTION WITH DATABASE COMES HERE
-
-					using (MySqlDataAdapter a = new MySqlDataAdapter("SELECT * FROM kunde", con))
-					{
-						a.Fill(t);
-					}
-
-				}
-				catch (Exception e)
-				{
-					throw e;
-				}
-				finally
-				{
-					// close connection to database
-					con.Close();
-				}
-			}
-		}
-
-		public static DataTable GetVehicleType()
+		public static int? GetVehicleTypeID(Vehicle vehicle)
 		{
 			DataTable table = new DataTable();
 
@@ -73,24 +42,14 @@ namespace Carsharing
 				}
 			}
 
-			return table;
-		}
-
-		public static int? GetVehicleTypeID(Vehicle vehicle)
-		{
-			DataTable table = GetVehicleType();
-
-
-			for (int i = 0; i < table.Rows.Count; i++)
+			foreach (DataRow row in table.Rows)
 			{
-				DataRow row = table.Rows[i];
 				Vehicle rowVehicle = new Vehicle(String.Empty, 0.0, new DateTime(0), 0.0, String.Empty, false, row["Marke"].ToString(), row["Modell"].ToString(), Convert.ToInt32(row["Leistung"].ToString()), Convert.ToInt32(row["Baujahr"].ToString()), row["Schaltung"].ToString(), Convert.ToDouble(row["Max_Tankvolumen"].ToString()), Convert.ToDouble(row["Grundpreis"].ToString()), Convert.ToDouble(row["Preis/km"].ToString()), Convert.ToDouble(row["Preis/min"].ToString()));
 
 				if (vehicle.GetVehicleTypeString() == rowVehicle.GetVehicleTypeString())
 				{
 					return Convert.ToInt32(row["Ft_ID"].ToString());
 				}
-
 			}
 			return null;
 		}
