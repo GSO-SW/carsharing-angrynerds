@@ -34,7 +34,6 @@
 			this.labelMileage = new System.Windows.Forms.Label();
 			this.labelLastMaintenance = new System.Windows.Forms.Label();
 			this.labelTankFilling = new System.Windows.Forms.Label();
-			this.textPosition = new System.Windows.Forms.TextBox();
 			this.labelPosition = new System.Windows.Forms.Label();
 			this.labelAvailable = new System.Windows.Forms.Label();
 			this.textBrand = new System.Windows.Forms.TextBox();
@@ -69,6 +68,7 @@
 			this.label5 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
+			this.textPosition = new System.Windows.Forms.MaskedTextBox();
 			this.SuspendLayout();
 			// 
 			// labelNumberPlate
@@ -123,13 +123,6 @@
 			this.labelTankFilling.Size = new System.Drawing.Size(63, 13);
 			this.labelTankFilling.TabIndex = 7;
 			this.labelTankFilling.Text = "Tankfüllung";
-			// 
-			// textPosition
-			// 
-			this.textPosition.Location = new System.Drawing.Point(139, 179);
-			this.textPosition.Name = "textPosition";
-			this.textPosition.Size = new System.Drawing.Size(100, 20);
-			this.textPosition.TabIndex = 10;
 			// 
 			// labelPosition
 			// 
@@ -434,11 +427,20 @@
 			this.label7.TabIndex = 67;
 			this.label7.Text = "€ / min";
 			// 
+			// textPosition
+			// 
+			this.textPosition.Location = new System.Drawing.Point(139, 179);
+			this.textPosition.Mask = "000,0000 000,0000";
+			this.textPosition.Name = "textPosition";
+			this.textPosition.Size = new System.Drawing.Size(100, 20);
+			this.textPosition.TabIndex = 68;
+			// 
 			// AddVehicleForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(584, 561);
+			this.Controls.Add(this.textPosition);
 			this.Controls.Add(this.label7);
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.label5);
@@ -472,7 +474,6 @@
 			this.Controls.Add(this.textBrand);
 			this.Controls.Add(this.labelBrand);
 			this.Controls.Add(this.labelAvailable);
-			this.Controls.Add(this.textPosition);
 			this.Controls.Add(this.labelPosition);
 			this.Controls.Add(this.labelTankFilling);
 			this.Controls.Add(this.labelLastMaintenance);
@@ -496,7 +497,6 @@
 		private System.Windows.Forms.Label labelMileage;
 		private System.Windows.Forms.Label labelLastMaintenance;
 		private System.Windows.Forms.Label labelTankFilling;
-		private System.Windows.Forms.TextBox textPosition;
 		private System.Windows.Forms.Label labelPosition;
 		private System.Windows.Forms.Label labelAvailable;
 		private System.Windows.Forms.TextBox textBrand;
@@ -531,5 +531,6 @@
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label label7;
+		private System.Windows.Forms.MaskedTextBox textPosition;
 	}
 }

@@ -44,7 +44,7 @@ namespace Carsharing
 
 			foreach (DataRow row in table.Rows)
 			{
-				Vehicle rowVehicle = new Vehicle(String.Empty, 0.0, new DateTime(0), 0.0, String.Empty, false, row["Marke"].ToString(), row["Modell"].ToString(), Convert.ToInt32(row["Leistung"].ToString()), Convert.ToInt32(row["Baujahr"].ToString()), row["Schaltung"].ToString(), Convert.ToDouble(row["Max_Tankvolumen"].ToString()), Convert.ToDouble(row["Grundpreis"].ToString()), Convert.ToDouble(row["Preis/km"].ToString()), Convert.ToDouble(row["Preis/min"].ToString()));
+				Vehicle rowVehicle = new Vehicle(String.Empty, 0.0, new DateTime(0), 0.0, new Point(0,0), false, row["Marke"].ToString(), row["Modell"].ToString(), Convert.ToInt32(row["Leistung"].ToString()), Convert.ToInt32(row["Baujahr"].ToString()), row["Schaltung"].ToString(), Convert.ToDouble(row["Max_Tankvolumen"].ToString()), Convert.ToDouble(row["Grundpreis"].ToString()), Convert.ToDouble(row["Preis/km"].ToString()), Convert.ToDouble(row["Preis/min"].ToString()));
 
 				if (vehicle.GetVehicleTypeString() == rowVehicle.GetVehicleTypeString())
 					return Convert.ToInt32(row["Ft_ID"].ToString());
@@ -66,7 +66,7 @@ namespace Carsharing
 				{
 					connection.Open();
 
-					using (MySqlCommand command = new MySqlCommand("INSERT INTO Fahrzeug VALUES(@F_ID, @Ft_ID, @Kennzeichen, @Kilometerstand, @LetzteWartung, @Tankfüllung, @Standort, @Verfügbarkeit)", connection))
+					using (MySqlCommand command = new MySqlCommand("INSERT INTO Fahrzeug VALUES(@F_ID, @Ft_ID, @Kennzeichen, @Kilometerstand, @LetzteWartung, @Tankfüllung, PointFromText(@Standort), @Verfügbarkeit)", connection))
 					{
 						command.Parameters.Add(new MySqlParameter("F_ID", null));
 						command.Parameters.Add(new MySqlParameter("Ft_ID", vehicleTypeID));
@@ -74,11 +74,10 @@ namespace Carsharing
 						command.Parameters.Add(new MySqlParameter("Kilometerstand", vehicle.Mileage));
 						command.Parameters.Add(new MySqlParameter("LetzteWartung", vehicle.LastMaintenance.Date));
 						command.Parameters.Add(new MySqlParameter("Tankfüllung", vehicle.TankFilling));
-						command.Parameters.Add(new MySqlParameter("Standort", vehicle.Position));
+						command.Parameters.Add(new MySqlParameter("Standort", "POINT(" + vehicle.Position.ToString() + ")"));
 						command.Parameters.Add(new MySqlParameter("Verfügbarkeit", vehicle.Available));
 						command.ExecuteNonQuery();
 					}
-
 				}
 				catch (Exception e)
 				{
@@ -126,7 +125,5 @@ namespace Carsharing
 				}
 			}
 		}
-
-		
 	}
 }

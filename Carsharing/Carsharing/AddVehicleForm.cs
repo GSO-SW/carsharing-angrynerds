@@ -30,7 +30,7 @@ namespace Carsharing
 					item.Text = item.Text.Replace(' ', '0');
 				}
 			}
-			Vehicle vehicle = new Vehicle(textNumberPlate.Text, Convert.ToDouble(maskedTextMileage.Text), dateTimeLastMaintenance.Value, Convert.ToDouble(maskedTextTankFilling.Text), textPosition.Text, checkAvailable.Checked, textBrand.Text, textModel.Text, Convert.ToInt32(maskedTextPower.Text), dateTimeConstructionYear.Value.Year, textGearShift.Text, Convert.ToInt32(maskedTextPower.Text), Convert.ToDouble(maskedTextBasicPrice.Text), Convert.ToDouble(maskedTextPricePerKilometre.Text), Convert.ToDouble(maskedTextPricePerMinute.Text)); ;
+			Vehicle vehicle = new Vehicle(textNumberPlate.Text, Convert.ToDouble(maskedTextMileage.Text), dateTimeLastMaintenance.Value, Convert.ToDouble(maskedTextTankFilling.Text), new Point(double.Parse(textPosition.Text.Split(' ')[0]), double.Parse(textPosition.Text.Split(' ')[1])), checkAvailable.Checked, textBrand.Text, textModel.Text, Convert.ToInt32(maskedTextPower.Text), dateTimeConstructionYear.Value.Year, textGearShift.Text, Convert.ToInt32(maskedTextPower.Text), Convert.ToDouble(maskedTextBasicPrice.Text), Convert.ToDouble(maskedTextPricePerKilometre.Text), Convert.ToDouble(maskedTextPricePerMinute.Text)); ;
 			DBController.AddVehicle(vehicle);
 		}
 
@@ -39,19 +39,6 @@ namespace Carsharing
 			DialogResult dialogResult = MessageBox.Show("Wollen Sie ihre Eingabe wirklich verwerfen?", "Achtung!", MessageBoxButtons.YesNo);
 			if (dialogResult == DialogResult.Yes)
 				Close();
-		}
-
-		private void textBox_KeyPressOnlyNumber(object sender, KeyPressEventArgs e)
-		{
-			if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
-				e.Handled = true;
-		}
-
-		private void textBox_KeyPressOnlyNumber2(object sender, KeyPressEventArgs e)
-		{
-			if (e.KeyChar != 8)
-				if (((TextBox)sender).TextLength >= 2 || (e.KeyChar < 48 || e.KeyChar > 57))
-					e.Handled = true;
 		}
 	}
 }
