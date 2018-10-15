@@ -140,10 +140,12 @@ namespace Carsharing
 		}
 		#endregion
 
+		#region Methods
 		public string GetVehicleTypeString()
 		{
 			string s = Brand + ";" + Model + ";" + Power + ";" + ConstructionYear + ";" + GearShift + ";" + MaxTankFilling + ";" + BasicPrice + ";" + PricePerKilometre + ";" + PricePerKilometre;
 			return s;
 		}
+		#endregion
 	}
 }

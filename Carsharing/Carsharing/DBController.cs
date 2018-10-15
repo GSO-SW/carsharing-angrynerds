@@ -48,6 +48,53 @@ namespace Carsharing
 			}
 		}
 
+		public static DataTable GetVehicleType()
+		{
+			DataTable table = new DataTable();
+
+			using (MySqlConnection con = new MySqlConnection(connectionString))
+			{
+				try
+				{
+					con.Open();
+
+					using (MySqlDataAdapter a = new MySqlDataAdapter("SELECT * FROM Fahrzeugtyp", con))
+					{
+						a.Fill(table);
+					}
+				}
+				catch (Exception e)
+				{
+					throw e;
+				}
+				finally
+				{
+					con.Close();
+				}
+			}
+
+			return table;
+		}
+
+		public static int? GetVehicleTypeID(Vehicle vehicle)
+		{
+			DataTable table = GetVehicleType();
+
+
+			for (int i = 0; i < table.Rows.Count; i++)
+			{
+				DataRow row = table.Rows[i];
+				Vehicle rowVehicle = new Vehicle(String.Empty, 0.0, new DateTime(0), 0.0, String.Empty, false, row["Marke"].ToString(), row["Modell"].ToString(), Convert.ToInt32(row["Leistung"].ToString()), new DateTime(Convert.ToInt32(row["Baujahr"].ToString()), 1, 1), row["Schaltung"].ToString(), Convert.ToDouble(row["Max_Tankvolumen"].ToString()), Convert.ToDouble(row["Grundpreis"].ToString()), Convert.ToDouble(row["Preis/km"].ToString()), Convert.ToDouble(row["Preis/min"].ToString()));
+
+				if (vehicle.GetVehicleTypeString() == rowVehicle.GetVehicleTypeString())
+				{
+					return Convert.ToInt32(row["Ft_ID"].ToString());
+				}
+
+			}
+			return null;
+		}
+
 		public static void AddVehicle(Vehicle vehicle)
 		{
 			int? vehicleTypeID = GetVehicleTypeID(vehicle);
@@ -123,42 +170,6 @@ namespace Carsharing
 			}
 		}
 
-		public static int? GetVehicleTypeID(Vehicle vehicle)
-		{
-			DataTable table = new DataTable();
-
-			using (MySqlConnection con = new MySqlConnection(connectionString))
-			{
-				try
-				{
-					con.Open();
-
-					using (MySqlDataAdapter a = new MySqlDataAdapter("SELECT * FROM Fahrzeugtyp", con))
-					{
-						a.Fill(table);
-					}
-				}
-				catch (Exception e)
-				{
-					throw e;
-				}
-				finally
-				{
-					con.Close();
-				}
-			}
-			for (int i = 0; i < table.Rows.Count; i++)
-			{
-				DataRow row = table.Rows[i];
-				Vehicle rowVehicle = new Vehicle(String.Empty, 0.0, new DateTime(0), 0.0, String.Empty, false, row["Marke"].ToString(), row["Modell"].ToString(), Convert.ToInt32(row["Leistung"].ToString()), new DateTime(Convert.ToInt32(row["Baujahr"].ToString()), 1, 1), row["Schaltung"].ToString(), Convert.ToDouble(row["Max_Tankvolumen"].ToString()), Convert.ToDouble(row["Grundpreis"].ToString()), Convert.ToDouble(row["Preis/km"].ToString()), Convert.ToDouble(row["Preis/min"].ToString()));
-
-				if (vehicle.GetVehicleTypeString() == rowVehicle.GetVehicleTypeString())
-				{
-					return Convert.ToInt32(row["Ft_ID"].ToString());
-				}
-
-			}
-			return null;
-		}
+		
 	}
 }

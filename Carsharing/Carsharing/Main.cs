@@ -20,8 +20,10 @@ namespace Carsharing
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			Vehicle v = new Vehicle("BM BM 1234", 1000.0, DateTime.Today, 10.0, String.Empty, true, "Ford", "Fiesta", 150, new DateTime(2000, 1, 1), "Schaltung", 20.0, 10.0, 10.0, 10.0);
-			DBController.AddVehicle(v);
+			AddVehicleForm addVehicleForm = new AddVehicleForm();
+			addVehicleForm.ShowDialog();
+			//Vehicle v = new Vehicle("BM BM 1234", 1000.0, DateTime.Today, 10.0, String.Empty, true, "Ford", "Fiesta", 150, new DateTime(2000, 1, 1), "Schaltung", 20.0, 10.0, 10.0, 10.0);
+			//DBController.AddVehicle(v);
 		}
 	}
 }
