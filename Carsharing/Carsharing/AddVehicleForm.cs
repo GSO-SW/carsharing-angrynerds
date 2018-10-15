@@ -23,15 +23,7 @@ namespace Carsharing
 
 		private void buttonAdd_Click(object sender, EventArgs e)
 		{
-			double mileage = SillyConverter.SillyDouble(textMileage.Text, textMileage2.Text);
-			double tankFilling = SillyConverter.SillyDouble(textTankFilling.Text, textTankFilling2.Text);
-			double maxTankFilling = SillyConverter.SillyDouble(textMaxTankFilling.Text, textMaxTankFilling2.Text);
-			double basicPrice = SillyConverter.SillyDouble(textBasicPrice.Text, textBasicPrice2.Text);
-			double pricePerKilometre = SillyConverter.SillyDouble(textPricePerKilometre.Text, textPricePerKilometre2.Text);
-			double pricePerMinute = SillyConverter.SillyDouble(textPricePerMinute.Text, textPricePerMinute2.Text);
-			int power = SillyConverter.SillyInt(textPower.Text);
-
-			Vehicle vehicle = new Vehicle(textNumberPlate.Text, mileage, dateTimeLastMaintenance.Value, tankFilling, textPosition.Text, checkAvailable.Checked, textBrand.Text, textModel.Text, power, dateTimeConstructionYear.Value.Year, textGearShift.Text, maxTankFilling, basicPrice, pricePerKilometre, pricePerMinute); ;
+			Vehicle vehicle = new Vehicle(textNumberPlate.Text, Convert.ToDouble(maskedTextMileage.Text), dateTimeLastMaintenance.Value, Convert.ToDouble(maskedTextTankFilling), textPosition.Text, checkAvailable.Checked, textBrand.Text, textModel.Text, Convert.ToInt32(maskedTextPower.Text), dateTimeConstructionYear.Value.Year, textGearShift.Text, Convert.ToInt32(maskedTextPower.Text), Convert.ToDouble(maskedTextBasicPrice.Text), Convert.ToDouble(maskedTextPricePerKilometre.Text), Convert.ToDouble(maskedTextPricePerMinute.Text)); ;
 			DBController.AddVehicle(vehicle);
 		}
 
