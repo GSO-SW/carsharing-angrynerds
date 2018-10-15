@@ -8,6 +8,10 @@ namespace Carsharing
 {
 	public static class FormController
 	{
-
+		public static void showAddVehicleForm()
+		{
+			AddVehicleForm addVehicleForm = new AddVehicleForm();
+			addVehicleForm.ShowDialog();
+		}
 	}
 }

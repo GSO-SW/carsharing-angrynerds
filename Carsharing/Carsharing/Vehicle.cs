@@ -120,7 +120,7 @@ namespace Carsharing
 		#endregion
 
 		#region Constructor
-		public Vehicle(string numberPlate, double mileage, DateTime lastMaintenance, double tankFilling, string position, bool available, string brand, string model, int power, DateTime constructionYear, 			string gearShift, double maxTankFilling, double basicPrice, double pricePerKilometre, double pricePerMinute)
+		public Vehicle(string numberPlate, double mileage, DateTime lastMaintenance, double tankFilling, string position, bool available, string brand, string model, int power, int constructionYear, string gearShift, double maxTankFilling, double basicPrice, double pricePerKilometre, double pricePerMinute)
 		{
 			NumberPlate = numberPlate;
 			Mileage = mileage;
@@ -131,7 +131,7 @@ namespace Carsharing
 			Brand = brand;
 			Model = model;
 			Power = power;
-			ConstructionYear = constructionYear;
+			ConstructionYear = new DateTime(constructionYear, 1, 1);
 			GearShift = gearShift;
 			MaxTankFilling = maxTankFilling;
 			BasicPrice = basicPrice;
