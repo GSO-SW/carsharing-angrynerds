@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Carsharing
 {
-	class Customer
+	public class Customer
 	{
 		#region Attributes
 		private string name;
@@ -24,71 +24,129 @@ namespace Carsharing
 		#endregion
 
 		#region Propeties
+		/// <summary>
+		/// 
+		/// </summary>
 		public string Name
 		{
 			get { return name; }
 			set { name = value; }
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public string LastName
 		{
 			get { return lastName; }
 			set { lastName = value; }
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public string EmailAddress
 		{
 			get { return emailAddress; }
 			set { emailAddress = value; }
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public string PhoneNumber
 		{
 			get { return phoneNumber; }
 			set { phoneNumber = value; }
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public string Password
 		{
 			get { return password; }
 			set { password = value; }
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public DateTime Birthday
 		{
 			get { return birthday; }
 			set { birthday = value; }
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public string Street
 		{
 			get { return street; }
 			set { street = value; }
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public string HouseNumber
 		{
 			get { return houseNumber; }
 			set { houseNumber = value; }
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		public string PLZ
+		{
+			get { return plz; }
+			set { plz = value; }
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
 		public string City
 		{
 			get { return city; }
 			set { city = value; }
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public string Country
 		{
 			get { return country; }
 			set { country = value; }
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public bool IsAdmin
 		{
 			get { return isAdmin; }
 			set { isAdmin = value; }
 		}
 		#endregion
+
+		public Customer(string name, string lastName, string emailAddress, string phoneNumber, string password, DateTime birthday, string street, string houseNumber, string plz, string city, string country, bool isAdmin)
+		{
+			this.name = name;
+			this.lastName = lastName;
+			this.emailAddress = emailAddress;
+			this.phoneNumber = phoneNumber;
+			this.password = password;
+			this.birthday = birthday;
+			this.street = street;
+			this.houseNumber = houseNumber;
+			this.plz = plz;
+			this.city = city;
+			this.country = country;
+			this.isAdmin = isAdmin;
+		}
 	}
 }
