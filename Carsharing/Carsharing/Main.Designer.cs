@@ -28,13 +28,35 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
+			this.userRegButton = new System.Windows.Forms.Button();
+			this.SuspendLayout();
+			// 
+			// userRegButton
+			// 
+			this.userRegButton.Location = new System.Drawing.Point(41, 39);
+			this.userRegButton.Name = "userRegButton";
+			this.userRegButton.Size = new System.Drawing.Size(75, 23);
+			this.userRegButton.TabIndex = 0;
+			this.userRegButton.Text = "Registrieren";
+			this.userRegButton.UseVisualStyleBackColor = true;
+			this.userRegButton.Click += new System.EventHandler(this.userRegButton_Click);
+			// 
+			// Main
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.userRegButton);
+			this.DoubleBuffered = true;
+			this.Name = "Main";
 			this.Text = "Form1";
+			this.ResumeLayout(false);
+
 		}
 
 		#endregion
+
+		private System.Windows.Forms.Button userRegButton;
 	}
 }
 

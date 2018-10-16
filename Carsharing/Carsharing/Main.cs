@@ -15,7 +15,12 @@ namespace Carsharing
 		public Main()
 		{
 			InitializeComponent();
-			DBController.ConnectToDb();
+		}
+
+		private void userRegButton_Click(object sender, EventArgs e)
+		{
+			UserRegistrationForm urf = new UserRegistrationForm();
+			urf.ShowDialog();
 		}
 	}
 }
