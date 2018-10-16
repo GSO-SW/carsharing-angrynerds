@@ -17,26 +17,35 @@ namespace Carsharing
 	{
 		static string connectionString = @"host=localhost;user=root;database=carsharingdb";
 
-		public static void ConnectToDb()
+		public static void AddCustomerToDB(Customer c)
 		{
-			DataTable t = new DataTable();
-
-			// create SqlConnection object
 			using (MySqlConnection con = new MySqlConnection(connectionString))
 			{
 				try
 				{
 					// open connection to database
 					con.Open();
-					// INTERACTION WITH DATABASE COMES HERE
-
-					using (MySqlDataAdapter a = new MySqlDataAdapter("SELECT * FROM kunde", con))
+					using (MySqlCommand command = new MySqlCommand("INSERT INTO Kunde VALUES(@K_ID, @Vorname, @Nachname, @email, @tel, @pw, @admin, @Geburtstag, @Straße, @Hausnummer, @PLZ, @Stadt, @Land)",con))
 					{
-						a.Fill(t);
+						command.Parameters.AddWithValue("K_ID", null);
+						command.Parameters.AddWithValue("Vorname",c.Name);
+						command.Parameters.AddWithValue("Nachname", c.LastName);
+						command.Parameters.AddWithValue("email", c.EmailAddress);
+						command.Parameters.AddWithValue("tel",c.PhoneNumber);
+						command.Parameters.AddWithValue("pw", c.Password);
+						command.Parameters.AddWithValue("admin", c.IsAdmin);
+						command.Parameters.AddWithValue("Geburtstag", c.Birthday);
+						command.Parameters.AddWithValue("Straße", c.Street);
+						command.Parameters.AddWithValue("Hausnummer", c.HouseNumber);
+						command.Parameters.AddWithValue("PLZ", c.PLZ);
+						command.Parameters.AddWithValue("Stadt", c.City);
+						command.Parameters.AddWithValue("Land", c.Country);
+
+						command.ExecuteNonQuery();
 					}
 
 				}
-				catch(Exception e)
+				catch (Exception e)
 				{
 					throw e;
 				}
