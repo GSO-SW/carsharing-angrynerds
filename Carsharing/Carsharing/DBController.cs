@@ -76,6 +76,7 @@ namespace Carsharing
 						command.Parameters.Add(new MySqlParameter("Tankfüllung", vehicle.TankFilling));
 						command.Parameters.Add(new MySqlParameter("Standort", "POINT(" + vehicle.Position.ToString() + ")"));
 						command.Parameters.Add(new MySqlParameter("Verfügbarkeit", vehicle.Available));
+
 						command.ExecuteNonQuery();
 					}
 				}

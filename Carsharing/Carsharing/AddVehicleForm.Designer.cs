@@ -120,9 +120,9 @@
 			this.labelTankFilling.AutoSize = true;
 			this.labelTankFilling.Location = new System.Drawing.Point(28, 153);
 			this.labelTankFilling.Name = "labelTankFilling";
-			this.labelTankFilling.Size = new System.Drawing.Size(63, 13);
+			this.labelTankFilling.Size = new System.Drawing.Size(104, 13);
 			this.labelTankFilling.TabIndex = 7;
-			this.labelTankFilling.Text = "Tankfüllung";
+			this.labelTankFilling.Text = "Aktuelle Tankfüllung";
 			// 
 			// labelPosition
 			// 
