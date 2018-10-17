@@ -54,13 +54,6 @@
 			this.checkAvailable = new System.Windows.Forms.CheckBox();
 			this.dateTimeConstructionYear = new System.Windows.Forms.DateTimePicker();
 			this.labelTitle = new System.Windows.Forms.Label();
-			this.maskedTextMileage = new System.Windows.Forms.MaskedTextBox();
-			this.maskedTextTankFilling = new System.Windows.Forms.MaskedTextBox();
-			this.maskedTextPower = new System.Windows.Forms.MaskedTextBox();
-			this.maskedTextMaxTankFilling = new System.Windows.Forms.MaskedTextBox();
-			this.maskedTextBasicPrice = new System.Windows.Forms.MaskedTextBox();
-			this.maskedTextPricePerKilometre = new System.Windows.Forms.MaskedTextBox();
-			this.maskedTextPricePerMinute = new System.Windows.Forms.MaskedTextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
@@ -68,7 +61,14 @@
 			this.label5 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
-			this.textPosition = new System.Windows.Forms.MaskedTextBox();
+			this.textMileage = new System.Windows.Forms.TextBox();
+			this.textTankfilling = new System.Windows.Forms.TextBox();
+			this.textPosition = new System.Windows.Forms.TextBox();
+			this.textPower = new System.Windows.Forms.TextBox();
+			this.textMaxTankFilling = new System.Windows.Forms.TextBox();
+			this.textBasicPrice = new System.Windows.Forms.TextBox();
+			this.textPricePerKilometre = new System.Windows.Forms.TextBox();
+			this.textPricePerMinute = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
 			// labelNumberPlate
@@ -300,70 +300,6 @@
 			this.labelTitle.TabIndex = 36;
 			this.labelTitle.Text = "Fahrzeug hinzufügen";
 			// 
-			// maskedTextMileage
-			// 
-			this.maskedTextMileage.Location = new System.Drawing.Point(139, 101);
-			this.maskedTextMileage.Mask = "0000000.00";
-			this.maskedTextMileage.Name = "maskedTextMileage";
-			this.maskedTextMileage.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.maskedTextMileage.Size = new System.Drawing.Size(100, 20);
-			this.maskedTextMileage.TabIndex = 54;
-			this.maskedTextMileage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			// 
-			// maskedTextTankFilling
-			// 
-			this.maskedTextTankFilling.Location = new System.Drawing.Point(139, 153);
-			this.maskedTextTankFilling.Mask = "000.00";
-			this.maskedTextTankFilling.Name = "maskedTextTankFilling";
-			this.maskedTextTankFilling.Size = new System.Drawing.Size(100, 20);
-			this.maskedTextTankFilling.TabIndex = 55;
-			this.maskedTextTankFilling.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			// 
-			// maskedTextPower
-			// 
-			this.maskedTextPower.Location = new System.Drawing.Point(139, 283);
-			this.maskedTextPower.Mask = "0000";
-			this.maskedTextPower.Name = "maskedTextPower";
-			this.maskedTextPower.Size = new System.Drawing.Size(100, 20);
-			this.maskedTextPower.TabIndex = 56;
-			this.maskedTextPower.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			// 
-			// maskedTextMaxTankFilling
-			// 
-			this.maskedTextMaxTankFilling.Location = new System.Drawing.Point(139, 361);
-			this.maskedTextMaxTankFilling.Mask = "000.00";
-			this.maskedTextMaxTankFilling.Name = "maskedTextMaxTankFilling";
-			this.maskedTextMaxTankFilling.Size = new System.Drawing.Size(100, 20);
-			this.maskedTextMaxTankFilling.TabIndex = 57;
-			this.maskedTextMaxTankFilling.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			// 
-			// maskedTextBasicPrice
-			// 
-			this.maskedTextBasicPrice.Location = new System.Drawing.Point(139, 387);
-			this.maskedTextBasicPrice.Mask = "0000000.00";
-			this.maskedTextBasicPrice.Name = "maskedTextBasicPrice";
-			this.maskedTextBasicPrice.Size = new System.Drawing.Size(100, 20);
-			this.maskedTextBasicPrice.TabIndex = 58;
-			this.maskedTextBasicPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			// 
-			// maskedTextPricePerKilometre
-			// 
-			this.maskedTextPricePerKilometre.Location = new System.Drawing.Point(139, 413);
-			this.maskedTextPricePerKilometre.Mask = "0000000.00";
-			this.maskedTextPricePerKilometre.Name = "maskedTextPricePerKilometre";
-			this.maskedTextPricePerKilometre.Size = new System.Drawing.Size(100, 20);
-			this.maskedTextPricePerKilometre.TabIndex = 59;
-			this.maskedTextPricePerKilometre.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			// 
-			// maskedTextPricePerMinute
-			// 
-			this.maskedTextPricePerMinute.Location = new System.Drawing.Point(139, 439);
-			this.maskedTextPricePerMinute.Mask = "0000000.00";
-			this.maskedTextPricePerMinute.Name = "maskedTextPricePerMinute";
-			this.maskedTextPricePerMinute.Size = new System.Drawing.Size(100, 20);
-			this.maskedTextPricePerMinute.TabIndex = 60;
-			this.maskedTextPricePerMinute.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
@@ -427,20 +363,75 @@
 			this.label7.TabIndex = 67;
 			this.label7.Text = "€ / min";
 			// 
+			// textMileage
+			// 
+			this.textMileage.Location = new System.Drawing.Point(139, 101);
+			this.textMileage.Name = "textMileage";
+			this.textMileage.Size = new System.Drawing.Size(100, 20);
+			this.textMileage.TabIndex = 68;
+			// 
+			// textTankfilling
+			// 
+			this.textTankfilling.Location = new System.Drawing.Point(139, 153);
+			this.textTankfilling.Name = "textTankfilling";
+			this.textTankfilling.Size = new System.Drawing.Size(100, 20);
+			this.textTankfilling.TabIndex = 69;
+			// 
 			// textPosition
 			// 
 			this.textPosition.Location = new System.Drawing.Point(139, 179);
-			this.textPosition.Mask = "000,0000 000,0000";
 			this.textPosition.Name = "textPosition";
 			this.textPosition.Size = new System.Drawing.Size(100, 20);
-			this.textPosition.TabIndex = 68;
+			this.textPosition.TabIndex = 70;
+			// 
+			// textPower
+			// 
+			this.textPower.Location = new System.Drawing.Point(139, 283);
+			this.textPower.Name = "textPower";
+			this.textPower.Size = new System.Drawing.Size(100, 20);
+			this.textPower.TabIndex = 71;
+			// 
+			// textMaxTankFilling
+			// 
+			this.textMaxTankFilling.Location = new System.Drawing.Point(139, 361);
+			this.textMaxTankFilling.Name = "textMaxTankFilling";
+			this.textMaxTankFilling.Size = new System.Drawing.Size(100, 20);
+			this.textMaxTankFilling.TabIndex = 72;
+			// 
+			// textBasicPrice
+			// 
+			this.textBasicPrice.Location = new System.Drawing.Point(139, 387);
+			this.textBasicPrice.Name = "textBasicPrice";
+			this.textBasicPrice.Size = new System.Drawing.Size(100, 20);
+			this.textBasicPrice.TabIndex = 73;
+			// 
+			// textPricePerKilometre
+			// 
+			this.textPricePerKilometre.Location = new System.Drawing.Point(139, 413);
+			this.textPricePerKilometre.Name = "textPricePerKilometre";
+			this.textPricePerKilometre.Size = new System.Drawing.Size(100, 20);
+			this.textPricePerKilometre.TabIndex = 74;
+			// 
+			// textPricePerMinute
+			// 
+			this.textPricePerMinute.Location = new System.Drawing.Point(139, 439);
+			this.textPricePerMinute.Name = "textPricePerMinute";
+			this.textPricePerMinute.Size = new System.Drawing.Size(100, 20);
+			this.textPricePerMinute.TabIndex = 75;
 			// 
 			// AddVehicleForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(584, 561);
+			this.Controls.Add(this.textPricePerMinute);
+			this.Controls.Add(this.textPricePerKilometre);
+			this.Controls.Add(this.textBasicPrice);
+			this.Controls.Add(this.textMaxTankFilling);
+			this.Controls.Add(this.textPower);
 			this.Controls.Add(this.textPosition);
+			this.Controls.Add(this.textTankfilling);
+			this.Controls.Add(this.textMileage);
 			this.Controls.Add(this.label7);
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.label5);
@@ -448,13 +439,6 @@
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
-			this.Controls.Add(this.maskedTextPricePerMinute);
-			this.Controls.Add(this.maskedTextPricePerKilometre);
-			this.Controls.Add(this.maskedTextBasicPrice);
-			this.Controls.Add(this.maskedTextMaxTankFilling);
-			this.Controls.Add(this.maskedTextPower);
-			this.Controls.Add(this.maskedTextTankFilling);
-			this.Controls.Add(this.maskedTextMileage);
 			this.Controls.Add(this.labelTitle);
 			this.Controls.Add(this.dateTimeConstructionYear);
 			this.Controls.Add(this.checkAvailable);
@@ -517,13 +501,6 @@
 		private System.Windows.Forms.CheckBox checkAvailable;
 		private System.Windows.Forms.DateTimePicker dateTimeConstructionYear;
 		private System.Windows.Forms.Label labelTitle;
-		private System.Windows.Forms.MaskedTextBox maskedTextMileage;
-		private System.Windows.Forms.MaskedTextBox maskedTextTankFilling;
-		private System.Windows.Forms.MaskedTextBox maskedTextPower;
-		private System.Windows.Forms.MaskedTextBox maskedTextMaxTankFilling;
-		private System.Windows.Forms.MaskedTextBox maskedTextBasicPrice;
-		private System.Windows.Forms.MaskedTextBox maskedTextPricePerKilometre;
-		private System.Windows.Forms.MaskedTextBox maskedTextPricePerMinute;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
@@ -531,6 +508,13 @@
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label label7;
-		private System.Windows.Forms.MaskedTextBox textPosition;
+		private System.Windows.Forms.TextBox textMileage;
+		private System.Windows.Forms.TextBox textTankfilling;
+		private System.Windows.Forms.TextBox textPosition;
+		private System.Windows.Forms.TextBox textPower;
+		private System.Windows.Forms.TextBox textMaxTankFilling;
+		private System.Windows.Forms.TextBox textBasicPrice;
+		private System.Windows.Forms.TextBox textPricePerKilometre;
+		private System.Windows.Forms.TextBox textPricePerMinute;
 	}
 }
