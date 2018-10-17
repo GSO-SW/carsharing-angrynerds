@@ -10,23 +10,21 @@ using System.Windows.Forms;
 
 namespace Carsharing
 {
-	public partial class Main : Form
+	public partial class UserLoginForm : Form
 	{
-		public Main()
+		public UserLoginForm()
 		{
 			InitializeComponent();
 		}
 
-		private void userRegButton_Click(object sender, EventArgs e)
-		{
-			UserRegistrationForm urf = new UserRegistrationForm();
-			urf.ShowDialog();
-		}
-
 		private void loginButton_Click(object sender, EventArgs e)
 		{
-			UserLoginForm usl = new UserLoginForm();
-			usl.ShowDialog();
+			if (string.IsNullOrWhiteSpace(emailTextBox.Text) || !emailTextBox.Text.Contains("@") || !emailTextBox.Text.Contains("."))
+			{
+				MessageBox.Show("Bitte geben Sie eine gültige E-Mail-Adresse an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+
 		}
 	}
 }

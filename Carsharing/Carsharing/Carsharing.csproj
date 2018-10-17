@@ -61,6 +61,12 @@
     <Compile Include="Karte.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserLoginForm.Designer.cs">
+      <DependentUpon>UserLoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserRegistrationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserLoginForm.resx">
+      <DependentUpon>UserLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserRegistrationForm.resx">
       <DependentUpon>UserRegistrationForm.cs</DependentUpon>
     </EmbeddedResource>

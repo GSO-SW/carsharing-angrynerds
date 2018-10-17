@@ -49,7 +49,6 @@ namespace Carsharing
 
 						command.ExecuteNonQuery();
 					}
-
 				}
 				catch (Exception e)
 				{
@@ -62,6 +61,16 @@ namespace Carsharing
 				}
 				return status;
 			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
+		public static bool GetCustomerByEmailFromDB(string email)
+		{
+
+			return true;
 		}
 	}
 }
