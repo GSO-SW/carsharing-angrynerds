@@ -34,7 +34,7 @@ namespace Carsharing
 				MessageBox.Show("Bitte geben Sie eine gültige E-Mail-Adresse an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
-			if (string.IsNullOrWhiteSpace(phoneTextBox.Text == ) || !phoneTextBox.Text.Any(char.IsDigit)) //nur nummern?
+			if (string.IsNullOrWhiteSpace(phoneTextBox.Text) || !phoneTextBox.Text.Any(char.IsDigit)) //nur nummern?
 			{
 				MessageBox.Show("Bitte geben Sie eine gültige Telefonnummer an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
