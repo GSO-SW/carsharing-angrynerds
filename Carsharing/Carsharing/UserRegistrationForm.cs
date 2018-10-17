@@ -76,9 +76,19 @@ namespace Carsharing
 			}
 
 			Customer c = new Customer(nameTextBox.Text, lastNameTextBox.Text, emailTextBox.Text, phoneTextBox.Text, passwordTextBox.Text, birthDatePicker.Value, streetTextBox.Text, houseNumberTextBox.Text, PLZTextBox.Text, cityTextBox.Text, countryTextBox.Text, adminCheckBox.Checked);
-			if (!DBController.AddCustomerToDB(c))
-				MessageBox.Show("Es ist ein Fehler mit der Datenbank aufgetreten.","Fehler", MessageBoxButtons.OK,MessageBoxIcon.Error);
-			Close();
+			switch(DBController.AddCustomerToDB(c))
+			{
+				case 1:
+					MessageBox.Show("Es ist ein Fehler mit der Datenbank aufgetreten.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					break;
+				case 2:
+					MessageBox.Show("Es besteht bereits ein Kunde mit dieser E-Mail Adresse.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					break;
+				default:
+					Close();
+					break;
+			}
 		}
+		
 	}
 }
