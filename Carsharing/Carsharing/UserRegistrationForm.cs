@@ -76,7 +76,8 @@ namespace Carsharing
 			}
 
 			Customer c = new Customer(nameTextBox.Text, lastNameTextBox.Text, emailTextBox.Text, phoneTextBox.Text, passwordTextBox.Text, birthDatePicker.Value, streetTextBox.Text, houseNumberTextBox.Text, PLZTextBox.Text, cityTextBox.Text, countryTextBox.Text, adminCheckBox.Checked);
-			DBController.AddCustomerToDB(c);
+			if (!DBController.AddCustomerToDB(c))
+				MessageBox.Show("Es ist ein Fehler mit der Datenbank aufgetreten.","Fehler", MessageBoxButtons.OK,MessageBoxIcon.Error);
 			Close();
 		}
 	}

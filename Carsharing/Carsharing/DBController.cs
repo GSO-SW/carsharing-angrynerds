@@ -17,8 +17,14 @@ namespace Carsharing
 	{
 		static string connectionString = @"host=localhost;user=root;database=carsharingdb";
 
-		public static void AddCustomerToDB(Customer c)
+		/// <summary>
+		/// Method to add a customer to the database.
+		/// </summary>
+		/// <param name="c">The customer who should be added to the database.</param>
+		/// <returns>Returns true if the operation was successful, otherwise false.</returns>
+		public static bool AddCustomerToDB(Customer c)
 		{
+			bool status = true;
 			using (MySqlConnection con = new MySqlConnection(connectionString))
 			{
 				try
@@ -47,13 +53,14 @@ namespace Carsharing
 				}
 				catch (Exception e)
 				{
-					throw e;
+					status = false;
 				}
 				finally
 				{
 					// close connection to database
 					con.Close();
 				}
+				return status;
 			}
 		}
 	}
