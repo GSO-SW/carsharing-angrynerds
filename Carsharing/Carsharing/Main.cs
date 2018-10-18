@@ -29,7 +29,11 @@ namespace Carsharing
             DialogResult prompt = MessageBox.Show("Wollen Sie wirklich Ihren Account löschen?\nAll Ihre Daten gehen verloren.", "Achtung!", MessageBoxButtons.YesNo);
             if(prompt == DialogResult.Yes)
             {
-
+                // If the deletion was not successful then show an error message
+                if(DBController.DeleteUserFromDB(FormController.CurrentCustomer) == false)
+                {
+                    DialogResult error = MessageBox.Show("Es ist ein Fehler beim Zugriff zur Datenbank aufgetreten.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }
