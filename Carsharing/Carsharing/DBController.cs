@@ -67,5 +67,40 @@ namespace Carsharing
 				return status;
 			}
 		}
+
+        /// <summary>
+        /// Method to delete a customer from the DB.
+        /// </summary>
+        /// <param name="c">The customer, who is being deleted from the DB.</param>
+        /// <returns>Returns a bool to determine the delete's success. True = successful delete, false = unsuccessful delete.</returns>
+        public static bool DeleteUserFromDB(Customer c)
+        {
+            // The delete is successful at default
+            bool result = true;
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    con.Open();
+                    // The sql delete command looks for the email address of the user in the DB
+                    using (MySqlCommand command = new MySqlCommand("DELETE FROM Kunde WHERE `E-Mail Adresse` = @email", con))
+                    {
+                        command.Parameters.AddWithValue("email", c.EmailAddress);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+                catch(Exception e)
+                {
+                    // If something didn't work, set the result to false
+                    result = false;
+                }
+                finally
+                {
+                    con.Close();
+                }
+                return result;
+            }
+        }
 	}
 }
