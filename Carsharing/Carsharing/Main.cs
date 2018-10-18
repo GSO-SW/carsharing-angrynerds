@@ -25,7 +25,12 @@ namespace Carsharing
 
         private void userDeleteButton_Click(object sender, EventArgs e)
         {
-            
+            // Show MessageBox to confirm the user's intention
+            DialogResult prompt = MessageBox.Show("Wollen Sie wirklich Ihren Account löschen?\nAll Ihre Daten gehen verloren.", "Achtung!", MessageBoxButtons.YesNo);
+            if(prompt == DialogResult.Yes)
+            {
+
+            }
         }
     }
 }
