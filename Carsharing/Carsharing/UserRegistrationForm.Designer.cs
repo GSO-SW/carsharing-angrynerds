@@ -51,9 +51,9 @@
 			this.countryTextBox = new System.Windows.Forms.TextBox();
 			this.adminCheckBox = new System.Windows.Forms.CheckBox();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.PLZTextBox = new System.Windows.Forms.TextBox();
 			this.acceptButton = new System.Windows.Forms.Button();
 			this.cancelButton = new System.Windows.Forms.Button();
-			this.PLZTextBox = new System.Windows.Forms.TextBox();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -213,10 +213,10 @@
 			this.houseNumberTextBox.Size = new System.Drawing.Size(32, 20);
 			this.houseNumberTextBox.TabIndex = 9;
 			// 
-			// CityTextBox
+			// cityTextBox
 			// 
 			this.cityTextBox.Location = new System.Drawing.Point(226, 46);
-			this.cityTextBox.Name = "CityTextBox";
+			this.cityTextBox.Name = "cityTextBox";
 			this.cityTextBox.Size = new System.Drawing.Size(223, 20);
 			this.cityTextBox.TabIndex = 11;
 			// 
@@ -256,6 +256,14 @@
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Adresse";
 			// 
+			// PLZTextBox
+			// 
+			this.PLZTextBox.Location = new System.Drawing.Point(133, 46);
+			this.PLZTextBox.MaxLength = 5;
+			this.PLZTextBox.Name = "PLZTextBox";
+			this.PLZTextBox.Size = new System.Drawing.Size(46, 20);
+			this.PLZTextBox.TabIndex = 10;
+			// 
 			// acceptButton
 			// 
 			this.acceptButton.Location = new System.Drawing.Point(382, 254);
@@ -275,14 +283,6 @@
 			this.cancelButton.TabIndex = 26;
 			this.cancelButton.Text = "Abbrechen";
 			this.cancelButton.UseVisualStyleBackColor = true;
-			// 
-			// PLZTextBox
-			// 
-			this.PLZTextBox.Location = new System.Drawing.Point(133, 46);
-			this.PLZTextBox.MaxLength = 5;
-			this.PLZTextBox.Name = "PLZTextBox";
-			this.PLZTextBox.Size = new System.Drawing.Size(46, 20);
-			this.PLZTextBox.TabIndex = 10;
 			// 
 			// UserRegistrationForm
 			// 
