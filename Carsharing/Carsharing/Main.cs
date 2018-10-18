@@ -29,6 +29,7 @@ namespace Carsharing
             DialogResult prompt = MessageBox.Show("Wollen Sie wirklich Ihren Account löschen?\nAll Ihre Daten gehen verloren.", "Achtung!", MessageBoxButtons.YesNo);
             if(prompt == DialogResult.Yes)
             {
+                // Delete the user here, by his email-address
                 // If the deletion was not successful then show an error message
                 if(DBController.DeleteUserFromDB(FormController.CurrentCustomer) == false)
                 {
