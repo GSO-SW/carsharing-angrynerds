@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Carsharing
 {
-	public class Point
+	public class PointD
 	{
 		#region Attributes
 		private double x;
@@ -38,7 +38,7 @@ namespace Carsharing
 		/// </summary>
 		/// <param name="x"></param>
 		/// <param name="y"></param>
-		public Point(double x, double y)
+		public PointD(double x, double y)
 		{
 			this.x = x;
 			this.y = y;
@@ -48,7 +48,7 @@ namespace Carsharing
 		/// 
 		/// </summary>
 		/// <param name="point"></param>
-		public Point(Point point)
+		public PointD(PointD point)
 		{
 			this.x = point.X;
 			this.y = point.Y;

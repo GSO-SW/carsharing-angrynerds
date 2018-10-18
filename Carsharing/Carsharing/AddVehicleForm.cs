@@ -17,6 +17,7 @@ namespace Carsharing
 			InitializeComponent();
 			MaximizeBox = false;
 			MinimizeBox = false;
+			dateTimeConstructionYear.Format = DateTimePickerFormat.Custom;
 			dateTimeConstructionYear.CustomFormat = "yyyy";
 			dateTimeConstructionYear.ShowUpDown = true;
 		}
@@ -45,7 +46,7 @@ namespace Carsharing
 				return;
 			}
 
-			if (String.IsNullOrWhiteSpace(textPosition.Text))
+			if (String.IsNullOrWhiteSpace(textPositionX.Text))
 			{
 				MessageBox.Show("Bitte geben Sie eine Position des Fahrzeuges an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
@@ -159,7 +160,7 @@ namespace Carsharing
 			#endregion
 			#endregion
 
-			Vehicle vehicle = new Vehicle(textNumberPlate.Text, mileage, dateTimeLastMaintenance.Value, tankFilling, new Point(0, 0), checkAvailable.Checked, textBrand.Text, textModel.Text,(int)Math.Round(power), dateTimeConstructionYear.Value.Year, textGearShift.Text, maxTankFilling, basicPrice, pricePerKilometre, pricePerMinute);
+			Vehicle vehicle = new Vehicle(textNumberPlate.Text, mileage, dateTimeLastMaintenance.Value, tankFilling, new PointD(0, 0), checkAvailable.Checked, textBrand.Text, textModel.Text,(int)Math.Round(power), dateTimeConstructionYear.Value.Year, textGearShift.Text, maxTankFilling, basicPrice, pricePerKilometre, pricePerMinute);
 			DBController.AddVehicle(vehicle);
 		}
 

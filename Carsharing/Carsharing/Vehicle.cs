@@ -14,7 +14,7 @@ namespace Carsharing
 		private double mileage;
 		private DateTime lastMaintenance;
 		private double tankFilling;
-		private Point position;
+		private PointD position;
 		private bool available;
 		private string brand;
 		private string model;
@@ -67,7 +67,7 @@ namespace Carsharing
 		/// <summary>
 		/// 
 		/// </summary>
-		public Point Position
+		public PointD Position
 		{
 			get { return position; }
 			set { position = value; }
@@ -183,7 +183,7 @@ namespace Carsharing
 		/// <param name="basicPrice"></param>
 		/// <param name="pricePerKilometre"></param>
 		/// <param name="pricePerMinute"></param>
-		public Vehicle(string numberPlate, double mileage, DateTime lastMaintenance, double tankFilling, Point position, bool available, string brand, string model, int power, int constructionYear, string gearShift, double maxTankFilling, double basicPrice, double pricePerKilometre, double pricePerMinute)
+		public Vehicle(string numberPlate, double mileage, DateTime lastMaintenance, double tankFilling, PointD position, bool available, string brand, string model, int power, int constructionYear, string gearShift, double maxTankFilling, double basicPrice, double pricePerKilometre, double pricePerMinute)
 		{
 			NumberPlate = numberPlate;
 			Mileage = mileage;
