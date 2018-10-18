@@ -23,7 +23,10 @@ namespace Carsharing
 
 		private void buttonAdd_Click(object sender, EventArgs e)
 		{
-			#region Check IsNullOrWhiteSpace
+			//Überprüft, ob die Eingaben korrekt sind.
+			//Sollte ein Fehler bei der Eingabe vorliegen, so wird eine Fehlermeldung angezeigt und der Vorgang (Bestätigung) wird abgebrochen.
+			#region Check
+			#region IsNullOrWhiteSpace
 			if (String.IsNullOrWhiteSpace(textNumberPlate.Text))
 			{
 				MessageBox.Show("Bitte geben Sie das Kennzeichen des Fahrzeuges an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -97,7 +100,7 @@ namespace Carsharing
 			}
 			#endregion
 
-			#region Check TryParse
+			#region TryParse
 			double mileage, tankFilling, power, maxTankFilling, basicPrice, pricePerKilometre, pricePerMinute;
 			if (!Double.TryParse(textMileage.Text, out mileage))
 			{
@@ -142,7 +145,7 @@ namespace Carsharing
 			}
 			#endregion
 
-			#region Check rest
+			#region rest
 			if (tankFilling > maxTankFilling)
 			{
 				MessageBox.Show("Die aktuelle Tankfüllung kann nicht größer sein als die maximale Tankfüllung des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -153,6 +156,7 @@ namespace Carsharing
 				MessageBox.Show("Das Baujahr des Fahrzeuges kann nicht in der Zukunft liegen.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
+			#endregion
 			#endregion
 
 			Vehicle vehicle = new Vehicle(textNumberPlate.Text, mileage, dateTimeLastMaintenance.Value, tankFilling, new Point(0, 0), checkAvailable.Checked, textBrand.Text, textModel.Text,(int)Math.Round(power), dateTimeConstructionYear.Value.Year, textGearShift.Text, maxTankFilling, basicPrice, pricePerKilometre, pricePerMinute);
