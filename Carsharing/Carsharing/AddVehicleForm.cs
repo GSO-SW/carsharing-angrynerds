@@ -99,10 +99,22 @@ namespace Carsharing
 				MessageBox.Show("Bitte geben Sie den Preis pro Minute des Fahrzeuges an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
+
+			if (String.IsNullOrWhiteSpace(textPositionX.Text))
+			{
+				MessageBox.Show("Bitte geben Sie die X-Koordinate des Fahrzeuges an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+
+			if (String.IsNullOrWhiteSpace(textPositionY.Text))
+			{
+				MessageBox.Show("Bitte geben Sie die Y-Koordinate des Fahrzeuges an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
 			#endregion
 
 			#region TryParse
-			double mileage, tankFilling, power, maxTankFilling, basicPrice, pricePerKilometre, pricePerMinute;
+			double mileage, tankFilling, power, maxTankFilling, basicPrice, pricePerKilometre, pricePerMinute, posX, posY;
 			if (!Double.TryParse(textMileage.Text, out mileage))
 			{
 				MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim Kilometerstand des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -144,6 +156,18 @@ namespace Carsharing
 				MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim Kilometerstand des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
+
+			if (!Double.TryParse(textPositionX.Text, out posX))
+			{
+				MessageBox.Show("Bitte überprüfen Sie ihre Eingabe der X-Koordinate des Standortes des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+
+			if (!Double.TryParse(textPositionY.Text, out posY))
+			{
+				MessageBox.Show("Bitte überprüfen Sie ihre Eingabe der Y-Koordinate des Standortes des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
 			#endregion
 
 			#region rest
@@ -160,15 +184,24 @@ namespace Carsharing
 			#endregion
 			#endregion
 
-			Vehicle vehicle = new Vehicle(textNumberPlate.Text, mileage, dateTimeLastMaintenance.Value, tankFilling, new PointD(0, 0), checkAvailable.Checked, textBrand.Text, textModel.Text,(int)Math.Round(power), dateTimeConstructionYear.Value.Year, textGearShift.Text, maxTankFilling, basicPrice, pricePerKilometre, pricePerMinute);
+			Vehicle vehicle = new Vehicle(textNumberPlate.Text, mileage, dateTimeLastMaintenance.Value, tankFilling, new PointD(posX, posY), checkAvailable.Checked, textBrand.Text, textModel.Text, (int)Math.Round(power), dateTimeConstructionYear.Value.Year, textGearShift.Text, maxTankFilling, basicPrice, pricePerKilometre, pricePerMinute);
 			DBController.AddVehicle(vehicle);
 		}
 
-		private void buttonAbort_Click(object sender, EventArgs e)
+		private void button1_Click(object sender, EventArgs e)
 		{
-			DialogResult dialogResult = MessageBox.Show("Wollen Sie ihre Eingabe wirklich verwerfen?", "Achtung!", MessageBoxButtons.YesNo);
-			if (dialogResult == DialogResult.Yes)
-				Close();
+			foreach (Control item in Controls)
+			{
+				if (item is TextBox)
+					if (!String.IsNullOrWhiteSpace(((TextBox)item).Text))
+					{
+						DialogResult dialogResult = MessageBox.Show("Wollen Sie ihre Eingabe wirklich verwerfen?", "Achtung!", MessageBoxButtons.YesNo);
+						if (dialogResult == DialogResult.Yes)
+							Close();
+							return;
+					}
+			}
+			Close();
 		}
 	}
 }

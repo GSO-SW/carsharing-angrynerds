@@ -63,7 +63,6 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.checkAvailable = new System.Windows.Forms.CheckBox();
 			this.dateTimeLastMaintenance = new System.Windows.Forms.DateTimePicker();
-			this.buttonAbort = new System.Windows.Forms.Button();
 			this.buttonAdd = new System.Windows.Forms.Button();
 			this.labelAvailable = new System.Windows.Forms.Label();
 			this.labelPosition = new System.Windows.Forms.Label();
@@ -72,6 +71,7 @@
 			this.labelMileage = new System.Windows.Forms.Label();
 			this.textNumberPlate = new System.Windows.Forms.TextBox();
 			this.labelNumberPlate = new System.Windows.Forms.Label();
+			this.buttonAbort = new System.Windows.Forms.Button();
 			this.groupBox2.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
@@ -99,7 +99,7 @@
 			this.textPositionY.Location = new System.Drawing.Point(351, 61);
 			this.textPositionY.Name = "textPositionY";
 			this.textPositionY.Size = new System.Drawing.Size(235, 20);
-			this.textPositionY.TabIndex = 118;
+			this.textPositionY.TabIndex = 60;
 			// 
 			// groupBox2
 			// 
@@ -142,7 +142,7 @@
 			this.textPricePerMinute.Location = new System.Drawing.Point(107, 79);
 			this.textPricePerMinute.Name = "textPricePerMinute";
 			this.textPricePerMinute.Size = new System.Drawing.Size(77, 20);
-			this.textPricePerMinute.TabIndex = 75;
+			this.textPricePerMinute.TabIndex = 160;
 			// 
 			// labelPriceKilometre
 			// 
@@ -158,7 +158,7 @@
 			this.textPricePerKilometre.Location = new System.Drawing.Point(107, 53);
 			this.textPricePerKilometre.Name = "textPricePerKilometre";
 			this.textPricePerKilometre.Size = new System.Drawing.Size(77, 20);
-			this.textPricePerKilometre.TabIndex = 74;
+			this.textPricePerKilometre.TabIndex = 150;
 			// 
 			// label5
 			// 
@@ -174,7 +174,7 @@
 			this.textBasicPrice.Location = new System.Drawing.Point(107, 27);
 			this.textBasicPrice.Name = "textBasicPrice";
 			this.textBasicPrice.Size = new System.Drawing.Size(102, 20);
-			this.textBasicPrice.TabIndex = 73;
+			this.textBasicPrice.TabIndex = 140;
 			// 
 			// label6
 			// 
@@ -222,7 +222,7 @@
 			this.textBrand.Location = new System.Drawing.Point(61, 27);
 			this.textBrand.Name = "textBrand";
 			this.textBrand.Size = new System.Drawing.Size(100, 20);
-			this.textBrand.TabIndex = 14;
+			this.textBrand.TabIndex = 80;
 			// 
 			// labelBrand
 			// 
@@ -238,7 +238,7 @@
 			this.textModel.Location = new System.Drawing.Point(211, 27);
 			this.textModel.Name = "textModel";
 			this.textModel.Size = new System.Drawing.Size(100, 20);
-			this.textModel.TabIndex = 16;
+			this.textModel.TabIndex = 90;
 			// 
 			// labelModel
 			// 
@@ -254,14 +254,14 @@
 			this.textMaxTankFilling.Location = new System.Drawing.Point(137, 105);
 			this.textMaxTankFilling.Name = "textMaxTankFilling";
 			this.textMaxTankFilling.Size = new System.Drawing.Size(144, 20);
-			this.textMaxTankFilling.TabIndex = 72;
+			this.textMaxTankFilling.TabIndex = 130;
 			// 
 			// textPower
 			// 
 			this.textPower.Location = new System.Drawing.Point(61, 79);
 			this.textPower.Name = "textPower";
 			this.textPower.Size = new System.Drawing.Size(220, 20);
-			this.textPower.TabIndex = 71;
+			this.textPower.TabIndex = 120;
 			// 
 			// labelPower
 			// 
@@ -288,7 +288,7 @@
 			this.dateTimeConstructionYear.Name = "dateTimeConstructionYear";
 			this.dateTimeConstructionYear.ShowUpDown = true;
 			this.dateTimeConstructionYear.Size = new System.Drawing.Size(50, 20);
-			this.dateTimeConstructionYear.TabIndex = 35;
+			this.dateTimeConstructionYear.TabIndex = 110;
 			// 
 			// labelConstructionYear
 			// 
@@ -313,7 +313,7 @@
 			this.textGearShift.Location = new System.Drawing.Point(61, 53);
 			this.textGearShift.Name = "textGearShift";
 			this.textGearShift.Size = new System.Drawing.Size(144, 20);
-			this.textGearShift.TabIndex = 22;
+			this.textGearShift.TabIndex = 100;
 			// 
 			// labelGear
 			// 
@@ -338,21 +338,21 @@
 			this.textPositionX.Location = new System.Drawing.Point(351, 32);
 			this.textPositionX.Name = "textPositionX";
 			this.textPositionX.Size = new System.Drawing.Size(235, 20);
-			this.textPositionX.TabIndex = 115;
+			this.textPositionX.TabIndex = 50;
 			// 
 			// textTankfilling
 			// 
 			this.textTankfilling.Location = new System.Drawing.Point(125, 32);
 			this.textTankfilling.Name = "textTankfilling";
 			this.textTankfilling.Size = new System.Drawing.Size(87, 20);
-			this.textTankfilling.TabIndex = 114;
+			this.textTankfilling.TabIndex = 20;
 			// 
 			// textMileage
 			// 
 			this.textMileage.Location = new System.Drawing.Point(100, 58);
 			this.textMileage.Name = "textMileage";
 			this.textMileage.Size = new System.Drawing.Size(100, 20);
-			this.textMileage.TabIndex = 113;
+			this.textMileage.TabIndex = 30;
 			// 
 			// label2
 			// 
@@ -378,7 +378,7 @@
 			this.checkAvailable.Location = new System.Drawing.Point(565, 9);
 			this.checkAvailable.Name = "checkAvailable";
 			this.checkAvailable.Size = new System.Drawing.Size(15, 14);
-			this.checkAvailable.TabIndex = 110;
+			this.checkAvailable.TabIndex = 70;
 			this.checkAvailable.UseVisualStyleBackColor = true;
 			// 
 			// dateTimeLastMaintenance
@@ -387,23 +387,14 @@
 			this.dateTimeLastMaintenance.Location = new System.Drawing.Point(351, 6);
 			this.dateTimeLastMaintenance.Name = "dateTimeLastMaintenance";
 			this.dateTimeLastMaintenance.Size = new System.Drawing.Size(124, 20);
-			this.dateTimeLastMaintenance.TabIndex = 109;
-			// 
-			// buttonAbort
-			// 
-			this.buttonAbort.Location = new System.Drawing.Point(350, 218);
-			this.buttonAbort.Name = "buttonAbort";
-			this.buttonAbort.Size = new System.Drawing.Size(114, 23);
-			this.buttonAbort.TabIndex = 108;
-			this.buttonAbort.Text = "Abbruch";
-			this.buttonAbort.UseVisualStyleBackColor = true;
+			this.dateTimeLastMaintenance.TabIndex = 40;
 			// 
 			// buttonAdd
 			// 
-			this.buttonAdd.Location = new System.Drawing.Point(470, 218);
+			this.buttonAdd.Location = new System.Drawing.Point(471, 218);
 			this.buttonAdd.Name = "buttonAdd";
-			this.buttonAdd.Size = new System.Drawing.Size(116, 23);
-			this.buttonAdd.TabIndex = 107;
+			this.buttonAdd.Size = new System.Drawing.Size(115, 23);
+			this.buttonAdd.TabIndex = 180;
 			this.buttonAdd.Text = "Hinzufügen";
 			this.buttonAdd.UseVisualStyleBackColor = true;
 			// 
@@ -458,7 +449,7 @@
 			this.textNumberPlate.Name = "textNumberPlate";
 			this.textNumberPlate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.textNumberPlate.Size = new System.Drawing.Size(125, 20);
-			this.textNumberPlate.TabIndex = 101;
+			this.textNumberPlate.TabIndex = 10;
 			this.textNumberPlate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// labelNumberPlate
@@ -470,11 +461,22 @@
 			this.labelNumberPlate.TabIndex = 100;
 			this.labelNumberPlate.Text = "Nummernschild:";
 			// 
+			// buttonAbort
+			// 
+			this.buttonAbort.Location = new System.Drawing.Point(351, 218);
+			this.buttonAbort.Name = "buttonAbort";
+			this.buttonAbort.Size = new System.Drawing.Size(114, 23);
+			this.buttonAbort.TabIndex = 170;
+			this.buttonAbort.Text = "Abbrechen";
+			this.buttonAbort.UseVisualStyleBackColor = true;
+			this.buttonAbort.Click += new System.EventHandler(this.button1_Click);
+			// 
 			// AddVehicleForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(604, 261);
+			this.Controls.Add(this.buttonAbort);
 			this.Controls.Add(this.label9);
 			this.Controls.Add(this.label8);
 			this.Controls.Add(this.textPositionY);
@@ -487,7 +489,6 @@
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.checkAvailable);
 			this.Controls.Add(this.dateTimeLastMaintenance);
-			this.Controls.Add(this.buttonAbort);
 			this.Controls.Add(this.buttonAdd);
 			this.Controls.Add(this.labelAvailable);
 			this.Controls.Add(this.labelPosition);
@@ -545,7 +546,6 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.CheckBox checkAvailable;
 		private System.Windows.Forms.DateTimePicker dateTimeLastMaintenance;
-		private System.Windows.Forms.Button buttonAbort;
 		private System.Windows.Forms.Button buttonAdd;
 		private System.Windows.Forms.Label labelAvailable;
 		private System.Windows.Forms.Label labelPosition;
@@ -554,5 +554,6 @@
 		private System.Windows.Forms.Label labelMileage;
 		private System.Windows.Forms.TextBox textNumberPlate;
 		private System.Windows.Forms.Label labelNumberPlate;
+		private System.Windows.Forms.Button buttonAbort;
 	}
 }
