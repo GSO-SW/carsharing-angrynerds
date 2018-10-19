@@ -22,5 +22,11 @@ namespace Carsharing
 			UserRegistrationForm urf = new UserRegistrationForm();
 			urf.ShowDialog();
 		}
+
+		private void loginButton_Click(object sender, EventArgs e)
+		{
+			UserLoginForm usl = new UserLoginForm();
+			usl.ShowDialog();
+		}
 	}
 }

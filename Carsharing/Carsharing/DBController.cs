@@ -49,7 +49,6 @@ namespace Carsharing
 
 						command.ExecuteNonQuery();
 					}
-
 				}
 				catch (Exception e)
 				{
@@ -66,6 +65,41 @@ namespace Carsharing
 				}
 				return status;
 			}
+		}
+
+		/// <summary>
+		/// Get a customer from the database by his email address.
+		/// </summary>
+		/// <param name="email">The email address which the customer should have.</param>
+		/// <returns>Returns the customer as a Customer-object, or null if there is no customer with the specified email address.</returns>
+		public static Customer GetCustomerByEmailFromDB(string email)
+		{
+			DataTable t = new DataTable();
+			using (MySqlConnection con = new MySqlConnection(connectionString))
+			{
+				try
+				{
+					con.Open();
+					using (MySqlDataAdapter a = new MySqlDataAdapter("SELECT * FROM kunde WHERE `E-Mail Adresse` = @email", con))
+					{
+						a.SelectCommand.Parameters.AddWithValue("@email", email);
+						a.Fill(t);
+					}
+				}
+				catch (Exception e)
+				{
+					throw e;
+				}
+				finally
+				{
+					con.Close();
+				}
+			}
+
+			if (t.Rows.Count == 1)
+				return new Customer(t.Rows[0].Field<string>(1), t.Rows[0].Field<string>(2), t.Rows[0].Field<string>(3), t.Rows[0].Field<string>(4), t.Rows[0].Field<string>(5), t.Rows[0].Field<DateTime>(7), t.Rows[0].Field<string>(8), t.Rows[0].Field<string>(9), t.Rows[0].Field<string>(10), t.Rows[0].Field<string>(11), t.Rows[0].Field<string>(11), t.Rows[0].Field<bool>(6));
+			else
+				return null;
 		}
 	}
 }
