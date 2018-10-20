@@ -20,6 +20,16 @@ namespace Carsharing
 			dateTimeConstructionYear.Format = DateTimePickerFormat.Custom;
 			dateTimeConstructionYear.CustomFormat = "yyyy";
 			dateTimeConstructionYear.ShowUpDown = true;
+
+			foreach (string item in DBController.GetVehicleBrands())
+			{
+				comboBrand.Items.Add(item);
+			}
+
+			foreach (string item in DBController.GetVehicleGears())
+			{
+				comboGear.Items.Add(item);
+			}
 		}
 
 		private void buttonAdd_Click(object sender, EventArgs e)
@@ -52,7 +62,7 @@ namespace Carsharing
 				return;
 			}
 
-			if (String.IsNullOrWhiteSpace(textBrand.Text))
+			if (String.IsNullOrWhiteSpace(comboBrand.Text))
 			{
 				MessageBox.Show("Bitte geben Sie die Marke des Fahrzeuges an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
@@ -70,7 +80,7 @@ namespace Carsharing
 				return;
 			}
 
-			if (String.IsNullOrWhiteSpace(textGearShift.Text))
+			if (String.IsNullOrWhiteSpace(comboGear.Text))
 			{
 				MessageBox.Show("Bitte geben Sie die Schaltart des Fahrzeuges an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
@@ -184,7 +194,7 @@ namespace Carsharing
 			#endregion
 			#endregion
 
-			Vehicle vehicle = new Vehicle(textNumberPlate.Text, mileage, dateTimeLastMaintenance.Value, tankFilling, new PointD(posX, posY), checkAvailable.Checked, textBrand.Text, textModel.Text, (int)Math.Round(power), dateTimeConstructionYear.Value.Year, textGearShift.Text, maxTankFilling, basicPrice, pricePerKilometre, pricePerMinute);
+			Vehicle vehicle = new Vehicle(textNumberPlate.Text, mileage, dateTimeLastMaintenance.Value, tankFilling, new PointD(posX, posY), checkAvailable.Checked, comboBrand.Text, textModel.Text, (int)Math.Round(power), dateTimeConstructionYear.Value.Year, comboGear.Text, maxTankFilling, basicPrice, pricePerKilometre, pricePerMinute);
 			DBController.AddVehicle(vehicle);
 		}
 

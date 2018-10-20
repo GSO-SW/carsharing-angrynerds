@@ -42,7 +42,6 @@
 			this.label6 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.textBrand = new System.Windows.Forms.TextBox();
 			this.labelBrand = new System.Windows.Forms.Label();
 			this.textModel = new System.Windows.Forms.TextBox();
 			this.labelModel = new System.Windows.Forms.Label();
@@ -53,7 +52,6 @@
 			this.dateTimeConstructionYear = new System.Windows.Forms.DateTimePicker();
 			this.labelConstructionYear = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
-			this.textGearShift = new System.Windows.Forms.TextBox();
 			this.labelGear = new System.Windows.Forms.Label();
 			this.labelMaxTankFilling = new System.Windows.Forms.Label();
 			this.textPositionX = new System.Windows.Forms.TextBox();
@@ -72,6 +70,8 @@
 			this.textNumberPlate = new System.Windows.Forms.TextBox();
 			this.labelNumberPlate = new System.Windows.Forms.Label();
 			this.buttonAbort = new System.Windows.Forms.Button();
+			this.comboGear = new System.Windows.Forms.ComboBox();
+			this.comboBrand = new System.Windows.Forms.ComboBox();
 			this.groupBox2.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
@@ -100,6 +100,7 @@
 			this.textPositionY.Name = "textPositionY";
 			this.textPositionY.Size = new System.Drawing.Size(235, 20);
 			this.textPositionY.TabIndex = 60;
+			this.textPositionY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// groupBox2
 			// 
@@ -143,6 +144,7 @@
 			this.textPricePerMinute.Name = "textPricePerMinute";
 			this.textPricePerMinute.Size = new System.Drawing.Size(77, 20);
 			this.textPricePerMinute.TabIndex = 160;
+			this.textPricePerMinute.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// labelPriceKilometre
 			// 
@@ -159,6 +161,7 @@
 			this.textPricePerKilometre.Name = "textPricePerKilometre";
 			this.textPricePerKilometre.Size = new System.Drawing.Size(77, 20);
 			this.textPricePerKilometre.TabIndex = 150;
+			this.textPricePerKilometre.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// label5
 			// 
@@ -175,6 +178,7 @@
 			this.textBasicPrice.Name = "textBasicPrice";
 			this.textBasicPrice.Size = new System.Drawing.Size(102, 20);
 			this.textBasicPrice.TabIndex = 140;
+			this.textBasicPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// label6
 			// 
@@ -196,7 +200,8 @@
 			// 
 			// groupBox1
 			// 
-			this.groupBox1.Controls.Add(this.textBrand);
+			this.groupBox1.Controls.Add(this.comboBrand);
+			this.groupBox1.Controls.Add(this.comboGear);
 			this.groupBox1.Controls.Add(this.labelBrand);
 			this.groupBox1.Controls.Add(this.textModel);
 			this.groupBox1.Controls.Add(this.labelModel);
@@ -207,7 +212,6 @@
 			this.groupBox1.Controls.Add(this.dateTimeConstructionYear);
 			this.groupBox1.Controls.Add(this.labelConstructionYear);
 			this.groupBox1.Controls.Add(this.label4);
-			this.groupBox1.Controls.Add(this.textGearShift);
 			this.groupBox1.Controls.Add(this.labelGear);
 			this.groupBox1.Controls.Add(this.labelMaxTankFilling);
 			this.groupBox1.Location = new System.Drawing.Point(15, 97);
@@ -216,13 +220,6 @@
 			this.groupBox1.TabIndex = 116;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Technische Fahrzeugdaten";
-			// 
-			// textBrand
-			// 
-			this.textBrand.Location = new System.Drawing.Point(61, 27);
-			this.textBrand.Name = "textBrand";
-			this.textBrand.Size = new System.Drawing.Size(100, 20);
-			this.textBrand.TabIndex = 80;
 			// 
 			// labelBrand
 			// 
@@ -239,6 +236,7 @@
 			this.textModel.Name = "textModel";
 			this.textModel.Size = new System.Drawing.Size(100, 20);
 			this.textModel.TabIndex = 90;
+			this.textModel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// labelModel
 			// 
@@ -255,6 +253,7 @@
 			this.textMaxTankFilling.Name = "textMaxTankFilling";
 			this.textMaxTankFilling.Size = new System.Drawing.Size(144, 20);
 			this.textMaxTankFilling.TabIndex = 130;
+			this.textMaxTankFilling.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// textPower
 			// 
@@ -262,6 +261,7 @@
 			this.textPower.Name = "textPower";
 			this.textPower.Size = new System.Drawing.Size(220, 20);
 			this.textPower.TabIndex = 120;
+			this.textPower.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// labelPower
 			// 
@@ -308,13 +308,6 @@
 			this.label4.TabIndex = 64;
 			this.label4.Text = "l";
 			// 
-			// textGearShift
-			// 
-			this.textGearShift.Location = new System.Drawing.Point(61, 53);
-			this.textGearShift.Name = "textGearShift";
-			this.textGearShift.Size = new System.Drawing.Size(144, 20);
-			this.textGearShift.TabIndex = 100;
-			// 
 			// labelGear
 			// 
 			this.labelGear.AutoSize = true;
@@ -339,6 +332,7 @@
 			this.textPositionX.Name = "textPositionX";
 			this.textPositionX.Size = new System.Drawing.Size(235, 20);
 			this.textPositionX.TabIndex = 50;
+			this.textPositionX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// textTankfilling
 			// 
@@ -346,6 +340,7 @@
 			this.textTankfilling.Name = "textTankfilling";
 			this.textTankfilling.Size = new System.Drawing.Size(87, 20);
 			this.textTankfilling.TabIndex = 20;
+			this.textTankfilling.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// textMileage
 			// 
@@ -353,6 +348,7 @@
 			this.textMileage.Name = "textMileage";
 			this.textMileage.Size = new System.Drawing.Size(100, 20);
 			this.textMileage.TabIndex = 30;
+			this.textMileage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// label2
 			// 
@@ -397,6 +393,7 @@
 			this.buttonAdd.TabIndex = 180;
 			this.buttonAdd.Text = "Hinzufügen";
 			this.buttonAdd.UseVisualStyleBackColor = true;
+			this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
 			// 
 			// labelAvailable
 			// 
@@ -447,7 +444,7 @@
 			// 
 			this.textNumberPlate.Location = new System.Drawing.Point(100, 6);
 			this.textNumberPlate.Name = "textNumberPlate";
-			this.textNumberPlate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.textNumberPlate.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.textNumberPlate.Size = new System.Drawing.Size(125, 20);
 			this.textNumberPlate.TabIndex = 10;
 			this.textNumberPlate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -470,6 +467,25 @@
 			this.buttonAbort.Text = "Abbrechen";
 			this.buttonAbort.UseVisualStyleBackColor = true;
 			this.buttonAbort.Click += new System.EventHandler(this.button1_Click);
+			// 
+			// comboGear
+			// 
+			this.comboGear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboGear.FormattingEnabled = true;
+			this.comboGear.Location = new System.Drawing.Point(61, 52);
+			this.comboGear.Name = "comboGear";
+			this.comboGear.Size = new System.Drawing.Size(144, 21);
+			this.comboGear.TabIndex = 131;
+			// 
+			// comboBrand
+			// 
+			this.comboBrand.CausesValidation = false;
+			this.comboBrand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBrand.FormattingEnabled = true;
+			this.comboBrand.Location = new System.Drawing.Point(61, 25);
+			this.comboBrand.Name = "comboBrand";
+			this.comboBrand.Size = new System.Drawing.Size(100, 21);
+			this.comboBrand.TabIndex = 132;
 			// 
 			// AddVehicleForm
 			// 
@@ -525,7 +541,6 @@
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.GroupBox groupBox1;
-		private System.Windows.Forms.TextBox textBrand;
 		private System.Windows.Forms.Label labelBrand;
 		private System.Windows.Forms.TextBox textModel;
 		private System.Windows.Forms.Label labelModel;
@@ -536,7 +551,6 @@
 		private System.Windows.Forms.DateTimePicker dateTimeConstructionYear;
 		private System.Windows.Forms.Label labelConstructionYear;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.TextBox textGearShift;
 		private System.Windows.Forms.Label labelGear;
 		private System.Windows.Forms.Label labelMaxTankFilling;
 		private System.Windows.Forms.TextBox textPositionX;
@@ -555,5 +569,7 @@
 		private System.Windows.Forms.TextBox textNumberPlate;
 		private System.Windows.Forms.Label labelNumberPlate;
 		private System.Windows.Forms.Button buttonAbort;
+		private System.Windows.Forms.ComboBox comboBrand;
+		private System.Windows.Forms.ComboBox comboGear;
 	}
 }

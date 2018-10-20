@@ -121,7 +121,7 @@ namespace Carsharing
 		/// <summary>
 		/// 
 		/// </summary>
-		public string GearShift
+		public string Gear
 		{
 			get { return gearShift; }
 			set { gearShift = value; }
@@ -178,12 +178,12 @@ namespace Carsharing
 		/// <param name="model"></param>
 		/// <param name="power"></param>
 		/// <param name="constructionYear"></param>
-		/// <param name="gearShift"></param>
+		/// <param name="gear"></param>
 		/// <param name="maxTankFilling"></param>
 		/// <param name="basicPrice"></param>
 		/// <param name="pricePerKilometre"></param>
 		/// <param name="pricePerMinute"></param>
-		public Vehicle(string numberPlate, double mileage, DateTime lastMaintenance, double tankFilling, PointD position, bool available, string brand, string model, int power, int constructionYear, string gearShift, double maxTankFilling, double basicPrice, double pricePerKilometre, double pricePerMinute)
+		public Vehicle(string numberPlate, double mileage, DateTime lastMaintenance, double tankFilling, PointD position, bool available, string brand, string model, int power, int constructionYear, string gear, double maxTankFilling, double basicPrice, double pricePerKilometre, double pricePerMinute)
 		{
 			NumberPlate = numberPlate;
 			Mileage = mileage;
@@ -195,7 +195,7 @@ namespace Carsharing
 			Model = model;
 			Power = power;
 			ConstructionYear = new DateTime(constructionYear, 1, 1);
-			GearShift = gearShift;
+			Gear = gear;
 			MaxTankFilling = maxTankFilling;
 			BasicPrice = basicPrice;
 			PricePerKilometre = pricePerKilometre;
@@ -210,7 +210,7 @@ namespace Carsharing
 		/// <returns></returns>
 		public string GetVehicleTypeString()
 		{
-			string s = Brand + ";" + Model + ";" + Power + ";" + ConstructionYear + ";" + GearShift + ";" + MaxTankFilling + ";" + BasicPrice + ";" + PricePerKilometre + ";" + PricePerKilometre;
+			string s = Brand + ";" + Model + ";" + Power + ";" + ConstructionYear + ";" + Gear + ";" + MaxTankFilling + ";" + BasicPrice + ";" + PricePerKilometre + ";" + PricePerKilometre;
 			return s;
 		}
 		#endregion
