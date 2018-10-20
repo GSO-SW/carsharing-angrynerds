@@ -58,7 +58,7 @@
 			this.userDeleteButton.Location = new System.Drawing.Point(41, 68);
 			this.userDeleteButton.Name = "userDeleteButton";
 			this.userDeleteButton.Size = new System.Drawing.Size(89, 23);
-			this.userDeleteButton.TabIndex = 1;
+			this.userDeleteButton.TabIndex = 2;
 			this.userDeleteButton.Text = "Delete Account";
 			this.userDeleteButton.UseVisualStyleBackColor = true;
 			this.userDeleteButton.Click += new System.EventHandler(this.userDeleteButton_Click);
@@ -70,6 +70,7 @@
 			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.loginButton);
 			this.Controls.Add(this.userRegButton);
+			this.Controls.Add(this.userDeleteButton);
 			this.DoubleBuffered = true;
 			this.Name = "Main";
 			this.Text = "Form1";
