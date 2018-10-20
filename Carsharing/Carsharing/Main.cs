@@ -53,5 +53,18 @@ namespace Carsharing
 				MessageBox.Show("Sie müssen sich anmelden, damit Sie ihren Account löschen können.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
         }
-    }
+
+		private void editCustomerButton_Click(object sender, EventArgs e)
+		{
+			if (FormController.CurrentCustomer != null)
+			{
+				UserRegistrationForm urf = new UserRegistrationForm(true);
+				urf.ShowDialog();
+			}
+			else
+			{
+				MessageBox.Show("Sie müssen sich anmelden, damit Sie ihren Account bearbeiten können.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+	}
 }
