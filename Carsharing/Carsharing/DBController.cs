@@ -68,6 +68,58 @@ namespace Carsharing
 		}
 
 		/// <summary>
+		/// Method to update a customer in the database.
+		/// </summary>
+		/// <param name="c">The object that contains the new information of the customer.</param>
+		/// <param name="email">Email address from the customer, which should be updated.</param>
+		/// <returns></returns>
+		public static int UpdateCustomerInDB(Customer c, string email)
+		{
+			int status = 0;
+			using (MySqlConnection con = new MySqlConnection(connectionString))
+			{
+				try
+				{
+					// open connection to database
+					con.Open();
+					using (MySqlCommand command = new MySqlCommand("UPDATE `kunde` SET `Vorname`=@Vorname,`Nachname`=@Nachname,`E-Mail Adresse`=@email,`Telefonnummer`=@tel," +
+						"`Passwort`=@pw,`admin`=@admin,`Geburtstag`=@Geburtstag,`Straße`=@Straße,`Hausnummer`=@Hausnummer,`PLZ`=@PLZ,`Stadt`=@Stadt,`Land`=@Land WHERE `E-Mail Adresse`=@reqemail", con))
+					{
+						command.Parameters.AddWithValue("Vorname", c.Name);
+						command.Parameters.AddWithValue("Nachname", c.LastName);
+						command.Parameters.AddWithValue("email", c.EmailAddress);
+						command.Parameters.AddWithValue("tel", c.PhoneNumber);
+						command.Parameters.AddWithValue("pw", c.Password);
+						command.Parameters.AddWithValue("admin", c.IsAdmin);
+						command.Parameters.AddWithValue("Geburtstag", c.Birthday);
+						command.Parameters.AddWithValue("Straße", c.Street);
+						command.Parameters.AddWithValue("Hausnummer", c.HouseNumber);
+						command.Parameters.AddWithValue("PLZ", c.PLZ);
+						command.Parameters.AddWithValue("Stadt", c.City);
+						command.Parameters.AddWithValue("Land", c.Country);
+						command.Parameters.AddWithValue("reqemail", email);
+
+						command.ExecuteNonQuery();
+					}
+				}
+				catch (Exception e)
+				{
+					status = 1;
+					if (((MySqlException)e).Number == 1062)
+					{
+						status = 2;
+					}
+				}
+				finally
+				{
+					// close connection to database
+					con.Close();
+				}
+				return status;
+			}
+		}
+
+		/// <summary>
 		/// Method to delete a customer from the DB.
 		/// </summary>
 		/// <param name="c">The customer, who is being deleted from the DB.</param>
