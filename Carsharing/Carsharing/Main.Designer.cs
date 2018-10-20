@@ -30,6 +30,7 @@
 		{
 			this.userRegButton = new System.Windows.Forms.Button();
 			this.loginButton = new System.Windows.Forms.Button();
+			this.userDeleteButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// userRegButton
@@ -52,6 +53,16 @@
 			this.loginButton.UseVisualStyleBackColor = true;
 			this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
 			// 
+			// userDeleteButton
+			// 
+			this.userDeleteButton.Location = new System.Drawing.Point(41, 68);
+			this.userDeleteButton.Name = "userDeleteButton";
+			this.userDeleteButton.Size = new System.Drawing.Size(89, 23);
+			this.userDeleteButton.TabIndex = 1;
+			this.userDeleteButton.Text = "Delete Account";
+			this.userDeleteButton.UseVisualStyleBackColor = true;
+			this.userDeleteButton.Click += new System.EventHandler(this.userDeleteButton_Click);
+			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -69,6 +80,7 @@
 		#endregion
 
 		private System.Windows.Forms.Button userRegButton;
+        private System.Windows.Forms.Button userDeleteButton;
 		private System.Windows.Forms.Button loginButton;
 	}
 }

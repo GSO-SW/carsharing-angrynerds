@@ -28,5 +28,26 @@ namespace Carsharing
 			UserLoginForm usl = new UserLoginForm();
 			usl.ShowDialog();
 		}
-	}
+
+        private void userDeleteButton_Click(object sender, EventArgs e)
+        {
+			
+			if (FormController.CurrentCustomer != null)
+			{
+				// Show MessageBox to confirm the user's intention
+				
+				if (MessageBox.Show("Wollen Sie wirklich Ihren Account löschen?\nAll Ihre Daten gehen verloren.", "Achtung!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+				{
+					// Delete the user here, by his email-address
+					// If the deletion was not successful then show an error message
+					if (!DBController.DeleteUserFromDB(FormController.CurrentCustomer))
+					{
+						MessageBox.Show("Es ist ein Fehler beim Zugriff zur Datenbank aufgetreten.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
+				}
+			}
+			else
+				MessageBox.Show("Sie müssen sich anmelden, damit Sie ihren Account löschen können.", "Fehler", MessageBoxButtons.OK,MessageBoxIcon.Error);
+        }
+    }
 }
