@@ -15,28 +15,51 @@ namespace Carsharing
 		public AddVehicleForm()
 		{
 			InitializeComponent();
+
+			//Disables the possibility to change the window size. 
 			MaximizeBox = false;
 			MinimizeBox = false;
+
 			dateTimeConstructionYear.Format = DateTimePickerFormat.Custom;
 			dateTimeConstructionYear.CustomFormat = "yyyy";
 			dateTimeConstructionYear.ShowUpDown = true;
+		}
 
-			foreach (string item in DBController.GetVehicleBrands())
+		private void AddVehicleForm_Load(object sender, EventArgs e)
+		{
+			//Get a list with all brands and add them to the brand-combobox
+			if (DBController.GetVehicleBrands(out List<string> brands))
 			{
-				comboBrand.Items.Add(item);
+				foreach (string item in brands)
+				{
+					comboBrand.Items.Add(item);
+				}
+			}
+			else
+			{
+				MessageBox.Show("Bei dem Laden aller Fahrzeugmarken ist ein Fehler aufgetreten.\nSie Werden zum Hauptfenster zurückgeleitet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Close();
 			}
 
-			foreach (string item in DBController.GetVehicleGears())
+			//Get a list with all gears and add them to the gear-combobox
+			if (DBController.GetVehicleGears(out List<string> gears))
 			{
-				comboGear.Items.Add(item);
+				foreach (string item in gears)
+				{
+					comboGear.Items.Add(item);
+				}
+			}
+			else
+			{
+				MessageBox.Show("Bei dem Laden aller Getriebearten ist ein Fehler aufgetreten.\nSie Werden zum Hauptfenster zurückgeleitet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Close();
 			}
 		}
 
 		private void buttonAdd_Click(object sender, EventArgs e)
 		{
-			//Überprüft, ob die Eingaben korrekt sind.
-			//Sollte ein Fehler bei der Eingabe vorliegen, so wird eine Fehlermeldung angezeigt und der Vorgang (Bestätigung) wird abgebrochen.
 			#region Check
+			//Checks wether any textbox or combobox is empty.
 			#region IsNullOrWhiteSpace
 			if (String.IsNullOrWhiteSpace(textNumberPlate.Text))
 			{
@@ -123,6 +146,7 @@ namespace Carsharing
 			}
 			#endregion
 
+			//Checks wether all number entries are convertable.
 			#region TryParse
 			double mileage, tankFilling, power, maxTankFilling, basicPrice, pricePerKilometre, pricePerMinute, posX, posY;
 			if (!Double.TryParse(textMileage.Text, out mileage))
@@ -180,6 +204,7 @@ namespace Carsharing
 			}
 			#endregion
 
+			//Checks the rest. Physical laws etc.
 			#region rest
 			if (tankFilling > maxTankFilling)
 			{
@@ -194,7 +219,10 @@ namespace Carsharing
 			#endregion
 			#endregion
 
+			//Creates a new instance of type vehicle with all entries.
 			Vehicle vehicle = new Vehicle(textNumberPlate.Text, mileage, dateTimeLastMaintenance.Value, tankFilling, new PointD(posX, posY), checkAvailable.Checked, comboBrand.Text, textModel.Text, (int)Math.Round(power), dateTimeConstructionYear.Value.Year, comboGear.Text, maxTankFilling, basicPrice, pricePerKilometre, pricePerMinute);
+
+			//Adds the instance of type vehicle to the DB.
 			DBController.AddVehicle(vehicle);
 		}
 
@@ -203,12 +231,13 @@ namespace Carsharing
 			foreach (Control item in Controls)
 			{
 				if (item is TextBox)
+					//Checks wether the current textbox is empty
 					if (!String.IsNullOrWhiteSpace(((TextBox)item).Text))
-					{
+					{ 
 						DialogResult dialogResult = MessageBox.Show("Wollen Sie ihre Eingabe wirklich verwerfen?", "Achtung!", MessageBoxButtons.YesNo);
 						if (dialogResult == DialogResult.Yes)
 							Close();
-							return;
+						return;
 					}
 			}
 			Close();

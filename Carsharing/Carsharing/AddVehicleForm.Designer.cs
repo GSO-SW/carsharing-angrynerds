@@ -42,6 +42,8 @@
 			this.label6 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.comboBrand = new System.Windows.Forms.ComboBox();
+			this.comboGear = new System.Windows.Forms.ComboBox();
 			this.labelBrand = new System.Windows.Forms.Label();
 			this.textModel = new System.Windows.Forms.TextBox();
 			this.labelModel = new System.Windows.Forms.Label();
@@ -70,8 +72,6 @@
 			this.textNumberPlate = new System.Windows.Forms.TextBox();
 			this.labelNumberPlate = new System.Windows.Forms.Label();
 			this.buttonAbort = new System.Windows.Forms.Button();
-			this.comboGear = new System.Windows.Forms.ComboBox();
-			this.comboBrand = new System.Windows.Forms.ComboBox();
 			this.groupBox2.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
@@ -220,6 +220,25 @@
 			this.groupBox1.TabIndex = 116;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Technische Fahrzeugdaten";
+			// 
+			// comboBrand
+			// 
+			this.comboBrand.CausesValidation = false;
+			this.comboBrand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBrand.FormattingEnabled = true;
+			this.comboBrand.Location = new System.Drawing.Point(61, 25);
+			this.comboBrand.Name = "comboBrand";
+			this.comboBrand.Size = new System.Drawing.Size(100, 21);
+			this.comboBrand.TabIndex = 132;
+			// 
+			// comboGear
+			// 
+			this.comboGear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboGear.FormattingEnabled = true;
+			this.comboGear.Location = new System.Drawing.Point(61, 52);
+			this.comboGear.Name = "comboGear";
+			this.comboGear.Size = new System.Drawing.Size(144, 21);
+			this.comboGear.TabIndex = 131;
 			// 
 			// labelBrand
 			// 
@@ -468,25 +487,6 @@
 			this.buttonAbort.UseVisualStyleBackColor = true;
 			this.buttonAbort.Click += new System.EventHandler(this.button1_Click);
 			// 
-			// comboGear
-			// 
-			this.comboGear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboGear.FormattingEnabled = true;
-			this.comboGear.Location = new System.Drawing.Point(61, 52);
-			this.comboGear.Name = "comboGear";
-			this.comboGear.Size = new System.Drawing.Size(144, 21);
-			this.comboGear.TabIndex = 131;
-			// 
-			// comboBrand
-			// 
-			this.comboBrand.CausesValidation = false;
-			this.comboBrand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboBrand.FormattingEnabled = true;
-			this.comboBrand.Location = new System.Drawing.Point(61, 25);
-			this.comboBrand.Name = "comboBrand";
-			this.comboBrand.Size = new System.Drawing.Size(100, 21);
-			this.comboBrand.TabIndex = 132;
-			// 
 			// AddVehicleForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -516,6 +516,7 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Name = "AddVehicleForm";
 			this.Text = "Fahrzeug hinzufügen";
+			this.Load += new System.EventHandler(this.AddVehicleForm_Load);
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox2.PerformLayout();
 			this.groupBox1.ResumeLayout(false);

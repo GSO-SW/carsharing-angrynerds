@@ -18,55 +18,64 @@ namespace Carsharing
 		static string connectionString = @"host=localhost;user=root;database=carsharingdb";
 
 		/// <summary>
-		/// Gibt, falls der Fahrzeugtyp vorhanden ist, die Fahrzeugtyp ID an.
-		/// Sollte der Fahrzeugtyp nicht vorhanden sein, gibt er ein null-Wert an.
+		/// Method to get the vehicle type ID from a vehicle.
 		/// </summary>
-		public static int? GetVehicleTypeID(Vehicle vehicle)
+		/// <param name="vehicle">Vehicle from which the vehicle type ID is to be searched for</param>
+		/// <param name="VehicleTypeID">Vehicle type ID from the vehicle. 'null', if the vehicle type isn't in the DB.</param>
+		/// <returns>Returns true if the connection to the database worked. False if not.</returns>
+		public static bool GetVehicleTypeID(Vehicle vehicle, out int? VehicleTypeID)
 		{
 			DataTable table = new DataTable();
+			VehicleTypeID = null;
 
 			using (MySqlConnection con = new MySqlConnection(connectionString))
 			{
 				try
 				{
 					con.Open();
-
+					
 					using (MySqlDataAdapter a = new MySqlDataAdapter("SELECT ft.*, fm.Marke, fg.Getriebeart FROM Fahrzeugtyp ft JOIN Fahrzeugmarke fm USING (Fm_ID) JOIN Fahrzeuggetriebe fg USING (Fg_ID)", con))
 					{
-						//Holt sich die Fahrzeutyp Tabelle
 						a.Fill(table);
 					}
 				}
-				catch (Exception e)
+				catch (Exception)
 				{
-					throw e;
+					return false;
 				}
 				finally
 				{
 					con.Close();
 				}
 			}
-			//Für jede Zeile
+
+
 			foreach (DataRow row in table.Rows)
 			{
-				//Erstellt ein Fahrzeug mit den Fahrzeugtyp Werten
+				//Creates a vehicle for the current table line with all vehicle type information.
 				Vehicle rowVehicle = new Vehicle(String.Empty, 0.0, new DateTime(0), 0.0, new PointD(0,0), false, row["Marke"].ToString(), row["Modell"].ToString(), Convert.ToInt32(row["Leistung"].ToString()), Convert.ToInt32(row["Baujahr"].ToString()), row["Getriebeart"].ToString(), Convert.ToDouble(row["Max_Tankvolumen"].ToString()), Convert.ToDouble(row["Grundpreis"].ToString()), Convert.ToDouble(row["Preis/km"].ToString()), Convert.ToDouble(row["Preis/min"].ToString()));
-				
-				//Vergleicht die Werte des Fahrzeuges aus der Tabelle und des Fahrzeuges von dem Parameter
+
+
+				//Checks whether the parameter vehicle has the same vehicle type as the created vehicle.
 				if (vehicle.GetVehicleTypeString() == rowVehicle.GetVehicleTypeString())
-					//Falls er eins gefunden hat, gibt er dessen ID zurück
-					return Convert.ToInt32(row["Ft_ID"].ToString());
+				{
+					VehicleTypeID = Convert.ToInt32(row["Ft_ID"].ToString());
+					return true;
+				}
 			}
-			return null;
+			return true;
 		}
 
 		/// <summary>
-		/// Gibt, falls die Fahrzeugmarke vorhanden ist, die Fahrzeugmarke ID an.
-		/// Sollte die Fahrzeugmarke nicht vorhanden sein, gibt er ein null-Wert an.
+		/// Method to get the brand ID from a brand-string.
 		/// </summary>
-		public static int? GetVehicleBrandID(string brand)
+		/// <param name="brand">Brand from which the brand ID is to be searched for</param>
+		/// <param name="vehicleBrandID">brand ID from the brand. 'null', if the brand isn't in the DB.</param>
+		/// <returns>Returns true if the connection to the database worked. False if not.</returns>
+		public static bool GetVehicleBrandID(string brand, out int? vehicleBrandID)
 		{
 			DataTable table = new DataTable();
+			vehicleBrandID = null;
 
 			using (MySqlConnection con = new MySqlConnection(connectionString))
 			{
@@ -76,37 +85,41 @@ namespace Carsharing
 
 					using (MySqlDataAdapter a = new MySqlDataAdapter("SELECT * FROM Fahrzeugmarke", con))
 					{
-						//Holt sich die Fahrzeugmarke Tabelle
 						a.Fill(table);
 					}
 				}
-				catch (Exception e)
+				catch (Exception)
 				{
-					throw e;
+					return false;
 				}
 				finally
 				{
 					con.Close();
 				}
 			}
-			//Für jede Zeile
+
 			foreach (DataRow row in table.Rows)
 			{
-				//Schaut, ob der Parameter gleich der Zeile ist
+				//Checks whether the brand in the current row is equal to the parameter brand.
 				if (row["Marke"].ToString() == brand)
-					//Gibt die Fahrzeugmarke zurück
-					return Convert.ToInt32(row["Fm_ID"].ToString());
+				{
+					vehicleBrandID = Convert.ToInt32(row["Fm_ID"].ToString());
+					return true;
+				}
 			}
-			return null;
+			return true;
 		}
 
 		/// <summary>
-		/// Gibt, falls der Getriebetyp vorhanden ist, die Getriebetyp ID an.
-		/// Sollte der Getriebetyp nicht vorhanden sein, gibt er ein null-Wert an.
+		/// Method to get the gear ID from a gear-string.
 		/// </summary>
-		public static int? GetVehicleGearID(string gear)
+		/// <param name="gear">Gear from which the gear ID is to be searched for</param>
+		/// <param name="gearID">Gear ID from the gear, 'null', if the gear isn't in the DB.</param>
+		/// <returns>Returns true if the connection to the database worked. False if not.</returns>
+		public static bool GetVehicleGearID(string gear, out int? gearID)
 		{
 			DataTable table = new DataTable();
+			gearID = null;
 
 			using (MySqlConnection con = new MySqlConnection(connectionString))
 			{
@@ -116,37 +129,40 @@ namespace Carsharing
 
 					using (MySqlDataAdapter a = new MySqlDataAdapter("SELECT * FROM Fahrzeuggetriebe", con))
 					{
-						//Holt sich die Fahrzeuggetriebe Tabelle
 						a.Fill(table);
 					}
 				}
-				catch (Exception e)
+				catch (Exception)
 				{
-					throw e;
+					return false;
 				}
 				finally
 				{
 					con.Close();
 				}
 			}
-			//Für jede Zeile
+
 			foreach (DataRow row in table.Rows)
 			{
-				//Schaut, ob der Parameter gleich der Zeile ist
+				//Checks whether the gear in the current row is equal to the parameter gear.
 				if (row["Getriebeart"].ToString() == gear)
-					//Gibt die Fahrzeuggetriebe ID zurück
-					return Convert.ToInt32(row["Fg_ID"].ToString());
+				{
+					gearID = Convert.ToInt32(row["Fg_ID"].ToString());
+					return true;
+				}
 			}
-			return null;
+			return true;
 		}
 
 		/// <summary>
-		/// Gibt alle Fahrzeugmarken an.
+		/// Method to get a list with all brands.
 		/// </summary>
-		public static List<string> GetVehicleBrands()
+		/// <param name="brand">List with all brands</param>
+		/// <returns>Returns true if the connection to the database worked. False if not.</returns>
+		public static bool GetVehicleBrands(out List<string> brand)
 		{
 			DataTable table = new DataTable();
-			List<string> brand = new List<string>();
+			brand = new List<string>();
 
 			using (MySqlConnection con = new MySqlConnection(connectionString))
 			{
@@ -156,13 +172,12 @@ namespace Carsharing
 
 					using (MySqlDataAdapter a = new MySqlDataAdapter("SELECT Marke FROM Fahrzeugmarke", con))
 					{
-						//Holt sich die Fahrzeugmarken Tabelle
 						a.Fill(table);
 					}
 				}
-				catch (Exception e)
+				catch (Exception)
 				{
-					throw e;
+					return false;
 				}
 				finally
 				{
@@ -172,19 +187,22 @@ namespace Carsharing
 
 			foreach (DataRow item in table.Rows)
 			{
+				//Add the brand in the current row to the list.
 				brand.Add(item[0].ToString());
 			}
 
-			return brand;
+			return true;
 		}
 
 		/// <summary>
-		/// Gibt alle Getriebearten an.
+		/// Method to get a list with all gears.
 		/// </summary>
-		public static List<string> GetVehicleGears()
+		/// <param name="gear">List with all gears</param>
+		/// <returns>Returns true if the connection to the database worked. False if not.</returns>
+		public static bool GetVehicleGears(out List<string> gear)
 		{
 			DataTable table = new DataTable();
-			List<string> gear = new List<string>();
+			gear = new List<string>();
 
 			using (MySqlConnection con = new MySqlConnection(connectionString))
 			{
@@ -194,13 +212,12 @@ namespace Carsharing
 
 					using (MySqlDataAdapter a = new MySqlDataAdapter("SELECT Getriebeart FROM Fahrzeuggetriebe", con))
 					{
-						//Holt sich die Fahrzeugmarken Tabelle
 						a.Fill(table);
 					}
 				}
-				catch (Exception e)
+				catch (Exception)
 				{
-					throw e;
+					return false;
 				}
 				finally
 				{
@@ -210,27 +227,32 @@ namespace Carsharing
 
 			foreach (DataRow item in table.Rows)
 			{
+				//Add the gear in the current row to the list.
 				gear.Add(item[0].ToString());
 			}
-
-			return gear;
+			return true;
 		}
 
 		/// <summary>
-		/// Fügt ein Fahrzeug der Fahrzeugtabelle hinzu. 
-		/// Sollte der Fahrzeugtyp nicht in der Fahrzeugtyptabelle vorhanden sein, wird dieser automatisch mit hinzugefügt.
+		/// Method to add a vehicle to the DB.
 		/// </summary>
-		public static void AddVehicle(Vehicle vehicle)
+		/// <param name="vehicle">Vehicle to be added</param>
+		/// <returns>Returns true if the connection to the database worked and the vehicle was added. False if not.</returns>
+		public static bool AddVehicle(Vehicle vehicle)
 		{
-			//Holt sich die Fahrzeugtyp ID
-			int? vehicleTypeID = GetVehicleTypeID(vehicle);
-			//Fragt, ob der Fahrzeugtyp bereits existiert
+			//Get the vehicle type ID
+			if (!GetVehicleTypeID(vehicle, out int? vehicleTypeID))
+				return false;
+
+			//Checks if the vehicle type is in the DB.
 			if (vehicleTypeID == null)
 			{
-				//Falls nicht, fügt er den Fahrzeugtyp hinzu
-				AddVehicleType(vehicle);
-				//Holt sich erneut die Fahrzeugtyp ID
-				vehicleTypeID = GetVehicleTypeID(vehicle);
+				//Adds the vehicle type to the DB
+				if (!AddVehicleType(vehicle))
+					return false;
+				//Get the vehicle type ID
+				if (!GetVehicleTypeID(vehicle, out vehicleTypeID))
+					return false;
 			}
 			using (MySqlConnection connection = new MySqlConnection(connectionString))
 			{
@@ -252,22 +274,33 @@ namespace Carsharing
 						command.ExecuteNonQuery();
 					}
 				}
-				catch (Exception e)
+				catch (Exception)
 				{
-					throw e;
+					return false;
 				}
 				finally
 				{
 					connection.Close();
 				}
 			}
+			return true;
 		}
 
 		/// <summary>
-		/// Fügt ein Fahrzeugtyp hinzu.
+		/// Method to add a vehicle type to the DB.
 		/// </summary>
-		private static void AddVehicleType(Vehicle vehicle)
+		/// <param name="vehicle">Vehicle whose type is to be added</param>
+		/// <returns>Returns true if the connection to the database worked and the vehicle type was added. False if not.</returns>
+		private static bool AddVehicleType(Vehicle vehicle)
 		{
+			//Get the brand ID from the parameter vehicle
+			if(!GetVehicleBrandID(vehicle.Brand, out int? brand))
+				return false;
+
+			//Get the gear ID from the parameter vehicle
+			if (!GetVehicleGearID(vehicle.Gear, out int? gear))
+				return false;
+
 			using (MySqlConnection connection = new MySqlConnection(connectionString))
 			{
 				try
@@ -277,11 +310,11 @@ namespace Carsharing
 					using (MySqlCommand command = new MySqlCommand(@"INSERT INTO Fahrzeugtyp VALUES(@Ft_ID, @Fm_ID, @Modell, @Leistung, @Baujahr, @Fg_ID, @Max_Tankvolumen, @Grundpreis, @PreisKm, @PreisMin)", connection))
 					{
 						command.Parameters.Add(new MySqlParameter("Ft_ID", null));
-						command.Parameters.Add(new MySqlParameter("Fm_ID", GetVehicleBrandID(vehicle.Brand)));
+						command.Parameters.Add(new MySqlParameter("Fm_ID", brand));
 						command.Parameters.Add(new MySqlParameter("Modell", vehicle.Model));
 						command.Parameters.Add(new MySqlParameter("Leistung", vehicle.Power));
 						command.Parameters.Add(new MySqlParameter("Baujahr", vehicle.ConstructionYear.Year));
-						command.Parameters.Add(new MySqlParameter("Fg_ID", GetVehicleGearID(vehicle.Gear)));
+						command.Parameters.Add(new MySqlParameter("Fg_ID", gear));
 						command.Parameters.Add(new MySqlParameter("Max_Tankvolumen", vehicle.MaxTankFilling));
 						command.Parameters.Add(new MySqlParameter("Grundpreis", vehicle.BasicPrice));
 						command.Parameters.Add(new MySqlParameter("PreisKm", vehicle.PricePerKilometre));
@@ -291,15 +324,16 @@ namespace Carsharing
 					}
 
 				}
-				catch (Exception e)
+				catch (Exception)
 				{
-					throw e;
+					return false;
 				}
 				finally
 				{
 					connection.Close();
 				}
 			}
+			return true;
 		}
 	}
 }
