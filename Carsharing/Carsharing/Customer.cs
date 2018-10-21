@@ -72,6 +72,12 @@ namespace Carsharing
 			set { houseNumber = value; }
 		}
 
+		public string PLZ
+		{
+			get { return plz; }
+			set { plz = value; }
+		}
+
 		public string City
 		{
 			get { return city; }
