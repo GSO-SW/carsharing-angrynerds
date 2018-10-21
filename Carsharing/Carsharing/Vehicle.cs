@@ -29,7 +29,7 @@ namespace Carsharing
 
 		#region Propeties
 		/// <summary>
-		/// 
+		/// Number plate of the vehicle
 		/// </summary>
 		public string NumberPlate
 		{
@@ -38,7 +38,7 @@ namespace Carsharing
 		}
 
 		/// <summary>
-		/// 
+		/// Mileage of the vehicle
 		/// </summary>
 		public double Mileage
 		{
@@ -47,7 +47,7 @@ namespace Carsharing
 		}
 
 		/// <summary>
-		/// 
+		/// Last maintenance date of the vehicle
 		/// </summary>
 		public DateTime LastMaintenance
 		{
@@ -56,7 +56,7 @@ namespace Carsharing
 		}
 		
 		/// <summary>
-		/// 
+		/// Tank filling of the vehicle
 		/// </summary>
 		public double TankFilling
 		{
@@ -65,7 +65,7 @@ namespace Carsharing
 		}
 
 		/// <summary>
-		/// 
+		/// Position of the vehicle
 		/// </summary>
 		public PointD Position
 		{
@@ -74,7 +74,7 @@ namespace Carsharing
 		}
 
 		/// <summary>
-		/// 
+		/// Available state of the vehicle
 		/// </summary>
 		public bool Available
 		{
@@ -83,7 +83,7 @@ namespace Carsharing
 		}
 
 		/// <summary>
-		/// 
+		/// Brand of the vehicle
 		/// </summary>
 		public string Brand
 		{
@@ -92,7 +92,7 @@ namespace Carsharing
 		}
 
 		/// <summary>
-		/// 
+		/// Model of the vehicle
 		/// </summary>
 		public string Model
 		{
@@ -101,7 +101,7 @@ namespace Carsharing
 		}
 
 		/// <summary>
-		/// 
+		/// Power of the vehicle
 		/// </summary>
 		public int Power
 		{
@@ -110,7 +110,7 @@ namespace Carsharing
 		}
 
 		/// <summary>
-		/// 
+		/// Construction year of the vehicle
 		/// </summary>
 		public DateTime ConstructionYear
 		{
@@ -119,7 +119,7 @@ namespace Carsharing
 		}
 
 		/// <summary>
-		/// 
+		/// Gear of the vehicle
 		/// </summary>
 		public string Gear
 		{
@@ -128,7 +128,7 @@ namespace Carsharing
 		}
 
 		/// <summary>
-		/// 
+		/// Maximum tank filling of the vehicle
 		/// </summary>
 		public double MaxTankFilling
 		{
@@ -137,7 +137,7 @@ namespace Carsharing
 		}
 
 		/// <summary>
-		/// 
+		/// Basic price of the vehicle
 		/// </summary>
 		public double BasicPrice
 		{
@@ -146,7 +146,7 @@ namespace Carsharing
 		}
 
 		/// <summary>
-		/// 
+		/// Price per kilometre of the vehicle
 		/// </summary>
 		public double PricePerKilometre
 		{
@@ -155,7 +155,7 @@ namespace Carsharing
 		}
 
 		/// <summary>
-		/// 
+		/// Price per minute of the vehicle
 		/// </summary>
 		public double PricePerMinute
 		{
@@ -166,23 +166,23 @@ namespace Carsharing
 
 		#region Constructor
 		/// <summary>
-		/// 
+		/// Create a new instance of type vehicle
 		/// </summary>
-		/// <param name="numberPlate"></param>
-		/// <param name="mileage"></param>
-		/// <param name="lastMaintenance"></param>
-		/// <param name="tankFilling"></param>
-		/// <param name="position"></param>
-		/// <param name="available"></param>
-		/// <param name="brand"></param>
-		/// <param name="model"></param>
-		/// <param name="power"></param>
-		/// <param name="constructionYear"></param>
-		/// <param name="gear"></param>
-		/// <param name="maxTankFilling"></param>
-		/// <param name="basicPrice"></param>
-		/// <param name="pricePerKilometre"></param>
-		/// <param name="pricePerMinute"></param>
+		/// <param name="numberPlate">Number plate of the vehicle</param>
+		/// <param name="mileage">Mileage of the vehicle</param>
+		/// <param name="lastMaintenance">Last maintenance date of the vehicle</param>
+		/// <param name="tankFilling">Tank filling of the vehicle</param>
+		/// <param name="position">Position of the vehicle</param>
+		/// <param name="available">Available state of the vehicle</param>
+		/// <param name="brand">Brand of the vehicle</param>
+		/// <param name="model">Model of the vehicle</param>
+		/// <param name="power">Power of the vehicle</param>
+		/// <param name="constructionYear">Construction year of the vehicle</param>
+		/// <param name="gear">Gear of the vehicle</param>
+		/// <param name="maxTankFilling">Max tank filling of the vehicle</param>
+		/// <param name="basicPrice">Basic price of the vehicle</param>
+		/// <param name="pricePerKilometre">price per kilometre of the vehicle</param>
+		/// <param name="pricePerMinute">price per minute of the vehicle</param>
 		public Vehicle(string numberPlate, double mileage, DateTime lastMaintenance, double tankFilling, PointD position, bool available, string brand, string model, int power, int constructionYear, string gear, double maxTankFilling, double basicPrice, double pricePerKilometre, double pricePerMinute)
 		{
 			NumberPlate = numberPlate;
@@ -205,9 +205,9 @@ namespace Carsharing
 
 		#region Methods
 		/// <summary>
-		/// 
+		/// Return all vehicle type informations.
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>All vehicle type informations</returns>
 		public string GetVehicleTypeString()
 		{
 			string s = Brand + ";" + Model + ";" + Power + ";" + ConstructionYear + ";" + Gear + ";" + MaxTankFilling + ";" + BasicPrice + ";" + PricePerKilometre + ";" + PricePerKilometre;
