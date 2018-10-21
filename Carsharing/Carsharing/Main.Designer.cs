@@ -31,7 +31,7 @@
 			this.userRegButton = new System.Windows.Forms.Button();
 			this.loginButton = new System.Windows.Forms.Button();
 			this.userDeleteButton = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
+			this.buttonAddVehicle = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// userRegButton
@@ -64,15 +64,15 @@
 			this.userDeleteButton.UseVisualStyleBackColor = true;
 			this.userDeleteButton.Click += new System.EventHandler(this.userDeleteButton_Click);
 			// 
-			// button1
+			// buttonAddVehicle
 			// 
-			this.button1.Location = new System.Drawing.Point(330, 79);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(75, 23);
-			this.button1.TabIndex = 0;
-			this.button1.Text = "button1";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
+			this.buttonAddVehicle.Location = new System.Drawing.Point(397, 39);
+			this.buttonAddVehicle.Name = "buttonAddVehicle";
+			this.buttonAddVehicle.Size = new System.Drawing.Size(138, 23);
+			this.buttonAddVehicle.TabIndex = 0;
+			this.buttonAddVehicle.Text = "Fahrzeug hinzufügen";
+			this.buttonAddVehicle.UseVisualStyleBackColor = true;
+			this.buttonAddVehicle.Click += new System.EventHandler(this.button1_Click);
 			// 
 			// Main
 			// 
@@ -82,6 +82,7 @@
 			this.Controls.Add(this.loginButton);
 			this.Controls.Add(this.userRegButton);
 			this.Controls.Add(this.userDeleteButton);
+			this.Controls.Add(this.buttonAddVehicle);
 			this.DoubleBuffered = true;
 			this.Name = "Main";
 			this.Text = "Form1";
@@ -94,7 +95,7 @@
 		private System.Windows.Forms.Button userRegButton;
         private System.Windows.Forms.Button userDeleteButton;
 		private System.Windows.Forms.Button loginButton;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button buttonAddVehicle;
 	}
 }
 
