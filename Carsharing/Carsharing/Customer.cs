@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Carsharing
 {
-	class Customer
+	public class Customer
 	{
 		#region Attributes
 		private string name;

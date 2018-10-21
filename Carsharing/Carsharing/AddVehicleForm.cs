@@ -27,7 +27,21 @@ namespace Carsharing
 
 		private void AddVehicleForm_Load(object sender, EventArgs e)
 		{
-			//Get a list with all brands and add them to the brand-combobox
+			//Checks wether the current user isn't logged in.
+			if(FormController.CurrentCustomer == null)
+			{
+				MessageBox.Show("Sie sind nicht angemeldet.\nSie werden zum Hauptfenster zurückgeleitet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Close();
+			}
+
+			//Checks wether the current user is admin.
+			if (!FormController.CurrentCustomer.IsAdmin)
+			{
+				MessageBox.Show("Sie sind nicht als Admin angemeldet.\nSie werden zum Hauptfenster zurückgeleitet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Close();
+			}
+
+			//Get a list with all brands and add them to the brand-combobox.
 			if (DBController.GetVehicleBrands(out List<string> brands))
 			{
 				foreach (string item in brands)
@@ -37,11 +51,11 @@ namespace Carsharing
 			}
 			else
 			{
-				MessageBox.Show("Bei dem Laden aller Fahrzeugmarken ist ein Fehler aufgetreten.\nSie Werden zum Hauptfenster zurückgeleitet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Bei dem Laden aller Fahrzeugmarken ist ein Fehler aufgetreten.\nSie werden zum Hauptfenster zurückgeleitet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				Close();
 			}
 
-			//Get a list with all gears and add them to the gear-combobox
+			//Get a list with all gears and add them to the gear-combobox.
 			if (DBController.GetVehicleGears(out List<string> gears))
 			{
 				foreach (string item in gears)
@@ -51,7 +65,7 @@ namespace Carsharing
 			}
 			else
 			{
-				MessageBox.Show("Bei dem Laden aller Getriebearten ist ein Fehler aufgetreten.\nSie Werden zum Hauptfenster zurückgeleitet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Bei dem Laden aller Getriebearten ist ein Fehler aufgetreten.\nSie werden zum Hauptfenster zurückgeleitet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				Close();
 			}
 		}
