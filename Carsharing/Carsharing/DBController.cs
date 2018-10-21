@@ -141,9 +141,8 @@ namespace Carsharing
 						command.ExecuteNonQuery();
 					}
 				}
-				catch (Exception e)
+				catch (Exception)
 				{
-					// If something didn't work, set the result to false
 					result = false;
 				}
 				finally
@@ -172,10 +171,6 @@ namespace Carsharing
 						a.SelectCommand.Parameters.AddWithValue("@email", email);
 						a.Fill(t);
 					}
-				}
-				catch (Exception e)
-				{
-					throw e;
 				}
 				finally
 				{
