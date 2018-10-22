@@ -53,6 +53,7 @@ namespace Carsharing
 							break;
 						default:
 							FormController.CurrentCustomer = c;
+							MessageBox.Show("Ihre Daten wurden erfolgreich bearbeitet.", "Information", MessageBoxButtons.OK,MessageBoxIcon.Information);
 							Close();
 							break;
 					}
@@ -68,6 +69,7 @@ namespace Carsharing
 							MessageBox.Show("Es besteht bereits ein Kunde mit dieser E-Mail Adresse.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 							break;
 						default:
+							MessageBox.Show("Der Kunde wurde erfolgreich registiert.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 							Close();
 							break;
 					}

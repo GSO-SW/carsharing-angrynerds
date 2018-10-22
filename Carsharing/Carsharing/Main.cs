@@ -45,6 +45,7 @@ namespace Carsharing
 					else //if the deletion was successful then delete the currentCustomer
 					{
 						FormController.CurrentCustomer = null;
+						MessageBox.Show("Ihr Account wurde erfolgreich gelöscht. Sie wurden automatisch abgemeldet.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 					}
 				}
 			}
