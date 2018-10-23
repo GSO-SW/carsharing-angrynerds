@@ -17,6 +17,7 @@ namespace Carsharing
 	{
 		static string connectionString = @"host=localhost;user=root;database=carsharingdb";
 
+		#region Vehicle
 		/// <summary>
 		/// Method to get the vehicle type ID from a vehicle.
 		/// </summary>
@@ -335,7 +336,9 @@ namespace Carsharing
 			}
 			return true;
 		}
+		#endregion
 
+		#region Customer
 		/// <summary>
 		/// Method to add a customer to the database.
 		/// </summary>
@@ -350,12 +353,11 @@ namespace Carsharing
 				{
 					// open connection to database
 					con.Open();
-					using (MySqlCommand command = new MySqlCommand("INSERT INTO Kunde VALUES(@K_ID, @Vorname, @Nachname, @email, @tel, @pw, @admin, @Geburtstag, @Straße, @Hausnummer, @PLZ, @Stadt, @Land)", con))
+					using (MySqlCommand command = new MySqlCommand("INSERT INTO `kunde`(`E-Mail Adresse`, `Vorname`, `Nachname`, `Telefonnummer`, `Passwort`, `admin`, `Geburtstag`, `Straße`, `Hausnummer`, `PLZ`, `Stadt`, `Land`) VALUES(@email, @Vorname, @Nachname, @tel, @pw, @admin, @Geburtstag, @Straße, @Hausnummer, @PLZ, @Stadt, @Land)", con))
 					{
-						command.Parameters.AddWithValue("K_ID", null);
+						command.Parameters.AddWithValue("email", c.EmailAddress);
 						command.Parameters.AddWithValue("Vorname", c.Name);
 						command.Parameters.AddWithValue("Nachname", c.LastName);
-						command.Parameters.AddWithValue("email", c.EmailAddress);
 						command.Parameters.AddWithValue("tel", c.PhoneNumber);
 						command.Parameters.AddWithValue("pw", c.Password);
 						command.Parameters.AddWithValue("admin", c.IsAdmin);
@@ -401,8 +403,7 @@ namespace Carsharing
 				{
 					// open connection to database
 					con.Open();
-					using (MySqlCommand command = new MySqlCommand("UPDATE `kunde` SET `Vorname`=@Vorname,`Nachname`=@Nachname,`E-Mail Adresse`=@email,`Telefonnummer`=@tel," +
-						"`Passwort`=@pw,`admin`=@admin,`Geburtstag`=@Geburtstag,`Straße`=@Straße,`Hausnummer`=@Hausnummer,`PLZ`=@PLZ,`Stadt`=@Stadt,`Land`=@Land WHERE `E-Mail Adresse`=@reqemail", con))
+					using (MySqlCommand command = new MySqlCommand("UPDATE `kunde` SET `E-Mail Adresse`=@email,`Vorname`=@Vorname,`Nachname`=@Nachname,`Telefonnummer`=@tel,`Passwort`=@pw,`admin`=@admin,`Geburtstag`=@Geburtstag,`Strasse`=@Strasse,`Hausnummer`=@Hausnummer,`PLZ`=@PLZ,`Stadt`=@Stadt,`Land`=@Land WHERE `E-Mail Adresse`=@reqemail", con))
 					{
 						command.Parameters.AddWithValue("Vorname", c.Name);
 						command.Parameters.AddWithValue("Nachname", c.LastName);
@@ -411,7 +412,7 @@ namespace Carsharing
 						command.Parameters.AddWithValue("pw", c.Password);
 						command.Parameters.AddWithValue("admin", c.IsAdmin);
 						command.Parameters.AddWithValue("Geburtstag", c.Birthday);
-						command.Parameters.AddWithValue("Straße", c.Street);
+						command.Parameters.AddWithValue("Strasse", c.Street);
 						command.Parameters.AddWithValue("Hausnummer", c.HouseNumber);
 						command.Parameters.AddWithValue("PLZ", c.PLZ);
 						command.Parameters.AddWithValue("Stadt", c.City);
@@ -498,10 +499,26 @@ namespace Carsharing
 			}
 
 			if (t.Rows.Count == 1)
-				return new Customer(t.Rows[0].Field<string>(1), t.Rows[0].Field<string>(2), t.Rows[0].Field<string>(3), t.Rows[0].Field<string>(4), t.Rows[0].Field<string>(5), t.Rows[0].Field<DateTime>(7), t.Rows[0].Field<string>(8), t.Rows[0].Field<string>(9), t.Rows[0].Field<string>(10), t.Rows[0].Field<string>(11), t.Rows[0].Field<string>(11), t.Rows[0].Field<bool>(6));
+				return GetCustomerFromDataRow(t.Rows[0]);
 			else
 				return null;
 		}
+
+		private static Customer GetCustomerFromDataRow(DataRow row)
+		{
+			Customer c;
+			try
+			{
+				c = new Customer(row.Field<string>("Vorname"), row.Field<string>("Nachname"), row.Field<string>("E-Mail Adresse"), row.Field<string>("Telefonnummer"), row.Field<string>("Passwort"), row.Field<DateTime>("Geburtstag"), row.Field<string>("Strasse"), row.Field<string>("Hausnummer"), row.Field<string>("PLZ"), row.Field<string>("Stadt"), row.Field<string>("Land"), row.Field<bool>("admin"));
+			}
+			catch (Exception e)
+			{
+				throw e;
+				//c = null;
+			}
+			return c;
+		}
+		#endregion
 	}
 }
 
