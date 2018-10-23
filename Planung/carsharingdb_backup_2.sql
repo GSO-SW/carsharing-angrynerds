@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 22. Okt 2018 um 14:20
--- Server-Version: 10.1.35-MariaDB
--- PHP-Version: 7.2.9
+-- Erstellungszeit: 20. Okt 2018 um 09:55
+-- Server-Version: 10.1.36-MariaDB
+-- PHP-Version: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -30,8 +30,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `buchung` (
   `B_ID` int(9) NOT NULL,
-  `Kennzeichen` varchar(50) NOT NULL,
-  `E-Mail Adresse` varchar(50) NOT NULL,
+  `F_ID` int(9) NOT NULL,
+  `K_ID` int(9) NOT NULL,
   `Startzeitpunkt` datetime(6) NOT NULL,
   `Endzeitpunkt` datetime(6) NOT NULL,
   `Startkilometerstand` double(10,2) NOT NULL,
@@ -45,14 +45,22 @@ CREATE TABLE `buchung` (
 --
 
 CREATE TABLE `fahrzeug` (
-  `Kennzeichen` varchar(50) NOT NULL,
+  `F_ID` int(9) NOT NULL,
   `Ft_ID` int(9) NOT NULL,
+  `Kennzeichen` varchar(50) NOT NULL,
   `Kilometerstand` double(10,2) NOT NULL,
   `Letzte Wartung` date NOT NULL,
   `Tankfüllung` double(10,2) NOT NULL,
   `Standort` varchar(10) NOT NULL,
   `Verfügbarkeit` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Daten für Tabelle `fahrzeug`
+--
+
+INSERT INTO `fahrzeug` (`F_ID`, `Ft_ID`, `Kennzeichen`, `Kilometerstand`, `Letzte Wartung`, `Tankfüllung`, `Standort`, `Verfügbarkeit`) VALUES
+(1, 1, '123', 123.00, '2018-10-20', 123123.00, '\0\0\0\0\0\0\0\0', 0);
 
 -- --------------------------------------------------------
 
@@ -115,6 +123,13 @@ CREATE TABLE `fahrzeugtyp` (
   `Preis/min` double(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Daten für Tabelle `fahrzeugtyp`
+--
+
+INSERT INTO `fahrzeugtyp` (`Ft_ID`, `Fm_ID`, `Modell`, `Leistung`, `Baujahr`, `Fg_ID`, `Max_Tankvolumen`, `Grundpreis`, `Preis/km`, `Preis/min`) VALUES
+(1, 2, '123', 123, 2018, 2, 1111123.00, 123.00, 123.00, 23.00);
+
 -- --------------------------------------------------------
 
 --
@@ -122,14 +137,15 @@ CREATE TABLE `fahrzeugtyp` (
 --
 
 CREATE TABLE `kunde` (
-  `E-Mail Adresse` varchar(50) NOT NULL,
+  `K_ID` int(9) NOT NULL,
   `Vorname` varchar(40) NOT NULL,
   `Nachname` varchar(40) NOT NULL,
+  `E-Mail Adresse` varchar(50) NOT NULL,
   `Telefonnummer` varchar(20) NOT NULL,
   `Passwort` varchar(30) NOT NULL,
   `admin` tinyint(1) NOT NULL,
   `Geburtstag` date NOT NULL,
-  `Strasse` varchar(50) NOT NULL,
+  `Straße` varchar(50) NOT NULL,
   `Hausnummer` varchar(10) NOT NULL,
   `PLZ` varchar(5) NOT NULL,
   `Stadt` varchar(30) NOT NULL,
@@ -145,14 +161,14 @@ CREATE TABLE `kunde` (
 --
 ALTER TABLE `buchung`
   ADD PRIMARY KEY (`B_ID`),
-  ADD KEY `Kennzeichen_Constraint` (`Kennzeichen`),
-  ADD KEY `E-Mail Adresse_Constraint` (`E-Mail Adresse`);
+  ADD KEY `F_ID_Constraint` (`F_ID`),
+  ADD KEY `K_ID_Constraint` (`K_ID`);
 
 --
 -- Indizes für die Tabelle `fahrzeug`
 --
 ALTER TABLE `fahrzeug`
-  ADD PRIMARY KEY (`Kennzeichen`),
+  ADD PRIMARY KEY (`F_ID`),
   ADD KEY `Ft_ID_Constraint` (`Ft_ID`);
 
 --
@@ -175,13 +191,15 @@ ALTER TABLE `fahrzeugmarke`
 ALTER TABLE `fahrzeugtyp`
   ADD PRIMARY KEY (`Ft_ID`),
   ADD KEY `Fg_ID` (`Fg_ID`),
+  ADD KEY `Fg_ID_2` (`Fg_ID`),
+  ADD KEY `Fg_ID_3` (`Fg_ID`),
   ADD KEY `Fm_ID_Constraint` (`Fm_ID`);
 
 --
 -- Indizes für die Tabelle `kunde`
 --
 ALTER TABLE `kunde`
-  ADD PRIMARY KEY (`E-Mail Adresse`);
+  ADD PRIMARY KEY (`K_ID`);
 
 --
 -- AUTO_INCREMENT für exportierte Tabellen
@@ -194,10 +212,22 @@ ALTER TABLE `buchung`
   MODIFY `B_ID` int(9) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT für Tabelle `fahrzeug`
+--
+ALTER TABLE `fahrzeug`
+  MODIFY `F_ID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT für Tabelle `fahrzeugtyp`
 --
 ALTER TABLE `fahrzeugtyp`
   MODIFY `Ft_ID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT für Tabelle `kunde`
+--
+ALTER TABLE `kunde`
+  MODIFY `K_ID` int(9) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints der exportierten Tabellen
@@ -207,8 +237,8 @@ ALTER TABLE `fahrzeugtyp`
 -- Constraints der Tabelle `buchung`
 --
 ALTER TABLE `buchung`
-  ADD CONSTRAINT `E-Mail Adresse_Constraint` FOREIGN KEY (`E-Mail Adresse`) REFERENCES `kunde` (`E-Mail Adresse`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `Kennzeichen_Constraint` FOREIGN KEY (`Kennzeichen`) REFERENCES `fahrzeug` (`Kennzeichen`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `F_ID_Constraint` FOREIGN KEY (`F_ID`) REFERENCES `fahrzeug` (`F_ID`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `K_ID_Constraint` FOREIGN KEY (`K_ID`) REFERENCES `kunde` (`K_ID`) ON UPDATE CASCADE;
 
 --
 -- Constraints der Tabelle `fahrzeug`
