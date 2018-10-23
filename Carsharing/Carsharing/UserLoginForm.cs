@@ -30,6 +30,7 @@ namespace Carsharing
 					FormController.CurrentCustomer = c;
 					c = null;
 					pwIncorrect = false;
+					MessageBox.Show("Sie wurden erfolgreich angemeldet.", "Information", MessageBoxButtons.OK,MessageBoxIcon.Information);
 					Close();
 				}
 			}

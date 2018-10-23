@@ -45,6 +45,7 @@ namespace Carsharing
 					else //if the deletion was successful then delete the currentCustomer
 					{
 						FormController.CurrentCustomer = null;
+						MessageBox.Show("Ihr Account wurde erfolgreich gelöscht. Sie wurden automatisch abgemeldet.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 					}
 				}
 			}
@@ -53,6 +54,19 @@ namespace Carsharing
 				MessageBox.Show("Sie müssen sich anmelden, damit Sie ihren Account löschen können.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
         }
+
+		private void editCustomerButton_Click(object sender, EventArgs e)
+		{
+			if (FormController.CurrentCustomer != null)
+			{
+				UserRegistrationForm urf = new UserRegistrationForm(true);
+				urf.ShowDialog();
+			}
+			else
+			{
+				MessageBox.Show("Sie müssen sich anmelden, damit Sie ihren Account bearbeiten können.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
 
 		private void button1_Click(object sender, EventArgs e)
 		{

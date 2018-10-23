@@ -31,6 +31,7 @@
 			this.userRegButton = new System.Windows.Forms.Button();
 			this.loginButton = new System.Windows.Forms.Button();
 			this.userDeleteButton = new System.Windows.Forms.Button();
+			this.editCustomerButton = new System.Windows.Forms.Button();
 			this.buttonAddVehicle = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
@@ -64,6 +65,16 @@
 			this.userDeleteButton.UseVisualStyleBackColor = true;
 			this.userDeleteButton.Click += new System.EventHandler(this.userDeleteButton_Click);
 			// 
+			// editCustomerButton
+			// 
+			this.editCustomerButton.Location = new System.Drawing.Point(152, 68);
+			this.editCustomerButton.Name = "editCustomerButton";
+			this.editCustomerButton.Size = new System.Drawing.Size(89, 23);
+			this.editCustomerButton.TabIndex = 3;
+			this.editCustomerButton.Text = "Edit Account";
+			this.editCustomerButton.UseVisualStyleBackColor = true;
+			this.editCustomerButton.Click += new System.EventHandler(this.editCustomerButton_Click);
+			// 
 			// buttonAddVehicle
 			// 
 			this.buttonAddVehicle.Location = new System.Drawing.Point(397, 39);
@@ -79,6 +90,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.editCustomerButton);
 			this.Controls.Add(this.loginButton);
 			this.Controls.Add(this.userRegButton);
 			this.Controls.Add(this.userDeleteButton);
@@ -95,6 +107,7 @@
 		private System.Windows.Forms.Button userRegButton;
         private System.Windows.Forms.Button userDeleteButton;
 		private System.Windows.Forms.Button loginButton;
+		private System.Windows.Forms.Button editCustomerButton;
 		private System.Windows.Forms.Button buttonAddVehicle;
 	}
 }
