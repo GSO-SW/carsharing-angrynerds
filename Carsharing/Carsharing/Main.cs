@@ -15,6 +15,8 @@ namespace Carsharing
 		public Main()
 		{
 			InitializeComponent();
+			FormController.CurrentCustomer = new Customer();
+			FormController.CurrentCustomer.IsAdmin = true;
 		}
 
 		private void button1_Click(object sender, EventArgs e)

@@ -19,10 +19,6 @@ namespace Carsharing
 			//Disables the possibility to change the window size. 
 			MaximizeBox = false;
 			MinimizeBox = false;
-
-			dateTimeConstructionYear.Format = DateTimePickerFormat.Custom;
-			dateTimeConstructionYear.CustomFormat = "yyyy";
-			dateTimeConstructionYear.ShowUpDown = true;
 		}
 
 		private void AddVehicleForm_Load(object sender, EventArgs e)
@@ -72,10 +68,33 @@ namespace Carsharing
 				Close();
 				return;
 			}
+
+			//Get a list with all fuel types and add them to the fuel-combobox.
+			if (DBController.GetFuelTypes(out List<string> fuel))
+			{
+				foreach (string item in fuel)
+				{
+					comboFuel.Items.Add(item);
+				}
+			}
+			else
+			{
+				MessageBox.Show("Bei dem Laden aller Kraftstoffarten ist ein Fehler aufgetreten.\nSie werden zum Hauptfenster zurückgeleitet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Close();
+				return;
+			}
+
+			//Add Years
+			for (int i = DateTime.Today.Year; i >= 1900; i--)
+			{
+				comboVehicleLicenseYear.Items.Add(i);
+				comboConstructionYear.Items.Add(i);
+			}
 		}
 
 		private void buttonAdd_Click(object sender, EventArgs e)
 		{
+			
 			#region Check
 			//Checks wether any textbox or combobox is empty.
 			#region IsNullOrWhiteSpace
@@ -166,74 +185,90 @@ namespace Carsharing
 
 			//Checks wether all number entries are convertable.
 			#region TryParse
-			double mileage, tankFilling, power, maxTankFilling, basicPrice, pricePerKilometre, pricePerMinute, posX, posY;
-			if (!Double.TryParse(textMileage.Text, out mileage))
+			if (!Double.TryParse(textMileage.Text, out double mileage))
 			{
 				MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim Kilometerstand des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 
-			if (!Double.TryParse(textTankfilling.Text, out tankFilling))
+			if (!Double.TryParse(textTankfilling.Text, out double tankFilling))
 			{
 				MessageBox.Show("Bitte überprüfen Sie ihre Eingabe bei der aktuellen Tankfüllung des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 
-			if (!Double.TryParse(textPower.Text, out power))
+			if (!Double.TryParse(textPower.Text, out double power))
 			{
 				MessageBox.Show("Bitte überprüfen Sie ihre Eingabe bei der Leistung des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 
-			if (!Double.TryParse(textMaxTankFilling.Text, out maxTankFilling))
+			if (!Double.TryParse(textMaxTankFilling.Text, out double maxTankFilling))
 			{
 				MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim Kilometerstand des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 
-			if (!Double.TryParse(textBasicPrice.Text, out basicPrice))
+			if (!Double.TryParse(textBasicPrice.Text, out double basicPrice))
 			{
 				MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim Basispreis des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 
-			if (!Double.TryParse(textPricePerKilometre.Text, out pricePerKilometre))
+			if (!Double.TryParse(textPricePerKilometre.Text, out double pricePerKilometre))
 			{
 				MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim Preis pro Kilometer des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 
-			if (!Double.TryParse(textPricePerMinute.Text, out pricePerMinute))
+			if (!Double.TryParse(textPricePerMinute.Text, out double pricePerMinute))
 			{
 				MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim Kilometerstand des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 
-			if (!Double.TryParse(textPositionX.Text, out posX))
+			if (!Double.TryParse(textPositionX.Text, out double posX))
 			{
 				MessageBox.Show("Bitte überprüfen Sie ihre Eingabe der X-Koordinate des Standortes des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 
-			if (!Double.TryParse(textPositionY.Text, out posY))
+			if (!Double.TryParse(textPositionY.Text, out double posY))
 			{
 				MessageBox.Show("Bitte überprüfen Sie ihre Eingabe der Y-Koordinate des Standortes des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+
+			if (!Double.TryParse(textFuelConsumption.Text, out double fuelConsumption))
+			{
+				MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim Kraftstoffverbrauch des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 			#endregion
 
 			//Checks the rest. Physical laws etc.
 			#region rest
+			DateTime registration = new DateTime(Convert.ToInt32(comboVehicleLicenseYear.SelectedItem), DateTime.Parse("1." + comboVehicleLicenseMonth.SelectedItem + ".2000").Month, 1);
+			int constructionYear = Convert.ToInt32(comboConstructionYear.SelectedItem);
+
 			if (tankFilling > maxTankFilling)
 			{
 				MessageBox.Show("Die aktuelle Tankfüllung kann nicht größer sein als die maximale Tankfüllung des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
-			if (dateTimeConstructionYear.Value.Year > DateTime.Today.Year)
+
+			if (Convert.ToInt32(comboConstructionYear.SelectedItem) > DateTime.Today.Year)
 			{
 				MessageBox.Show("Das Baujahr des Fahrzeuges kann nicht in der Zukunft liegen.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
+
+			if (registration.Year < constructionYear)
+			{
+				MessageBox.Show("Das Erstzulassungsjahr kann nicht vor dem Baujahr sein.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+
 			DBController.GetVehicleNumberPlates(out List<string> numberPlates);
 			foreach (string item in numberPlates)
 			{
@@ -245,12 +280,18 @@ namespace Carsharing
 			}
 			#endregion
 			#endregion
-
 			//Creates a new instance of type vehicle with all entries.
-			Vehicle vehicle = new Vehicle(textNumberPlate.Text, mileage, dateTimeLastMaintenance.Value, tankFilling, new PointD(posX, posY), checkAvailable.Checked, comboBrand.Text, textModel.Text, (int)Math.Round(power), dateTimeConstructionYear.Value.Year, comboGear.Text, maxTankFilling, basicPrice, pricePerKilometre, pricePerMinute);
+			Vehicle vehicle = new Vehicle(textNumberPlate.Text, mileage, dateTimeLastMaintenance.Value, tankFilling, new PointD(posX, posY), checkAvailable.Checked, comboBrand.Text, textModel.Text, (int)Math.Round(power), constructionYear, comboGear.Text, maxTankFilling, basicPrice, pricePerKilometre, pricePerMinute, registration, Convert.ToInt16(comboSeats.SelectedItem.ToString().Split(' ')[0]), comboFuel.SelectedItem.ToString(), fuelConsumption, checkAirConditioner.Checked, checkCruiseControl.Checked, checkRadio.Checked, checkBluetooth.Checked, checkUSB.Checked, checkCDPlayer.Checked, checkNavigationDevice.Checked, checkABS.Checked, checkESP.Checked, checkHeatedSeat.Checked, checkWinter.Checked, checkSmoker.Checked) ;
 
 			//Adds the instance of type vehicle to the DB.
-			DBController.AddVehicle(vehicle);
+			if (!DBController.AddVehicle(vehicle))
+			{
+				MessageBox.Show("Beim Hinzufügen des Fahrzeuges ist ein Fehler unterlaufen.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+
+			MessageBox.Show("Das Fahrzeug wurde hinzugefügt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			Close();
 		}
 
 		private void button1_Click(object sender, EventArgs e)
