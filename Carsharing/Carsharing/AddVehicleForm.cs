@@ -32,6 +32,7 @@ namespace Carsharing
 			{
 				MessageBox.Show("Sie sind nicht angemeldet.\nSie werden zum Hauptfenster zurückgeleitet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				Close();
+				return;
 			}
 
 			//Checks wether the current user is admin.
@@ -39,6 +40,7 @@ namespace Carsharing
 			{
 				MessageBox.Show("Sie sind nicht als Admin angemeldet.\nSie werden zum Hauptfenster zurückgeleitet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				Close();
+				return;
 			}
 
 			//Get a list with all brands and add them to the brand-combobox.
@@ -53,6 +55,7 @@ namespace Carsharing
 			{
 				MessageBox.Show("Bei dem Laden aller Fahrzeugmarken ist ein Fehler aufgetreten.\nSie werden zum Hauptfenster zurückgeleitet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				Close();
+				return;
 			}
 
 			//Get a list with all gears and add them to the gear-combobox.
@@ -67,6 +70,7 @@ namespace Carsharing
 			{
 				MessageBox.Show("Bei dem Laden aller Getriebearten ist ein Fehler aufgetreten.\nSie werden zum Hauptfenster zurückgeleitet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				Close();
+				return;
 			}
 		}
 
@@ -230,6 +234,15 @@ namespace Carsharing
 				MessageBox.Show("Das Baujahr des Fahrzeuges kann nicht in der Zukunft liegen.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
+			DBController.GetVehicleNumberPlates(out List<string> numberPlates);
+			foreach (string item in numberPlates)
+			{
+				if(textNumberPlate.Text == item)
+				{
+					MessageBox.Show("Das Kennzeichen des Fahrzeug existiert bereits.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					return;
+				}
+			}
 			#endregion
 			#endregion
 
@@ -247,7 +260,7 @@ namespace Carsharing
 				if (item is TextBox)
 					//Checks wether the current textbox is empty
 					if (!String.IsNullOrWhiteSpace(((TextBox)item).Text))
-					{ 
+					{
 						DialogResult dialogResult = MessageBox.Show("Wollen Sie ihre Eingabe wirklich verwerfen?", "Achtung!", MessageBoxButtons.YesNo);
 						if (dialogResult == DialogResult.Yes)
 							Close();

@@ -461,10 +461,10 @@
 			// 
 			// textNumberPlate
 			// 
-			this.textNumberPlate.Location = new System.Drawing.Point(100, 6);
+			this.textNumberPlate.Location = new System.Drawing.Point(90, 6);
 			this.textNumberPlate.Name = "textNumberPlate";
 			this.textNumberPlate.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.textNumberPlate.Size = new System.Drawing.Size(125, 20);
+			this.textNumberPlate.Size = new System.Drawing.Size(135, 20);
 			this.textNumberPlate.TabIndex = 10;
 			this.textNumberPlate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
@@ -473,9 +473,9 @@
 			this.labelNumberPlate.AutoSize = true;
 			this.labelNumberPlate.Location = new System.Drawing.Point(12, 9);
 			this.labelNumberPlate.Name = "labelNumberPlate";
-			this.labelNumberPlate.Size = new System.Drawing.Size(82, 13);
+			this.labelNumberPlate.Size = new System.Drawing.Size(72, 13);
 			this.labelNumberPlate.TabIndex = 100;
-			this.labelNumberPlate.Text = "Nummernschild:";
+			this.labelNumberPlate.Text = "Kennzeichen:";
 			// 
 			// buttonAbort
 			// 
