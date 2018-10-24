@@ -234,6 +234,15 @@ namespace Carsharing
 				MessageBox.Show("Das Baujahr des Fahrzeuges kann nicht in der Zukunft liegen.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
+			DBController.GetVehicleNumberPlates(out List<string> numberPlates);
+			foreach (string item in numberPlates)
+			{
+				if(textNumberPlate.Text == item)
+				{
+					MessageBox.Show("Das Kennzeichen des Fahrzeug existiert bereits.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					return;
+				}
+			}
 			#endregion
 			#endregion
 
@@ -251,7 +260,7 @@ namespace Carsharing
 				if (item is TextBox)
 					//Checks wether the current textbox is empty
 					if (!String.IsNullOrWhiteSpace(((TextBox)item).Text))
-					{ 
+					{
 						DialogResult dialogResult = MessageBox.Show("Wollen Sie ihre Eingabe wirklich verwerfen?", "Achtung!", MessageBoxButtons.YesNo);
 						if (dialogResult == DialogResult.Yes)
 							Close();

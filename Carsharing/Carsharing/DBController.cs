@@ -156,6 +156,46 @@ namespace Carsharing
 		}
 
 		/// <summary>
+		/// Method to get a list with all number plates.
+		/// </summary>
+		/// <param name="numberPlates">List with all number plates</param>
+		/// <returns>Returns true if the connection to the database worked. False if not.</returns>
+		public static bool GetVehicleNumberPlates(out List<string> numberPlates)
+		{
+			DataTable table = new DataTable();
+			numberPlates = new List<string>();
+
+			using (MySqlConnection con = new MySqlConnection(connectionString))
+			{
+				try
+				{
+					con.Open();
+
+					using (MySqlDataAdapter a = new MySqlDataAdapter("SELECT Kennzeichen FROM Fahrzeug", con))
+					{
+						a.Fill(table);
+					}
+				}
+				catch (Exception)
+				{
+					return false;
+				}
+				finally
+				{
+					con.Close();
+				}
+			}
+
+			foreach (DataRow item in table.Rows)
+			{
+				//Add the number plate in the current row to the list.
+				numberPlates.Add(item[0].ToString());
+			}
+
+			return true;
+		}
+
+		/// <summary>
 		/// Method to get a list with all brands.
 		/// </summary>
 		/// <param name="brand">List with all brands</param>
@@ -261,11 +301,10 @@ namespace Carsharing
 				{
 					connection.Open();
 
-					using (MySqlCommand command = new MySqlCommand("INSERT INTO Fahrzeug VALUES(@F_ID, @Ft_ID, @Kennzeichen, @Kilometerstand, @LetzteWartung, @Tankfüllung, PointFromText(@Standort), @Verfügbarkeit)", connection))
+					using (MySqlCommand command = new MySqlCommand("INSERT INTO Fahrzeug VALUES(@Kennzeichen, @Ft_ID, @Kilometerstand, @LetzteWartung, @Tankfüllung, PointFromText(@Standort), @Verfügbarkeit)", connection))
 					{
-						command.Parameters.Add(new MySqlParameter("F_ID", null));
-						command.Parameters.Add(new MySqlParameter("Ft_ID", vehicleTypeID));
 						command.Parameters.Add(new MySqlParameter("Kennzeichen", vehicle.NumberPlate));
+						command.Parameters.Add(new MySqlParameter("Ft_ID", vehicleTypeID));
 						command.Parameters.Add(new MySqlParameter("Kilometerstand", vehicle.Mileage));
 						command.Parameters.Add(new MySqlParameter("LetzteWartung", vehicle.LastMaintenance.Date));
 						command.Parameters.Add(new MySqlParameter("Tankfüllung", vehicle.TankFilling));
