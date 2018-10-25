@@ -19,12 +19,25 @@ namespace Carsharing
 			//Disables the possibility to change the window size. 
 			MaximizeBox = false;
 			MinimizeBox = false;
+
+			//
+			foreach (Control item in Controls)
+			{
+				if (item is TextBox || item is ComboBox)
+					progressBar.Maximum++;
+				if (item is GroupBox)
+					foreach (Control item2 in ((GroupBox)item).Controls)
+						if (item2 is TextBox || item2 is ComboBox)
+							progressBar.Maximum++;
+			}
+
+			buttonAdd.Enabled = progressBar.Value == progressBar.Maximum;
 		}
 
 		private void AddVehicleForm_Load(object sender, EventArgs e)
 		{
 			//Checks wether the current user isn't logged in.
-			if(FormController.CurrentCustomer == null)
+			if (FormController.CurrentCustomer == null)
 			{
 				MessageBox.Show("Sie sind nicht angemeldet.\nSie werden zum Hauptfenster zurückgeleitet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				Close();
@@ -94,7 +107,7 @@ namespace Carsharing
 
 		private void buttonAdd_Click(object sender, EventArgs e)
 		{
-			
+
 			#region Check
 			//Checks wether any textbox or combobox is empty.
 			#region IsNullOrWhiteSpace
@@ -272,7 +285,7 @@ namespace Carsharing
 			DBController.GetVehicleNumberPlates(out List<string> numberPlates);
 			foreach (string item in numberPlates)
 			{
-				if(textNumberPlate.Text == item)
+				if (textNumberPlate.Text == item)
 				{
 					MessageBox.Show("Das Kennzeichen des Fahrzeug existiert bereits.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					return;
@@ -281,7 +294,7 @@ namespace Carsharing
 			#endregion
 			#endregion
 			//Creates a new instance of type vehicle with all entries.
-			Vehicle vehicle = new Vehicle(textNumberPlate.Text, mileage, dateTimeLastMaintenance.Value, tankFilling, new PointD(posX, posY), checkAvailable.Checked, comboBrand.Text, textModel.Text, (int)Math.Round(power), constructionYear, comboGear.Text, maxTankFilling, basicPrice, pricePerKilometre, pricePerMinute, registration, Convert.ToInt16(comboSeats.SelectedItem.ToString().Split(' ')[0]), comboFuel.SelectedItem.ToString(), fuelConsumption, checkAirConditioner.Checked, checkCruiseControl.Checked, checkRadio.Checked, checkBluetooth.Checked, checkUSB.Checked, checkCDPlayer.Checked, checkNavigationDevice.Checked, checkABS.Checked, checkESP.Checked, checkHeatedSeat.Checked, checkWinter.Checked, checkSmoker.Checked) ;
+			Vehicle vehicle = new Vehicle(textNumberPlate.Text, mileage, dateTimeLastMaintenance.Value, tankFilling, new PointD(posX, posY), checkAvailable.Checked, comboBrand.Text, textModel.Text, (int)Math.Round(power), constructionYear, comboGear.Text, maxTankFilling, basicPrice, pricePerKilometre, pricePerMinute, registration, Convert.ToInt16(comboSeats.SelectedItem.ToString().Split(' ')[0]), comboFuel.SelectedItem.ToString(), fuelConsumption, checkAirConditioner.Checked, checkCruiseControl.Checked, checkRadio.Checked, checkBluetooth.Checked, checkUSB.Checked, checkCDPlayer.Checked, checkNavigationDevice.Checked, checkABS.Checked, checkESP.Checked, checkHeatedSeat.Checked, checkWinter.Checked, checkSmoker.Checked);
 
 			//Adds the instance of type vehicle to the DB.
 			if (!DBController.AddVehicle(vehicle))
@@ -309,6 +322,45 @@ namespace Carsharing
 					}
 			}
 			Close();
+		}
+
+		private void text_Changed(object sender, EventArgs e)
+		{
+			int i = 0;
+			foreach (Control item in Controls)
+			{
+				if (item is TextBox)
+					if (!string.IsNullOrWhiteSpace(((TextBox)item).Text))
+						i++;
+				if (item is ComboBox)
+					if (!string.IsNullOrWhiteSpace(((ComboBox)item).Text))
+						i++;
+				if (item is GroupBox)
+					foreach (Control item2 in ((GroupBox)item).Controls)
+					{
+						if (item2 is TextBox)
+							if (!string.IsNullOrWhiteSpace(((TextBox)item2).Text))
+								i++;
+						if (item2 is ComboBox)
+							if (!string.IsNullOrWhiteSpace(((ComboBox)item2).Text))
+								i++;
+					}
+			}
+			progressBar.Value = i;
+
+			buttonAdd.Enabled = progressBar.Value == progressBar.Maximum;
+		}
+
+		private void buttonAdd_EnabledChanged(object sender, EventArgs e)
+		{
+			if(sender is Button)
+			{
+				Button button = (Button)sender;
+				if (button.Enabled)
+					button.BackColor = Color.Green;
+				else
+					button.BackColor = Color.LightGray;
+			}
 		}
 	}
 }

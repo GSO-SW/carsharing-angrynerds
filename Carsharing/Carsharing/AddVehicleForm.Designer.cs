@@ -136,8 +136,9 @@
 			this.textPositionY.Location = new System.Drawing.Point(98, 57);
 			this.textPositionY.Name = "textPositionY";
 			this.textPositionY.Size = new System.Drawing.Size(163, 20);
-			this.textPositionY.TabIndex = 60;
+			this.textPositionY.TabIndex = 260;
 			this.textPositionY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.textPositionY.TextChanged += new System.EventHandler(this.text_Changed);
 			// 
 			// groupBox2
 			// 
@@ -153,7 +154,7 @@
 			this.groupBox2.Location = new System.Drawing.Point(321, 285);
 			this.groupBox2.Name = "groupBox2";
 			this.groupBox2.Size = new System.Drawing.Size(271, 118);
-			this.groupBox2.TabIndex = 117;
+			this.groupBox2.TabIndex = 269;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Kosten";
 			// 
@@ -180,8 +181,9 @@
 			this.textPricePerMinute.Location = new System.Drawing.Point(121, 77);
 			this.textPricePerMinute.Name = "textPricePerMinute";
 			this.textPricePerMinute.Size = new System.Drawing.Size(90, 20);
-			this.textPricePerMinute.TabIndex = 160;
+			this.textPricePerMinute.TabIndex = 290;
 			this.textPricePerMinute.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.textPricePerMinute.TextChanged += new System.EventHandler(this.text_Changed);
 			// 
 			// labelPriceKilometre
 			// 
@@ -197,8 +199,9 @@
 			this.textPricePerKilometre.Location = new System.Drawing.Point(121, 51);
 			this.textPricePerKilometre.Name = "textPricePerKilometre";
 			this.textPricePerKilometre.Size = new System.Drawing.Size(90, 20);
-			this.textPricePerKilometre.TabIndex = 150;
+			this.textPricePerKilometre.TabIndex = 280;
 			this.textPricePerKilometre.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.textPricePerKilometre.TextChanged += new System.EventHandler(this.text_Changed);
 			// 
 			// label5
 			// 
@@ -214,8 +217,9 @@
 			this.textBasicPrice.Location = new System.Drawing.Point(121, 25);
 			this.textBasicPrice.Name = "textBasicPrice";
 			this.textBasicPrice.Size = new System.Drawing.Size(115, 20);
-			this.textBasicPrice.TabIndex = 140;
+			this.textBasicPrice.TabIndex = 270;
 			this.textBasicPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.textBasicPrice.TextChanged += new System.EventHandler(this.text_Changed);
 			// 
 			// label6
 			// 
@@ -242,23 +246,26 @@
 			this.comboGear.Location = new System.Drawing.Point(97, 146);
 			this.comboGear.Name = "comboGear";
 			this.comboGear.Size = new System.Drawing.Size(209, 21);
-			this.comboGear.TabIndex = 131;
+			this.comboGear.TabIndex = 80;
+			this.comboGear.TextChanged += new System.EventHandler(this.text_Changed);
 			// 
 			// textMaxTankFilling
 			// 
 			this.textMaxTankFilling.Location = new System.Drawing.Point(97, 251);
 			this.textMaxTankFilling.Name = "textMaxTankFilling";
 			this.textMaxTankFilling.Size = new System.Drawing.Size(192, 20);
-			this.textMaxTankFilling.TabIndex = 130;
+			this.textMaxTankFilling.TabIndex = 120;
 			this.textMaxTankFilling.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.textMaxTankFilling.TextChanged += new System.EventHandler(this.text_Changed);
 			// 
 			// textPower
 			// 
 			this.textPower.Location = new System.Drawing.Point(97, 173);
 			this.textPower.Name = "textPower";
 			this.textPower.Size = new System.Drawing.Size(179, 20);
-			this.textPower.TabIndex = 120;
+			this.textPower.TabIndex = 90;
 			this.textPower.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.textPower.TextChanged += new System.EventHandler(this.text_Changed);
 			// 
 			// labelPower
 			// 
@@ -314,7 +321,8 @@
 			this.comboBrand.Location = new System.Drawing.Point(97, 14);
 			this.comboBrand.Name = "comboBrand";
 			this.comboBrand.Size = new System.Drawing.Size(209, 21);
-			this.comboBrand.TabIndex = 132;
+			this.comboBrand.TabIndex = 10;
+			this.comboBrand.TextChanged += new System.EventHandler(this.text_Changed);
 			// 
 			// labelBrand
 			// 
@@ -330,8 +338,9 @@
 			this.textModel.Location = new System.Drawing.Point(97, 41);
 			this.textModel.Name = "textModel";
 			this.textModel.Size = new System.Drawing.Size(209, 20);
-			this.textModel.TabIndex = 90;
+			this.textModel.TabIndex = 20;
 			this.textModel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.textModel.TextChanged += new System.EventHandler(this.text_Changed);
 			// 
 			// labelModel
 			// 
@@ -356,8 +365,9 @@
 			this.textPositionX.Location = new System.Drawing.Point(98, 28);
 			this.textPositionX.Name = "textPositionX";
 			this.textPositionX.Size = new System.Drawing.Size(163, 20);
-			this.textPositionX.TabIndex = 50;
+			this.textPositionX.TabIndex = 250;
 			this.textPositionX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.textPositionX.TextChanged += new System.EventHandler(this.text_Changed);
 			// 
 			// textMileage
 			// 
@@ -366,6 +376,7 @@
 			this.textMileage.Size = new System.Drawing.Size(182, 20);
 			this.textMileage.TabIndex = 30;
 			this.textMileage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.textMileage.TextChanged += new System.EventHandler(this.text_Changed);
 			// 
 			// label1
 			// 
@@ -382,7 +393,7 @@
 			this.checkAvailable.Location = new System.Drawing.Point(380, 411);
 			this.checkAvailable.Name = "checkAvailable";
 			this.checkAvailable.Size = new System.Drawing.Size(15, 14);
-			this.checkAvailable.TabIndex = 70;
+			this.checkAvailable.TabIndex = 300;
 			this.checkAvailable.UseVisualStyleBackColor = true;
 			// 
 			// dateTimeLastMaintenance
@@ -390,7 +401,7 @@
 			this.dateTimeLastMaintenance.Location = new System.Drawing.Point(97, 199);
 			this.dateTimeLastMaintenance.Name = "dateTimeLastMaintenance";
 			this.dateTimeLastMaintenance.Size = new System.Drawing.Size(209, 20);
-			this.dateTimeLastMaintenance.TabIndex = 40;
+			this.dateTimeLastMaintenance.TabIndex = 100;
 			// 
 			// buttonAdd
 			// 
@@ -399,9 +410,10 @@
 			this.buttonAdd.Location = new System.Drawing.Point(470, 406);
 			this.buttonAdd.Name = "buttonAdd";
 			this.buttonAdd.Size = new System.Drawing.Size(122, 23);
-			this.buttonAdd.TabIndex = 180;
+			this.buttonAdd.TabIndex = 310;
 			this.buttonAdd.Text = "Hinzufügen";
 			this.buttonAdd.UseVisualStyleBackColor = false;
+			this.buttonAdd.EnabledChanged += new System.EventHandler(this.buttonAdd_EnabledChanged);
 			this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
 			// 
 			// labelAvailable
@@ -446,8 +458,9 @@
 			this.textNumberPlate.Name = "textNumberPlate";
 			this.textNumberPlate.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.textNumberPlate.Size = new System.Drawing.Size(88, 20);
-			this.textNumberPlate.TabIndex = 10;
+			this.textNumberPlate.TabIndex = 40;
 			this.textNumberPlate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.textNumberPlate.TextChanged += new System.EventHandler(this.text_Changed);
 			// 
 			// labelNumberPlate
 			// 
@@ -467,7 +480,8 @@
 			this.comboConstructionYear.Location = new System.Drawing.Point(253, 93);
 			this.comboConstructionYear.Name = "comboConstructionYear";
 			this.comboConstructionYear.Size = new System.Drawing.Size(53, 21);
-			this.comboConstructionYear.TabIndex = 133;
+			this.comboConstructionYear.TabIndex = 50;
+			this.comboConstructionYear.TextChanged += new System.EventHandler(this.text_Changed);
 			// 
 			// groupBox3
 			// 
@@ -479,7 +493,7 @@
 			this.groupBox3.Location = new System.Drawing.Point(15, 285);
 			this.groupBox3.Name = "groupBox3";
 			this.groupBox3.Size = new System.Drawing.Size(291, 144);
-			this.groupBox3.TabIndex = 134;
+			this.groupBox3.TabIndex = 220;
 			this.groupBox3.TabStop = false;
 			this.groupBox3.Text = "Position";
 			// 
@@ -488,8 +502,9 @@
 			this.textTankfilling.Location = new System.Drawing.Point(97, 225);
 			this.textTankfilling.Name = "textTankfilling";
 			this.textTankfilling.Size = new System.Drawing.Size(192, 20);
-			this.textTankfilling.TabIndex = 183;
+			this.textTankfilling.TabIndex = 110;
 			this.textTankfilling.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.textTankfilling.TextChanged += new System.EventHandler(this.text_Changed);
 			// 
 			// label10
 			// 
@@ -529,7 +544,8 @@
 			this.comboVehicleLicenseMonth.Location = new System.Drawing.Point(97, 119);
 			this.comboVehicleLicenseMonth.Name = "comboVehicleLicenseMonth";
 			this.comboVehicleLicenseMonth.Size = new System.Drawing.Size(146, 21);
-			this.comboVehicleLicenseMonth.TabIndex = 185;
+			this.comboVehicleLicenseMonth.TabIndex = 60;
+			this.comboVehicleLicenseMonth.TextChanged += new System.EventHandler(this.text_Changed);
 			// 
 			// label12
 			// 
@@ -547,7 +563,8 @@
 			this.comboVehicleLicenseYear.Location = new System.Drawing.Point(253, 119);
 			this.comboVehicleLicenseYear.Name = "comboVehicleLicenseYear";
 			this.comboVehicleLicenseYear.Size = new System.Drawing.Size(53, 21);
-			this.comboVehicleLicenseYear.TabIndex = 186;
+			this.comboVehicleLicenseYear.TabIndex = 70;
+			this.comboVehicleLicenseYear.TextChanged += new System.EventHandler(this.text_Changed);
 			// 
 			// groupBox1
 			// 
@@ -585,7 +602,7 @@
 			this.groupBox1.Location = new System.Drawing.Point(321, 38);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.Size = new System.Drawing.Size(271, 241);
-			this.groupBox1.TabIndex = 187;
+			this.groupBox1.TabIndex = 121;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Details";
 			// 
@@ -603,8 +620,9 @@
 			this.textFuelConsumption.Location = new System.Drawing.Point(122, 77);
 			this.textFuelConsumption.Name = "textFuelConsumption";
 			this.textFuelConsumption.Size = new System.Drawing.Size(87, 20);
-			this.textFuelConsumption.TabIndex = 219;
+			this.textFuelConsumption.TabIndex = 150;
 			this.textFuelConsumption.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.textFuelConsumption.TextChanged += new System.EventHandler(this.text_Changed);
 			// 
 			// checkSmoker
 			// 
@@ -849,7 +867,8 @@
 			this.comboFuel.Location = new System.Drawing.Point(122, 51);
 			this.comboFuel.Name = "comboFuel";
 			this.comboFuel.Size = new System.Drawing.Size(139, 21);
-			this.comboFuel.TabIndex = 192;
+			this.comboFuel.TabIndex = 140;
+			this.comboFuel.TextChanged += new System.EventHandler(this.text_Changed);
 			// 
 			// comboSeats
 			// 
@@ -869,7 +888,8 @@
 			this.comboSeats.Location = new System.Drawing.Point(122, 24);
 			this.comboSeats.Name = "comboSeats";
 			this.comboSeats.Size = new System.Drawing.Size(139, 21);
-			this.comboSeats.TabIndex = 189;
+			this.comboSeats.TabIndex = 130;
+			this.comboSeats.TextChanged += new System.EventHandler(this.text_Changed);
 			// 
 			// label2
 			// 
@@ -883,8 +903,10 @@
 			// progressBar
 			// 
 			this.progressBar.Location = new System.Drawing.Point(380, 14);
+			this.progressBar.Maximum = 0;
 			this.progressBar.Name = "progressBar";
 			this.progressBar.Size = new System.Drawing.Size(212, 18);
+			this.progressBar.Step = 1;
 			this.progressBar.TabIndex = 188;
 			// 
 			// label28
