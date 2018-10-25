@@ -15,6 +15,8 @@ namespace Carsharing
 		public Main()
 		{
 			InitializeComponent();
+			FormController.CurrentCustomer = new Customer();
+			FormController.CurrentCustomer.IsAdmin = true;
 		}
 
 		private void userRegButton_Click(object sender, EventArgs e)
@@ -70,8 +72,22 @@ namespace Carsharing
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			AddVehicleForm addVehicleForm = new AddVehicleForm();
-			addVehicleForm.ShowDialog();
+			if(FormController.CurrentCustomer == null)
+			{
+				MessageBox.Show("Sie sind nicht angemeldet.\nSie werden zum Hauptfenster zurückgeleitet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			else
+			{
+				if (FormController.CurrentCustomer.IsAdmin)
+				{
+					new AddVehicleForm().ShowDialog();
+				}
+				else
+				{
+					MessageBox.Show("Sie sind nicht als Admin angemeldet.\nSie werden zum Hauptfenster zurückgeleitet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
+			
 		}
 	}
 }

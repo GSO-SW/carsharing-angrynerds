@@ -25,6 +25,22 @@ namespace Carsharing
 		private double basicPrice;
 		private double pricePerKilometre;
 		private double pricePerMinute;
+		private DateTime registration;
+		private int seats;
+		private string fuelType;
+		private double fuelConsumption;
+		private bool airConditioner;
+		private bool cruiseControl;
+		private bool radio;
+		private bool bluetooth;
+		private bool usb;
+		private bool cdPlayer;
+		private bool navigationDevice;
+		private bool abs;
+		private bool esp;
+		private bool seatHeating;
+		private bool winterTire;
+		private bool smoker;
 		#endregion
 
 		#region Propeties
@@ -54,7 +70,7 @@ namespace Carsharing
 			get { return lastMaintenance; }
 			set { lastMaintenance = value; }
 		}
-		
+
 		/// <summary>
 		/// Tank filling of the vehicle
 		/// </summary>
@@ -162,6 +178,150 @@ namespace Carsharing
 			get { return pricePerMinute; }
 			set { pricePerMinute = value; }
 		}
+
+		/// <summary>
+		/// Registration day of the vehicle
+		/// </summary>
+		public DateTime Registration
+		{
+			get { return registration; }
+			set { registration = value; }
+		}
+
+		/// <summary>
+		/// Number of seats of the vehicle
+		/// </summary>
+		public int Seats
+		{
+			get { return seats; }
+			set { seats = value; }
+		}
+
+		/// <summary>
+		/// Fuel type of the vehicle
+		/// </summary>
+		public string FuelType
+		{
+			get { return fuelType; }
+			set { fuelType = value; }
+		}
+
+		/// <summary>
+		/// Fuel consumption of the vehicle
+		/// </summary>
+		public double FuelConsumption
+		{
+			get { return fuelConsumption; }
+			set { fuelConsumption = value; }
+		}
+
+		/// <summary>
+		/// Air conditioner state of the vehicle
+		/// </summary>
+		public bool AirConditioner
+		{
+			get { return airConditioner; }
+			set { airConditioner = value; }
+		}
+
+		/// <summary>
+		/// Cruise control state of the vehicle
+		/// </summary>
+		public bool CruiseControl
+		{
+			get { return cruiseControl; }
+			set { cruiseControl = value; }
+		}
+
+		/// <summary>
+		/// Radio state of the vehicle
+		/// </summary>
+		public bool Radio
+		{
+			get { return radio; }
+			set { radio = value; }
+		}
+
+		/// <summary>
+		/// Bluetooth state of the vehicle
+		/// </summary>
+		public bool Bluetooth
+		{
+			get { return bluetooth; }
+			set { bluetooth = value; }
+		}
+
+		/// <summary>
+		/// USB state of the vehicle
+		/// </summary>
+		public bool USB
+		{
+			get { return usb; }
+			set { usb = value; }
+		}
+
+		/// <summary>
+		/// CD player state of the vehicle
+		/// </summary>
+		public bool CDPlayer
+		{
+			get { return cdPlayer; }
+			set { cdPlayer = value; }
+		}
+
+		/// <summary>
+		/// Navi state of the vehicle
+		/// </summary>
+		public bool Navi
+		{
+			get { return navigationDevice; }
+			set { navigationDevice = value; }
+		}
+
+		/// <summary>
+		/// ABS state of the vehicle
+		/// </summary>
+		public bool ABS
+		{
+			get { return abs; }
+			set { abs = value; }
+		}
+
+		/// <summary>
+		/// ESP state of the vehicle
+		/// </summary>
+		public bool ESP
+		{
+			get { return esp; }
+			set { esp = value; }
+		}
+
+		/// <summary>
+		/// Seat heating state of the vehicle
+		/// </summary>
+		public bool SeatHeating
+		{
+			get { return seatHeating; }
+			set { seatHeating = value; }
+		}
+
+		/// <summary>
+		/// Winter tire state of the vehicle
+		/// </summary>
+		public bool WinterTire
+		{
+			get { return winterTire; }
+			set { winterTire = value; }
+		}
+
+		/// <summary>
+		/// Smoker state of the vehicle
+		/// </summary>
+		public bool Smoker
+		{
+			get { return smoker; }
+			set { smoker = value; }
+		}
 		#endregion
 
 		#region Constructor
@@ -183,7 +343,11 @@ namespace Carsharing
 		/// <param name="basicPrice">Basic price of the vehicle</param>
 		/// <param name="pricePerKilometre">price per kilometre of the vehicle</param>
 		/// <param name="pricePerMinute">price per minute of the vehicle</param>
-		public Vehicle(string numberPlate, double mileage, DateTime lastMaintenance, double tankFilling, PointD position, bool available, string brand, string model, int power, int constructionYear, string gear, double maxTankFilling, double basicPrice, double pricePerKilometre, double pricePerMinute)
+		public Vehicle(
+			string numberPlate, double mileage, DateTime lastMaintenance, double tankFilling, PointD position, bool available, string brand, string model, 
+			int power, int constructionYear, string gear, double maxTankFilling, double basicPrice, double pricePerKilometre, double pricePerMinute, DateTime registration, 
+			int seats, string fuelType, double fuelConsumption, bool airCond, bool cruiseControl, bool radio, bool bluetooth, bool usb, 
+			bool cdPlayer, bool navi, bool abs, bool esp, bool seatHeating, bool winter, bool smoker)
 		{
 			NumberPlate = numberPlate;
 			Mileage = mileage;
@@ -200,6 +364,22 @@ namespace Carsharing
 			BasicPrice = basicPrice;
 			PricePerKilometre = pricePerKilometre;
 			PricePerMinute = pricePerMinute;
+			Registration = registration;
+			Seats = seats;
+			FuelType = fuelType;
+			FuelConsumption = fuelConsumption;
+			AirConditioner = airCond;
+			CruiseControl = cruiseControl;
+			Radio = radio;
+			Bluetooth = bluetooth;
+			USB = usb;
+			CDPlayer = cdPlayer;
+			Navi = navi;
+			ABS = abs;
+			ESP = esp;
+			SeatHeating = seatHeating;
+			WinterTire = winter;
+			Smoker = smoker;
 		}
 		#endregion
 
@@ -210,7 +390,7 @@ namespace Carsharing
 		/// <returns>All vehicle type informations</returns>
 		public string GetVehicleTypeString()
 		{
-			string s = Brand + ";" + Model + ";" + Power + ";" + ConstructionYear + ";" + Gear + ";" + MaxTankFilling + ";" + BasicPrice + ";" + PricePerKilometre + ";" + PricePerKilometre;
+			string s = Brand + ";" + Model + ";" + Power + ";" + ConstructionYear + ";" + Gear + ";" + MaxTankFilling + ";" + BasicPrice + ";" + PricePerKilometre + ";" + PricePerKilometre + ";" + FuelType + ";" + Seats;
 			return s;
 		}
 		#endregion

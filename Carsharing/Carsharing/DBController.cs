@@ -35,7 +35,7 @@ namespace Carsharing
 				{
 					con.Open();
 					
-					using (MySqlDataAdapter a = new MySqlDataAdapter("SELECT ft.*, fm.Marke, fg.Getriebeart FROM Fahrzeugtyp ft JOIN Fahrzeugmarke fm USING (Fm_ID) JOIN Fahrzeuggetriebe fg USING (Fg_ID)", con))
+					using (MySqlDataAdapter a = new MySqlDataAdapter("SELECT ft.*, fm.Marke, fg.Getriebeart, ks.Kraftstoffart FROM Fahrzeugtyp ft JOIN Fahrzeugmarke fm USING (Fm_ID) JOIN Fahrzeuggetriebe fg USING (Fg_ID) JOIN Kraftstoffart ks USING (Ks_ID)", con))
 					{
 						a.Fill(table);
 					}
@@ -54,7 +54,7 @@ namespace Carsharing
 			foreach (DataRow row in table.Rows)
 			{
 				//Creates a vehicle for the current table line with all vehicle type information.
-				Vehicle rowVehicle = new Vehicle(String.Empty, 0.0, new DateTime(0), 0.0, new PointD(0,0), false, row["Marke"].ToString(), row["Modell"].ToString(), Convert.ToInt32(row["Leistung"].ToString()), Convert.ToInt32(row["Baujahr"].ToString()), row["Getriebeart"].ToString(), Convert.ToDouble(row["Max_Tankvolumen"].ToString()), Convert.ToDouble(row["Grundpreis"].ToString()), Convert.ToDouble(row["Preis/km"].ToString()), Convert.ToDouble(row["Preis/min"].ToString()));
+				Vehicle rowVehicle = new Vehicle(String.Empty, 0.0, new DateTime(0), 0.0, new PointD(0,0), false, row["Marke"].ToString(), row["Modell"].ToString(), Convert.ToInt32(row["Leistung"].ToString()), Convert.ToInt32(row["Baujahr"].ToString()), row["Getriebeart"].ToString(), Convert.ToDouble(row["Max_Tankvolumen"].ToString()), Convert.ToDouble(row["Grundpreis"].ToString()), Convert.ToDouble(row["Preis/km"].ToString()), Convert.ToDouble(row["Preis/min"].ToString()), new DateTime(), Convert.ToInt32(row["Anzahl der Sitze"].ToString()), row["Kraftstoffart"].ToString(), 0.0, false, false, false, false, false, false, false, false, false, false, false, false);
 
 
 				//Checks whether the parameter vehicle has the same vehicle type as the created vehicle.
@@ -156,6 +156,50 @@ namespace Carsharing
 		}
 
 		/// <summary>
+		/// Method to get the fuel type ID from a gear-string.
+		/// </summary>
+		/// <param name="fuel">Fuel type from which the fuel type ID is to be searched for</param>
+		/// <param name="fuelID">Fuel type ID from the fuel typ, 'null', if the fuel typ isn't in the DB.</param>
+		/// <returns>Returns true if the connection to the database worked. False if not.</returns>
+		public static bool GetFuelTypeID(string fuel, out int? fuelID)
+		{
+			DataTable table = new DataTable();
+			fuelID = null;
+
+			using (MySqlConnection con = new MySqlConnection(connectionString))
+			{
+				try
+				{
+					con.Open();
+
+					using (MySqlDataAdapter a = new MySqlDataAdapter("SELECT * FROM kraftstoffart", con))
+					{
+						a.Fill(table);
+					}
+				}
+				catch (Exception)
+				{
+					return false;
+				}
+				finally
+				{
+					con.Close();
+				}
+			}
+
+			foreach (DataRow row in table.Rows)
+			{
+				//Checks whether the fuel type in the current row is equal to the parameter fuel typ.
+				if (row["kraftstoffart"].ToString() == fuel)
+				{
+					fuelID = Convert.ToInt32(row["Ks_ID"].ToString());
+					return true;
+				}
+			}
+			return true;
+		}
+
+		/// <summary>
 		/// Method to get a list with all number plates.
 		/// </summary>
 		/// <param name="numberPlates">List with all number plates</param>
@@ -211,7 +255,7 @@ namespace Carsharing
 				{
 					con.Open();
 
-					using (MySqlDataAdapter a = new MySqlDataAdapter("SELECT Marke FROM Fahrzeugmarke", con))
+					using (MySqlDataAdapter a = new MySqlDataAdapter("SELECT Marke FROM Fahrzeugmarke ORDER BY Fm_ID", con))
 					{
 						a.Fill(table);
 					}
@@ -251,7 +295,7 @@ namespace Carsharing
 				{
 					con.Open();
 
-					using (MySqlDataAdapter a = new MySqlDataAdapter("SELECT Getriebeart FROM Fahrzeuggetriebe", con))
+					using (MySqlDataAdapter a = new MySqlDataAdapter("SELECT Getriebeart FROM Fahrzeuggetriebe ORDER BY Fg_ID", con))
 					{
 						a.Fill(table);
 					}
@@ -270,6 +314,45 @@ namespace Carsharing
 			{
 				//Add the gear in the current row to the list.
 				gear.Add(item[0].ToString());
+			}
+			return true;
+		}
+
+		/// <summary>
+		/// Method to get a list with all fuel types.
+		/// </summary>
+		/// <param name="fuel">List with all fuel types</param>
+		/// <returns>Returns true if the connection to the database worked. False if not.</returns>
+		public static bool GetFuelTypes(out List<string> fuel)
+		{
+			DataTable table = new DataTable();
+			fuel = new List<string>();
+
+			using (MySqlConnection con = new MySqlConnection(connectionString))
+			{
+				try
+				{
+					con.Open();
+
+					using (MySqlDataAdapter a = new MySqlDataAdapter("SELECT Kraftstoffart FROM kraftstoffart ORDER BY Ks_ID", con))
+					{
+						a.Fill(table);
+					}
+				}
+				catch (Exception)
+				{
+					return false;
+				}
+				finally
+				{
+					con.Close();
+				}
+			}
+
+			foreach (DataRow item in table.Rows)
+			{
+				//Add the gear in the current row to the list.
+				fuel.Add(item[0].ToString());
 			}
 			return true;
 		}
@@ -301,7 +384,7 @@ namespace Carsharing
 				{
 					connection.Open();
 
-					using (MySqlCommand command = new MySqlCommand("INSERT INTO Fahrzeug VALUES(@Kennzeichen, @Ft_ID, @Kilometerstand, @LetzteWartung, @Tankfüllung, PointFromText(@Standort), @Verfügbarkeit)", connection))
+					using (MySqlCommand command = new MySqlCommand("INSERT INTO Fahrzeug VALUES(@Kennzeichen, @Ft_ID, @Kilometerstand, @LetzteWartung, @Tankfüllung, PointFromText(@Standort), @Verfügbarkeit, @Erstzulassung, @Kraftstoffverbrauch, @Klimaanlage, @Tempomat, @Radio, @Bluetooth, @USB, @CDSpieler, @Navi, @ABS, @ESP, @Sitzheizung, @Winter, @Raucher)", connection))
 					{
 						command.Parameters.Add(new MySqlParameter("Kennzeichen", vehicle.NumberPlate));
 						command.Parameters.Add(new MySqlParameter("Ft_ID", vehicleTypeID));
@@ -310,7 +393,21 @@ namespace Carsharing
 						command.Parameters.Add(new MySqlParameter("Tankfüllung", vehicle.TankFilling));
 						command.Parameters.Add(new MySqlParameter("Standort", "POINT(" + vehicle.Position.ToString() + ")"));
 						command.Parameters.Add(new MySqlParameter("Verfügbarkeit", vehicle.Available));
-
+						command.Parameters.Add(new MySqlParameter("Erstzulassung", vehicle.LastMaintenance.Date));
+						command.Parameters.Add(new MySqlParameter("Kraftstoffverbrauch", vehicle.FuelConsumption));
+						command.Parameters.Add(new MySqlParameter("Klimaanlage", vehicle.AirConditioner));
+						command.Parameters.Add(new MySqlParameter("Tempomat", vehicle.CruiseControl));
+						command.Parameters.Add(new MySqlParameter("Radio", vehicle.Radio));
+						command.Parameters.Add(new MySqlParameter("Bluetooth", vehicle.Bluetooth));
+						command.Parameters.Add(new MySqlParameter("USB", vehicle.USB));
+						command.Parameters.Add(new MySqlParameter("CDSpieler", vehicle.CDPlayer));
+						command.Parameters.Add(new MySqlParameter("Navi", vehicle.Navi));
+						command.Parameters.Add(new MySqlParameter("ABS", vehicle.ABS));
+						command.Parameters.Add(new MySqlParameter("ESP", vehicle.ESP));
+						command.Parameters.Add(new MySqlParameter("Sitzheizung", vehicle.SeatHeating));
+						command.Parameters.Add(new MySqlParameter("Winter", vehicle.WinterTire));
+						command.Parameters.Add(new MySqlParameter("Raucher", vehicle.Smoker));
+						
 						command.ExecuteNonQuery();
 					}
 				}
@@ -341,13 +438,17 @@ namespace Carsharing
 			if (!GetVehicleGearID(vehicle.Gear, out int? gear))
 				return false;
 
+			//Get the fuel type ID from the parameter vehicle
+			if (!GetFuelTypeID(vehicle.FuelType, out int? fuel))
+				return false;
+
 			using (MySqlConnection connection = new MySqlConnection(connectionString))
 			{
 				try
 				{
 					connection.Open();
 
-					using (MySqlCommand command = new MySqlCommand(@"INSERT INTO Fahrzeugtyp VALUES(@Ft_ID, @Fm_ID, @Modell, @Leistung, @Baujahr, @Fg_ID, @Max_Tankvolumen, @Grundpreis, @PreisKm, @PreisMin)", connection))
+					using (MySqlCommand command = new MySqlCommand(@"INSERT INTO Fahrzeugtyp VALUES(@Ft_ID, @Fm_ID, @Modell, @Leistung, @Baujahr, @Fg_ID, @Max_Tankvolumen, @Grundpreis, @PreisKm, @PreisMin, @Ks_ID, @Sitze)", connection))
 					{
 						command.Parameters.Add(new MySqlParameter("Ft_ID", null));
 						command.Parameters.Add(new MySqlParameter("Fm_ID", brand));
@@ -359,6 +460,8 @@ namespace Carsharing
 						command.Parameters.Add(new MySqlParameter("Grundpreis", vehicle.BasicPrice));
 						command.Parameters.Add(new MySqlParameter("PreisKm", vehicle.PricePerKilometre));
 						command.Parameters.Add(new MySqlParameter("PreisMin", vehicle.PricePerMinute));
+						command.Parameters.Add(new MySqlParameter("Ks_ID", fuel));
+						command.Parameters.Add(new MySqlParameter("Sitze", vehicle.Seats));
 
 						command.ExecuteNonQuery();
 					}
