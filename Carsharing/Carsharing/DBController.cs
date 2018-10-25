@@ -15,7 +15,7 @@ namespace Carsharing
 {
 	public static class DBController
 	{
-		static string connectionString = @"host=localhost;user=root;database=carsharingdb";
+		private static readonly string connectionString = @"host=localhost;user=root;database=carsharingdb";
 
 		#region Vehicle
 		/// <summary>
@@ -653,10 +653,9 @@ namespace Carsharing
 			{
 				c = new Customer(row.Field<string>("Vorname"), row.Field<string>("Nachname"), row.Field<string>("E-Mail Adresse"), row.Field<string>("Telefonnummer"), row.Field<string>("Passwort"), row.Field<DateTime>("Geburtstag"), row.Field<string>("Strasse"), row.Field<string>("Hausnummer"), row.Field<string>("PLZ"), row.Field<string>("Stadt"), row.Field<string>("Land"), row.Field<bool>("admin"));
 			}
-			catch (Exception e)
+			catch (Exception)
 			{
-				throw e;
-				//c = null;
+				c = null;
 			}
 			return c;
 		}
