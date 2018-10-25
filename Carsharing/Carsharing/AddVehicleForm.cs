@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Carsharing
@@ -307,23 +302,6 @@ namespace Carsharing
 			Close();
 		}
 
-		private void button1_Click(object sender, EventArgs e)
-		{
-			foreach (Control item in Controls)
-			{
-				if (item is TextBox)
-					//Checks wether the current textbox is empty
-					if (!String.IsNullOrWhiteSpace(((TextBox)item).Text))
-					{
-						DialogResult dialogResult = MessageBox.Show("Wollen Sie ihre Eingabe wirklich verwerfen?", "Achtung!", MessageBoxButtons.YesNo);
-						if (dialogResult == DialogResult.Yes)
-							Close();
-						return;
-					}
-			}
-			Close();
-		}
-
 		private void text_Changed(object sender, EventArgs e)
 		{
 			int i = 0;
@@ -348,7 +326,7 @@ namespace Carsharing
 			}
 			progressBar.Value = i;
 
-			buttonAdd.Enabled = progressBar.Value == progressBar.Maximum;
+			buttonAdd.Enabled = (progressBar.Value == progressBar.Maximum);
 		}
 
 		private void buttonAdd_EnabledChanged(object sender, EventArgs e)
