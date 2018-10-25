@@ -343,15 +343,11 @@ namespace Carsharing
 		/// <param name="basicPrice">Basic price of the vehicle</param>
 		/// <param name="pricePerKilometre">price per kilometre of the vehicle</param>
 		/// <param name="pricePerMinute">price per minute of the vehicle</param>
-		public Vehicle
-			(
-			string numberPlate, double mileage, DateTime lastMaintenance, 
-			double tankFilling, PointD position, bool available, string brand, string model, 
-			int power, int constructionYear, string gear, double maxTankFilling, double basicPrice, 
-			double pricePerKilometre, double pricePerMinute, DateTime registration, int seats, string fuelType, 
-			double fuelConsumption, bool airCond, bool cruiseControl, bool radio, bool bluetooth, bool usb, 
-			bool cdPlayer, bool navi, bool abs, bool esp, bool seatHeating, bool winter, bool smoker
-			)
+		public Vehicle(
+			string numberPlate, double mileage, DateTime lastMaintenance, double tankFilling, PointD position, bool available, string brand, string model, 
+			int power, int constructionYear, string gear, double maxTankFilling, double basicPrice, double pricePerKilometre, double pricePerMinute, DateTime registration, 
+			int seats, string fuelType, double fuelConsumption, bool airCond, bool cruiseControl, bool radio, bool bluetooth, bool usb, 
+			bool cdPlayer, bool navi, bool abs, bool esp, bool seatHeating, bool winter, bool smoker)
 		{
 			NumberPlate = numberPlate;
 			Mileage = mileage;
