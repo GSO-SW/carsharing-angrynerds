@@ -70,6 +70,11 @@ namespace Carsharing
 
 		private void button1_Click(object sender, EventArgs e)
 		{
+			if (!DBController.ConnectionAvailable())
+			{
+				MessageBox.Show("Es konnte keine Verbindung zur Datenbank aufgebaut werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
 			if(FormController.CurrentCustomer == null)
 			{
 				MessageBox.Show("Sie sind nicht angemeldet.\nSie werden zum Hauptfenster zurückgeleitet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);

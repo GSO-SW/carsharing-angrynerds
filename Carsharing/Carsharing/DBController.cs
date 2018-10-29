@@ -17,6 +17,28 @@ namespace Carsharing
 	{
 		private static readonly string connectionString = @"host=localhost;user=root;database=carsharingdb";
 
+		#region Database information
+		public static bool ConnectionAvailable()
+		{
+			using (MySqlConnection con = new MySqlConnection(connectionString))
+			{
+				try
+				{
+					con.Open();
+					return true;
+				}
+				catch (Exception)
+				{
+					return false;
+				}
+				finally
+				{
+					con.Close();
+				}
+			}
+		}
+		#endregion
+
 		#region Vehicle
 		/// <summary>
 		/// Method to get the vehicle type ID from a vehicle.
