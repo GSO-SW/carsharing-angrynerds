@@ -102,5 +102,29 @@ namespace Carsharing
                 return result;
             }
         }
+
+        public static bool CheckOpenBookings(Customer c)
+        {
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    con.Open();
+                    using (MySqlDataAdapter command = new MySqlDataAdapter("", con))
+                    {
+
+                    }
+                }
+                catch(Exception e)
+                {
+
+                }
+                finally
+                {
+                    con.Close();
+                }
+                return false;
+            }
+        }
 	}
 }
