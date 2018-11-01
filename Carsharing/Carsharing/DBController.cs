@@ -103,16 +103,39 @@ namespace Carsharing
             }
         }
 
+        /// <summary>
+        /// Method to check if a customer has open bookings.
+        /// </summary>
+        /// <param name="c">The customer, whose bookings require a check.</param>
+        /// <returns>Returns true, if the customer has open bookings in the DB. Returns false, if he doesn't.</returns>
         public static bool CheckOpenBookings(Customer c)
         {
+            // The result of the check is false at default
+            bool result = false;
             using (MySqlConnection con = new MySqlConnection(connectionString))
             {
                 try
                 {
                     con.Open();
-                    using (MySqlDataAdapter command = new MySqlDataAdapter("", con))
+                    // Get a list of all B_IDs matching the customer's email-address and checks,
+                    // if the ending mileage equals NULL, indicating the booking is still open.
+                    using (MySqlCommand command = new MySqlCommand("Select B_ID FROM buchung WHERE `E - Mail Adresse` = @email AND Endkilometerstand = null", con))
                     {
+                        command.Parameters.AddWithValue("email", c.EmailAddress);
+                        // Transfer the found B_IDs into a table via the MySqlDataAdapter...
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                        {
+                            DataTable table = new DataTable();
+                            adapter.Fill(table);
 
+                            // ...and convert the table into DataRows
+                            DataRow[] row = table.Select();
+                            // The column's length is > 0, when B_IDs have been found, hence give a positive result
+                            if(row.Length > 0)
+                            {
+                                result = true;
+                            }
+                        }
                     }
                 }
                 catch(Exception e)
@@ -123,7 +146,7 @@ namespace Carsharing
                 {
                     con.Close();
                 }
-                return false;
+                return result;
             }
         }
 	}
