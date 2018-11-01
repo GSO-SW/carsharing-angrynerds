@@ -111,7 +111,7 @@ namespace Carsharing
 			}
 			if (string.IsNullOrWhiteSpace(streetTextBox.Text))
 			{
-				MessageBox.Show("Bitte geben Sie ihre Straße an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Bitte geben Sie ihre Strasse an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return false;
 			}
 			if (string.IsNullOrWhiteSpace(houseNumberTextBox.Text))

@@ -523,7 +523,7 @@ namespace Carsharing
                 {
                     // open connection to database
                     con.Open();
-                    using (MySqlCommand command = new MySqlCommand("INSERT INTO `kunde`(`E-Mail Adresse`, `Vorname`, `Nachname`, `Telefonnummer`, `Passwort`, `admin`, `Geburtstag`, `Straße`, `Hausnummer`, `PLZ`, `Stadt`, `Land`) VALUES(@email, @Vorname, @Nachname, @tel, @pw, @admin, @Geburtstag, @Straße, @Hausnummer, @PLZ, @Stadt, @Land)", con))
+                    using (MySqlCommand command = new MySqlCommand("INSERT INTO `kunde`(`E-Mail Adresse`, `Vorname`, `Nachname`, `Telefonnummer`, `Passwort`, `admin`, `Geburtstag`, `Strasse`, `Hausnummer`, `PLZ`, `Stadt`, `Land`) VALUES(@email, @Vorname, @Nachname, @tel, @pw, @admin, @Geburtstag, @Strasse, @Hausnummer, @PLZ, @Stadt, @Land)", con))
                     {
                         command.Parameters.AddWithValue("email", c.EmailAddress);
                         command.Parameters.AddWithValue("Vorname", c.Name);
@@ -532,7 +532,7 @@ namespace Carsharing
                         command.Parameters.AddWithValue("pw", c.Password);
                         command.Parameters.AddWithValue("admin", c.IsAdmin);
                         command.Parameters.AddWithValue("Geburtstag", c.Birthday);
-                        command.Parameters.AddWithValue("Straße", c.Street);
+                        command.Parameters.AddWithValue("Strasse", c.Street);
                         command.Parameters.AddWithValue("Hausnummer", c.HouseNumber);
                         command.Parameters.AddWithValue("PLZ", c.PLZ);
                         command.Parameters.AddWithValue("Stadt", c.City);
