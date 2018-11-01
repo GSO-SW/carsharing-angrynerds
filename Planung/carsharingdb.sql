@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
@@ -33,9 +33,9 @@ CREATE TABLE `buchung` (
   `Kennzeichen` varchar(50) NOT NULL,
   `E-Mail Adresse` varchar(50) NOT NULL,
   `Startzeitpunkt` datetime(6) NOT NULL,
-  `Endzeitpunkt` datetime(6) NOT NULL,
+  `Endzeitpunkt` datetime(6) DEFAULT NULL,
   `Startkilometerstand` double(10,2) NOT NULL,
-  `Endkilometerstand` double(10,2) NOT NULL
+  `Endkilometerstand` double(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
