@@ -23,9 +23,14 @@ namespace Carsharing
 			urf.ShowDialog();
 		}
 
+		private void loginButton_Click(object sender, EventArgs e)
+		{
+			UserLoginForm usl = new UserLoginForm();
+			usl.ShowDialog();
+		}
+
         private void userDeleteButton_Click(object sender, EventArgs e)
         {
-			
 			if (FormController.CurrentCustomer != null)
 			{
                 // Check, whether the customer has open bookings before continuing
@@ -44,10 +49,55 @@ namespace Carsharing
 					{
 						MessageBox.Show("Es ist ein Fehler beim Zugriff zur Datenbank aufgetreten.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					}
+					else //if the deletion was successful then delete the currentCustomer
+					{
+						FormController.CurrentCustomer = null;
+						MessageBox.Show("Ihr Account wurde erfolgreich gelöscht. Sie wurden automatisch abgemeldet.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					}
 				}
 			}
 			else
-				MessageBox.Show("Sie müssen sich anmelden, damit Sie ihren Account löschen können.", "Fehler", MessageBoxButtons.OK,MessageBoxIcon.Error);
+			{
+				MessageBox.Show("Sie müssen sich anmelden, damit Sie ihren Account löschen können.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
         }
-    }
+
+		private void editCustomerButton_Click(object sender, EventArgs e)
+		{
+			if (FormController.CurrentCustomer != null)
+			{
+				UserRegistrationForm urf = new UserRegistrationForm(true);
+				urf.ShowDialog();
+			}
+			else
+			{
+				MessageBox.Show("Sie müssen sich anmelden, damit Sie ihren Account bearbeiten können.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			if (!DBController.ConnectionAvailable())
+			{
+				MessageBox.Show("Es konnte keine Verbindung zur Datenbank aufgebaut werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+			if(FormController.CurrentCustomer == null)
+			{
+				MessageBox.Show("Sie sind nicht angemeldet.\nSie werden zum Hauptfenster zurückgeleitet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			else
+			{
+				if (FormController.CurrentCustomer.IsAdmin)
+				{
+					new AddVehicleForm().ShowDialog();
+				}
+				else
+				{
+					MessageBox.Show("Sie sind nicht als Admin angemeldet.\nSie werden zum Hauptfenster zurückgeleitet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
+			
+		}
+	}
 }

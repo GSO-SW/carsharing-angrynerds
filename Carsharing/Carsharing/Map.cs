@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Carsharing
 {
-	class Karte
+	class Map
 	{
 	}
 }
