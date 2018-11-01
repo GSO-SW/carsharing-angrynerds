@@ -13,60 +13,60 @@ using System.Data;
 
 namespace Carsharing
 {
-	public static class DBController
-	{
-		static string connectionString = @"host=localhost;user=root;database=carsharingdb";
+    public static class DBController
+    {
+        static string connectionString = @"host=localhost;user=root;database=carsharingdb";
 
-		/// <summary>
-		/// Method to add a customer to the database.
-		/// </summary>
-		/// <param name="c">The customer who should be added to the database.</param>
-		/// <returns>Returns 0 if the operation was successful, 1 if a connection to the database could not be established or 2 if the email isn't unique.</returns>
-		public static int AddCustomerToDB(Customer c)
-		{
-			int status = 0;
-			using (MySqlConnection con = new MySqlConnection(connectionString))
-			{
-				try
-				{
-					// open connection to database
-					con.Open();
-					using (MySqlCommand command = new MySqlCommand("INSERT INTO Kunde VALUES(@K_ID, @Vorname, @Nachname, @email, @tel, @pw, @admin, @Geburtstag, @Straße, @Hausnummer, @PLZ, @Stadt, @Land)", con))
-					{
-						command.Parameters.AddWithValue("K_ID", null);
-						command.Parameters.AddWithValue("Vorname", c.Name);
-						command.Parameters.AddWithValue("Nachname", c.LastName);
-						command.Parameters.AddWithValue("email", c.EmailAddress);
-						command.Parameters.AddWithValue("tel", c.PhoneNumber);
-						command.Parameters.AddWithValue("pw", c.Password);
-						command.Parameters.AddWithValue("admin", c.IsAdmin);
-						command.Parameters.AddWithValue("Geburtstag", c.Birthday);
-						command.Parameters.AddWithValue("Straße", c.Street);
-						command.Parameters.AddWithValue("Hausnummer", c.HouseNumber);
-						command.Parameters.AddWithValue("PLZ", c.PLZ);
-						command.Parameters.AddWithValue("Stadt", c.City);
-						command.Parameters.AddWithValue("Land", c.Country);
+        /// <summary>
+        /// Method to add a customer to the database.
+        /// </summary>
+        /// <param name="c">The customer who should be added to the database.</param>
+        /// <returns>Returns 0 if the operation was successful, 1 if a connection to the database could not be established or 2 if the email isn't unique.</returns>
+        public static int AddCustomerToDB(Customer c)
+        {
+            int status = 0;
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    // open connection to database
+                    con.Open();
+                    using (MySqlCommand command = new MySqlCommand("INSERT INTO Kunde VALUES(@K_ID, @Vorname, @Nachname, @email, @tel, @pw, @admin, @Geburtstag, @Straße, @Hausnummer, @PLZ, @Stadt, @Land)", con))
+                    {
+                        command.Parameters.AddWithValue("K_ID", null);
+                        command.Parameters.AddWithValue("Vorname", c.Name);
+                        command.Parameters.AddWithValue("Nachname", c.LastName);
+                        command.Parameters.AddWithValue("email", c.EmailAddress);
+                        command.Parameters.AddWithValue("tel", c.PhoneNumber);
+                        command.Parameters.AddWithValue("pw", c.Password);
+                        command.Parameters.AddWithValue("admin", c.IsAdmin);
+                        command.Parameters.AddWithValue("Geburtstag", c.Birthday);
+                        command.Parameters.AddWithValue("Straße", c.Street);
+                        command.Parameters.AddWithValue("Hausnummer", c.HouseNumber);
+                        command.Parameters.AddWithValue("PLZ", c.PLZ);
+                        command.Parameters.AddWithValue("Stadt", c.City);
+                        command.Parameters.AddWithValue("Land", c.Country);
 
-						command.ExecuteNonQuery();
-					}
+                        command.ExecuteNonQuery();
+                    }
 
-				}
-				catch (Exception e)
-				{
-					status = 1;
-					if (((MySqlException)e).Number == 1062)
-					{
-						status = 2;
-					}
-				}
-				finally
-				{
-					// close connection to database
-					con.Close();
-				}
-				return status;
-			}
-		}
+                }
+                catch (Exception e)
+                {
+                    status = 1;
+                    if (((MySqlException)e).Number == 1062)
+                    {
+                        status = 2;
+                    }
+                }
+                finally
+                {
+                    // close connection to database
+                    con.Close();
+                }
+                return status;
+            }
+        }
 
         /// <summary>
         /// Method to delete a customer from the DB.
@@ -90,7 +90,7 @@ namespace Carsharing
                         command.ExecuteNonQuery();
                     }
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     // If something didn't work, set the result to false
                     result = false;
@@ -112,6 +112,7 @@ namespace Carsharing
         {
             // The result of the check is false at default
             bool result = false;
+            DataTable table = new DataTable();
             using (MySqlConnection con = new MySqlConnection(connectionString))
             {
                 try
@@ -125,20 +126,11 @@ namespace Carsharing
                         // Transfer the found B_IDs into a table via the MySqlDataAdapter...
                         using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
                         {
-                            DataTable table = new DataTable();
                             adapter.Fill(table);
-
-                            // ...and convert the table into DataRows
-                            DataRow[] row = table.Select();
-                            // The column's length is > 0, when B_IDs have been found, hence give a positive result
-                            if(row.Length > 0)
-                            {
-                                result = true;
-                            }
                         }
                     }
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
 
                 }
@@ -146,8 +138,13 @@ namespace Carsharing
                 {
                     con.Close();
                 }
-                return result;
             }
+            // The column's length is > 0, when B_IDs have been found, hence give a positive result
+            if (table.Rows.Count > 0)
+            {
+                result = true;
+            }
+            return result;
         }
-	}
+    }
 }
