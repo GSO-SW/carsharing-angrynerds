@@ -87,5 +87,17 @@ namespace Carsharing
 			}
 			
 		}
+
+		private void mangeCustomerButton_Click(object sender, EventArgs e)
+		{
+			if (FormController.CurrentCustomer != null && FormController.CurrentCustomer.IsAdmin)
+			{
+				// vorläufig neue form, aufdauer eher im main window
+				ManageUserForm muf = new ManageUserForm();
+				muf.ShowDialog();
+			}
+			else
+				MessageBox.Show("Sie müssen als Admin angemeldet sein.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
 	}
 }
