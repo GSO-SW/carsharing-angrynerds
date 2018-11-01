@@ -18,24 +18,30 @@ namespace Carsharing
 		private static readonly string connectionString = @"host=localhost;user=root;database=carsharingdb";
 
 		#region Database information
+		/// <summary>
+		/// Test, if the connection to the Database is available.
+		/// </summary>
+		/// <returns>Return true, if the connection is available, otherwise false.</returns>
 		public static bool ConnectionAvailable()
 		{
+			bool result;
 			using (MySqlConnection con = new MySqlConnection(connectionString))
 			{
 				try
 				{
 					con.Open();
-					return true;
+					result = true;
 				}
 				catch (Exception)
 				{
-					return false;
+					result = false;
 				}
 				finally
 				{
 					con.Close();
 				}
 			}
+			return result;
 		}
 		#endregion
 
