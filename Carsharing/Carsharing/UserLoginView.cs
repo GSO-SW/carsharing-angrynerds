@@ -15,9 +15,10 @@ namespace Carsharing
 		public UserLoginView()
 		{
 			InitializeComponent();
-
 			txtEmail_Leave(null, null);
 			txtPassword_Leave(null, null);
+
+			ActiveControl = labelName;
 		}
 
 		private void buttonCancel_Click(object sender, EventArgs e)
@@ -61,6 +62,37 @@ namespace Carsharing
 				txtPassword.ForeColor = Color.FromArgb(73, 73, 73);
 				txtPassword.Text = "Passwort";
 			}
+		}
+
+		private void buttonLogin_Click(object sender, EventArgs e)
+		{
+			if (!DBController.ConnectionAvailable())
+			{
+				MessageBox.Show("Es konnte keine Verbindung zur Datenbank hergestellt werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+
+			if (string.IsNullOrWhiteSpace(txtEmail.Text) || !txtEmail.Text.Contains("@") || !txtEmail.Text.Contains("."))
+			{
+				MessageBox.Show("Bitte geben Sie eine gültige E-Mail-Adresse an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+
+			Customer c = DBController.GetCustomerByEmailFromDB(txtEmail.Text);
+			bool pwIncorrect = true;
+			if (c != null)
+			{
+				if (c.Password == txtPassword.Text)
+				{
+					FormController.CurrentCustomer = c;
+					c = null;
+					pwIncorrect = false;
+					MessageBox.Show("Sie wurden erfolgreich angemeldet.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					Close();
+				}
+			}
+			if (pwIncorrect)
+				MessageBox.Show("Der angegebene Nutzer konnte nicht gefunden werden oder das eingegebene Passwort ist nicht richtig.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 	}
 }

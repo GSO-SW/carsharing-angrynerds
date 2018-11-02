@@ -38,8 +38,10 @@
 			this.buttonLogin = new CustomControl.RoundButton();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.buttonRegister = new CustomControl.RoundButton();
+			this.panel3 = new System.Windows.Forms.Panel();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).BeginInit();
+			this.panel3.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// buttonCancel
@@ -48,9 +50,9 @@
 			this.buttonCancel.FlatAppearance.BorderSize = 0;
 			this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonCancel.Image = ((System.Drawing.Image)(resources.GetObject("buttonCancel.Image")));
-			this.buttonCancel.Location = new System.Drawing.Point(747, 12);
+			this.buttonCancel.Location = new System.Drawing.Point(495, 6);
 			this.buttonCancel.Name = "buttonCancel";
-			this.buttonCancel.Size = new System.Drawing.Size(41, 41);
+			this.buttonCancel.Size = new System.Drawing.Size(22, 22);
 			this.buttonCancel.TabIndex = 0;
 			this.buttonCancel.UseVisualStyleBackColor = true;
 			this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
@@ -73,7 +75,7 @@
 			this.labelName.Location = new System.Drawing.Point(53, 263);
 			this.labelName.Name = "labelName";
 			this.labelName.Size = new System.Drawing.Size(178, 36);
-			this.labelName.TabIndex = 1;
+			this.labelName.TabIndex = 0;
 			this.labelName.Text = "Instant Car";
 			// 
 			// pictureLogo
@@ -88,10 +90,10 @@
 			// txtEmail
 			// 
 			this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtEmail.Location = new System.Drawing.Point(380, 110);
+			this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtEmail.Location = new System.Drawing.Point(380, 122);
 			this.txtEmail.Name = "txtEmail";
-			this.txtEmail.Size = new System.Drawing.Size(332, 31);
+			this.txtEmail.Size = new System.Drawing.Size(332, 26);
 			this.txtEmail.TabIndex = 2;
 			this.txtEmail.Enter += new System.EventHandler(this.txtEmail_Enter);
 			this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
@@ -99,10 +101,10 @@
 			// txtPassword
 			// 
 			this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtPassword.Location = new System.Drawing.Point(380, 166);
+			this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtPassword.Location = new System.Drawing.Point(380, 163);
 			this.txtPassword.Name = "txtPassword";
-			this.txtPassword.Size = new System.Drawing.Size(332, 31);
+			this.txtPassword.Size = new System.Drawing.Size(332, 26);
 			this.txtPassword.TabIndex = 3;
 			this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
 			this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
@@ -120,6 +122,7 @@
 			this.buttonLogin.TabIndex = 6;
 			this.buttonLogin.Text = "Anmelden";
 			this.buttonLogin.UseVisualStyleBackColor = false;
+			this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
 			// 
 			// panel2
 			// 
@@ -143,13 +146,22 @@
 			this.buttonRegister.Text = "Registrieren";
 			this.buttonRegister.UseVisualStyleBackColor = false;
 			// 
+			// panel3
+			// 
+			this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
+			this.panel3.Controls.Add(this.buttonCancel);
+			this.panel3.Location = new System.Drawing.Point(275, 0);
+			this.panel3.Name = "panel3";
+			this.panel3.Size = new System.Drawing.Size(525, 35);
+			this.panel3.TabIndex = 9;
+			// 
 			// UserLoginView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
 			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Controls.Add(this.buttonCancel);
+			this.Controls.Add(this.panel3);
 			this.Controls.Add(this.buttonRegister);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.buttonLogin);
@@ -164,6 +176,7 @@
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).EndInit();
+			this.panel3.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -180,5 +193,6 @@
 		private System.Windows.Forms.Panel panel2;
 		private CustomControl.RoundButton buttonRegister;
 		private System.Windows.Forms.Label labelName;
+		private System.Windows.Forms.Panel panel3;
 	}
 }
