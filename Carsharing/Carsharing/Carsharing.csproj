@@ -74,6 +74,12 @@
     <Compile Include="UserLoginForm.Designer.cs">
       <DependentUpon>UserLoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserLoginView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserLoginView.Designer.cs">
+      <DependentUpon>UserLoginView.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserRegistrationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,9 @@
     <EmbeddedResource Include="UserLoginForm.resx">
       <DependentUpon>UserLoginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserLoginView.resx">
+      <DependentUpon>UserLoginView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserRegistrationForm.resx">
       <DependentUpon>UserRegistrationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,6 +123,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CustomControl\CustomControl.csproj">
+      <Project>{b9d79af0-d8fa-4473-859c-81f90213643e}</Project>
+      <Name>CustomControl</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

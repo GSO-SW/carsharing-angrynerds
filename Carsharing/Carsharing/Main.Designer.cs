@@ -33,6 +33,8 @@
 			this.userDeleteButton = new System.Windows.Forms.Button();
 			this.editCustomerButton = new System.Windows.Forms.Button();
 			this.buttonAddVehicle = new System.Windows.Forms.Button();
+			this.roundedButton1 = new CustomControl.RoundedButton();
+			this.roundButton1 = new CustomControl.RoundButton();
 			this.SuspendLayout();
 			// 
 			// userRegButton
@@ -85,11 +87,39 @@
 			this.buttonAddVehicle.UseVisualStyleBackColor = true;
 			this.buttonAddVehicle.Click += new System.EventHandler(this.button1_Click);
 			// 
+			// roundedButton1
+			// 
+			this.roundedButton1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+			this.roundedButton1.FlatAppearance.BorderSize = 0;
+			this.roundedButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.roundedButton1.Location = new System.Drawing.Point(198, 168);
+			this.roundedButton1.Name = "roundedButton1";
+			this.roundedButton1.Rounded = 0;
+			this.roundedButton1.Size = new System.Drawing.Size(367, 29);
+			this.roundedButton1.TabIndex = 4;
+			this.roundedButton1.Text = "roundedButton1";
+			this.roundedButton1.UseVisualStyleBackColor = false;
+			// 
+			// roundButton1
+			// 
+			this.roundButton1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+			this.roundButton1.FlatAppearance.BorderSize = 0;
+			this.roundButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.roundButton1.Location = new System.Drawing.Point(198, 223);
+			this.roundButton1.Name = "roundButton1";
+			this.roundButton1.Rounded = 0;
+			this.roundButton1.Size = new System.Drawing.Size(367, 32);
+			this.roundButton1.TabIndex = 5;
+			this.roundButton1.Text = "roundButton1";
+			this.roundButton1.UseVisualStyleBackColor = false;
+			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.roundButton1);
+			this.Controls.Add(this.roundedButton1);
 			this.Controls.Add(this.editCustomerButton);
 			this.Controls.Add(this.loginButton);
 			this.Controls.Add(this.userRegButton);
@@ -109,6 +139,8 @@
 		private System.Windows.Forms.Button loginButton;
 		private System.Windows.Forms.Button editCustomerButton;
 		private System.Windows.Forms.Button buttonAddVehicle;
+		private CustomControl.RoundedButton roundedButton1;
+		private CustomControl.RoundButton roundButton1;
 	}
 }
 
