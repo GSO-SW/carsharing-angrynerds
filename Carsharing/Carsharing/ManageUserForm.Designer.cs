@@ -28,10 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
 			this.customerListBox = new System.Windows.Forms.ListBox();
-			this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// customerListBox
@@ -43,10 +40,6 @@
 			this.customerListBox.TabIndex = 0;
 			this.customerListBox.SelectedIndexChanged += new System.EventHandler(this.customerListBox_SelectedIndexChanged);
 			// 
-			// customerBindingSource
-			// 
-			this.customerBindingSource.DataSource = typeof(Carsharing.Customer);
-			// 
 			// ManageUserForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -55,7 +48,6 @@
 			this.Controls.Add(this.customerListBox);
 			this.Name = "ManageUserForm";
 			this.Text = "Kunden verwalten";
-			((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -63,6 +55,5 @@
 		#endregion
 
 		private System.Windows.Forms.ListBox customerListBox;
-		private System.Windows.Forms.BindingSource customerBindingSource;
 	}
 }
