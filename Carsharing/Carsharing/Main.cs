@@ -59,7 +59,7 @@ namespace Carsharing
 		{
 			if (FormController.CurrentCustomer != null)
 			{
-				UserRegistrationForm urf = new UserRegistrationForm(true);
+				UserRegistrationForm urf = new UserRegistrationForm(FormController.CurrentCustomer);
 				urf.ShowDialog();
 			}
 			else

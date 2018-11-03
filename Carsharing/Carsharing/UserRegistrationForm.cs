@@ -7,34 +7,46 @@ namespace Carsharing
 	public partial class UserRegistrationForm : Form
 	{
 		private bool editMode;
+		private Customer updateCustomer;
 
 		/// <summary>
-		/// Create a new instance of this form.
+		/// Create a new instance of this form to edit an exsisting customer.
 		/// </summary>
-		/// <param name="editMode">Determines if a new user will be created or the current User will be edited.</param>
-		public UserRegistrationForm(bool editMode = false)
+		/// <param name="c">The customer to be processed.</param>
+		public UserRegistrationForm(Customer c)
 		{
 			InitializeComponent();
-			this.editMode = editMode;
-			if (editMode && FormController.CurrentCustomer != null)
+			
+			if (c != null)
 			{
+				updateCustomer = c;
+				editMode = true;
 				this.Text = "Bearbeiten";
 				this.acceptButton.Text = "Ändern";
 
-				this.nameTextBox.Text = FormController.CurrentCustomer.Name;
-				this.lastNameTextBox.Text = FormController.CurrentCustomer.LastName;
-				this.emailTextBox.Text = FormController.CurrentCustomer.EmailAddress;
-				this.phoneTextBox.Text = FormController.CurrentCustomer.PhoneNumber;
-				this.birthDatePicker.Value = FormController.CurrentCustomer.Birthday;
-				this.passwordTextBox.Text = FormController.CurrentCustomer.Password;
-				this.adminCheckBox.Checked = FormController.CurrentCustomer.IsAdmin;
-				this.streetTextBox.Text = FormController.CurrentCustomer.Street;
-				this.houseNumberTextBox.Text = FormController.CurrentCustomer.HouseNumber;
-				this.PLZTextBox.Text = FormController.CurrentCustomer.PLZ;
-				this.cityTextBox.Text = FormController.CurrentCustomer.City;
-				this.countryTextBox.Text = FormController.CurrentCustomer.Country;
+				this.nameTextBox.Text = c.Name;
+				this.lastNameTextBox.Text = c.LastName;
+				this.emailTextBox.Text = c.EmailAddress;
+				this.phoneTextBox.Text = c.PhoneNumber;
+				this.birthDatePicker.Value = c.Birthday;
+				this.passwordTextBox.Text = c.Password;
+				this.adminCheckBox.Checked = c.IsAdmin;
+				this.streetTextBox.Text = c.Street;
+				this.houseNumberTextBox.Text = c.HouseNumber;
+				this.PLZTextBox.Text = c.PLZ;
+				this.cityTextBox.Text = c.City;
+				this.countryTextBox.Text = c.Country;
 			}
 		}
+
+		/// <summary>
+		/// Create a new instance of this form to create a new customer.
+		/// </summary>
+		public UserRegistrationForm()
+		{
+			InitializeComponent();
+		}
+
 
 		private void acceptButton_Click(object sender, EventArgs e)
 		{
@@ -43,7 +55,7 @@ namespace Carsharing
 				Customer c = new Customer(nameTextBox.Text, lastNameTextBox.Text, emailTextBox.Text, phoneTextBox.Text, passwordTextBox.Text, birthDatePicker.Value, streetTextBox.Text, houseNumberTextBox.Text, PLZTextBox.Text, cityTextBox.Text, countryTextBox.Text, adminCheckBox.Checked);
 				if (editMode)
 				{
-					switch (DBController.UpdateCustomerInDB(c, FormController.CurrentCustomer.EmailAddress))
+					switch (DBController.UpdateCustomerInDB(c, updateCustomer.EmailAddress))
 					{
 						case 1:
 							MessageBox.Show("Es ist ein Fehler mit der Datenbank aufgetreten.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
