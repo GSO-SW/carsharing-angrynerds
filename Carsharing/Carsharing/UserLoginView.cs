@@ -66,15 +66,14 @@ namespace Carsharing
 
 		private void buttonLogin_Click(object sender, EventArgs e)
 		{
-			if (!DBController.ConnectionAvailable())
-			{
-				MessageBox.Show("Es konnte keine Verbindung zur Datenbank hergestellt werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return;
-			}
-
 			if (string.IsNullOrWhiteSpace(txtEmail.Text) || !txtEmail.Text.Contains("@") || !txtEmail.Text.Contains("."))
 			{
 				MessageBox.Show("Bitte geben Sie eine gültige E-Mail-Adresse an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+			if (!DBController.ConnectionAvailable())
+			{
+				MessageBox.Show("Es konnte keine Verbindung zur Datenbank hergestellt werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 
