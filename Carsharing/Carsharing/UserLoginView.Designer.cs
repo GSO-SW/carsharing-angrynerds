@@ -50,9 +50,9 @@
 			this.buttonCancel.FlatAppearance.BorderSize = 0;
 			this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonCancel.Image = ((System.Drawing.Image)(resources.GetObject("buttonCancel.Image")));
-			this.buttonCancel.Location = new System.Drawing.Point(495, 6);
+			this.buttonCancel.Location = new System.Drawing.Point(773, 2);
 			this.buttonCancel.Name = "buttonCancel";
-			this.buttonCancel.Size = new System.Drawing.Size(22, 22);
+			this.buttonCancel.Size = new System.Drawing.Size(21, 21);
 			this.buttonCancel.TabIndex = 0;
 			this.buttonCancel.UseVisualStyleBackColor = true;
 			this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
@@ -150,9 +150,9 @@
 			// 
 			this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
 			this.panel3.Controls.Add(this.buttonCancel);
-			this.panel3.Location = new System.Drawing.Point(275, 0);
+			this.panel3.Location = new System.Drawing.Point(0, 0);
 			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(525, 35);
+			this.panel3.Size = new System.Drawing.Size(800, 26);
 			this.panel3.TabIndex = 9;
 			// 
 			// UserLoginView
