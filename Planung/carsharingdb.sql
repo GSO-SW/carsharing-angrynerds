@@ -291,8 +291,12 @@ CREATE TABLE `kunde` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indizes der exportierten Tabellen
+-- Daten für Tabelle `kunde`
 --
+
+INSERT INTO `kunde` (`E-Mail Adresse`, `Vorname`, `Nachname`, `Telefonnummer`, `Passwort`, `admin`, `Geburtstag`, `Strasse`, `Hausnummer`, `PLZ`, `Stadt`, `Land`) VALUES
+
+('admin@system.de', 'admin', 'admin', '0123456789', 'admin', 1, '0000-00-00', 'Musterstraße', '1', '12345', 'Musterstadt', 'Deutschland');
 
 --
 -- Indizes für die Tabelle `buchung`
