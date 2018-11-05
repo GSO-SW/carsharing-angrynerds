@@ -15,8 +15,6 @@ namespace Carsharing
 		public UserLoginView()
 		{
 			InitializeComponent();
-			txtEmail_Leave(null, null);
-			txtPassword_Leave(null, null);
 
 			ActiveControl = labelName;
 		}
@@ -24,44 +22,6 @@ namespace Carsharing
 		private void buttonCancel_Click(object sender, EventArgs e)
 		{
 			Close();
-		}
-
-		private void txtEmail_Enter(object sender, EventArgs e)
-		{
-			if(txtEmail.Text == "E-Mail Adresse")
-			{
-				txtEmail.ForeColor = Color.FromArgb(0, 0, 0);
-				txtEmail.Text = null;
-			}
-		}
-
-		private void txtEmail_Leave(object sender, EventArgs e)
-		{
-			if (string.IsNullOrWhiteSpace(txtEmail.Text))
-			{
-				txtEmail.ForeColor = Color.FromArgb(73, 73, 73); 
-				txtEmail.Text = "E-Mail Adresse";
-			}
-		}
-
-		private void txtPassword_Enter(object sender, EventArgs e)
-		{
-			txtPassword.UseSystemPasswordChar = true;
-			if (txtPassword.Text == "Passwort")
-			{
-				txtPassword.ForeColor = Color.FromArgb(0, 0, 0);
-				txtPassword.Text = null;
-			}
-		}
-
-		private void txtPassword_Leave(object sender, EventArgs e)
-		{
-			if (string.IsNullOrWhiteSpace(txtPassword.Text))
-			{
-				txtPassword.UseSystemPasswordChar = false;
-				txtPassword.ForeColor = Color.FromArgb(73, 73, 73);
-				txtPassword.Text = "Passwort";
-			}
 		}
 
 		private void buttonLogin_Click(object sender, EventArgs e)
@@ -92,6 +52,11 @@ namespace Carsharing
 			}
 			if (pwIncorrect)
 				MessageBox.Show("Der angegebene Nutzer konnte nicht gefunden werden oder das eingegebene Passwort ist nicht richtig.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		private void buttonRegister_Click(object sender, EventArgs e)
+		{
+			new UserRegistrationView().ShowDialog();
 		}
 	}
 }
