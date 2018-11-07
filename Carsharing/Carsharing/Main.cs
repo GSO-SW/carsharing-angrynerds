@@ -92,5 +92,25 @@ namespace Carsharing
 			}
 			
 		}
+
+		private void createBookingButton_Click(object sender, EventArgs e)
+		{
+			if (FormController.CurrentCustomer != null)
+			{
+				if (DBController.ConnectionAvailable())
+				{
+					CreateBookingForm ccf = new CreateBookingForm();
+					ccf.ShowDialog();
+				}
+				else
+				{
+					MessageBox.Show("Es konnte keine Verbindung zur Datenbank aufgebaut werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
+			else
+			{
+				MessageBox.Show("Sie müssen sich anmelden, damit Sie ihren Buchungen erstellen können.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
 	}
 }
