@@ -55,6 +55,12 @@
       <DependentUpon>AddVehicleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Booking.cs" />
+    <Compile Include="CreateBookingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateBookingForm.Designer.cs">
+      <DependentUpon>CreateBookingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Customer.cs" />
     <Compile Include="DBController.cs" />
     <Compile Include="Main.cs">

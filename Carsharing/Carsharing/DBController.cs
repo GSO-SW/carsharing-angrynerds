@@ -644,6 +644,50 @@ namespace Carsharing
 		}
 
 		/// <summary>
+		/// Method to check if a customer has open bookings.
+		/// </summary>
+		/// <param name="c">The customer, whose bookings require a check.</param>
+		/// <returns>Returns true, if the customer has open bookings in the DB. Returns false, if he doesn't.</returns>
+		public static bool CheckOpenBookings(Customer c)
+		{
+			// The result of the check is false at default
+			bool result = false;
+			DataTable table = new DataTable();
+			using (MySqlConnection con = new MySqlConnection(connectionString))
+			{
+				try
+				{
+					con.Open();
+					// Get a list of all B_IDs matching the customer's email-address and checks,
+					// if the ending mileage equals NULL, indicating the booking is still open.
+					using (MySqlCommand command = new MySqlCommand("Select B_ID FROM buchung WHERE `E - Mail Adresse` = @email AND Endkilometerstand IS NULL", con))
+					{
+						command.Parameters.AddWithValue("email", c.EmailAddress);
+						// Transfer the found B_IDs into a table via the MySqlDataAdapter...
+						using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+						{
+							adapter.Fill(table);
+						}
+					}
+				}
+				catch (Exception e)
+				{
+
+				}
+				finally
+				{
+					con.Close();
+				}
+			}
+			// The column's length is > 0, when B_IDs have been found, hence give a positive result
+			if (table.Rows.Count > 0)
+			{
+				result = true;
+			}
+			return result;
+		}
+
+		/// <summary>
 		/// Get a customer from the database by his email address.
 		/// </summary>
 		/// <param name="email">The email address which the customer should have.</param>

@@ -99,8 +99,16 @@ namespace Carsharing
 			{
 				if (DBController.ConnectionAvailable())
 				{
-					CreateBookingForm ccf = new CreateBookingForm();
-					ccf.ShowDialog();
+					if (!DBController.CheckOpenBookings(FormController.CurrentCustomer))
+					{
+						// open the ccf only, if the customer has no open bookings, because he isn't allowed to rent more than one car at a time
+						CreateBookingForm ccf = new CreateBookingForm();
+						ccf.ShowDialog();
+					}
+					else
+					{
+						MessageBox.Show("Sie haben bereits eine offene Buchung.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
 				}
 				else
 				{
