@@ -295,8 +295,7 @@ CREATE TABLE `kunde` (
 --
 
 INSERT INTO `kunde` (`E-Mail Adresse`, `Vorname`, `Nachname`, `Telefonnummer`, `Passwort`, `admin`, `Geburtstag`, `Strasse`, `Hausnummer`, `PLZ`, `Stadt`, `Land`) VALUES
-
-('admin@system.de', 'admin', 'admin', '0123456789', 'admin', 1, '0000-00-00', 'Musterstraße', '1', '12345', 'Musterstadt', 'Deutschland');
+('admin@system.de', 'admin', 'admin', '0123456789', 'admin', 1, '2000-01-01', 'Musterstraße', '1', '12345', 'Musterstadt', 'Deutschland');
 
 --
 -- Indizes für die Tabelle `buchung`
