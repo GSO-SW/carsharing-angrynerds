@@ -48,6 +48,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountLogin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AccountLogin.Designer.cs">
+      <DependentUpon>AccountLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AccountRegistration.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AccountRegistration.Designer.cs">
+      <DependentUpon>AccountRegistration.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddVehicleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,25 +80,19 @@
     <Compile Include="PointD.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserLoginForm.cs">
+    <Compile Include="UserStartView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserLoginForm.Designer.cs">
-      <DependentUpon>UserLoginForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserLoginView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UserLoginView.Designer.cs">
-      <DependentUpon>UserLoginView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserRegistrationForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UserRegistrationForm.Designer.cs">
-      <DependentUpon>UserRegistrationForm.cs</DependentUpon>
+    <Compile Include="UserStartView.Designer.cs">
+      <DependentUpon>UserStartView.cs</DependentUpon>
     </Compile>
     <Compile Include="Vehicle.cs" />
+    <EmbeddedResource Include="AccountLogin.resx">
+      <DependentUpon>AccountLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AccountRegistration.resx">
+      <DependentUpon>AccountRegistration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddVehicleForm.resx">
       <DependentUpon>AddVehicleForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,14 +108,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserLoginForm.resx">
-      <DependentUpon>UserLoginForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserLoginView.resx">
-      <DependentUpon>UserLoginView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserRegistrationForm.resx">
-      <DependentUpon>UserRegistrationForm.cs</DependentUpon>
+    <EmbeddedResource Include="UserStartView.resx">
+      <DependentUpon>UserStartView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

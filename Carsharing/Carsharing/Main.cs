@@ -15,22 +15,12 @@ namespace Carsharing
 		public Main()
 		{
 			InitializeComponent();
+
+			FormController.MainView = this;
 		}
 
-		private void userRegButton_Click(object sender, EventArgs e)
+		private void userDeleteButton_Click(object sender, EventArgs e)
 		{
-			UserRegistrationForm urf = new UserRegistrationForm();
-			urf.ShowDialog();
-		}
-
-		private void loginButton_Click(object sender, EventArgs e)
-		{
-			UserLoginForm usl = new UserLoginForm();
-			usl.ShowDialog();
-		}
-
-        private void userDeleteButton_Click(object sender, EventArgs e)
-        {
 			if (FormController.CurrentCustomer != null)
 			{
 				// Show MessageBox to confirm the user's intention
@@ -53,14 +43,13 @@ namespace Carsharing
 			{
 				MessageBox.Show("Sie müssen sich anmelden, damit Sie ihren Account löschen können.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
-        }
+		}
 
 		private void editCustomerButton_Click(object sender, EventArgs e)
 		{
 			if (FormController.CurrentCustomer != null)
 			{
-				UserRegistrationForm urf = new UserRegistrationForm(true);
-				urf.ShowDialog();
+
 			}
 			else
 			{
@@ -75,7 +64,7 @@ namespace Carsharing
 				MessageBox.Show("Es konnte keine Verbindung zur Datenbank aufgebaut werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
-			if(FormController.CurrentCustomer == null)
+			if (FormController.CurrentCustomer == null)
 			{
 				MessageBox.Show("Sie sind nicht angemeldet.\nSie werden zum Hauptfenster zurückgeleitet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
@@ -90,7 +79,6 @@ namespace Carsharing
 					MessageBox.Show("Sie sind nicht als Admin angemeldet.\nSie werden zum Hauptfenster zurückgeleitet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
-			
 		}
 	}
 }

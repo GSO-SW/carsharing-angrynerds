@@ -13,6 +13,16 @@ namespace CustomControl
 		public string Watermark { get; set; }
 		public bool Password { get; set; }
 
+		public string TextWithoutWatermark
+		{
+			get
+			{
+				if (base.Text == Watermark)
+					return String.Empty;
+				return base.Text;
+			}
+		}
+
 		protected override ControlCollection CreateControlsInstance()
 		{
 			if (string.IsNullOrWhiteSpace(Text))
@@ -45,6 +55,14 @@ namespace CustomControl
 				Text = Watermark;
 			}
 			base.OnLeave(e);
+		}
+
+		public void ResetToWatermark()
+		{
+			if (Password)
+				UseSystemPasswordChar = false;
+			ForeColor = Color.FromArgb(73, 73, 73);
+			Text = Watermark;
 		}
 	}
 }

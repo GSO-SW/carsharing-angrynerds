@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace Carsharing
 {
-	public partial class UserLoginView : Form
+	public partial class AccountLogin : UserControl
 	{
-		public UserLoginView()
+		public AccountLogin()
 		{
 			InitializeComponent();
-
-			ActiveControl = labelName;
-		}
-
-		private void buttonCancel_Click(object sender, EventArgs e)
-		{
-			Close();
 		}
 
 		private void buttonLogin_Click(object sender, EventArgs e)
@@ -47,7 +40,7 @@ namespace Carsharing
 					c = null;
 					pwIncorrect = false;
 					MessageBox.Show("Sie wurden erfolgreich angemeldet.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-					Close();
+					FormController.StartView.Close();
 				}
 			}
 			if (pwIncorrect)
@@ -56,7 +49,16 @@ namespace Carsharing
 
 		private void buttonRegister_Click(object sender, EventArgs e)
 		{
-			new UserRegistrationView().ShowDialog();
+			FormController.StartView.State = UserStartView.StartState.Registration;
+		}
+
+		public void Renew()
+		{
+			foreach (Control item in Controls)
+			{
+				if (item is CustomControl.WatermarkTextBox)
+					((CustomControl.WatermarkTextBox)item).ResetToWatermark();
+			}
 		}
 	}
 }
