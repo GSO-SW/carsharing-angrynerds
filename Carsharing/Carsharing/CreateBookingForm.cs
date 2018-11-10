@@ -15,6 +15,9 @@ namespace Carsharing
 		public CreateBookingForm()
 		{
 			InitializeComponent();
+
+			listBox1.DisplayMember = "numberPlate";
+			listBox1.Items.AddRange(DBController.GetAllVehiclesFromDB().ToArray());
 		}
 	}
 }
