@@ -450,6 +450,53 @@ namespace Carsharing
 			}
 			return true;
 		}
+		
+		public static List<Vehicle> GetAllVehiclesFromDB()
+		{
+			DataTable table = new DataTable();
+
+			using (MySqlConnection con = new MySqlConnection(connectionString))
+			{
+				try
+				{
+					con.Open();
+					using (MySqlDataAdapter a = new MySqlDataAdapter("SELECT * FROM `fahrzeug` JOIN `fahrzeugtyp` USING(`Ft_ID`) JOIN `fahrzeugmarke` USING(`Fm_ID`) JOIN `fahrzeuggetriebe` USING(`Fg_ID`) JOIN `kraftstoffart` USING(`Ks_ID`)", con))
+					{
+						a.Fill(table);
+					}
+				}
+				catch (Exception)
+				{
+
+				}
+				finally
+				{
+					con.Close();
+				}
+			}
+
+			List<Vehicle> vehicleList = new List<Vehicle>();
+			foreach (DataRow item in table.Rows)
+			{
+				vehicleList.Add(GetVehicleFromDataRow(item));
+			}
+
+			return vehicleList;
+		}
+		
+		private static Vehicle GetVehicleFromDataRow(DataRow row)
+		{
+			Vehicle v;
+			try
+			{
+				v = new Vehicle(row.Field<string>("Kennzeichen"), row.Field<double>("Kilometerstand"), row.Field<DateTime>("Letzte Wartung"), row.Field<double>("Tankfuellung"), new PointD(0,0), row.Field<bool>("Verfuegbarkeit"), row.Field<string>("Marke"), row.Field<string>("Modell"), row.Field<int>("Leistung"), row.Field<int>("Baujahr"), row.Field<string>("Getriebeart"), row.Field<double>("Max_Tankvolumen"), row.Field<double>("Grundpreis"), row.Field<double>("Preis/km"), row.Field<double>("Preis/min"), row.Field<DateTime>("Erstzulassung"), row.Field<int>("Anzahl der Sitze"), row.Field<string>("Kraftstoffart"), row.Field<double>("Kraftstoffverbrauch"), row.Field<bool>("Klimaanlage"), row.Field<bool>("Tempomat"), row.Field<bool>("Radio"), row.Field<bool>("Bluetooth"), row.Field<bool>("USB"), row.Field<bool>("CD-Spieler"), row.Field<bool>("Navigationsgeraet"), row.Field<bool>("ABS"), row.Field<bool>("ESP"), row.Field<bool>("Sitzheizung"), row.Field<bool>("Winterreifen"), row.Field<bool>("Raucher"));
+			}
+			catch (Exception)
+			{
+				v = null;
+			}
+			return v;
+		}
 
 		/// <summary>
 		/// Method to add a vehicle type to the DB.
@@ -507,7 +554,7 @@ namespace Carsharing
 			return true;
 		}
 		#endregion
-
+		
 		#region Customer
 		/// <summary>
 		/// Method to add a customer to the database.
