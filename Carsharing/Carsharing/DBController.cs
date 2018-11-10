@@ -753,6 +753,10 @@ namespace Carsharing
 						a.Fill(t);
 					}
 				}
+				catch (Exception)
+				{
+					
+				}
 				finally
 				{
 					con.Close();

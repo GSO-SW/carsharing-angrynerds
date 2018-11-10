@@ -16,7 +16,7 @@ namespace Carsharing
 		{
 			InitializeComponent();
 
-			listBox1.DisplayMember = "numberPlate";
+			listBox1.DisplayMember = "DisplayMember";
 			listBox1.Items.AddRange(DBController.GetAllVehiclesFromDB().ToArray());
 		}
 	}
