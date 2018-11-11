@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Carsharing
 {
-	class Booking
+	public class Booking
 	{
 		#region Attributes
 		private Customer customer;
@@ -14,7 +14,7 @@ namespace Carsharing
 		private DateTime startTime;
 		private DateTime endTime;
 		private double startMileage;
-		private double endMileague;
+		private double endMileage;
 		#endregion
 
 		#region Propeties
@@ -50,9 +50,19 @@ namespace Carsharing
 
 		public double EndMileage
 		{
-			get { return endMileague; }
-			set { endMileague = value; }
+			get { return endMileage; }
+			set { endMileage = value; }
 		}
 		#endregion
+
+		public Booking(Customer customer, Vehicle vehicle, DateTime startTime, DateTime endTime, double startMileage,double endMileage)
+		{
+			this.customer = customer;
+			this.vehicle = vehicle;
+			this.startTime = startTime;
+			this.endTime = endTime;
+			this.startMileage = startMileage;
+			this.endMileage = endMileage;
+		}
 	}
 }
