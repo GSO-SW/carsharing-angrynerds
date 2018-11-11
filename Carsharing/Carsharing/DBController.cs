@@ -707,7 +707,7 @@ namespace Carsharing
 					con.Open();
 					// Get a list of all B_IDs matching the customer's email-address and checks,
 					// if the ending mileage equals NULL, indicating the booking is still open.
-					using (MySqlCommand command = new MySqlCommand("Select B_ID FROM buchung WHERE `E - Mail Adresse` = @email AND Endkilometerstand IS NULL", con))
+					using (MySqlCommand command = new MySqlCommand("Select B_ID FROM buchung WHERE `E-Mail Adresse` = @email AND Endkilometerstand IS NULL", con))
 					{
 						command.Parameters.AddWithValue("email", c.EmailAddress);
 						// Transfer the found B_IDs into a table via the MySqlDataAdapter...
