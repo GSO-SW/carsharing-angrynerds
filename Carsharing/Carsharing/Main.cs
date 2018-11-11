@@ -102,7 +102,7 @@ namespace Carsharing
 					if (!DBController.CheckOpenBookings(FormController.CurrentCustomer))
 					{
 						// open the ccf only, if the customer has no open bookings, because he isn't allowed to rent more than one car at a time
-						CreateBookingForm ccf = new CreateBookingForm();
+						ShowVehicleForm ccf = new ShowVehicleForm();
 						ccf.ShowDialog();
 					}
 					else

@@ -55,11 +55,11 @@
       <DependentUpon>AddVehicleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Booking.cs" />
-    <Compile Include="CreateBookingForm.cs">
+    <Compile Include="ShowVehicleForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreateBookingForm.Designer.cs">
-      <DependentUpon>CreateBookingForm.cs</DependentUpon>
+    <Compile Include="ShowVehicleForm.Designer.cs">
+      <DependentUpon>ShowVehicleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer.cs" />
     <Compile Include="DBController.cs" />
@@ -90,8 +90,8 @@
     <EmbeddedResource Include="AddVehicleForm.resx">
       <DependentUpon>AddVehicleForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreateBookingForm.resx">
-      <DependentUpon>CreateBookingForm.cs</DependentUpon>
+    <EmbeddedResource Include="ShowVehicleForm.resx">
+      <DependentUpon>ShowVehicleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

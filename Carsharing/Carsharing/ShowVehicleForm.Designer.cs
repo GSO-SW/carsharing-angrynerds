@@ -1,6 +1,6 @@
 ﻿namespace Carsharing
 {
-	partial class CreateBookingForm
+	partial class ShowVehicleForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -39,13 +39,13 @@
 			this.listBox1.Size = new System.Drawing.Size(193, 420);
 			this.listBox1.TabIndex = 0;
 			// 
-			// CreateBookingForm
+			// ShowVehicleForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.listBox1);
-			this.Name = "CreateBookingForm";
+			this.Name = "ShowVehicleForm";
 			this.Text = "CreateBookingForm";
 			this.ResumeLayout(false);
 
