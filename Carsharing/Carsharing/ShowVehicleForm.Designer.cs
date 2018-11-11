@@ -328,6 +328,7 @@
 			this.bookingButton.TabIndex = 27;
 			this.bookingButton.Text = "Buchen";
 			this.bookingButton.UseVisualStyleBackColor = true;
+			this.bookingButton.Click += new System.EventHandler(this.bookingButton_Click);
 			// 
 			// label13
 			// 
