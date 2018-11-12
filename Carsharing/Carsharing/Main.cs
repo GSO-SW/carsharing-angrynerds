@@ -92,5 +92,33 @@ namespace Carsharing
 			}
 			
 		}
+
+		private void createBookingButton_Click(object sender, EventArgs e)
+		{
+			if (FormController.CurrentCustomer != null)
+			{
+				if (DBController.ConnectionAvailable())
+				{
+					if (!DBController.CheckOpenBookings(FormController.CurrentCustomer))
+					{
+						// open the ccf only, if the customer has no open bookings, because he isn't allowed to rent more than one car at a time
+						ShowVehicleForm ccf = new ShowVehicleForm();
+						ccf.ShowDialog();
+					}
+					else
+					{
+						MessageBox.Show("Sie haben bereits eine offene Buchung.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
+				}
+				else
+				{
+					MessageBox.Show("Es konnte keine Verbindung zur Datenbank aufgebaut werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
+			else
+			{
+				MessageBox.Show("Sie müssen sich anmelden, damit Sie ihren Buchungen erstellen können.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
 	}
 }
