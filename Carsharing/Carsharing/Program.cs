@@ -16,9 +16,15 @@ namespace Carsharing
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new UserStartView(UserStartView.StartState.Login));
+
+			//Show Login View
+			//Application.Run(new UserStartView(UserStartView.StartState.Login));
+
+			FormController.CurrentCustomer = DBController.GetCustomerByEmailFromDB("admin@system.de");
+
+			//If someone is loggin in, main shows
 			if (FormController.CurrentCustomer != null)
-				Application.Run(new Main());
+				Application.Run(new MainView());
 		}
 	}
 }

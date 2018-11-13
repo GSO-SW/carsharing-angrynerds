@@ -51,7 +51,7 @@
 			this.txtEmail.Name = "txtEmail";
 			this.txtEmail.Password = false;
 			this.txtEmail.Size = new System.Drawing.Size(332, 26);
-			this.txtEmail.TabIndex = 15;
+			this.txtEmail.TabIndex = 1;
 			this.txtEmail.Watermark = "E-Mail";
 			// 
 			// buttonRegister
@@ -64,7 +64,7 @@
 			this.buttonRegister.Name = "buttonRegister";
 			this.buttonRegister.Rounded = 0;
 			this.buttonRegister.Size = new System.Drawing.Size(332, 31);
-			this.buttonRegister.TabIndex = 14;
+			this.buttonRegister.TabIndex = 4;
 			this.buttonRegister.Text = "Registrieren";
 			this.buttonRegister.UseVisualStyleBackColor = false;
 			this.buttonRegister.Click += new System.EventHandler(this.buttonRegister_Click);
@@ -79,7 +79,7 @@
 			this.buttonLogin.Name = "buttonLogin";
 			this.buttonLogin.Rounded = 0;
 			this.buttonLogin.Size = new System.Drawing.Size(332, 31);
-			this.buttonLogin.TabIndex = 12;
+			this.buttonLogin.TabIndex = 3;
 			this.buttonLogin.Text = "Anmelden";
 			this.buttonLogin.UseVisualStyleBackColor = false;
 			this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
@@ -93,7 +93,7 @@
 			this.txtPassword.Name = "txtPassword";
 			this.txtPassword.Password = true;
 			this.txtPassword.Size = new System.Drawing.Size(332, 26);
-			this.txtPassword.TabIndex = 11;
+			this.txtPassword.TabIndex = 2;
 			this.txtPassword.Watermark = "Passwort";
 			// 
 			// AccountLogin

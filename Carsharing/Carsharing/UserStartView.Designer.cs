@@ -29,10 +29,10 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserStartView));
-			this.buttonCancel = new System.Windows.Forms.Button();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.labelName = new System.Windows.Forms.Label();
 			this.pictureLogo = new System.Windows.Forms.PictureBox();
+			this.buttonCancel = new System.Windows.Forms.Button();
 			this.panel3 = new System.Windows.Forms.Panel();
 			this.accountLogin1 = new Carsharing.AccountLogin();
 			this.accountRegistration1 = new Carsharing.AccountRegistration();
@@ -41,29 +41,16 @@
 			this.panel3.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// buttonCancel
-			// 
-			this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.buttonCancel.FlatAppearance.BorderSize = 0;
-			this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.buttonCancel.Image = ((System.Drawing.Image)(resources.GetObject("buttonCancel.Image")));
-			this.buttonCancel.Location = new System.Drawing.Point(773, 1);
-			this.buttonCancel.Name = "buttonCancel";
-			this.buttonCancel.Size = new System.Drawing.Size(21, 21);
-			this.buttonCancel.TabIndex = 0;
-			this.buttonCancel.UseVisualStyleBackColor = true;
-			this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
-			// 
 			// panel1
 			// 
 			this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(90)))));
 			this.panel1.Controls.Add(this.labelName);
 			this.panel1.Controls.Add(this.pictureLogo);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-			this.panel1.Location = new System.Drawing.Point(0, 0);
+			this.panel1.Location = new System.Drawing.Point(0, 25);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(275, 450);
-			this.panel1.TabIndex = 1;
+			this.panel1.Size = new System.Drawing.Size(275, 425);
+			this.panel1.TabIndex = 10;
 			// 
 			// labelName
 			// 
@@ -84,10 +71,25 @@
 			this.pictureLogo.TabIndex = 0;
 			this.pictureLogo.TabStop = false;
 			// 
+			// buttonCancel
+			// 
+			this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.buttonCancel.Dock = System.Windows.Forms.DockStyle.Right;
+			this.buttonCancel.FlatAppearance.BorderSize = 0;
+			this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.buttonCancel.Image = ((System.Drawing.Image)(resources.GetObject("buttonCancel.Image")));
+			this.buttonCancel.Location = new System.Drawing.Point(775, 0);
+			this.buttonCancel.Name = "buttonCancel";
+			this.buttonCancel.Size = new System.Drawing.Size(25, 25);
+			this.buttonCancel.TabIndex = 0;
+			this.buttonCancel.UseVisualStyleBackColor = true;
+			this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+			// 
 			// panel3
 			// 
 			this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
 			this.panel3.Controls.Add(this.buttonCancel);
+			this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel3.Location = new System.Drawing.Point(0, 0);
 			this.panel3.Name = "panel3";
 			this.panel3.Size = new System.Drawing.Size(800, 25);
@@ -96,6 +98,7 @@
 			// accountLogin1
 			// 
 			this.accountLogin1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.accountLogin1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.accountLogin1.Location = new System.Drawing.Point(275, 25);
 			this.accountLogin1.Name = "accountLogin1";
 			this.accountLogin1.Size = new System.Drawing.Size(525, 425);
@@ -115,10 +118,10 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
 			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Controls.Add(this.panel3);
-			this.Controls.Add(this.panel1);
-			this.Controls.Add(this.accountRegistration1);
 			this.Controls.Add(this.accountLogin1);
+			this.Controls.Add(this.accountRegistration1);
+			this.Controls.Add(this.panel1);
+			this.Controls.Add(this.panel3);
 			this.DoubleBuffered = true;
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "UserStartView";
@@ -133,13 +136,12 @@
 		}
 
 		#endregion
-
-		private System.Windows.Forms.Button buttonCancel;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.PictureBox pictureLogo;
 		private System.Windows.Forms.Label labelName;
-		private System.Windows.Forms.Panel panel3;
 		private AccountLogin accountLogin1;
 		private AccountRegistration accountRegistration1;
+		private System.Windows.Forms.Button buttonCancel;
+		private System.Windows.Forms.Panel panel3;
 	}
 }
