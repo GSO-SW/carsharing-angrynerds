@@ -54,13 +54,11 @@ namespace Carsharing
 			switch (State)
 			{
 				case StartState.Login:
-					accountLogin1.Visible = true;
-					accountRegistration1.Visible = false;
+					accountLogin1.BringToFront();
 					accountRegistration1.Renew();
 					break;
 				case StartState.Registration:
-					accountLogin1.Visible = false;
-					accountRegistration1.Visible = true;
+					accountRegistration1.BringToFront();
 					accountLogin1.Renew();
 					break;
 			}

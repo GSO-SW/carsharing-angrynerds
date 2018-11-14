@@ -52,7 +52,7 @@
 			this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel3.Location = new System.Drawing.Point(0, 0);
 			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(1029, 25);
+			this.panel3.Size = new System.Drawing.Size(1100, 25);
 			this.panel3.TabIndex = 10;
 			// 
 			// buttonCancel
@@ -62,7 +62,7 @@
 			this.buttonCancel.FlatAppearance.BorderSize = 0;
 			this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonCancel.Image = ((System.Drawing.Image)(resources.GetObject("buttonCancel.Image")));
-			this.buttonCancel.Location = new System.Drawing.Point(1004, 0);
+			this.buttonCancel.Location = new System.Drawing.Point(1075, 0);
 			this.buttonCancel.Name = "buttonCancel";
 			this.buttonCancel.Size = new System.Drawing.Size(25, 25);
 			this.buttonCancel.TabIndex = 0;
@@ -83,7 +83,7 @@
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
 			this.panel1.Location = new System.Drawing.Point(0, 25);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(183, 541);
+			this.panel1.Size = new System.Drawing.Size(200, 575);
 			this.panel1.TabIndex = 11;
 			// 
 			// pictureLogo
@@ -91,7 +91,7 @@
 			this.pictureLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureLogo.Image")));
 			this.pictureLogo.Location = new System.Drawing.Point(5, 6);
 			this.pictureLogo.Name = "pictureLogo";
-			this.pictureLogo.Size = new System.Drawing.Size(175, 120);
+			this.pictureLogo.Size = new System.Drawing.Size(192, 128);
 			this.pictureLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pictureLogo.TabIndex = 6;
 			this.pictureLogo.TabStop = false;
@@ -103,9 +103,9 @@
 			this.buttonBookings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonBookings.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.buttonBookings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.buttonBookings.Location = new System.Drawing.Point(15, 494);
+			this.buttonBookings.Location = new System.Drawing.Point(15, 524);
 			this.buttonBookings.Name = "buttonBookings";
-			this.buttonBookings.Size = new System.Drawing.Size(165, 40);
+			this.buttonBookings.Size = new System.Drawing.Size(182, 40);
 			this.buttonBookings.TabIndex = 5;
 			this.buttonBookings.Text = "Buchungen";
 			this.buttonBookings.UseVisualStyleBackColor = false;
@@ -118,9 +118,9 @@
 			this.buttonUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonUsers.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.buttonUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.buttonUsers.Location = new System.Drawing.Point(15, 454);
+			this.buttonUsers.Location = new System.Drawing.Point(15, 484);
 			this.buttonUsers.Name = "buttonUsers";
-			this.buttonUsers.Size = new System.Drawing.Size(165, 40);
+			this.buttonUsers.Size = new System.Drawing.Size(182, 40);
 			this.buttonUsers.TabIndex = 4;
 			this.buttonUsers.Text = "Nutzer";
 			this.buttonUsers.UseVisualStyleBackColor = false;
@@ -135,7 +135,7 @@
 			this.buttonBooking.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.buttonBooking.Location = new System.Drawing.Point(15, 180);
 			this.buttonBooking.Name = "buttonBooking";
-			this.buttonBooking.Size = new System.Drawing.Size(165, 40);
+			this.buttonBooking.Size = new System.Drawing.Size(182, 40);
 			this.buttonBooking.TabIndex = 3;
 			this.buttonBooking.Text = "Buchung";
 			this.buttonBooking.UseVisualStyleBackColor = false;
@@ -162,9 +162,9 @@
 			this.buttonVehicles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonVehicles.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.buttonVehicles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.buttonVehicles.Location = new System.Drawing.Point(15, 414);
+			this.buttonVehicles.Location = new System.Drawing.Point(15, 444);
 			this.buttonVehicles.Name = "buttonVehicles";
-			this.buttonVehicles.Size = new System.Drawing.Size(165, 40);
+			this.buttonVehicles.Size = new System.Drawing.Size(182, 40);
 			this.buttonVehicles.TabIndex = 1;
 			this.buttonVehicles.Text = "Fahrzeuge";
 			this.buttonVehicles.UseVisualStyleBackColor = false;
@@ -187,7 +187,7 @@
 			this.buttonStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.buttonStatus.Location = new System.Drawing.Point(15, 140);
 			this.buttonStatus.Name = "buttonStatus";
-			this.buttonStatus.Size = new System.Drawing.Size(165, 40);
+			this.buttonStatus.Size = new System.Drawing.Size(182, 40);
 			this.buttonStatus.TabIndex = 0;
 			this.buttonStatus.Text = "Status";
 			this.buttonStatus.UseVisualStyleBackColor = false;
@@ -198,11 +198,12 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.ClientSize = new System.Drawing.Size(1029, 566);
+			this.ClientSize = new System.Drawing.Size(1100, 600);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.panel3);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "MainView";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "MainView";
 			this.panel3.ResumeLayout(false);
 			this.panel1.ResumeLayout(false);
