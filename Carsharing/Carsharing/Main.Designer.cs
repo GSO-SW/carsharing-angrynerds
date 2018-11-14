@@ -65,16 +65,6 @@
 			this.buttonAddVehicle.UseVisualStyleBackColor = true;
 			this.buttonAddVehicle.Click += new System.EventHandler(this.button1_Click);
 			// 
-			// createBookingButton
-			// 
-			this.createBookingButton.Location = new System.Drawing.Point(434, 222);
-			this.createBookingButton.Name = "createBookingButton";
-			this.createBookingButton.Size = new System.Drawing.Size(75, 23);
-			this.createBookingButton.TabIndex = 4;
-			this.createBookingButton.Text = "Buchung erstellen";
-			this.createBookingButton.UseVisualStyleBackColor = true;
-			this.createBookingButton.Click += new System.EventHandler(this.createBookingButton_Click);
-			// 
 			// roundButton1
 			// 
 			this.roundButton1.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -87,6 +77,16 @@
 			this.roundButton1.TabIndex = 5;
 			this.roundButton1.Text = "roundButton1";
 			this.roundButton1.UseVisualStyleBackColor = false;
+			// 
+			// createBookingButton
+			// 
+			this.createBookingButton.Location = new System.Drawing.Point(451, 174);
+			this.createBookingButton.Name = "createBookingButton";
+			this.createBookingButton.Size = new System.Drawing.Size(75, 23);
+			this.createBookingButton.TabIndex = 4;
+			this.createBookingButton.Text = "Buchung erstellen";
+			this.createBookingButton.UseVisualStyleBackColor = true;
+			this.createBookingButton.Click += new System.EventHandler(this.createBookingButton_Click);
 			// 
 			// Main
 			// 
