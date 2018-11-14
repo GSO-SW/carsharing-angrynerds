@@ -49,9 +49,9 @@ CREATE TABLE `fahrzeug` (
   `Ft_ID` int(9) NOT NULL,
   `Kilometerstand` double(10,2) NOT NULL,
   `Letzte Wartung` date NOT NULL,
-  `Tankfüllung` double(10,2) NOT NULL,
+  `Tankfuellung` double(10,2) NOT NULL,
   `Standort` varchar(10) NOT NULL,
-  `Verfügbarkeit` tinyint(1) NOT NULL,
+  `Verfuegbarkeit` tinyint(1) NOT NULL,
   `Erstzulassung` date NOT NULL,
   `Kraftstoffverbrauch` double(4,2) NOT NULL,
   `Klimaanlage` tinyint(1) NOT NULL,
@@ -60,7 +60,7 @@ CREATE TABLE `fahrzeug` (
   `Bluetooth` tinyint(1) NOT NULL,
   `USB` tinyint(1) NOT NULL,
   `CD-Spieler` tinyint(1) NOT NULL,
-  `Navigationsgerät` tinyint(1) NOT NULL,
+  `Navigationsgeraet` tinyint(1) NOT NULL,
   `ABS` tinyint(1) NOT NULL,
   `ESP` tinyint(1) NOT NULL,
   `Sitzheizung` tinyint(1) NOT NULL,
@@ -291,8 +291,11 @@ CREATE TABLE `kunde` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indizes der exportierten Tabellen
+-- Daten für Tabelle `kunde`
 --
+
+INSERT INTO `kunde` (`E-Mail Adresse`, `Vorname`, `Nachname`, `Telefonnummer`, `Passwort`, `admin`, `Geburtstag`, `Strasse`, `Hausnummer`, `PLZ`, `Stadt`, `Land`) VALUES
+('admin@system.de', 'admin', 'admin', '0123456789', 'admin', 1, '2000-01-01', 'Musterstraße', '1', '12345', 'Musterstadt', 'Deutschland');
 
 --
 -- Indizes für die Tabelle `buchung`

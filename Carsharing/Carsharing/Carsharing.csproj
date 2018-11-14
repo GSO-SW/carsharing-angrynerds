@@ -67,6 +67,12 @@
       <DependentUpon>AddVehicleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Booking.cs" />
+    <Compile Include="ShowVehicleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowVehicleForm.Designer.cs">
+      <DependentUpon>ShowVehicleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Customer.cs" />
     <Compile Include="DBController.cs" />
     <Compile Include="Main.cs">
@@ -113,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddVehicleForm.resx">
       <DependentUpon>AddVehicleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowVehicleForm.resx">
+      <DependentUpon>ShowVehicleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

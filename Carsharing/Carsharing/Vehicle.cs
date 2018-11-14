@@ -322,6 +322,11 @@ namespace Carsharing
 			get { return smoker; }
 			set { smoker = value; }
 		}
+
+		public string DisplayMember
+		{
+			get { return brand + " " + model + ", " + numberPlate; }
+		}
 		#endregion
 
 		#region Constructor
@@ -343,6 +348,22 @@ namespace Carsharing
 		/// <param name="basicPrice">Basic price of the vehicle</param>
 		/// <param name="pricePerKilometre">price per kilometre of the vehicle</param>
 		/// <param name="pricePerMinute">price per minute of the vehicle</param>
+		/// <param name="registration"></param>
+		/// <param name="seats"></param>
+		/// <param name="fuelType"></param>
+		/// <param name="fuelConsumption"></param>
+		/// <param name="airCond"></param>
+		/// <param name="cruiseControl"></param>
+		/// <param name="radio"></param>
+		/// <param name="bluetooth"></param>
+		/// <param name="usb"></param>
+		/// <param name="cdPlayer"></param>
+		/// <param name="navi"></param>
+		/// <param name="abs"></param>
+		/// <param name="esp"></param>
+		/// <param name="seatHeating"></param>
+		/// <param name="winter"></param>
+		/// <param name="smoker"></param>
 		public Vehicle(
 			string numberPlate, double mileage, DateTime lastMaintenance, double tankFilling, PointD position, bool available, string brand, string model, 
 			int power, int constructionYear, string gear, double maxTankFilling, double basicPrice, double pricePerKilometre, double pricePerMinute, DateTime registration, 

@@ -32,6 +32,7 @@
 			this.editCustomerButton = new System.Windows.Forms.Button();
 			this.buttonAddVehicle = new System.Windows.Forms.Button();
 			this.roundButton1 = new CustomControl.RoundButton();
+			this.createBookingButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// userDeleteButton
@@ -64,6 +65,16 @@
 			this.buttonAddVehicle.UseVisualStyleBackColor = true;
 			this.buttonAddVehicle.Click += new System.EventHandler(this.button1_Click);
 			// 
+			// createBookingButton
+			// 
+			this.createBookingButton.Location = new System.Drawing.Point(434, 222);
+			this.createBookingButton.Name = "createBookingButton";
+			this.createBookingButton.Size = new System.Drawing.Size(75, 23);
+			this.createBookingButton.TabIndex = 4;
+			this.createBookingButton.Text = "Buchung erstellen";
+			this.createBookingButton.UseVisualStyleBackColor = true;
+			this.createBookingButton.Click += new System.EventHandler(this.createBookingButton_Click);
+			// 
 			// roundButton1
 			// 
 			this.roundButton1.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -82,6 +93,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.createBookingButton);
 			this.Controls.Add(this.roundButton1);
 			this.Controls.Add(this.editCustomerButton);
 			this.Controls.Add(this.userDeleteButton);
@@ -98,6 +110,7 @@
 		private System.Windows.Forms.Button editCustomerButton;
 		private System.Windows.Forms.Button buttonAddVehicle;
 		private CustomControl.RoundButton roundButton1;
+		private System.Windows.Forms.Button createBookingButton;
 	}
 }
 
