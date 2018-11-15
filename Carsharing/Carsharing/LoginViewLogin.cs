@@ -40,6 +40,11 @@ namespace Carsharing
 				e.Handled = true;
 			}
 		}
+		
+		private void LoginViewLogin_Load(object sender, EventArgs e)
+		{
+			ActiveControl = buttonLogin;
+		}
 
 		public void Renew()
 		{
@@ -73,11 +78,6 @@ namespace Carsharing
 			}
 			MessageBox.Show("Die von dir eingegebene E-Mail-Adresse und/oder das von dir eingegebene Passwort kann keinem Konto zugeordnet werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-		}
-
-		private void LoginViewLogin_Load(object sender, EventArgs e)
-		{
-			ActiveControl = buttonLogin;
 		}
 	}
 }

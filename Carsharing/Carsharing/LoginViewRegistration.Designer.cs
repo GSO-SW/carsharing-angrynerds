@@ -143,7 +143,7 @@
 			this.txtBirthDate.Name = "txtBirthDate";
 			this.txtBirthDate.Password = false;
 			this.txtBirthDate.Size = new System.Drawing.Size(350, 22);
-			this.txtBirthDate.TabIndex = 32;
+			this.txtBirthDate.TabIndex = 33;
 			this.txtBirthDate.Watermark = "Geburtsdatum (dd/mm/yyyy)";
 			this.txtBirthDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_KeyDown);
 			// 
@@ -155,7 +155,7 @@
 			this.txtPhoneNumber.Name = "txtPhoneNumber";
 			this.txtPhoneNumber.Password = false;
 			this.txtPhoneNumber.Size = new System.Drawing.Size(350, 22);
-			this.txtPhoneNumber.TabIndex = 33;
+			this.txtPhoneNumber.TabIndex = 32;
 			this.txtPhoneNumber.Watermark = "Telefonnummer";
 			this.txtPhoneNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_KeyDown);
 			// 
