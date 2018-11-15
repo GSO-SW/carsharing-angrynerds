@@ -18,10 +18,7 @@ namespace Carsharing
 			Application.SetCompatibleTextRenderingDefault(false);
 
 			//Show Login View
-			Application.Run(new UserStartView(UserStartView.StartState.Login));
-
-			//if (FormController.CurrentCustomer == null)
-			//	FormController.CurrentCustomer = DBController.GetCustomerByEmailFromDB("admin@system.de");
+			Application.Run(new LoginView(LoginView.StartState.Login));
 
 			//If someone is loggin in, main shows
 			if (FormController.CurrentCustomer != null)

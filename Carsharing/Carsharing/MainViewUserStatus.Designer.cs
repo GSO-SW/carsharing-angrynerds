@@ -1,6 +1,6 @@
 ﻿namespace Carsharing
 {
-	partial class AdminUsers
+	partial class MainViewUserStatus
 	{
 		/// <summary> 
 		/// Erforderliche Designervariable.
@@ -36,17 +36,17 @@
 			this.labelTitle.AutoSize = true;
 			this.labelTitle.Location = new System.Drawing.Point(3, 0);
 			this.labelTitle.Name = "labelTitle";
-			this.labelTitle.Size = new System.Drawing.Size(63, 13);
+			this.labelTitle.Size = new System.Drawing.Size(59, 13);
 			this.labelTitle.TabIndex = 1;
-			this.labelTitle.Text = "AdminUsers";
+			this.labelTitle.Text = "UserStatus";
 			// 
-			// AdminUsers
+			// UserStatus
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
 			this.Controls.Add(this.labelTitle);
-			this.Name = "AdminUsers";
+			this.Name = "UserStatus";
 			this.Size = new System.Drawing.Size(900, 575);
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -54,7 +54,7 @@
 		}
 
 		#endregion
-
+		
 		private System.Windows.Forms.Label labelTitle;
 	}
 }

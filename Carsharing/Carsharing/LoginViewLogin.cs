@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Carsharing
 {
-	public partial class AccountLogin : UserControl
+	public partial class LoginViewLogin : UserControl
 	{
-		public AccountLogin()
+		public LoginViewLogin()
 		{
 			InitializeComponent();
 		}
@@ -39,7 +39,7 @@ namespace Carsharing
 					FormController.CurrentCustomer = c;
 					c = null;
 					pwIncorrect = false;
-					MessageBox.Show("Sie wurden erfolgreich angemeldet.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					//MessageBox.Show("Sie wurden erfolgreich angemeldet.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 					FormController.StartView.Close();
 				}
 			}
@@ -49,7 +49,7 @@ namespace Carsharing
 
 		private void buttonRegister_Click(object sender, EventArgs e)
 		{
-			FormController.StartView.State = UserStartView.StartState.Registration;
+			FormController.StartView.State = LoginView.StartState.Registration;
 		}
 
 		public void Renew()

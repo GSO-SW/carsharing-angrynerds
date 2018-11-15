@@ -9,7 +9,7 @@ namespace Carsharing
 	public static class FormController
 	{
 		private static Customer currentCustomer;
-		private static UserStartView startView;
+		private static LoginView startView;
 		private static Main mainView;
 
 		/// <summary>
@@ -24,7 +24,7 @@ namespace Carsharing
 		/// <summary>
 		/// Caches the start view.
 		/// </summary>
-		public static UserStartView StartView
+		public static LoginView StartView
 		{
 			get { return startView; }
 			set { startView = value; }

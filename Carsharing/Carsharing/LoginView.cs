@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Carsharing
 {
-	public partial class UserStartView : Form
+	public partial class LoginView : Form
 	{
 		public enum StartState { Default, Login, Registration };
 
@@ -28,7 +28,7 @@ namespace Carsharing
 			}
 		}
 
-		public UserStartView(StartState startState)
+		public LoginView(StartState startState)
 		{
 			InitializeComponent();
 			ActiveControl = labelName;

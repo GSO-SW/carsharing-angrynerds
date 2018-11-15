@@ -1,6 +1,6 @@
 ﻿namespace Carsharing
 {
-	partial class AccountRegistration
+	partial class LoginViewRegistration
 	{
 		/// <summary> 
 		/// Erforderliche Designervariable.

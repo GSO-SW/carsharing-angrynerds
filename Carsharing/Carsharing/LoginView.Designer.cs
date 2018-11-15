@@ -1,6 +1,6 @@
 ﻿namespace Carsharing
 {
-	partial class UserStartView
+	partial class LoginView
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,14 +28,14 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserStartView));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginView));
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.labelName = new System.Windows.Forms.Label();
 			this.pictureLogo = new System.Windows.Forms.PictureBox();
 			this.buttonCancel = new System.Windows.Forms.Button();
 			this.panel3 = new System.Windows.Forms.Panel();
-			this.accountLogin1 = new Carsharing.AccountLogin();
-			this.accountRegistration1 = new Carsharing.AccountRegistration();
+			this.accountLogin1 = new Carsharing.LoginViewLogin();
+			this.accountRegistration1 = new Carsharing.LoginViewRegistration();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).BeginInit();
 			this.panel3.SuspendLayout();
@@ -139,8 +139,8 @@
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.PictureBox pictureLogo;
 		private System.Windows.Forms.Label labelName;
-		private AccountLogin accountLogin1;
-		private AccountRegistration accountRegistration1;
+		private LoginViewLogin accountLogin1;
+		private LoginViewRegistration accountRegistration1;
 		private System.Windows.Forms.Button buttonCancel;
 		private System.Windows.Forms.Panel panel3;
 	}

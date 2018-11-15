@@ -34,17 +34,17 @@
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.pictureLogo = new System.Windows.Forms.PictureBox();
 			this.buttonBookings = new System.Windows.Forms.Button();
-			this.adminBookings1 = new Carsharing.AdminBookings();
+			this.adminBookings1 = new Carsharing.MainViewAdminBookings();
 			this.buttonUsers = new System.Windows.Forms.Button();
-			this.adminUsers1 = new Carsharing.AdminUsers();
+			this.adminUsers1 = new Carsharing.MainViewAdminUsers();
 			this.buttonBooking = new System.Windows.Forms.Button();
-			this.userBooking1 = new Carsharing.UserBooking();
+			this.userBooking1 = new Carsharing.MainViewUserBooking();
 			this.button3 = new System.Windows.Forms.Button();
 			this.buttonVehicles = new System.Windows.Forms.Button();
-			this.adminVehicles1 = new Carsharing.AdminVehicles();
+			this.adminVehicles1 = new Carsharing.MainViewAdminVehicle();
 			this.panelSelect = new System.Windows.Forms.Panel();
 			this.buttonStatus = new System.Windows.Forms.Button();
-			this.userStatus1 = new Carsharing.UserStatus();
+			this.userStatus1 = new Carsharing.MainViewUserStatus();
 			this.panel3.SuspendLayout();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).BeginInit();
@@ -287,10 +287,10 @@
 		private System.Windows.Forms.Button button3;
 		private System.Windows.Forms.Button buttonVehicles;
 		private System.Windows.Forms.PictureBox pictureLogo;
-		private UserBooking userBooking1;
-		private UserStatus userStatus1;
-		private AdminBookings adminBookings1;
-		private AdminUsers adminUsers1;
-		private AdminVehicles adminVehicles1;
+		private MainViewUserBooking userBooking1;
+		private MainViewUserStatus userStatus1;
+		private MainViewAdminBookings adminBookings1;
+		private MainViewAdminUsers adminUsers1;
+		private MainViewAdminVehicle adminVehicles1;
 	}
 }

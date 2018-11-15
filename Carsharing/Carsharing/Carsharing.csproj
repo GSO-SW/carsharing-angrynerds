@@ -48,17 +48,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountLogin.cs">
+    <Compile Include="LoginViewLogin.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AccountLogin.Designer.cs">
-      <DependentUpon>AccountLogin.cs</DependentUpon>
+    <Compile Include="LoginViewLogin.Designer.cs">
+      <DependentUpon>LoginViewLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="AccountRegistration.cs">
+    <Compile Include="LoginViewRegistration.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AccountRegistration.Designer.cs">
-      <DependentUpon>AccountRegistration.cs</DependentUpon>
+    <Compile Include="LoginViewRegistration.Designer.cs">
+      <DependentUpon>LoginViewRegistration.cs</DependentUpon>
     </Compile>
     <Compile Include="AddVehicleForm.cs">
       <SubType>Form</SubType>
@@ -66,23 +66,23 @@
     <Compile Include="AddVehicleForm.Designer.cs">
       <DependentUpon>AddVehicleForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminBookings.cs">
+    <Compile Include="MainViewAdminBookings.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AdminBookings.Designer.cs">
-      <DependentUpon>AdminBookings.cs</DependentUpon>
+    <Compile Include="MainViewAdminBookings.Designer.cs">
+      <DependentUpon>MainViewAdminBookings.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminUsers.cs">
+    <Compile Include="MainViewAdminUsers.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AdminUsers.Designer.cs">
-      <DependentUpon>AdminUsers.cs</DependentUpon>
+    <Compile Include="MainViewAdminUsers.Designer.cs">
+      <DependentUpon>MainViewAdminUsers.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminVehicles.cs">
+    <Compile Include="MainViewAdminVehicle.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AdminVehicles.Designer.cs">
-      <DependentUpon>AdminVehicles.cs</DependentUpon>
+    <Compile Include="MainViewAdminVehicle.Designer.cs">
+      <DependentUpon>MainViewAdminVehicle.cs</DependentUpon>
     </Compile>
     <Compile Include="Booking.cs" />
     <Compile Include="ShowVehicleForm.cs">
@@ -110,42 +110,42 @@
     <Compile Include="PointD.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserBooking.cs">
+    <Compile Include="MainViewUserBooking.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserBooking.Designer.cs">
-      <DependentUpon>UserBooking.cs</DependentUpon>
+    <Compile Include="MainViewUserBooking.Designer.cs">
+      <DependentUpon>MainViewUserBooking.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserStartView.cs">
+    <Compile Include="LoginView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserStartView.Designer.cs">
-      <DependentUpon>UserStartView.cs</DependentUpon>
+    <Compile Include="LoginView.Designer.cs">
+      <DependentUpon>LoginView.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserStatus.cs">
+    <Compile Include="MainViewUserStatus.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserStatus.Designer.cs">
-      <DependentUpon>UserStatus.cs</DependentUpon>
+    <Compile Include="MainViewUserStatus.Designer.cs">
+      <DependentUpon>MainViewUserStatus.cs</DependentUpon>
     </Compile>
     <Compile Include="Vehicle.cs" />
-    <EmbeddedResource Include="AccountLogin.resx">
-      <DependentUpon>AccountLogin.cs</DependentUpon>
+    <EmbeddedResource Include="LoginViewLogin.resx">
+      <DependentUpon>LoginViewLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AccountRegistration.resx">
-      <DependentUpon>AccountRegistration.cs</DependentUpon>
+    <EmbeddedResource Include="LoginViewRegistration.resx">
+      <DependentUpon>LoginViewRegistration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddVehicleForm.resx">
       <DependentUpon>AddVehicleForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminBookings.resx">
-      <DependentUpon>AdminBookings.cs</DependentUpon>
+    <EmbeddedResource Include="MainViewAdminBookings.resx">
+      <DependentUpon>MainViewAdminBookings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminUsers.resx">
-      <DependentUpon>AdminUsers.cs</DependentUpon>
+    <EmbeddedResource Include="MainViewAdminUsers.resx">
+      <DependentUpon>MainViewAdminUsers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminVehicles.resx">
-      <DependentUpon>AdminVehicles.cs</DependentUpon>
+    <EmbeddedResource Include="MainViewAdminVehicle.resx">
+      <DependentUpon>MainViewAdminVehicle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ShowVehicleForm.resx">
       <DependentUpon>ShowVehicleForm.cs</DependentUpon>
@@ -165,14 +165,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserBooking.resx">
-      <DependentUpon>UserBooking.cs</DependentUpon>
+    <EmbeddedResource Include="MainViewUserBooking.resx">
+      <DependentUpon>MainViewUserBooking.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserStartView.resx">
-      <DependentUpon>UserStartView.cs</DependentUpon>
+    <EmbeddedResource Include="LoginView.resx">
+      <DependentUpon>LoginView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserStatus.resx">
-      <DependentUpon>UserStatus.cs</DependentUpon>
+    <EmbeddedResource Include="MainViewUserStatus.resx">
+      <DependentUpon>MainViewUserStatus.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
