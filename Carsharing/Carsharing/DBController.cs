@@ -717,7 +717,7 @@ namespace Carsharing
 						}
 					}
 				}
-				catch (Exception e)
+				catch (Exception)
 				{
 
 				}
