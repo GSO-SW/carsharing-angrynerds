@@ -86,12 +86,12 @@ namespace Carsharing
 				MessageBox.Show("Bitte geben Sie eine gültige Telefonnummer an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return false;
 			}
-			if (DateTime.TryParse(txtBirthDate.TextWithoutWatermark, out DateTime birthDate)) //min. Alter
+			if (!DateTime.TryParse(txtBirthDate.TextWithoutWatermark, out DateTime birthDate)) 
 			{
 				MessageBox.Show("Bitte geben sie ein gültiges Geburtsdatum ein.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return false;
 			}
-			if ((DateTime.Today.Date - birthDate.Date) < new TimeSpan(365 * 18, 6 * 18, 0, 0)) //min. Alter
+			if ((DateTime.Today.Date - birthDate.Date) < new TimeSpan(365 * 18, 6 * 18, 0, 0))//min. Alter
 			{
 				MessageBox.Show("Sie müssen älter als 18 Jahre sein.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return false;
