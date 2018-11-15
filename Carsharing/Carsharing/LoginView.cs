@@ -31,10 +31,10 @@ namespace Carsharing
 		public LoginView(StartState startState)
 		{
 			InitializeComponent();
-			ActiveControl = labelName;
-			
+			//ActiveControl = button;
+
 			State = startState;
-			
+
 			FormController.StartView = this;
 		}
 
@@ -46,7 +46,7 @@ namespace Carsharing
 		protected override void OnClosed(EventArgs e)
 		{
 			FormController.StartView = null;
-			base.OnClosed(e);	
+			base.OnClosed(e);
 		}
 
 		private void ShowState()
@@ -54,12 +54,12 @@ namespace Carsharing
 			switch (State)
 			{
 				case StartState.Login:
-					accountLogin1.BringToFront();
-					accountRegistration1.Renew();
+					login.BringToFront();
+					registration.Renew();
 					break;
 				case StartState.Registration:
-					accountRegistration1.BringToFront();
-					accountLogin1.Renew();
+					registration.BringToFront();
+					login.Renew();
 					break;
 			}
 		}

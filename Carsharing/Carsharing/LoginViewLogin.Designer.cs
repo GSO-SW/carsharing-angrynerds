@@ -53,6 +53,7 @@
 			this.txtEmail.Size = new System.Drawing.Size(332, 26);
 			this.txtEmail.TabIndex = 1;
 			this.txtEmail.Watermark = "E-Mail";
+			this.txtEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_KeyDown);
 			// 
 			// buttonRegister
 			// 
@@ -86,7 +87,6 @@
 			// 
 			// txtPassword
 			// 
-			this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
 			this.txtPassword.Location = new System.Drawing.Point(96, 156);
@@ -95,8 +95,9 @@
 			this.txtPassword.Size = new System.Drawing.Size(332, 26);
 			this.txtPassword.TabIndex = 2;
 			this.txtPassword.Watermark = "Passwort";
+			this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_KeyDown);
 			// 
-			// AccountLogin
+			// LoginViewLogin
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -106,8 +107,9 @@
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.buttonLogin);
 			this.Controls.Add(this.txtPassword);
-			this.Name = "AccountLogin";
+			this.Name = "LoginViewLogin";
 			this.Size = new System.Drawing.Size(525, 425);
+			this.Load += new System.EventHandler(this.LoginViewLogin_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

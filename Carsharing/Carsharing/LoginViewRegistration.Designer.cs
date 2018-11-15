@@ -85,6 +85,7 @@
 			this.txtName.Size = new System.Drawing.Size(172, 22);
 			this.txtName.TabIndex = 16;
 			this.txtName.Watermark = "Vorname";
+			this.txtName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_KeyDown);
 			// 
 			// txtLastName
 			// 
@@ -96,6 +97,7 @@
 			this.txtLastName.Size = new System.Drawing.Size(172, 22);
 			this.txtLastName.TabIndex = 28;
 			this.txtLastName.Watermark = "Zuname";
+			this.txtLastName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_KeyDown);
 			// 
 			// txtEmail
 			// 
@@ -107,6 +109,7 @@
 			this.txtEmail.Size = new System.Drawing.Size(350, 22);
 			this.txtEmail.TabIndex = 29;
 			this.txtEmail.Watermark = "E-Mail-Adresse";
+			this.txtEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_KeyDown);
 			// 
 			// txtPassword
 			// 
@@ -118,6 +121,7 @@
 			this.txtPassword.Size = new System.Drawing.Size(172, 22);
 			this.txtPassword.TabIndex = 30;
 			this.txtPassword.Watermark = "Passwort";
+			this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_KeyDown);
 			// 
 			// txtPassword2
 			// 
@@ -129,6 +133,7 @@
 			this.txtPassword2.Size = new System.Drawing.Size(172, 22);
 			this.txtPassword2.TabIndex = 31;
 			this.txtPassword2.Watermark = "Passwort bestätigen";
+			this.txtPassword2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_KeyDown);
 			// 
 			// txtBirthDate
 			// 
@@ -140,17 +145,19 @@
 			this.txtBirthDate.Size = new System.Drawing.Size(350, 22);
 			this.txtBirthDate.TabIndex = 32;
 			this.txtBirthDate.Watermark = "Geburtsdatum (dd/mm/yyyy)";
+			this.txtBirthDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_KeyDown);
 			// 
-			// txtPhonenumber
+			// txtPhoneNumber
 			// 
 			this.txtPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtPhoneNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
 			this.txtPhoneNumber.Location = new System.Drawing.Point(87, 126);
-			this.txtPhoneNumber.Name = "txtPhonenumber";
+			this.txtPhoneNumber.Name = "txtPhoneNumber";
 			this.txtPhoneNumber.Password = false;
 			this.txtPhoneNumber.Size = new System.Drawing.Size(350, 22);
 			this.txtPhoneNumber.TabIndex = 33;
 			this.txtPhoneNumber.Watermark = "Telefonnummer";
+			this.txtPhoneNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_KeyDown);
 			// 
 			// txtStreet
 			// 
@@ -162,6 +169,7 @@
 			this.txtStreet.Size = new System.Drawing.Size(267, 22);
 			this.txtStreet.TabIndex = 34;
 			this.txtStreet.Watermark = "Straße";
+			this.txtStreet.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_KeyDown);
 			// 
 			// txtHouseNumber
 			// 
@@ -173,6 +181,7 @@
 			this.txtHouseNumber.Size = new System.Drawing.Size(77, 22);
 			this.txtHouseNumber.TabIndex = 35;
 			this.txtHouseNumber.Watermark = "Haus Nr.";
+			this.txtHouseNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_KeyDown);
 			// 
 			// txtPlz
 			// 
@@ -184,6 +193,7 @@
 			this.txtPlz.Size = new System.Drawing.Size(72, 22);
 			this.txtPlz.TabIndex = 36;
 			this.txtPlz.Watermark = "PLZ";
+			this.txtPlz.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_KeyDown);
 			// 
 			// txtCity
 			// 
@@ -195,6 +205,7 @@
 			this.txtCity.Size = new System.Drawing.Size(272, 22);
 			this.txtCity.TabIndex = 37;
 			this.txtCity.Watermark = "Stadt";
+			this.txtCity.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_KeyDown);
 			// 
 			// txtCountry
 			// 
@@ -206,6 +217,7 @@
 			this.txtCountry.Size = new System.Drawing.Size(350, 22);
 			this.txtCountry.TabIndex = 38;
 			this.txtCountry.Watermark = "Land";
+			this.txtCountry.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_KeyDown);
 			// 
 			// panel2
 			// 
@@ -215,7 +227,7 @@
 			this.panel2.Size = new System.Drawing.Size(350, 1);
 			this.panel2.TabIndex = 39;
 			// 
-			// AccountRegistration
+			// LoginViewRegistration
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -235,7 +247,7 @@
 			this.Controls.Add(this.txtName);
 			this.Controls.Add(this.buttonCancel);
 			this.Controls.Add(this.buttonRegistration);
-			this.Name = "AccountRegistration";
+			this.Name = "LoginViewRegistration";
 			this.Size = new System.Drawing.Size(525, 425);
 			this.ResumeLayout(false);
 			this.PerformLayout();

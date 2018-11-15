@@ -19,6 +19,39 @@ namespace Carsharing
 
 		private void buttonRegistration_Click(object sender, EventArgs e)
 		{
+			Register();
+		}
+
+		private void buttonCancel_Click(object sender, EventArgs e)
+		{
+			tryCancel();
+		}
+		
+		private void txt_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Enter)
+			{
+				Register();
+				e.Handled = e.SuppressKeyPress = true;
+			}
+			else if (e.KeyCode == Keys.Escape)
+			{
+				tryCancel();
+				e.Handled = e.SuppressKeyPress = true;
+			}
+		}
+
+		public void Renew()
+		{
+			foreach (Control item in Controls)
+			{
+				if (item is CustomControl.WatermarkTextBox)
+					((CustomControl.WatermarkTextBox)item).ResetToWatermark();
+			}
+		}
+
+		private void Register()
+		{
 			if (testForInvalidValues())
 			{
 				Customer c = new Customer(txtName.TextWithoutWatermark, txtLastName.TextWithoutWatermark, txtEmail.TextWithoutWatermark, txtPhoneNumber.TextWithoutWatermark, txtPassword.TextWithoutWatermark, DateTime.Parse(txtBirthDate.TextWithoutWatermark), txtStreet.TextWithoutWatermark, txtHouseNumber.TextWithoutWatermark, txtPlz.TextWithoutWatermark, txtCity.TextWithoutWatermark, txtCountry.TextWithoutWatermark, false);
@@ -37,21 +70,6 @@ namespace Carsharing
 						break;
 				}
 			}
-		}
-
-		private void buttonCancel_Click(object sender, EventArgs e)
-		{
-			foreach (Control item in Controls)
-			{
-				if (item is CustomControl.WatermarkTextBox)
-					if (!string.IsNullOrWhiteSpace(((CustomControl.WatermarkTextBox)item).TextWithoutWatermark))
-					{
-						if (DialogResult.Yes != MessageBox.Show("Möchten Sie Ihre Eingabe verwerfen?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
-							return;
-						break;
-					}										
-			}
-			FormController.StartView.State = LoginView.StartState.Login;
 		}
 
 		private bool testForInvalidValues()
@@ -86,7 +104,7 @@ namespace Carsharing
 				MessageBox.Show("Bitte geben Sie eine gültige Telefonnummer an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return false;
 			}
-			if (!DateTime.TryParse(txtBirthDate.TextWithoutWatermark, out DateTime birthDate)) 
+			if (!DateTime.TryParse(txtBirthDate.TextWithoutWatermark, out DateTime birthDate))
 			{
 				MessageBox.Show("Bitte geben sie ein gültiges Geburtsdatum ein.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return false;
@@ -124,13 +142,21 @@ namespace Carsharing
 			return true;
 		}
 
-		public void Renew()
+		private void tryCancel()
 		{
 			foreach (Control item in Controls)
 			{
 				if (item is CustomControl.WatermarkTextBox)
-					((CustomControl.WatermarkTextBox)item).ResetToWatermark();
+					if (!string.IsNullOrWhiteSpace(((CustomControl.WatermarkTextBox)item).TextWithoutWatermark))
+					{
+						if (DialogResult.Yes != MessageBox.Show("Möchten Sie Ihre Eingabe verwerfen?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+							return;
+						break;
+					}
 			}
+			FormController.StartView.State = LoginView.StartState.Login;
 		}
+
+		
 	}
 }

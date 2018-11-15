@@ -19,37 +19,26 @@ namespace Carsharing
 
 		private void buttonLogin_Click(object sender, EventArgs e)
 		{
-			if (string.IsNullOrWhiteSpace(txtEmail.Text) || !txtEmail.Text.Contains("@") || !txtEmail.Text.Contains("."))
-			{
-				MessageBox.Show("Bitte geben Sie eine gültige E-Mail-Adresse an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return;
-			}
-			if (!DBController.ConnectionAvailable())
-			{
-				MessageBox.Show("Es konnte keine Verbindung zur Datenbank hergestellt werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return;
-			}
-
-			Customer c = DBController.GetCustomerByEmailFromDB(txtEmail.Text);
-			bool pwIncorrect = true;
-			if (c != null)
-			{
-				if (c.Password == txtPassword.Text)
-				{
-					FormController.CurrentCustomer = c;
-					c = null;
-					pwIncorrect = false;
-					//MessageBox.Show("Sie wurden erfolgreich angemeldet.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-					FormController.StartView.Close();
-				}
-			}
-			if (pwIncorrect)
-				MessageBox.Show("Der angegebene Nutzer konnte nicht gefunden werden oder das eingegebene Passwort ist nicht richtig.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			login();
 		}
 
 		private void buttonRegister_Click(object sender, EventArgs e)
 		{
 			FormController.StartView.State = LoginView.StartState.Registration;
+		}
+
+		private void txt_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Enter)
+			{
+				login();
+				e.Handled = true;
+			}
+			else if (e.KeyCode == Keys.Escape)
+			{
+				FormController.StartView.Close();
+				e.Handled = true;
+			}
 		}
 
 		public void Renew()
@@ -59,6 +48,36 @@ namespace Carsharing
 				if (item is CustomControl.WatermarkTextBox)
 					((CustomControl.WatermarkTextBox)item).ResetToWatermark();
 			}
+		}
+
+		private void login()
+		{
+			if (!DBController.ConnectionAvailable())
+			{
+				MessageBox.Show("Es konnte keine Verbindung zur Datenbank hergestellt werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+
+			Customer c = DBController.GetCustomerByEmailFromDB(txtEmail.Text);
+			if (c != null)
+			{
+				if (c.Password == txtPassword.Text)
+				{
+					FormController.CurrentCustomer = c;
+					c = null;
+					//MessageBox.Show("Sie wurden erfolgreich angemeldet.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					FormController.StartView.Close();
+					System.Media.SystemSounds.Asterisk.Play();
+					return;
+				}
+			}
+			MessageBox.Show("Die von dir eingegebene E-Mail-Adresse und/oder das von dir eingegebene Passwort kann keinem Konto zugeordnet werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+		}
+
+		private void LoginViewLogin_Load(object sender, EventArgs e)
+		{
+			ActiveControl = buttonLogin;
 		}
 	}
 }
