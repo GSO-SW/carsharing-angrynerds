@@ -46,7 +46,7 @@ namespace Carsharing
 			foreach (Button button in selectableButtons)
 			{
 				if (button == clickedButton)
-					button.BackColor = Color.FromArgb(255, 28, 62);
+					button.BackColor = Color.FromArgb(255, 40, 72);
 				else
 					button.BackColor = Color.Transparent;
 			}

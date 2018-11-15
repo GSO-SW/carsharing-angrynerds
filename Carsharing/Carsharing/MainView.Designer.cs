@@ -226,7 +226,7 @@
 			// 
 			// buttonStatus
 			// 
-			this.buttonStatus.BackColor = System.Drawing.Color.Transparent;
+			this.buttonStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(40)))), ((int)(((byte)(72)))));
 			this.buttonStatus.FlatAppearance.BorderSize = 0;
 			this.buttonStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonStatus.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
