@@ -570,7 +570,7 @@ namespace Carsharing
 				{
 					// open connection to database
 					con.Open();
-					using (MySqlCommand command = new MySqlCommand("INSERT INTO `kunde`(`E-Mail Adresse`, `Vorname`, `Nachname`, `Telefonnummer`, `Passwort`, `admin`, `Geburtstag`, `Straße`, `Hausnummer`, `PLZ`, `Stadt`, `Land`) VALUES(@email, @Vorname, @Nachname, @tel, @pw, @admin, @Geburtstag, @Straße, @Hausnummer, @PLZ, @Stadt, @Land)", con))
+					using (MySqlCommand command = new MySqlCommand("INSERT INTO `kunde` VALUES(@email, @Vorname, @Nachname, @tel, @pw, @admin, @Geburtstag, @Straße, @Hausnummer, @PLZ, @Stadt, @Land)", con))
 					{
 						command.Parameters.AddWithValue("email", c.EmailAddress);
 						command.Parameters.AddWithValue("Vorname", c.Name);
