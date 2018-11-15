@@ -12,9 +12,18 @@ namespace Carsharing
 {
 	public partial class MainView : Form
 	{
+		private Button[] selectableButtons;
+
 		public MainView()
 		{
 			InitializeComponent();
+
+			selectableButtons = new Button[] { buttonStatus, buttonBooking, buttonVehicles, buttonUsers, buttonBookings };
+		}
+
+		private void MainView_Load(object sender, EventArgs e)
+		{
+
 		}
 
 		private void buttonCancel_Click(object sender, EventArgs e)
@@ -24,27 +33,19 @@ namespace Carsharing
 
 		private void buttonStatus_Click(object sender, EventArgs e)
 		{
-			panelSelect.Top = buttonStatus.Top;
-		}
+			Button clickedButton = (Button)sender;
 
-		private void buttonBooking_Click(object sender, EventArgs e)
-		{
-			panelSelect.Top = buttonBooking.Top;
-		}
+			foreach (Button button in selectableButtons)
+			{
+				if (button == clickedButton)
+					button.BackColor = Color.FromArgb(255, 28, 62);
+				else
+					button.BackColor = Color.Transparent;
+			}
 
-		private void buttonVehicles_Click(object sender, EventArgs e)
-		{
-			panelSelect.Top = buttonVehicles.Top;
-		}
+			panelSelect.Top = clickedButton.Top;
 
-		private void buttonUsers_Click(object sender, EventArgs e)
-		{
-			panelSelect.Top = buttonUsers.Top;
-		}
-
-		private void buttonBookings_Click(object sender, EventArgs e)
-		{
-			panelSelect.Top = buttonBookings.Top;
+			((UserControl)clickedButton.Tag).BringToFront();
 		}
 	}
 }

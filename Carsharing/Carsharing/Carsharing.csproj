@@ -66,6 +66,24 @@
     <Compile Include="AddVehicleForm.Designer.cs">
       <DependentUpon>AddVehicleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminBookings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminBookings.Designer.cs">
+      <DependentUpon>AdminBookings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUsers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminUsers.Designer.cs">
+      <DependentUpon>AdminUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminVehicles.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminVehicles.Designer.cs">
+      <DependentUpon>AdminVehicles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Booking.cs" />
     <Compile Include="ShowVehicleForm.cs">
       <SubType>Form</SubType>
@@ -119,6 +137,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddVehicleForm.resx">
       <DependentUpon>AddVehicleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminBookings.resx">
+      <DependentUpon>AdminBookings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminUsers.resx">
+      <DependentUpon>AdminUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminVehicles.resx">
+      <DependentUpon>AdminVehicles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ShowVehicleForm.resx">
       <DependentUpon>ShowVehicleForm.cs</DependentUpon>

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Carsharing
 {
-	public partial class UserStatus : UserControl
+	public partial class AdminBookings : UserControl
 	{
-		public UserStatus()
+		public AdminBookings()
 		{
 			InitializeComponent();
 		}

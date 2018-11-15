@@ -28,35 +28,33 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.labelCustomer = new System.Windows.Forms.Label();
+			this.labelTitle = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
-			// labelCustomer
+			// labelTitle
 			// 
-			this.labelCustomer.AutoSize = true;
-			this.labelCustomer.Dock = System.Windows.Forms.DockStyle.Right;
-			this.labelCustomer.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelCustomer.Location = new System.Drawing.Point(900, 0);
-			this.labelCustomer.Name = "labelCustomer";
-			this.labelCustomer.Size = new System.Drawing.Size(0, 22);
-			this.labelCustomer.TabIndex = 0;
+			this.labelTitle.AutoSize = true;
+			this.labelTitle.Location = new System.Drawing.Point(3, 0);
+			this.labelTitle.Name = "labelTitle";
+			this.labelTitle.Size = new System.Drawing.Size(59, 13);
+			this.labelTitle.TabIndex = 1;
+			this.labelTitle.Text = "UserStatus";
 			// 
 			// UserStatus
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.Controls.Add(this.labelCustomer);
+			this.Controls.Add(this.labelTitle);
 			this.Name = "UserStatus";
 			this.Size = new System.Drawing.Size(900, 575);
-			this.Load += new System.EventHandler(this.UserStatus_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
 		}
 
 		#endregion
-
-		private System.Windows.Forms.Label labelCustomer;
+		
+		private System.Windows.Forms.Label labelTitle;
 	}
 }

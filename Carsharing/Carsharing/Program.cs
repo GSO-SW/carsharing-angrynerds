@@ -21,7 +21,7 @@ namespace Carsharing
 			Application.Run(new UserStartView(UserStartView.StartState.Login));
 
 			//if (FormController.CurrentCustomer == null)
-				//FormController.CurrentCustomer = DBControkller.GetCustomerByEmailFromDB("admin@system.de");
+			//	FormController.CurrentCustomer = DBController.GetCustomerByEmailFromDB("admin@system.de");
 
 			//If someone is loggin in, main shows
 			if (FormController.CurrentCustomer != null)

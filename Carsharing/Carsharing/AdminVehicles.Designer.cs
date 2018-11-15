@@ -1,6 +1,6 @@
 ﻿namespace Carsharing
 {
-	partial class UserBooking
+	partial class AdminVehicles
 	{
 		/// <summary> 
 		/// Erforderliche Designervariable.
@@ -36,17 +36,17 @@
 			this.labelTitle.AutoSize = true;
 			this.labelTitle.Location = new System.Drawing.Point(3, 0);
 			this.labelTitle.Name = "labelTitle";
-			this.labelTitle.Size = new System.Drawing.Size(68, 13);
-			this.labelTitle.TabIndex = 0;
-			this.labelTitle.Text = "UserBooking";
+			this.labelTitle.Size = new System.Drawing.Size(71, 13);
+			this.labelTitle.TabIndex = 1;
+			this.labelTitle.Text = "AdminVehicle";
 			// 
-			// UserBooking
+			// AdminVehicles
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
 			this.Controls.Add(this.labelTitle);
-			this.Name = "UserBooking";
+			this.Name = "AdminVehicles";
 			this.Size = new System.Drawing.Size(900, 575);
 			this.ResumeLayout(false);
 			this.PerformLayout();
