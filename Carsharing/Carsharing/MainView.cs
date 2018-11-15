@@ -17,13 +17,21 @@ namespace Carsharing
 		public MainView()
 		{
 			InitializeComponent();
-
-			selectableButtons = new Button[] { buttonStatus, buttonBooking, buttonVehicles, buttonUsers, buttonBookings };
 		}
 
 		private void MainView_Load(object sender, EventArgs e)
 		{
-
+			if (FormController.CurrentCustomer.IsAdmin) //admin
+			{
+				selectableButtons = new Button[] { buttonStatus, buttonBooking, buttonVehicles, buttonUsers, buttonBookings };
+			}
+			else //user
+			{
+				selectableButtons = new Button[] { buttonStatus, buttonBooking };
+				buttonVehicles.Visible = false;
+				buttonUsers.Visible = false;
+				buttonBookings.Visible = false;
+			}
 		}
 
 		private void buttonCancel_Click(object sender, EventArgs e)
