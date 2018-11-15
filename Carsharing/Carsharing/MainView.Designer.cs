@@ -104,7 +104,7 @@
 			// 
 			// buttonBookings
 			// 
-			this.buttonBookings.BackColor = System.Drawing.Color.Transparent;
+			this.buttonBookings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(90)))));
 			this.buttonBookings.FlatAppearance.BorderSize = 0;
 			this.buttonBookings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonBookings.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -129,7 +129,7 @@
 			// 
 			// buttonUsers
 			// 
-			this.buttonUsers.BackColor = System.Drawing.Color.Transparent;
+			this.buttonUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(90)))));
 			this.buttonUsers.FlatAppearance.BorderSize = 0;
 			this.buttonUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonUsers.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -154,7 +154,7 @@
 			// 
 			// buttonBooking
 			// 
-			this.buttonBooking.BackColor = System.Drawing.Color.Transparent;
+			this.buttonBooking.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(90)))));
 			this.buttonBooking.FlatAppearance.BorderSize = 0;
 			this.buttonBooking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonBooking.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -193,7 +193,7 @@
 			// 
 			// buttonVehicles
 			// 
-			this.buttonVehicles.BackColor = System.Drawing.Color.Transparent;
+			this.buttonVehicles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(90)))));
 			this.buttonVehicles.FlatAppearance.BorderSize = 0;
 			this.buttonVehicles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonVehicles.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -48,7 +48,7 @@ namespace Carsharing
 				if (button == clickedButton)
 					button.BackColor = Color.FromArgb(255, 40, 72);
 				else
-					button.BackColor = Color.Transparent;
+					button.BackColor = Color.FromArgb(255, 61, 90);
 			}
 
 			panelSelect.Top = clickedButton.Top;
