@@ -623,11 +623,16 @@ namespace Carsharing
                 try
                 {
                     con.Open();
-                    // The sql delete command looks for the email address of the user in the DB
+                    // The sql update command replaces the users email address with "deleted" in the "Buchung" table
+                    using (MySqlCommand command = new MySqlCommand("UPDATE Buchung SET `E-Mail Adresse` = 'deleted' WHERE `E-Mail Adresse` = @email", con))
+                    {
+                        command.Parameters.AddWithValue("email", c.EmailAddress);
+                        command.ExecuteNonQuery();
+                    }
+                    // The sql delete command looks for the email address of the user in the "Kunde" table
                     using (MySqlCommand command = new MySqlCommand("DELETE FROM Kunde WHERE `E-Mail Adresse` = @email", con))
                     {
                         command.Parameters.AddWithValue("email", c.EmailAddress);
-
                         command.ExecuteNonQuery();
                     }
                 }
@@ -661,7 +666,7 @@ namespace Carsharing
                     con.Open();
                     // Get a list of all B_IDs matching the customer's email-address and checks,
                     // if the ending mileage equals NULL, indicating the booking is still open.
-                    using (MySqlCommand command = new MySqlCommand("Select B_ID FROM buchung WHERE `E - Mail Adresse` = @email AND Endkilometerstand IS NULL", con))
+                    using (MySqlCommand command = new MySqlCommand("Select B_ID FROM buchung WHERE `E-Mail Adresse` = @email AND Endkilometerstand IS NULL", con))
                     {
                         command.Parameters.AddWithValue("email", c.EmailAddress);
                         // Transfer the found B_IDs into a table via the MySqlDataAdapter...
