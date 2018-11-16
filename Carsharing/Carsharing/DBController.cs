@@ -707,7 +707,7 @@ namespace Carsharing
 					con.Open();
 					// Get a list of all B_IDs matching the customer's email-address and checks,
 					// if the ending mileage equals NULL, indicating the booking is still open.
-					using (MySqlCommand command = new MySqlCommand("Select B_ID FROM buchung WHERE `E - Mail Adresse` = @email AND Endkilometerstand IS NULL", con))
+					using (MySqlCommand command = new MySqlCommand("Select B_ID FROM buchung WHERE `E-Mail Adresse` = @email AND Endkilometerstand IS NULL", con))
 					{
 						command.Parameters.AddWithValue("email", c.EmailAddress);
 						// Transfer the found B_IDs into a table via the MySqlDataAdapter...
@@ -717,7 +717,7 @@ namespace Carsharing
 						}
 					}
 				}
-				catch (Exception e)
+				catch (Exception)
 				{
 
 				}
@@ -781,6 +781,47 @@ namespace Carsharing
 				c = null;
 			}
 			return c;
+		}
+		#endregion
+
+		#region Booking
+		public static bool AddBookingToDB(Booking b)
+		{
+			//return value, true means, successful
+			bool status = true;
+			using (MySqlConnection con = new MySqlConnection(connectionString))
+			{
+				try
+				{
+					con.Open();
+					using (MySqlCommand command = new MySqlCommand("INSERT INTO `buchung` (`B_ID`, `Kennzeichen`, `E-Mail Adresse`, `Startzeitpunkt`, `Endzeitpunkt`, `Startkilometerstand`, `Endkilometerstand`) VALUES (NULL, @Kennzeichen, @email, @startzeit, @endzeit, @startkm, @endkm);", con))
+					{
+						//(NULL, @Kennzeichen, @email, @startzeit, @endzeit, @startkm, @endkm)
+						command.Parameters.AddWithValue("Kennzeichen", b.Vehicle.NumberPlate);
+						command.Parameters.AddWithValue("email", b.Customer.EmailAddress);
+						command.Parameters.AddWithValue("startzeit", b.StartTime);
+						if (b.Open)
+							command.Parameters.AddWithValue("endzeit", null);
+						else
+							command.Parameters.AddWithValue("endzeit", b.EndTime);
+						command.Parameters.AddWithValue("startkm", b.StartMileage);
+						if (b.Open)
+							command.Parameters.AddWithValue("endkm", null);
+						else
+							command.Parameters.AddWithValue("end", b.EndMileage);
+						command.ExecuteNonQuery();
+					}
+				}
+				catch (Exception)
+				{
+					status = false;
+				}
+				finally
+				{
+					con.Close();
+				}
+			}
+			return status;
 		}
 		#endregion
 	}

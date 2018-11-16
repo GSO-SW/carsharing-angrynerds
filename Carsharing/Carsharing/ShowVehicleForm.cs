@@ -120,5 +120,22 @@ namespace Carsharing
 			else
 				return "Nein";
 		}
+
+		private void bookingButton_Click(object sender, EventArgs e)
+		{
+			if (vehicleListBox.SelectedItem != null && vehicleListBox.SelectedItem is Vehicle && FormController.CurrentCustomer != null)
+			{
+				Booking b = new Booking(FormController.CurrentCustomer, (Vehicle)vehicleListBox.SelectedItem, DateTime.Now, new DateTime(0), ((Vehicle)vehicleListBox.SelectedItem).Mileage, 0, true);
+				if (DBController.AddBookingToDB(b))
+				{
+					MessageBox.Show("Buchung erfolgreich.", "Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
+					Close();
+				}
+				else
+				{
+					MessageBox.Show("Buchung nicht erfolgreich. Bitte versuchen Sie es noch einmal.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
+		}
 	}
 }
