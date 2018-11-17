@@ -33,6 +33,13 @@ namespace Carsharing
         {
 			if (FormController.CurrentCustomer != null)
 			{
+                // Check, whether the customer has open bookings before continuing
+                if(DBController.CheckOpenBookings(FormController.CurrentCustomer))
+                {
+                    MessageBox.Show("Sie haben noch offene Buchungen, die Sie vorher beenden müssen, bevor Sie fortfahren können.", "Achtung!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
 				// Show MessageBox to confirm the user's intention
 				if (MessageBox.Show("Wollen Sie wirklich Ihren Account löschen?\nAll Ihre Daten gehen verloren.", "Achtung!", MessageBoxButtons.YesNo) == DialogResult.Yes)
 				{
