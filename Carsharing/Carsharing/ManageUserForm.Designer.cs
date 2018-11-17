@@ -52,6 +52,7 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.editButton = new System.Windows.Forms.Button();
+			this.delButton = new System.Windows.Forms.Button();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.SuspendLayout();
@@ -287,11 +288,23 @@
 			this.editButton.UseVisualStyleBackColor = true;
 			this.editButton.Click += new System.EventHandler(this.editButton_Click);
 			// 
+			// delButton
+			// 
+			this.delButton.Enabled = false;
+			this.delButton.Location = new System.Drawing.Point(276, 293);
+			this.delButton.Name = "delButton";
+			this.delButton.Size = new System.Drawing.Size(75, 23);
+			this.delButton.TabIndex = 4;
+			this.delButton.Text = "Löschen";
+			this.delButton.UseVisualStyleBackColor = true;
+			this.delButton.Click += new System.EventHandler(this.delButton_Click);
+			// 
 			// ManageUserForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 444);
+			this.Controls.Add(this.delButton);
 			this.Controls.Add(this.editButton);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.customerListBox);
@@ -331,5 +344,6 @@
 		private System.Windows.Forms.Label streetLabel;
 		private System.Windows.Forms.Label countryLabel;
 		private System.Windows.Forms.Button editButton;
+		private System.Windows.Forms.Button delButton;
 	}
 }
