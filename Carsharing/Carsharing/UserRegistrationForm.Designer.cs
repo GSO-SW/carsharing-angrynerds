@@ -161,7 +161,7 @@
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(41, 13);
 			this.label7.TabIndex = 12;
-			this.label7.Text = "Straße:";
+			this.label7.Text = "Strasse:";
 			// 
 			// label8
 			// 
