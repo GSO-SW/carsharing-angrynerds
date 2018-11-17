@@ -39,7 +39,7 @@ namespace Carsharing
 					countryLabel.Text = c.Country;
 
 					editButton.Enabled = true;
-					//delButton.Enabled = true;
+					delButton.Enabled = true;
 				}
 				else
 				{
@@ -55,10 +55,18 @@ namespace Carsharing
 				UserRegistrationForm urf = new UserRegistrationForm((Customer)customerListBox.SelectedItem);
 				urf.ShowDialog();
 
-				int i = customerListBox.SelectedIndex;
-				customerListBox.SelectedIndex = -1;
-				customerListBox.Items.Clear();
-				customerListBox.Items.AddRange(DBController.GetAllCustomerFromDB().ToArray());
+				updateList();
+			}
+		}
+
+		private void updateList()
+		{
+			int i = customerListBox.SelectedIndex;
+			customerListBox.SelectedIndex = -1;
+			customerListBox.Items.Clear();
+			customerListBox.Items.AddRange(DBController.GetAllCustomerFromDB().ToArray());
+			if (customerListBox.Items.Count > i)
+			{
 				customerListBox.SelectedIndex = i;
 			}
 		}
@@ -77,7 +85,43 @@ namespace Carsharing
 			countryLabel.Text = "";
 
 			editButton.Enabled = false;
-			//delButton.Enabled = false;
+			delButton.Enabled = false;
+		}
+
+		private void delButton_Click(object sender, EventArgs e)
+		{
+			if (customerListBox.SelectedItem is Customer && customerListBox.SelectedItem != null)
+			{
+				Customer c = (Customer)customerListBox.SelectedItem;
+				// Check, whether the customer has open bookings before continuing
+				if (FormController.CurrentCustomer == c)
+				{
+					MessageBox.Show("Bitte nutzen Sie zum löschen ihres eigenen Accounts den Knopf im Hauptmenü.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					return;
+				}
+				if (DBController.CheckOpenBookings(c))
+				{
+					MessageBox.Show("Es sind noch offene Buchungen vorhanden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					return;
+				}
+
+				// Show MessageBox to confirm the user's intention
+				if (MessageBox.Show("Wollen Sie diesen Account wirklich löschen?.", "Achtung", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+				{
+					// Delete the user here, by his email-address
+					// If the deletion was not successful then show an error message
+					if (!DBController.DeleteUserFromDB(c))
+					{
+						MessageBox.Show("Es ist ein Fehler beim Zugriff zur Datenbank aufgetreten.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
+					else //if the deletion was successful then delete the currentCustomer
+					{
+						MessageBox.Show("Der Account wurde erfolgreich gelöscht.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					}
+				}
+
+				updateList();
+			}
 		}
 	}
 }
