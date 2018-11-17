@@ -624,7 +624,7 @@ namespace Carsharing
                 {
                     con.Open();
                     // The sql update command replaces the users email address with "deleted" in the "Buchung" table
-                    using (MySqlCommand command = new MySqlCommand("UPDATE Buchung SET `E-Mail Adresse` = 'deleted' WHERE `E-Mail Adresse` = @email", con))
+                    using (MySqlCommand command = new MySqlCommand("UPDATE Buchung SET `E-Mail Adresse` = 'admin@system.de' WHERE `E-Mail Adresse` = @email", con))
                     {
                         command.Parameters.AddWithValue("email", c.EmailAddress);
                         command.ExecuteNonQuery();
@@ -692,6 +692,7 @@ namespace Carsharing
             }
             return result;
         }
+
         /// <summary>
         /// Get a customer from the database by his email address.
         /// </summary>
