@@ -771,6 +771,39 @@ namespace Carsharing
                 return null;
         }
 
+		/// <summary>
+		/// Get all customer from the database.
+		/// </summary>
+		/// <returns>List of all customers.</returns>
+		public static List<Customer> GetAllCustomerFromDB()
+		{
+			List<Customer> customers = new List<Customer>();
+
+			DataTable t = new DataTable();
+			using (MySqlConnection con = new MySqlConnection(connectionString))
+			{
+				try
+				{
+					con.Open();
+					using (MySqlDataAdapter a = new MySqlDataAdapter("SELECT * FROM kunde", con))
+					{
+						a.Fill(t);
+					}
+				}
+				finally
+				{
+					con.Close();
+				}
+			}
+
+			foreach (DataRow item in t.Rows)
+			{
+				customers.Add(GetCustomerFromDataRow(item));
+			}
+
+			return customers;
+		}
+
 		private static Customer GetCustomerFromDataRow(DataRow row)
 		{
 			Customer c;

@@ -34,6 +34,7 @@
 			this.editCustomerButton = new System.Windows.Forms.Button();
 			this.buttonAddVehicle = new System.Windows.Forms.Button();
 			this.createBookingButton = new System.Windows.Forms.Button();
+			this.mangeCustomerButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// userRegButton
@@ -96,12 +97,23 @@
 			this.createBookingButton.UseVisualStyleBackColor = true;
 			this.createBookingButton.Click += new System.EventHandler(this.createBookingButton_Click);
 			// 
+			// mangeCustomerButton
+			// 
+			this.mangeCustomerButton.Location = new System.Drawing.Point(41, 98);
+			this.mangeCustomerButton.Name = "mangeCustomerButton";
+			this.mangeCustomerButton.Size = new System.Drawing.Size(200, 23);
+			this.mangeCustomerButton.TabIndex = 4;
+			this.mangeCustomerButton.Text = "Kunden verwalten";
+			this.mangeCustomerButton.UseVisualStyleBackColor = true;
+			this.mangeCustomerButton.Click += new System.EventHandler(this.mangeCustomerButton_Click);
+			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.createBookingButton);
+			this.Controls.Add(this.mangeCustomerButton);
 			this.Controls.Add(this.editCustomerButton);
 			this.Controls.Add(this.loginButton);
 			this.Controls.Add(this.userRegButton);
@@ -121,6 +133,7 @@
 		private System.Windows.Forms.Button loginButton;
 		private System.Windows.Forms.Button editCustomerButton;
 		private System.Windows.Forms.Button buttonAddVehicle;
+		private System.Windows.Forms.Button mangeCustomerButton;
 		private System.Windows.Forms.Button createBookingButton;
 	}
 }

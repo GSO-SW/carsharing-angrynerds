@@ -66,7 +66,7 @@ namespace Carsharing
 		{
 			if (FormController.CurrentCustomer != null)
 			{
-				UserRegistrationForm urf = new UserRegistrationForm(true);
+				UserRegistrationForm urf = new UserRegistrationForm(FormController.CurrentCustomer);
 				urf.ShowDialog();
 			}
 			else
@@ -126,6 +126,18 @@ namespace Carsharing
 			{
 				MessageBox.Show("Sie müssen sich anmelden, damit Sie ihren Buchungen erstellen können.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
+		}
+
+		private void mangeCustomerButton_Click(object sender, EventArgs e)
+		{
+			if (FormController.CurrentCustomer != null && FormController.CurrentCustomer.IsAdmin)
+			{
+				// vorläufig neue form, aufdauer eher im main window
+				ManageUserForm muf = new ManageUserForm();
+				muf.ShowDialog();
+			}
+			else
+				MessageBox.Show("Sie müssen als Admin angemeldet sein.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 	}
 }
