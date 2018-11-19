@@ -21,21 +21,27 @@ namespace Carsharing
 				return;
 			}
 
-			Customer c = DBController.GetCustomerByEmailFromDB(emailTextBox.Text);
-			bool pwIncorrect = true;
-			if (c != null)
+			if (DBController.GetCustomerByEmailFromDB(emailTextBox.Text, out Customer c))
 			{
-				if (c.Password == passwordTextBox.Text)
+				bool pwIncorrect = true;
+				if (c != null)
 				{
-					FormController.CurrentCustomer = c;
-					c = null;
-					pwIncorrect = false;
-					MessageBox.Show("Sie wurden erfolgreich angemeldet.", "Information", MessageBoxButtons.OK,MessageBoxIcon.Information);
-					Close();
+					if (c.Password == passwordTextBox.Text)
+					{
+						FormController.CurrentCustomer = c;
+						c = null;
+						pwIncorrect = false;
+						MessageBox.Show("Sie wurden erfolgreich angemeldet.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+						Close();
+					}
 				}
+				if (pwIncorrect)
+					MessageBox.Show("Der angegebene Nutzer konnte nicht gefunden werden oder das eingegebene Passwort ist nicht richtig.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
-			if (pwIncorrect)
-				MessageBox.Show("Der angegebene Nutzer konnte nicht gefunden werden oder das eingegebene Passwort ist nicht richtig.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			else
+			{
+				MessageBox.Show("Es ist ein Fehler beim Zugriff auf die Datenbank aufgetreten.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 		}
 	}
 }

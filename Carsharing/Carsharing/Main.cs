@@ -33,8 +33,13 @@ namespace Carsharing
         {
 			if (FormController.CurrentCustomer != null)
 			{
-                // Check, whether the customer has open bookings before continuing
-                if(DBController.CheckOpenBookings(FormController.CurrentCustomer))
+				// Check, whether the customer has open bookings before continuing
+				if (!DBController.CheckOpenBookings(FormController.CurrentCustomer, out bool openBookings))
+				{
+					MessageBox.Show("Es ist ein Fehler beim Zugriff auf die Datenbank aufgetreten.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					return;
+				}
+				if (openBookings)
                 {
                     MessageBox.Show("Sie haben noch offene Buchungen, die Sie vorher beenden müssen, bevor Sie fortfahren können.", "Achtung!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -47,7 +52,7 @@ namespace Carsharing
 					// If the deletion was not successful then show an error message
 					if (!DBController.DeleteUserFromDB(FormController.CurrentCustomer))
 					{
-						MessageBox.Show("Es ist ein Fehler beim Zugriff zur Datenbank aufgetreten.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						MessageBox.Show("Es ist ein Fehler beim Zugriff auf die Datenbank aufgetreten.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					}
 					else //if the deletion was successful then delete the currentCustomer
 					{
@@ -104,9 +109,9 @@ namespace Carsharing
 		{
 			if (FormController.CurrentCustomer != null)
 			{
-				if (DBController.ConnectionAvailable())
+				if (!DBController.CheckOpenBookings(FormController.CurrentCustomer, out bool openBookings))
 				{
-					if (!DBController.CheckOpenBookings(FormController.CurrentCustomer))
+					if (!openBookings)
 					{
 						// open the ccf only, if the customer has no open bookings, because he isn't allowed to rent more than one car at a time
 						ShowVehicleForm ccf = new ShowVehicleForm();
@@ -119,7 +124,7 @@ namespace Carsharing
 				}
 				else
 				{
-					MessageBox.Show("Es konnte keine Verbindung zur Datenbank aufgebaut werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show("Es ist ein Fehler beim Zugriff auf die Datenbank aufgetreten.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
 			else

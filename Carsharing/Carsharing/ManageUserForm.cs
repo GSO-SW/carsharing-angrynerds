@@ -16,7 +16,12 @@ namespace Carsharing
 		{
 			InitializeComponent();
 
-			customerListBox.Items.AddRange(DBController.GetAllCustomerFromDB().ToArray());
+			if (!DBController.GetAllCustomerFromDB(out List<Customer> customers))
+			{
+				MessageBox.Show("Es ist ein Fehler beim Zugriff auf die Datenbank aufgetreten.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Close();
+			}
+			customerListBox.Items.AddRange(customers.ToArray());
 		}
 
 		private void customerListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -64,7 +69,13 @@ namespace Carsharing
 			int i = customerListBox.SelectedIndex;
 			customerListBox.SelectedIndex = -1;
 			customerListBox.Items.Clear();
-			customerListBox.Items.AddRange(DBController.GetAllCustomerFromDB().ToArray());
+			if (!DBController.GetAllCustomerFromDB(out List<Customer> customers))
+			{
+				MessageBox.Show("Es ist ein Fehler beim Zugriff auf die Datenbank aufgetreten.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Close();
+				return;
+			}
+			customerListBox.Items.AddRange(customers.ToArray());
 			if (customerListBox.Items.Count > i)
 			{
 				customerListBox.SelectedIndex = i;
@@ -99,7 +110,12 @@ namespace Carsharing
 					MessageBox.Show("Bitte nutzen Sie zum löschen ihres eigenen Accounts den Knopf im Hauptmenü.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					return;
 				}
-				if (DBController.CheckOpenBookings(c))
+				if (DBController.CheckOpenBookings(c, out bool openBookings))
+				{
+					MessageBox.Show("Es ist ein Fehler beim Zugriff auf die Datenbank aufgetreten.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					return;
+				}
+				if (openBookings)
 				{
 					MessageBox.Show("Es sind noch offene Buchungen vorhanden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					return;
