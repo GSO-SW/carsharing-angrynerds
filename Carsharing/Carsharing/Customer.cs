@@ -133,6 +133,22 @@ namespace Carsharing
 		}
 		#endregion
 
+		public Customer()
+		{
+			this.name = String.Empty;
+			this.lastName = String.Empty;
+			this.emailAddress = String.Empty;
+			this.phoneNumber = String.Empty;
+			this.password = String.Empty;
+			this.birthday = new DateTime();
+			this.street = String.Empty;
+			this.houseNumber = String.Empty;
+			this.plz = String.Empty;
+			this.city = String.Empty;
+			this.country = String.Empty;
+			this.isAdmin = false;
+		}
+
 		public Customer(string name, string lastName, string emailAddress, string phoneNumber, string password, DateTime birthday, string street, string houseNumber, string plz, string city, string country, bool isAdmin)
 		{
 			this.name = name;

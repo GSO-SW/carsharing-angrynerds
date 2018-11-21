@@ -40,13 +40,13 @@
 			this.labelTitle.TabIndex = 1;
 			this.labelTitle.Text = "AdminBookings";
 			// 
-			// AdminBookings
+			// MainViewAdminBookings
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
 			this.Controls.Add(this.labelTitle);
-			this.Name = "AdminBookings";
+			this.Name = "MainViewAdminBookings";
 			this.Size = new System.Drawing.Size(900, 575);
 			this.ResumeLayout(false);
 			this.PerformLayout();

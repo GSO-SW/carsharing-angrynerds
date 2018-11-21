@@ -29,9 +29,6 @@
 		private void InitializeComponent()
 		{
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			this.buttonAddVehicle = new CustomControl.RoundButton();
-			this.roundButton1 = new CustomControl.RoundButton();
-			this.roundButton2 = new CustomControl.RoundButton();
 			this.available = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.numberPlate = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,6 +60,9 @@
 			this.seatHeating = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.winterTire = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.smoker = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+			this.buttonVehicleDelete = new CustomControl.RoundButton();
+			this.buttonVehicleEdit = new CustomControl.RoundButton();
+			this.buttonVehicleAdd = new CustomControl.RoundButton();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -113,46 +113,6 @@
 			this.dataGridView1.ReadOnly = true;
 			this.dataGridView1.Size = new System.Drawing.Size(900, 538);
 			this.dataGridView1.TabIndex = 2;
-			// 
-			// buttonAddVehicle
-			// 
-			this.buttonAddVehicle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(90)))));
-			this.buttonAddVehicle.FlatAppearance.BorderSize = 0;
-			this.buttonAddVehicle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.buttonAddVehicle.Location = new System.Drawing.Point(753, 544);
-			this.buttonAddVehicle.Name = "buttonAddVehicle";
-			this.buttonAddVehicle.Rounded = 0;
-			this.buttonAddVehicle.Size = new System.Drawing.Size(144, 28);
-			this.buttonAddVehicle.TabIndex = 3;
-			this.buttonAddVehicle.Text = "Fahrzeug hinzufügen";
-			this.buttonAddVehicle.UseVisualStyleBackColor = false;
-			this.buttonAddVehicle.Click += new System.EventHandler(this.buttonAddVehicle_Click);
-			// 
-			// roundButton1
-			// 
-			this.roundButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(90)))));
-			this.roundButton1.FlatAppearance.BorderSize = 0;
-			this.roundButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.roundButton1.Location = new System.Drawing.Point(603, 544);
-			this.roundButton1.Name = "roundButton1";
-			this.roundButton1.Rounded = 0;
-			this.roundButton1.Size = new System.Drawing.Size(144, 28);
-			this.roundButton1.TabIndex = 4;
-			this.roundButton1.Text = "Fahrzeug bearbeiten";
-			this.roundButton1.UseVisualStyleBackColor = false;
-			// 
-			// roundButton2
-			// 
-			this.roundButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(90)))));
-			this.roundButton2.FlatAppearance.BorderSize = 0;
-			this.roundButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.roundButton2.Location = new System.Drawing.Point(453, 544);
-			this.roundButton2.Name = "roundButton2";
-			this.roundButton2.Rounded = 0;
-			this.roundButton2.Size = new System.Drawing.Size(144, 28);
-			this.roundButton2.TabIndex = 5;
-			this.roundButton2.Text = "Fahrzeug löschen";
-			this.roundButton2.UseVisualStyleBackColor = false;
 			// 
 			// available
 			// 
@@ -374,14 +334,54 @@
 			this.smoker.ReadOnly = true;
 			this.smoker.Width = 54;
 			// 
+			// buttonVehicleDelete
+			// 
+			this.buttonVehicleDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(90)))));
+			this.buttonVehicleDelete.FlatAppearance.BorderSize = 0;
+			this.buttonVehicleDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.buttonVehicleDelete.Location = new System.Drawing.Point(453, 544);
+			this.buttonVehicleDelete.Name = "buttonVehicleDelete";
+			this.buttonVehicleDelete.Rounded = 0;
+			this.buttonVehicleDelete.Size = new System.Drawing.Size(144, 28);
+			this.buttonVehicleDelete.TabIndex = 5;
+			this.buttonVehicleDelete.Text = "Fahrzeug löschen";
+			this.buttonVehicleDelete.UseVisualStyleBackColor = false;
+			// 
+			// buttonVehicleEdit
+			// 
+			this.buttonVehicleEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(90)))));
+			this.buttonVehicleEdit.FlatAppearance.BorderSize = 0;
+			this.buttonVehicleEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.buttonVehicleEdit.Location = new System.Drawing.Point(603, 544);
+			this.buttonVehicleEdit.Name = "buttonVehicleEdit";
+			this.buttonVehicleEdit.Rounded = 0;
+			this.buttonVehicleEdit.Size = new System.Drawing.Size(144, 28);
+			this.buttonVehicleEdit.TabIndex = 4;
+			this.buttonVehicleEdit.Text = "Fahrzeug bearbeiten";
+			this.buttonVehicleEdit.UseVisualStyleBackColor = false;
+			// 
+			// buttonVehicleAdd
+			// 
+			this.buttonVehicleAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(90)))));
+			this.buttonVehicleAdd.FlatAppearance.BorderSize = 0;
+			this.buttonVehicleAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.buttonVehicleAdd.Location = new System.Drawing.Point(753, 544);
+			this.buttonVehicleAdd.Name = "buttonVehicleAdd";
+			this.buttonVehicleAdd.Rounded = 0;
+			this.buttonVehicleAdd.Size = new System.Drawing.Size(144, 28);
+			this.buttonVehicleAdd.TabIndex = 3;
+			this.buttonVehicleAdd.Text = "Fahrzeug hinzufügen";
+			this.buttonVehicleAdd.UseVisualStyleBackColor = false;
+			this.buttonVehicleAdd.Click += new System.EventHandler(this.buttonAddVehicle_Click);
+			// 
 			// MainViewAdminVehicle
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.Controls.Add(this.roundButton2);
-			this.Controls.Add(this.roundButton1);
-			this.Controls.Add(this.buttonAddVehicle);
+			this.Controls.Add(this.buttonVehicleDelete);
+			this.Controls.Add(this.buttonVehicleEdit);
+			this.Controls.Add(this.buttonVehicleAdd);
 			this.Controls.Add(this.dataGridView1);
 			this.Name = "MainViewAdminVehicle";
 			this.Size = new System.Drawing.Size(900, 575);
@@ -393,9 +393,9 @@
 
 		#endregion
 		private System.Windows.Forms.DataGridView dataGridView1;
-		private CustomControl.RoundButton buttonAddVehicle;
-		private CustomControl.RoundButton roundButton1;
-		private CustomControl.RoundButton roundButton2;
+		private CustomControl.RoundButton buttonVehicleAdd;
+		private CustomControl.RoundButton buttonVehicleEdit;
+		private CustomControl.RoundButton buttonVehicleDelete;
 		private System.Windows.Forms.DataGridViewCheckBoxColumn available;
 		private System.Windows.Forms.DataGridViewTextBoxColumn numberPlate;
 		private System.Windows.Forms.DataGridViewTextBoxColumn brand;

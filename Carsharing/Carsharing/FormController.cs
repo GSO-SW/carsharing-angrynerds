@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,5 +39,11 @@ namespace Carsharing
 			get { return mainView; }
 			set { mainView = value; }
 		}
+
+		public static Color BackgroundColor
+		{
+			get { return Color.FromArgb(224, 224, 224); }
+		}
+
 	}
 }

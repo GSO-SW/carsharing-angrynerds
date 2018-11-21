@@ -782,6 +782,53 @@ namespace Carsharing
 			}
 			return c;
 		}
+
+		public static bool GetCustomers(out List<Customer> customers)
+		{
+			DataTable table = new DataTable();
+			customers = new List<Customer>();
+
+			using (MySqlConnection con = new MySqlConnection(connectionString))
+			{
+				try
+				{
+					con.Open();
+
+					using (MySqlDataAdapter a = new MySqlDataAdapter("SELECT * FROM kunde", con))
+					{
+						a.Fill(table);
+					}
+				}
+				catch (Exception)
+				{
+					return false;
+				}
+				finally
+				{
+					con.Close();
+				}
+			}
+
+			foreach (DataRow item in table.Rows)
+			{
+				Customer c = new Customer();
+				c.EmailAddress = item[0].ToString();
+				c.Name = item[1].ToString();
+				c.LastName = item[2].ToString();
+				c.PhoneNumber = item[3].ToString();
+				c.Password = item[4].ToString();
+				c.IsAdmin = Convert.ToBoolean(item[5].ToString());
+				c.Birthday = DateTime.Parse(item[6].ToString());
+				c.Street = item[7].ToString();
+				c.HouseNumber = item[8].ToString();
+				c.PLZ = item[9].ToString();
+				c.City = item[10].ToString();
+				c.Country = item[11].ToString();
+
+				customers.Add(c);
+			}
+			return true;
+		}
 		#endregion
 	}
 }
