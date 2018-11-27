@@ -325,7 +325,7 @@ namespace Carsharing
 
 		public string DisplayMember
 		{
-			get { return brand + " " + model + ", " + numberPlate; }
+			get { return brand + " " + model + ", \"" + numberPlate + "\""; }
 		}
 		#endregion
 
@@ -413,6 +413,11 @@ namespace Carsharing
 		{
 			string s = Brand + ";" + Model + ";" + Power + ";" + ConstructionYear + ";" + Gear + ";" + MaxTankFilling + ";" + BasicPrice + ";" + PricePerKilometre + ";" + PricePerKilometre + ";" + FuelType + ";" + Seats;
 			return s;
+		}
+
+		public override string ToString()
+		{
+			return DisplayMember;
 		}
 		#endregion
 	}

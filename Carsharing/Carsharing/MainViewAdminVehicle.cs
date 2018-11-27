@@ -15,21 +15,73 @@ namespace Carsharing
 		public MainViewAdminVehicle()
 		{
 			InitializeComponent();
+			listVehicle.DrawMode = DrawMode.OwnerDrawFixed;
 		}
 
 		private void AdminVehicles_Load(object sender, EventArgs e)
 		{
-
+			UpdateTable();
 		}
 
 		private void buttonAddVehicle_Click(object sender, EventArgs e)
 		{
 
 		}
+		
+		private void buttonVehicleEdit_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void buttonRefresh_Click(object sender, EventArgs e)
+		{
+			UpdateTable();
+		}
 
 		public void UpdateTable()
 		{
+			listVehicle.Items.Clear();
+			listVehicle.Items.AddRange(DBController.GetAllVehiclesFromDB().ToArray());
+		}
 
+		private void listVehicle_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (listVehicle.SelectedItem is Vehicle)
+			{
+				Vehicle vehicle = (Vehicle)listVehicle.SelectedItem;
+
+				txtBrand.Text = vehicle.Brand;
+				txtConstructionYear.Text = vehicle.ConstructionYear.Year.ToString();
+				txtPosY.Text = vehicle.Position.Y.ToString();
+				txtPosX.Text = vehicle.Position.X.ToString();
+				txtFuelCon.Text = vehicle.FuelConsumption.ToString();
+				txtGear.Text = vehicle.FuelType;
+				txtLastMaint.Text = vehicle.LastMaintenance.ToLongDateString();
+				txtMaxTankFilling.Text = vehicle.MaxTankFilling.ToString();
+				txtMileage.Text = vehicle.Mileage.ToString();
+				txtModel.Text = vehicle.Model;
+				txtNumberplate.Text = vehicle.NumberPlate;
+				txtPower.Text = vehicle.Power.ToString();
+				txtReg.Text = vehicle.Registration.Month + ", " + vehicle.Registration.Year;
+				txtSeats.Text = vehicle.Seats.ToString();
+				txtTankFilling.Text = vehicle.TankFilling.ToString();
+				txtFuel.Text = vehicle.FuelType;
+			}
+		}
+
+		private void listVehicle_DrawItem(object sender, DrawItemEventArgs e)
+		{
+			e.DrawBackground();
+			Brush brush = SystemBrushes.ControlText;
+			Font font = e.Font;
+
+			if(e.Index >= 0 && e.Index - 1 <= listVehicle.Items.Count)
+			if (listVehicle.Items[e.Index] is Vehicle)
+				if (!((Vehicle)listVehicle.Items[e.Index]).Available)
+				{
+					brush = Brushes.Red;
+				}
+			e.Graphics.DrawString(listVehicle.Items[e.Index].ToString(), font, brush, e.Bounds);
 		}
 	}
 }
