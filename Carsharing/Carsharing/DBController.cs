@@ -451,9 +451,10 @@ namespace Carsharing
 			return true;
 		}
 		
-		internal static List<Vehicle> GetAllVehiclesFromDB()
+		internal static bool GetAllVehiclesFromDB(out List<Vehicle> vehicles)
 		{
 			DataTable table = new DataTable();
+			vehicles = new List<Vehicle>();
 
 			using (MySqlConnection con = new MySqlConnection(connectionString))
 			{
@@ -467,21 +468,20 @@ namespace Carsharing
 				}
 				catch (Exception)
 				{
-
+					return false;
 				}
 				finally
 				{
 					con.Close();
 				}
 			}
-
 			List<Vehicle> vehicleList = new List<Vehicle>();
 			foreach (DataRow item in table.Rows)
 			{
-				vehicleList.Add(GetVehicleFromDataRow(item));
+				vehicles.Add(GetVehicleFromDataRow(item));
 			}
 
-			return vehicleList;
+			return true;
 		}
 		
 		private static Vehicle GetVehicleFromDataRow(DataRow row)

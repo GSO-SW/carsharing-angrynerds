@@ -17,7 +17,9 @@ namespace Carsharing
 			InitializeComponent();
 
 			vehicleListBox.DisplayMember = "DisplayMember";
-			vehicleListBox.Items.AddRange(DBController.GetAllVehiclesFromDB().ToArray());
+
+			if (DBController.GetAllVehiclesFromDB(out List<Vehicle> vehicles))
+				vehicleListBox.Items.AddRange(vehicles.ToArray());
 		}
 
 		private void vehicleListBox_SelectedIndexChanged(object sender, EventArgs e)
