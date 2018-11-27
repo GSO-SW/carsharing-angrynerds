@@ -68,6 +68,12 @@
 			this.labelBrand = new System.Windows.Forms.Label();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
 			this.buttonRefresh = new CustomControl.RoundButton();
+			this.txtPrice = new System.Windows.Forms.Label();
+			this.labelPrice = new System.Windows.Forms.Label();
+			this.txtPriceKilo = new System.Windows.Forms.Label();
+			this.labelPriceKilo = new System.Windows.Forms.Label();
+			this.txtPriceMin = new System.Windows.Forms.Label();
+			this.labelPriceMin = new System.Windows.Forms.Label();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.SuspendLayout();
@@ -141,6 +147,12 @@
 			// tabPage1
 			// 
 			this.tabPage1.BackColor = System.Drawing.Color.White;
+			this.tabPage1.Controls.Add(this.txtPriceMin);
+			this.tabPage1.Controls.Add(this.labelPriceMin);
+			this.tabPage1.Controls.Add(this.txtPriceKilo);
+			this.tabPage1.Controls.Add(this.labelPriceKilo);
+			this.tabPage1.Controls.Add(this.txtPrice);
+			this.tabPage1.Controls.Add(this.labelPrice);
 			this.tabPage1.Controls.Add(this.txtFuelCon);
 			this.tabPage1.Controls.Add(this.txtSeats);
 			this.tabPage1.Controls.Add(this.txtLastMaint);
@@ -588,6 +600,78 @@
 			this.buttonRefresh.UseVisualStyleBackColor = false;
 			this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
 			// 
+			// txtPrice
+			// 
+			this.txtPrice.AutoSize = true;
+			this.txtPrice.BackColor = System.Drawing.Color.White;
+			this.txtPrice.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.txtPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.txtPrice.Location = new System.Drawing.Point(14, 423);
+			this.txtPrice.Name = "txtPrice";
+			this.txtPrice.Size = new System.Drawing.Size(105, 19);
+			this.txtPrice.TabIndex = 59;
+			this.txtPrice.Text = "----------------";
+			// 
+			// labelPrice
+			// 
+			this.labelPrice.AutoSize = true;
+			this.labelPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.labelPrice.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.labelPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.labelPrice.Location = new System.Drawing.Point(14, 401);
+			this.labelPrice.Name = "labelPrice";
+			this.labelPrice.Size = new System.Drawing.Size(38, 19);
+			this.labelPrice.TabIndex = 58;
+			this.labelPrice.Text = "Preis";
+			// 
+			// txtPriceKilo
+			// 
+			this.txtPriceKilo.AutoSize = true;
+			this.txtPriceKilo.BackColor = System.Drawing.Color.White;
+			this.txtPriceKilo.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.txtPriceKilo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.txtPriceKilo.Location = new System.Drawing.Point(173, 423);
+			this.txtPriceKilo.Name = "txtPriceKilo";
+			this.txtPriceKilo.Size = new System.Drawing.Size(105, 19);
+			this.txtPriceKilo.TabIndex = 61;
+			this.txtPriceKilo.Text = "----------------";
+			// 
+			// labelPriceKilo
+			// 
+			this.labelPriceKilo.AutoSize = true;
+			this.labelPriceKilo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.labelPriceKilo.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.labelPriceKilo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.labelPriceKilo.Location = new System.Drawing.Point(173, 401);
+			this.labelPriceKilo.Name = "labelPriceKilo";
+			this.labelPriceKilo.Size = new System.Drawing.Size(70, 19);
+			this.labelPriceKilo.TabIndex = 60;
+			this.labelPriceKilo.Text = "Preis / km";
+			// 
+			// txtPriceMin
+			// 
+			this.txtPriceMin.AutoSize = true;
+			this.txtPriceMin.BackColor = System.Drawing.Color.White;
+			this.txtPriceMin.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.txtPriceMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.txtPriceMin.Location = new System.Drawing.Point(330, 423);
+			this.txtPriceMin.Name = "txtPriceMin";
+			this.txtPriceMin.Size = new System.Drawing.Size(105, 19);
+			this.txtPriceMin.TabIndex = 63;
+			this.txtPriceMin.Text = "----------------";
+			// 
+			// labelPriceMin
+			// 
+			this.labelPriceMin.AutoSize = true;
+			this.labelPriceMin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.labelPriceMin.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.labelPriceMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.labelPriceMin.Location = new System.Drawing.Point(330, 401);
+			this.labelPriceMin.Name = "labelPriceMin";
+			this.labelPriceMin.Size = new System.Drawing.Size(74, 19);
+			this.labelPriceMin.TabIndex = 62;
+			this.labelPriceMin.Text = "Preis / min";
+			// 
 			// MainViewAdminVehicle
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -650,5 +734,11 @@
 		private System.Windows.Forms.Label txtNumberplate;
 		private System.Windows.Forms.Label txtModel;
 		private CustomControl.RoundButton buttonRefresh;
+		private System.Windows.Forms.Label txtPriceMin;
+		private System.Windows.Forms.Label labelPriceMin;
+		private System.Windows.Forms.Label txtPriceKilo;
+		private System.Windows.Forms.Label labelPriceKilo;
+		private System.Windows.Forms.Label txtPrice;
+		private System.Windows.Forms.Label labelPrice;
 	}
 }

@@ -60,6 +60,12 @@
     <Compile Include="EditDataViewUser.Designer.cs">
       <DependentUpon>EditDataViewUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditDataViewVehicle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EditDataViewVehicle.Designer.cs">
+      <DependentUpon>EditDataViewVehicle.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginViewLogin.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -146,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditDataViewUser.resx">
       <DependentUpon>EditDataViewUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditDataViewVehicle.resx">
+      <DependentUpon>EditDataViewVehicle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginViewLogin.resx">
       <DependentUpon>LoginViewLogin.cs</DependentUpon>

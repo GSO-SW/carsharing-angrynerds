@@ -12,6 +12,10 @@ namespace Carsharing
 {
 	public partial class EditDataView : Form
 	{
+		/// <summary>
+		/// Create
+		/// </summary>
+		/// <param name="c"></param>
 		public EditDataView(Customer c)
 		{
 			InitializeComponent();
@@ -24,6 +28,14 @@ namespace Carsharing
 		public EditDataView(Vehicle v)
 		{
 			InitializeComponent();
+		}
+
+		public EditDataView()
+		{
+			InitializeComponent();
+			EditDataViewVehicle editDataViewVehicle = new EditDataViewVehicle();
+			editDataViewVehicle.Location = new Point(0, 25);
+			Controls.Add(editDataViewVehicle);
 		}
 
 		private void buttonCancel_Click(object sender, EventArgs e)

@@ -25,7 +25,7 @@ namespace Carsharing
 
 		private void buttonAddVehicle_Click(object sender, EventArgs e)
 		{
-
+			new EditDataView().ShowDialog();
 		}
 		
 		private void buttonVehicleEdit_Click(object sender, EventArgs e)
@@ -54,18 +54,21 @@ namespace Carsharing
 				txtConstructionYear.Text = vehicle.ConstructionYear.Year.ToString();
 				txtPosY.Text = vehicle.Position.Y.ToString();
 				txtPosX.Text = vehicle.Position.X.ToString();
-				txtFuelCon.Text = vehicle.FuelConsumption.ToString();
-				txtGear.Text = vehicle.FuelType;
+				txtFuelCon.Text = vehicle.FuelConsumption.ToString() + " E/100km";
+				txtGear.Text = vehicle.Gear;
 				txtLastMaint.Text = vehicle.LastMaintenance.ToLongDateString();
-				txtMaxTankFilling.Text = vehicle.MaxTankFilling.ToString();
+				txtMaxTankFilling.Text = vehicle.MaxTankFilling.ToString() + " l";
 				txtMileage.Text = vehicle.Mileage.ToString();
 				txtModel.Text = vehicle.Model;
 				txtNumberplate.Text = vehicle.NumberPlate;
-				txtPower.Text = vehicle.Power.ToString();
+				txtPower.Text = vehicle.Power.ToString() + " kw";
 				txtReg.Text = vehicle.Registration.Month + ", " + vehicle.Registration.Year;
 				txtSeats.Text = vehicle.Seats.ToString();
-				txtTankFilling.Text = vehicle.TankFilling.ToString();
+				txtTankFilling.Text = vehicle.TankFilling.ToString() + " l";
 				txtFuel.Text = vehicle.FuelType;
+				txtPrice.Text = vehicle.BasicPrice.ToString() + " €";
+				txtPriceKilo.Text = vehicle.PricePerKilometre.ToString() + " €";
+				txtPriceMin.Text = vehicle.PricePerMinute.ToString() + " €";
 			}
 		}
 
