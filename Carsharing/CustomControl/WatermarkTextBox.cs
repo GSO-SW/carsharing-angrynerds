@@ -64,5 +64,16 @@ namespace CustomControl
 			ForeColor = Color.FromArgb(73, 73, 73);
 			Text = Watermark;
 		}
+
+		public override string Text
+		{
+			get => base.Text;
+			set
+			{
+				if(value != Watermark)
+					ForeColor = Color.FromArgb(0, 0, 0);
+				base.Text = value;
+			}
+		}
 	}
 }
