@@ -28,21 +28,9 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.buttonUserDelete = new CustomControl.RoundButton();
 			this.buttonUserEdit = new CustomControl.RoundButton();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
-			// 
-			// dataGridView1
-			// 
-			this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.Size = new System.Drawing.Size(900, 538);
-			this.dataGridView1.TabIndex = 0;
 			// 
 			// buttonUserDelete
 			// 
@@ -70,6 +58,7 @@
 			this.buttonUserEdit.TabIndex = 7;
 			this.buttonUserEdit.Text = "Nutzer bearbeiten";
 			this.buttonUserEdit.UseVisualStyleBackColor = false;
+			this.buttonUserEdit.Click += new System.EventHandler(this.buttonUserEdit_Click);
 			// 
 			// MainViewAdminUsers
 			// 
@@ -78,17 +67,13 @@
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
 			this.Controls.Add(this.buttonUserDelete);
 			this.Controls.Add(this.buttonUserEdit);
-			this.Controls.Add(this.dataGridView1);
 			this.Name = "MainViewAdminUsers";
 			this.Size = new System.Drawing.Size(900, 575);
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
-
-		private System.Windows.Forms.DataGridView dataGridView1;
 		private CustomControl.RoundButton buttonUserDelete;
 		private CustomControl.RoundButton buttonUserEdit;
 	}
