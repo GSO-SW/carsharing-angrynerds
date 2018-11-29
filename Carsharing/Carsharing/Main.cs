@@ -16,7 +16,7 @@ namespace Carsharing
 		{
 			InitializeComponent();
 
-			FormController.MainView = this;
+			//FormController.MainView = this;
 		}
 
 		private void userDeleteButton_Click(object sender, EventArgs e)
