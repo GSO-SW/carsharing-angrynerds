@@ -402,6 +402,41 @@ namespace Carsharing
 			WinterTire = winter;
 			Smoker = smoker;
 		}
+
+		public Vehicle()
+		{
+			NumberPlate = String.Empty;
+			Mileage = 0.0;
+			LastMaintenance = DateTime.Today;
+			TankFilling = 0.0;
+			Position = new PointD(0,0);
+			Available = false;
+			Brand = String.Empty;
+			Model = String.Empty;
+			Power = 0;
+			ConstructionYear = 2000;
+			Gear = String.Empty;
+			MaxTankFilling = 0.0;
+			BasicPrice = 0.0;
+			PricePerKilometre = 0.0;
+			PricePerMinute = 0.0;
+			Registration = DateTime.Today;
+			Seats = 0;
+			FuelType = String.Empty;
+			FuelConsumption = 0.0;
+			AirConditioner = false;
+			CruiseControl = false;
+			Radio = false;
+			Bluetooth = false;
+			USB = false;
+			CDPlayer = false;
+			Navi = false;
+			ABS = false;
+			ESP = false;
+			SeatHeating = false;
+			WinterTire = false;
+			Smoker = false;
+		}
 		#endregion
 
 		#region Methods
