@@ -34,7 +34,7 @@ namespace Carsharing
 			//Checks wether the current user isn't logged in.
 			if (FormController.CurrentCustomer == null)
 			{
-				MessageBox.Show("Sie sind nicht angemeldet.\nSie werden zum Hauptfenster zurückgeleitet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Sie sind nicht angemeldet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				Close();
 				return;
 			}
@@ -42,7 +42,7 @@ namespace Carsharing
 			//Checks wether the current user is admin.
 			if (!FormController.CurrentCustomer.IsAdmin)
 			{
-				MessageBox.Show("Sie sind nicht als Admin angemeldet.\nSie werden zum Hauptfenster zurückgeleitet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Sie sind nicht als Admin angemeldet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				Close();
 				return;
 			}
@@ -76,7 +76,6 @@ namespace Carsharing
 				Close();
 				return;
 			}
-
 			//Get a list with all fuel types and add them to the fuel-combobox.
 			if (DBController.GetFuelTypes(out List<string> fuel))
 			{
