@@ -50,7 +50,7 @@ namespace Carsharing
 		public string NumberPlate
 		{
 			get { return numberPlate; }
-			set { numberPlate = value; }
+			set { numberPlate = value.ToUpper(); }
 		}
 
 		/// <summary>

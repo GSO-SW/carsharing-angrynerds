@@ -203,7 +203,7 @@
 			this.buttonVehicles.Size = new System.Drawing.Size(182, 40);
 			this.buttonVehicles.TabIndex = 1;
 			this.buttonVehicles.Tag = this.adminVehicles1;
-			this.buttonVehicles.Text = "Fahrzeuge";
+			this.buttonVehicles.Text = "Fuhrpark";
 			this.buttonVehicles.UseVisualStyleBackColor = false;
 			this.buttonVehicles.Click += new System.EventHandler(this.buttonStatus_Click);
 			// 
