@@ -82,7 +82,7 @@ namespace Carsharing
 			foreach (DataRow row in table.Rows)
 			{
 				//Creates a vehicle for the current table line with all vehicle type information.
-				Vehicle rowVehicle = new Vehicle(String.Empty, 0.0, new DateTime(0), 0.0, new PointD(0,0), false, row["Marke"].ToString(), row["Modell"].ToString(), Convert.ToInt16(row["Leistung"].ToString()), Convert.ToInt16(row["Baujahr"].ToString()), row["Getriebeart"].ToString(), Convert.ToDouble(row["Max_Tankvolumen"].ToString()), Convert.ToDouble(row["Grundpreis"].ToString()), Convert.ToDouble(row["Preis/km"].ToString()), Convert.ToDouble(row["Preis/min"].ToString()), new DateTime(), Convert.ToInt16(row["Anzahl der Sitze"].ToString()), row["Kraftstoffart"].ToString(), 0.0, false, false, false, false, false, false, false, false, false, false, false, false);
+				Vehicle rowVehicle = new Vehicle(String.Empty, 0.0, new DateTime(0), 0.0, new PointD(0,0), false, row["Marke"].ToString(), row["Modell"].ToString(), Convert.ToInt32(row["Leistung"].ToString()), Convert.ToInt32(row["Baujahr"].ToString()), row["Getriebeart"].ToString(), Convert.ToDouble(row["Max_Tankvolumen"].ToString()), Convert.ToDouble(row["Grundpreis"].ToString()), Convert.ToDouble(row["Preis/km"].ToString()), Convert.ToDouble(row["Preis/min"].ToString()), new DateTime(), Convert.ToInt32(row["Anzahl der Sitze"].ToString()), row["Kraftstoffart"].ToString(), 0.0, false, false, false, false, false, false, false, false, false, false, false, false);
 
 
 				//Checks whether the parameter vehicle has the same vehicle type as the created vehicle.
@@ -451,9 +451,10 @@ namespace Carsharing
 			return true;
 		}
 		
-		public static List<Vehicle> GetAllVehiclesFromDB()
+		public static bool GetAllVehiclesFromDB(out List<Vehicle> vehicles)
 		{
 			DataTable table = new DataTable();
+			vehicles = new List<Vehicle>();
 
 			using (MySqlConnection con = new MySqlConnection(connectionString))
 			{
@@ -467,21 +468,19 @@ namespace Carsharing
 				}
 				catch (Exception)
 				{
-
+					return false;
 				}
 				finally
 				{
 					con.Close();
 				}
 			}
-
-			List<Vehicle> vehicleList = new List<Vehicle>();
+			
 			foreach (DataRow item in table.Rows)
 			{
-				vehicleList.Add(GetVehicleFromDataRow(item));
+				vehicles.Add(GetVehicleFromDataRow(item));
 			}
-
-			return vehicleList;
+			return true;
 		}
 		
 		private static Vehicle GetVehicleFromDataRow(DataRow row)
@@ -489,7 +488,7 @@ namespace Carsharing
 			Vehicle v;
 			try
 			{
-				v = new Vehicle(row.Field<string>("Kennzeichen"), row.Field<double>("Kilometerstand"), row.Field<DateTime>("Letzte Wartung"), row.Field<double>("Tankfuellung"), new PointD(0,0), row.Field<bool>("Verfuegbarkeit"), row.Field<string>("Marke"), row.Field<string>("Modell"), row.Field<short>("Leistung"), row.Field<short>("Baujahr"), row.Field<string>("Getriebeart"), row.Field<double>("Max_Tankvolumen"), row.Field<double>("Grundpreis"), row.Field<double>("Preis/km"), row.Field<double>("Preis/min"), row.Field<DateTime>("Erstzulassung"), row.Field<short>("Anzahl der Sitze"), row.Field<string>("Kraftstoffart"), row.Field<double>("Kraftstoffverbrauch"), row.Field<bool>("Klimaanlage"), row.Field<bool>("Tempomat"), row.Field<bool>("Radio"), row.Field<bool>("Bluetooth"), row.Field<bool>("USB"), row.Field<bool>("CD-Spieler"), row.Field<bool>("Navigationsgeraet"), row.Field<bool>("ABS"), row.Field<bool>("ESP"), row.Field<bool>("Sitzheizung"), row.Field<bool>("Winterreifen"), row.Field<bool>("Raucher"));
+				v = new Vehicle(row.Field<string>("Kennzeichen"), row.Field<double>("Kilometerstand"), row.Field<DateTime>("Letzte Wartung"), row.Field<double>("Tankfuellung"), new PointD(0,0), row.Field<bool>("Verfuegbarkeit"), row.Field<string>("Marke"), row.Field<string>("Modell"), row.Field<int>("Leistung"), row.Field<int>("Baujahr"), row.Field<string>("Getriebeart"), row.Field<double>("Max_Tankvolumen"), row.Field<double>("Grundpreis"), row.Field<double>("Preis/km"), row.Field<double>("Preis/min"), row.Field<DateTime>("Erstzulassung"), row.Field<int>("Anzahl der Sitze"), row.Field<string>("Kraftstoffart"), row.Field<double>("Kraftstoffverbrauch"), row.Field<bool>("Klimaanlage"), row.Field<bool>("Tempomat"), row.Field<bool>("Radio"), row.Field<bool>("Bluetooth"), row.Field<bool>("USB"), row.Field<bool>("CD-Spieler"), row.Field<bool>("Navigationsgeraet"), row.Field<bool>("ABS"), row.Field<bool>("ESP"), row.Field<bool>("Sitzheizung"), row.Field<bool>("Winterreifen"), row.Field<bool>("Raucher"));
 			}
 			catch (Exception)
 			{

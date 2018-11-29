@@ -145,13 +145,13 @@ namespace Carsharing
 					return;
 				}
 
-				if (!Int16.TryParse(txtConstructionYear.Text, out short constructionYear))
+				if (!Int32.TryParse(txtConstructionYear.Text, out int constructionYear))
 				{
 					MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim Baujahr des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					return;
 				}
 
-				if (!Int16.TryParse(txtSeats.Text, out short seats))
+				if (!Int32.TryParse(txtSeats.Text, out int seats))
 				{
 					MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim der Sitzeanzahl des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					return;
@@ -199,7 +199,7 @@ namespace Carsharing
 				}
 				#endregion
 
-				Vehicle vehicle = new Vehicle(txtNumberplate.Text, mileage, dateTimeLastMaintenance.Value, tankFilling, new PointD(posX, posY), true, comboBrand.Text, txtModel.Text, (short)Math.Round(power), constructionYear, comboGear.Text, maxTankFilling, basicPrice, pricePerKilometre, pricePerMinute, registration, seats, comboFuel.SelectedItem.ToString(), fuelConsumption, checkAirConditioner.Checked, checkCruiseControl.Checked, checkRadio.Checked, checkBluetooth.Checked, checkUSB.Checked, checkCDPlayer.Checked, checkNavigationDevice.Checked, checkABS.Checked, checkESP.Checked, checkHeatedSeat.Checked, checkWinter.Checked, checkSmoker.Checked);
+				Vehicle vehicle = new Vehicle(txtNumberplate.Text, mileage, dateTimeLastMaintenance.Value, tankFilling, new PointD(posX, posY), true, comboBrand.Text, txtModel.Text, (int)Math.Round(power), constructionYear, comboGear.Text, maxTankFilling, basicPrice, pricePerKilometre, pricePerMinute, registration, seats, comboFuel.SelectedItem.ToString(), fuelConsumption, checkAirConditioner.Checked, checkCruiseControl.Checked, checkRadio.Checked, checkBluetooth.Checked, checkUSB.Checked, checkCDPlayer.Checked, checkNavigationDevice.Checked, checkABS.Checked, checkESP.Checked, checkHeatedSeat.Checked, checkWinter.Checked, checkSmoker.Checked);
 
 				if (!DBController.AddVehicle(vehicle))
 				{

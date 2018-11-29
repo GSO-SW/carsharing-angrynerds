@@ -18,15 +18,15 @@ namespace Carsharing
 		private bool available;
 		private string brand;
 		private string model;
-		private short power;
-		private short constructionYear;
+		private int power;
+		private int constructionYear;
 		private string gearShift;
 		private double maxTankFilling;
 		private double basicPrice;
 		private double pricePerKilometre;
 		private double pricePerMinute;
 		private DateTime registration;
-		private short seats;
+		private int seats;
 		private string fuelType;
 		private double fuelConsumption;
 		private bool airConditioner;
@@ -119,7 +119,7 @@ namespace Carsharing
 		/// <summary>
 		/// Power of the vehicle
 		/// </summary>
-		public short Power
+		public int Power
 		{
 			get { return power; }
 			set { power = value; }
@@ -128,7 +128,7 @@ namespace Carsharing
 		/// <summary>
 		/// Construction year of the vehicle
 		/// </summary>
-		public short ConstructionYear
+		public int ConstructionYear
 		{
 			get { return constructionYear; }
 			set { constructionYear = value; }
@@ -191,7 +191,7 @@ namespace Carsharing
 		/// <summary>
 		/// Number of seats of the vehicle
 		/// </summary>
-		public short Seats
+		public int Seats
 		{
 			get { return seats; }
 			set { seats = value; }
@@ -366,8 +366,8 @@ namespace Carsharing
 		/// <param name="smoker"></param>
 		public Vehicle(
 			string numberPlate, double mileage, DateTime lastMaintenance, double tankFilling, PointD position, bool available, string brand, string model, 
-			short power, short constructionYear, string gear, double maxTankFilling, double basicPrice, double pricePerKilometre, double pricePerMinute, DateTime registration, 
-			short seats, string fuelType, double fuelConsumption, bool airCond, bool cruiseControl, bool radio, bool bluetooth, bool usb, 
+			int power, int constructionYear, string gear, double maxTankFilling, double basicPrice, double pricePerKilometre, double pricePerMinute, DateTime registration, 
+			int seats, string fuelType, double fuelConsumption, bool airCond, bool cruiseControl, bool radio, bool bluetooth, bool usb, 
 			bool cdPlayer, bool navi, bool abs, bool esp, bool seatHeating, bool winter, bool smoker)
 		{
 			NumberPlate = numberPlate;

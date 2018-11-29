@@ -41,7 +41,12 @@ namespace Carsharing
 		public void UpdateTable()
 		{
 			listVehicle.Items.Clear();
-			listVehicle.Items.AddRange(DBController.GetAllVehiclesFromDB().ToArray());
+			if(!DBController.GetAllVehiclesFromDB(out List<Vehicle> vehicles))
+			{
+				MessageBox.Show("Bei der Verbindung zur Datenbank ist ein Fehler aufgetreten.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+			listVehicle.Items.AddRange(vehicles.ToArray());
 		}
 
 		private void listVehicle_SelectedIndexChanged(object sender, EventArgs e)
@@ -51,7 +56,7 @@ namespace Carsharing
 				Vehicle vehicle = (Vehicle)listVehicle.SelectedItem;
 
 				txtBrand.Text = vehicle.Brand;
-				txtConstructionYear.Text = vehicle.ConstructionYear.Year.ToString();
+				txtConstructionYear.Text = vehicle.ConstructionYear.ToString();
 				txtPosY.Text = vehicle.Position.Y.ToString();
 				txtPosX.Text = vehicle.Position.X.ToString();
 				txtFuelCon.Text = vehicle.FuelConsumption.ToString() + " E/100km";
