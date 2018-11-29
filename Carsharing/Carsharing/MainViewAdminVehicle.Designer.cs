@@ -34,6 +34,12 @@
 			this.listVehicle = new System.Windows.Forms.ListBox();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.txtPriceMin = new System.Windows.Forms.Label();
+			this.labelPriceMin = new System.Windows.Forms.Label();
+			this.txtPriceKilo = new System.Windows.Forms.Label();
+			this.labelPriceKilo = new System.Windows.Forms.Label();
+			this.txtPrice = new System.Windows.Forms.Label();
+			this.labelPrice = new System.Windows.Forms.Label();
 			this.txtFuelCon = new System.Windows.Forms.Label();
 			this.txtSeats = new System.Windows.Forms.Label();
 			this.txtLastMaint = new System.Windows.Forms.Label();
@@ -67,15 +73,34 @@
 			this.labelModel = new System.Windows.Forms.Label();
 			this.labelBrand = new System.Windows.Forms.Label();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
+			this.checkSmoker = new System.Windows.Forms.CheckBox();
+			this.label22 = new System.Windows.Forms.Label();
+			this.checkWinter = new System.Windows.Forms.CheckBox();
+			this.label23 = new System.Windows.Forms.Label();
+			this.checkHeatedSeat = new System.Windows.Forms.CheckBox();
+			this.label24 = new System.Windows.Forms.Label();
+			this.checkESP = new System.Windows.Forms.CheckBox();
+			this.label25 = new System.Windows.Forms.Label();
+			this.checkABS = new System.Windows.Forms.CheckBox();
+			this.label26 = new System.Windows.Forms.Label();
+			this.checkNavigationDevice = new System.Windows.Forms.CheckBox();
+			this.label27 = new System.Windows.Forms.Label();
+			this.checkCDPlayer = new System.Windows.Forms.CheckBox();
+			this.label19 = new System.Windows.Forms.Label();
+			this.checkUSB = new System.Windows.Forms.CheckBox();
+			this.label20 = new System.Windows.Forms.Label();
+			this.checkBluetooth = new System.Windows.Forms.CheckBox();
+			this.label21 = new System.Windows.Forms.Label();
+			this.checkRadio = new System.Windows.Forms.CheckBox();
+			this.label18 = new System.Windows.Forms.Label();
+			this.checkCruiseControl = new System.Windows.Forms.CheckBox();
+			this.label17 = new System.Windows.Forms.Label();
+			this.checkAirConditioner = new System.Windows.Forms.CheckBox();
+			this.label16 = new System.Windows.Forms.Label();
 			this.buttonRefresh = new CustomControl.RoundButton();
-			this.txtPrice = new System.Windows.Forms.Label();
-			this.labelPrice = new System.Windows.Forms.Label();
-			this.txtPriceKilo = new System.Windows.Forms.Label();
-			this.labelPriceKilo = new System.Windows.Forms.Label();
-			this.txtPriceMin = new System.Windows.Forms.Label();
-			this.labelPriceMin = new System.Windows.Forms.Label();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
+			this.tabPage2.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// buttonVehicleDelete
@@ -191,6 +216,78 @@
 			this.tabPage1.Size = new System.Drawing.Size(650, 511);
 			this.tabPage1.TabIndex = 0;
 			this.tabPage1.Text = "Allgemeine Fahrzeuginformationen";
+			// 
+			// txtPriceMin
+			// 
+			this.txtPriceMin.AutoSize = true;
+			this.txtPriceMin.BackColor = System.Drawing.Color.White;
+			this.txtPriceMin.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.txtPriceMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.txtPriceMin.Location = new System.Drawing.Point(330, 423);
+			this.txtPriceMin.Name = "txtPriceMin";
+			this.txtPriceMin.Size = new System.Drawing.Size(105, 19);
+			this.txtPriceMin.TabIndex = 63;
+			this.txtPriceMin.Text = "----------------";
+			// 
+			// labelPriceMin
+			// 
+			this.labelPriceMin.AutoSize = true;
+			this.labelPriceMin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.labelPriceMin.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.labelPriceMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.labelPriceMin.Location = new System.Drawing.Point(330, 401);
+			this.labelPriceMin.Name = "labelPriceMin";
+			this.labelPriceMin.Size = new System.Drawing.Size(74, 19);
+			this.labelPriceMin.TabIndex = 62;
+			this.labelPriceMin.Text = "Preis / min";
+			// 
+			// txtPriceKilo
+			// 
+			this.txtPriceKilo.AutoSize = true;
+			this.txtPriceKilo.BackColor = System.Drawing.Color.White;
+			this.txtPriceKilo.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.txtPriceKilo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.txtPriceKilo.Location = new System.Drawing.Point(173, 423);
+			this.txtPriceKilo.Name = "txtPriceKilo";
+			this.txtPriceKilo.Size = new System.Drawing.Size(105, 19);
+			this.txtPriceKilo.TabIndex = 61;
+			this.txtPriceKilo.Text = "----------------";
+			// 
+			// labelPriceKilo
+			// 
+			this.labelPriceKilo.AutoSize = true;
+			this.labelPriceKilo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.labelPriceKilo.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.labelPriceKilo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.labelPriceKilo.Location = new System.Drawing.Point(173, 401);
+			this.labelPriceKilo.Name = "labelPriceKilo";
+			this.labelPriceKilo.Size = new System.Drawing.Size(70, 19);
+			this.labelPriceKilo.TabIndex = 60;
+			this.labelPriceKilo.Text = "Preis / km";
+			// 
+			// txtPrice
+			// 
+			this.txtPrice.AutoSize = true;
+			this.txtPrice.BackColor = System.Drawing.Color.White;
+			this.txtPrice.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.txtPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.txtPrice.Location = new System.Drawing.Point(14, 423);
+			this.txtPrice.Name = "txtPrice";
+			this.txtPrice.Size = new System.Drawing.Size(105, 19);
+			this.txtPrice.TabIndex = 59;
+			this.txtPrice.Text = "----------------";
+			// 
+			// labelPrice
+			// 
+			this.labelPrice.AutoSize = true;
+			this.labelPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.labelPrice.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.labelPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.labelPrice.Location = new System.Drawing.Point(14, 401);
+			this.labelPrice.Name = "labelPrice";
+			this.labelPrice.Size = new System.Drawing.Size(38, 19);
+			this.labelPrice.TabIndex = 58;
+			this.labelPrice.Text = "Preis";
 			// 
 			// txtFuelCon
 			// 
@@ -578,6 +675,30 @@
 			// 
 			// tabPage2
 			// 
+			this.tabPage2.Controls.Add(this.checkSmoker);
+			this.tabPage2.Controls.Add(this.label22);
+			this.tabPage2.Controls.Add(this.checkWinter);
+			this.tabPage2.Controls.Add(this.label23);
+			this.tabPage2.Controls.Add(this.checkHeatedSeat);
+			this.tabPage2.Controls.Add(this.label24);
+			this.tabPage2.Controls.Add(this.checkESP);
+			this.tabPage2.Controls.Add(this.label25);
+			this.tabPage2.Controls.Add(this.checkABS);
+			this.tabPage2.Controls.Add(this.label26);
+			this.tabPage2.Controls.Add(this.checkNavigationDevice);
+			this.tabPage2.Controls.Add(this.label27);
+			this.tabPage2.Controls.Add(this.checkCDPlayer);
+			this.tabPage2.Controls.Add(this.label19);
+			this.tabPage2.Controls.Add(this.checkUSB);
+			this.tabPage2.Controls.Add(this.label20);
+			this.tabPage2.Controls.Add(this.checkBluetooth);
+			this.tabPage2.Controls.Add(this.label21);
+			this.tabPage2.Controls.Add(this.checkRadio);
+			this.tabPage2.Controls.Add(this.label18);
+			this.tabPage2.Controls.Add(this.checkCruiseControl);
+			this.tabPage2.Controls.Add(this.label17);
+			this.tabPage2.Controls.Add(this.checkAirConditioner);
+			this.tabPage2.Controls.Add(this.label16);
 			this.tabPage2.Location = new System.Drawing.Point(4, 22);
 			this.tabPage2.Name = "tabPage2";
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -585,6 +706,282 @@
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "Zubehör";
 			this.tabPage2.UseVisualStyleBackColor = true;
+			// 
+			// checkSmoker
+			// 
+			this.checkSmoker.AutoSize = true;
+			this.checkSmoker.Enabled = false;
+			this.checkSmoker.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.checkSmoker.Location = new System.Drawing.Point(211, 258);
+			this.checkSmoker.Name = "checkSmoker";
+			this.checkSmoker.Size = new System.Drawing.Size(15, 14);
+			this.checkSmoker.TabIndex = 264;
+			this.checkSmoker.UseVisualStyleBackColor = true;
+			// 
+			// label22
+			// 
+			this.label22.AutoSize = true;
+			this.label22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.label22.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.label22.Location = new System.Drawing.Point(207, 236);
+			this.label22.Name = "label22";
+			this.label22.Size = new System.Drawing.Size(92, 19);
+			this.label22.TabIndex = 265;
+			this.label22.Text = "Raucherpaket";
+			// 
+			// checkWinter
+			// 
+			this.checkWinter.AutoSize = true;
+			this.checkWinter.Enabled = false;
+			this.checkWinter.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.checkWinter.Location = new System.Drawing.Point(211, 219);
+			this.checkWinter.Name = "checkWinter";
+			this.checkWinter.Size = new System.Drawing.Size(15, 14);
+			this.checkWinter.TabIndex = 262;
+			this.checkWinter.UseVisualStyleBackColor = true;
+			// 
+			// label23
+			// 
+			this.label23.AutoSize = true;
+			this.label23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.label23.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.label23.Location = new System.Drawing.Point(207, 197);
+			this.label23.Name = "label23";
+			this.label23.Size = new System.Drawing.Size(84, 19);
+			this.label23.TabIndex = 263;
+			this.label23.Text = "Winterreifen";
+			// 
+			// checkHeatedSeat
+			// 
+			this.checkHeatedSeat.AutoSize = true;
+			this.checkHeatedSeat.Enabled = false;
+			this.checkHeatedSeat.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.checkHeatedSeat.Location = new System.Drawing.Point(211, 180);
+			this.checkHeatedSeat.Name = "checkHeatedSeat";
+			this.checkHeatedSeat.Size = new System.Drawing.Size(15, 14);
+			this.checkHeatedSeat.TabIndex = 260;
+			this.checkHeatedSeat.UseVisualStyleBackColor = true;
+			// 
+			// label24
+			// 
+			this.label24.AutoSize = true;
+			this.label24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.label24.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.label24.Location = new System.Drawing.Point(207, 158);
+			this.label24.Name = "label24";
+			this.label24.Size = new System.Drawing.Size(78, 19);
+			this.label24.TabIndex = 261;
+			this.label24.Text = "Sitzheizung";
+			// 
+			// checkESP
+			// 
+			this.checkESP.AutoSize = true;
+			this.checkESP.Enabled = false;
+			this.checkESP.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.checkESP.Location = new System.Drawing.Point(211, 141);
+			this.checkESP.Name = "checkESP";
+			this.checkESP.Size = new System.Drawing.Size(15, 14);
+			this.checkESP.TabIndex = 258;
+			this.checkESP.UseVisualStyleBackColor = true;
+			// 
+			// label25
+			// 
+			this.label25.AutoSize = true;
+			this.label25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.label25.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.label25.Location = new System.Drawing.Point(207, 119);
+			this.label25.Name = "label25";
+			this.label25.Size = new System.Drawing.Size(31, 19);
+			this.label25.TabIndex = 259;
+			this.label25.Text = "ESP";
+			// 
+			// checkABS
+			// 
+			this.checkABS.AutoSize = true;
+			this.checkABS.Enabled = false;
+			this.checkABS.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.checkABS.Location = new System.Drawing.Point(211, 102);
+			this.checkABS.Name = "checkABS";
+			this.checkABS.Size = new System.Drawing.Size(15, 14);
+			this.checkABS.TabIndex = 256;
+			this.checkABS.UseVisualStyleBackColor = true;
+			// 
+			// label26
+			// 
+			this.label26.AutoSize = true;
+			this.label26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.label26.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.label26.Location = new System.Drawing.Point(207, 80);
+			this.label26.Name = "label26";
+			this.label26.Size = new System.Drawing.Size(33, 19);
+			this.label26.TabIndex = 257;
+			this.label26.Text = "ABS";
+			// 
+			// checkNavigationDevice
+			// 
+			this.checkNavigationDevice.AutoSize = true;
+			this.checkNavigationDevice.Enabled = false;
+			this.checkNavigationDevice.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.checkNavigationDevice.Location = new System.Drawing.Point(211, 63);
+			this.checkNavigationDevice.Name = "checkNavigationDevice";
+			this.checkNavigationDevice.Size = new System.Drawing.Size(15, 14);
+			this.checkNavigationDevice.TabIndex = 254;
+			this.checkNavigationDevice.UseVisualStyleBackColor = true;
+			// 
+			// label27
+			// 
+			this.label27.AutoSize = true;
+			this.label27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.label27.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.label27.Location = new System.Drawing.Point(207, 41);
+			this.label27.Name = "label27";
+			this.label27.Size = new System.Drawing.Size(113, 19);
+			this.label27.TabIndex = 255;
+			this.label27.Text = "Navigationsgerät";
+			// 
+			// checkCDPlayer
+			// 
+			this.checkCDPlayer.AutoSize = true;
+			this.checkCDPlayer.Enabled = false;
+			this.checkCDPlayer.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.checkCDPlayer.Location = new System.Drawing.Point(53, 258);
+			this.checkCDPlayer.Name = "checkCDPlayer";
+			this.checkCDPlayer.Size = new System.Drawing.Size(15, 14);
+			this.checkCDPlayer.TabIndex = 252;
+			this.checkCDPlayer.UseVisualStyleBackColor = true;
+			// 
+			// label19
+			// 
+			this.label19.AutoSize = true;
+			this.label19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.label19.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.label19.Location = new System.Drawing.Point(49, 236);
+			this.label19.Name = "label19";
+			this.label19.Size = new System.Drawing.Size(74, 19);
+			this.label19.TabIndex = 253;
+			this.label19.Text = "CD-Spieler";
+			// 
+			// checkUSB
+			// 
+			this.checkUSB.AutoSize = true;
+			this.checkUSB.Enabled = false;
+			this.checkUSB.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.checkUSB.Location = new System.Drawing.Point(53, 219);
+			this.checkUSB.Name = "checkUSB";
+			this.checkUSB.Size = new System.Drawing.Size(15, 14);
+			this.checkUSB.TabIndex = 250;
+			this.checkUSB.UseVisualStyleBackColor = true;
+			// 
+			// label20
+			// 
+			this.label20.AutoSize = true;
+			this.label20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.label20.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.label20.Location = new System.Drawing.Point(49, 197);
+			this.label20.Name = "label20";
+			this.label20.Size = new System.Drawing.Size(34, 19);
+			this.label20.TabIndex = 251;
+			this.label20.Text = "USB";
+			// 
+			// checkBluetooth
+			// 
+			this.checkBluetooth.AutoSize = true;
+			this.checkBluetooth.Enabled = false;
+			this.checkBluetooth.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.checkBluetooth.Location = new System.Drawing.Point(53, 180);
+			this.checkBluetooth.Name = "checkBluetooth";
+			this.checkBluetooth.Size = new System.Drawing.Size(15, 14);
+			this.checkBluetooth.TabIndex = 248;
+			this.checkBluetooth.UseVisualStyleBackColor = true;
+			// 
+			// label21
+			// 
+			this.label21.AutoSize = true;
+			this.label21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.label21.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.label21.Location = new System.Drawing.Point(49, 158);
+			this.label21.Name = "label21";
+			this.label21.Size = new System.Drawing.Size(69, 19);
+			this.label21.TabIndex = 249;
+			this.label21.Text = "Bluetooth";
+			// 
+			// checkRadio
+			// 
+			this.checkRadio.AutoSize = true;
+			this.checkRadio.Enabled = false;
+			this.checkRadio.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.checkRadio.Location = new System.Drawing.Point(53, 141);
+			this.checkRadio.Name = "checkRadio";
+			this.checkRadio.Size = new System.Drawing.Size(15, 14);
+			this.checkRadio.TabIndex = 246;
+			this.checkRadio.UseVisualStyleBackColor = true;
+			// 
+			// label18
+			// 
+			this.label18.AutoSize = true;
+			this.label18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.label18.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.label18.Location = new System.Drawing.Point(49, 119);
+			this.label18.Name = "label18";
+			this.label18.Size = new System.Drawing.Size(43, 19);
+			this.label18.TabIndex = 247;
+			this.label18.Text = "Radio";
+			// 
+			// checkCruiseControl
+			// 
+			this.checkCruiseControl.AutoSize = true;
+			this.checkCruiseControl.Enabled = false;
+			this.checkCruiseControl.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.checkCruiseControl.Location = new System.Drawing.Point(53, 102);
+			this.checkCruiseControl.Name = "checkCruiseControl";
+			this.checkCruiseControl.Size = new System.Drawing.Size(15, 14);
+			this.checkCruiseControl.TabIndex = 244;
+			this.checkCruiseControl.UseVisualStyleBackColor = true;
+			// 
+			// label17
+			// 
+			this.label17.AutoSize = true;
+			this.label17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.label17.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.label17.Location = new System.Drawing.Point(49, 80);
+			this.label17.Name = "label17";
+			this.label17.Size = new System.Drawing.Size(74, 19);
+			this.label17.TabIndex = 245;
+			this.label17.Text = "Tempomat";
+			// 
+			// checkAirConditioner
+			// 
+			this.checkAirConditioner.AutoSize = true;
+			this.checkAirConditioner.Enabled = false;
+			this.checkAirConditioner.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.checkAirConditioner.Location = new System.Drawing.Point(53, 63);
+			this.checkAirConditioner.Name = "checkAirConditioner";
+			this.checkAirConditioner.Size = new System.Drawing.Size(15, 14);
+			this.checkAirConditioner.TabIndex = 242;
+			this.checkAirConditioner.UseVisualStyleBackColor = true;
+			// 
+			// label16
+			// 
+			this.label16.AutoSize = true;
+			this.label16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.label16.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.label16.Location = new System.Drawing.Point(50, 41);
+			this.label16.Name = "label16";
+			this.label16.Size = new System.Drawing.Size(82, 19);
+			this.label16.TabIndex = 243;
+			this.label16.Text = "Klimaanlage";
 			// 
 			// buttonRefresh
 			// 
@@ -599,78 +996,6 @@
 			this.buttonRefresh.Text = "Aktualisieren";
 			this.buttonRefresh.UseVisualStyleBackColor = false;
 			this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
-			// 
-			// txtPrice
-			// 
-			this.txtPrice.AutoSize = true;
-			this.txtPrice.BackColor = System.Drawing.Color.White;
-			this.txtPrice.Font = new System.Drawing.Font("Segoe UI", 10F);
-			this.txtPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.txtPrice.Location = new System.Drawing.Point(14, 423);
-			this.txtPrice.Name = "txtPrice";
-			this.txtPrice.Size = new System.Drawing.Size(105, 19);
-			this.txtPrice.TabIndex = 59;
-			this.txtPrice.Text = "----------------";
-			// 
-			// labelPrice
-			// 
-			this.labelPrice.AutoSize = true;
-			this.labelPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.labelPrice.Font = new System.Drawing.Font("Segoe UI", 10F);
-			this.labelPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.labelPrice.Location = new System.Drawing.Point(14, 401);
-			this.labelPrice.Name = "labelPrice";
-			this.labelPrice.Size = new System.Drawing.Size(38, 19);
-			this.labelPrice.TabIndex = 58;
-			this.labelPrice.Text = "Preis";
-			// 
-			// txtPriceKilo
-			// 
-			this.txtPriceKilo.AutoSize = true;
-			this.txtPriceKilo.BackColor = System.Drawing.Color.White;
-			this.txtPriceKilo.Font = new System.Drawing.Font("Segoe UI", 10F);
-			this.txtPriceKilo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.txtPriceKilo.Location = new System.Drawing.Point(173, 423);
-			this.txtPriceKilo.Name = "txtPriceKilo";
-			this.txtPriceKilo.Size = new System.Drawing.Size(105, 19);
-			this.txtPriceKilo.TabIndex = 61;
-			this.txtPriceKilo.Text = "----------------";
-			// 
-			// labelPriceKilo
-			// 
-			this.labelPriceKilo.AutoSize = true;
-			this.labelPriceKilo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.labelPriceKilo.Font = new System.Drawing.Font("Segoe UI", 10F);
-			this.labelPriceKilo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.labelPriceKilo.Location = new System.Drawing.Point(173, 401);
-			this.labelPriceKilo.Name = "labelPriceKilo";
-			this.labelPriceKilo.Size = new System.Drawing.Size(70, 19);
-			this.labelPriceKilo.TabIndex = 60;
-			this.labelPriceKilo.Text = "Preis / km";
-			// 
-			// txtPriceMin
-			// 
-			this.txtPriceMin.AutoSize = true;
-			this.txtPriceMin.BackColor = System.Drawing.Color.White;
-			this.txtPriceMin.Font = new System.Drawing.Font("Segoe UI", 10F);
-			this.txtPriceMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.txtPriceMin.Location = new System.Drawing.Point(330, 423);
-			this.txtPriceMin.Name = "txtPriceMin";
-			this.txtPriceMin.Size = new System.Drawing.Size(105, 19);
-			this.txtPriceMin.TabIndex = 63;
-			this.txtPriceMin.Text = "----------------";
-			// 
-			// labelPriceMin
-			// 
-			this.labelPriceMin.AutoSize = true;
-			this.labelPriceMin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.labelPriceMin.Font = new System.Drawing.Font("Segoe UI", 10F);
-			this.labelPriceMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.labelPriceMin.Location = new System.Drawing.Point(330, 401);
-			this.labelPriceMin.Name = "labelPriceMin";
-			this.labelPriceMin.Size = new System.Drawing.Size(74, 19);
-			this.labelPriceMin.TabIndex = 62;
-			this.labelPriceMin.Text = "Preis / min";
 			// 
 			// MainViewAdminVehicle
 			// 
@@ -689,6 +1014,8 @@
 			this.tabControl1.ResumeLayout(false);
 			this.tabPage1.ResumeLayout(false);
 			this.tabPage1.PerformLayout();
+			this.tabPage2.ResumeLayout(false);
+			this.tabPage2.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -740,5 +1067,29 @@
 		private System.Windows.Forms.Label labelPriceKilo;
 		private System.Windows.Forms.Label txtPrice;
 		private System.Windows.Forms.Label labelPrice;
+		private System.Windows.Forms.CheckBox checkSmoker;
+		private System.Windows.Forms.Label label22;
+		private System.Windows.Forms.CheckBox checkWinter;
+		private System.Windows.Forms.Label label23;
+		private System.Windows.Forms.CheckBox checkHeatedSeat;
+		private System.Windows.Forms.Label label24;
+		private System.Windows.Forms.CheckBox checkESP;
+		private System.Windows.Forms.Label label25;
+		private System.Windows.Forms.CheckBox checkABS;
+		private System.Windows.Forms.Label label26;
+		private System.Windows.Forms.CheckBox checkNavigationDevice;
+		private System.Windows.Forms.Label label27;
+		private System.Windows.Forms.CheckBox checkCDPlayer;
+		private System.Windows.Forms.Label label19;
+		private System.Windows.Forms.CheckBox checkUSB;
+		private System.Windows.Forms.Label label20;
+		private System.Windows.Forms.CheckBox checkBluetooth;
+		private System.Windows.Forms.Label label21;
+		private System.Windows.Forms.CheckBox checkRadio;
+		private System.Windows.Forms.Label label18;
+		private System.Windows.Forms.CheckBox checkCruiseControl;
+		private System.Windows.Forms.Label label17;
+		private System.Windows.Forms.CheckBox checkAirConditioner;
+		private System.Windows.Forms.Label label16;
 	}
 }

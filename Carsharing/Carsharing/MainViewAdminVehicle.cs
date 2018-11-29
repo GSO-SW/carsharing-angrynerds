@@ -69,6 +69,18 @@ namespace Carsharing
 				txtPrice.Text = vehicle.BasicPrice.ToString() + " €";
 				txtPriceKilo.Text = vehicle.PricePerKilometre.ToString() + " €";
 				txtPriceMin.Text = vehicle.PricePerMinute.ToString() + " €";
+				checkABS.Checked = vehicle.ABS;
+				checkAirConditioner.Checked = vehicle.AirConditioner;
+				checkBluetooth.Checked = vehicle.Bluetooth;
+				checkCDPlayer.Checked = vehicle.CDPlayer;
+				checkCruiseControl.Checked = vehicle.CruiseControl;
+				checkESP.Checked = vehicle.ESP;
+				checkHeatedSeat.Checked = vehicle.SeatHeating;
+				checkNavigationDevice.Checked = vehicle.Navi;
+				checkRadio.Checked = vehicle.Radio;
+				checkSmoker.Checked = vehicle.Smoker;
+				checkUSB.Checked = vehicle.USB;
+				checkWinter.Checked = vehicle.WinterTire;
 			}
 		}
 

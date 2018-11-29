@@ -17,6 +17,8 @@ namespace Carsharing
 		public MainView()
 		{
 			InitializeComponent();
+
+			FormController.MainView = this;
 		}
 
 		private void MainView_Load(object sender, EventArgs e)
@@ -54,6 +56,11 @@ namespace Carsharing
 			panelSelect.Top = clickedButton.Top;
 
 			((UserControl)clickedButton.Tag).BringToFront();
+		}
+
+		public void UpdateVehicleList()
+		{
+			adminVehicles1.UpdateTable();
 		}
 	}
 }
