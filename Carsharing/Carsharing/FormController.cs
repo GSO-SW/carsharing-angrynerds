@@ -11,7 +11,7 @@ namespace Carsharing
 	{
 		private static Customer currentCustomer;
 		private static LoginView startView;
-		private static Main mainView;
+		private static MainView mainView;
 
 		/// <summary>
 		/// Caches the logged in Customer.
@@ -34,7 +34,7 @@ namespace Carsharing
 		/// <summary>
 		/// Caches the main View
 		/// </summary>
-		public static Main MainView
+		public static MainView MainView
 		{
 			get { return mainView; }
 			set { mainView = value; }
