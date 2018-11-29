@@ -117,7 +117,7 @@ namespace Carsharing
 
 				if (!Double.TryParse(txtPriceMin.Text, out double pricePerMinute))
 				{
-					MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim Kilometerstand des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim Preis pro Minute des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					return;
 				}
 
@@ -145,13 +145,13 @@ namespace Carsharing
 					return;
 				}
 
-				if (!Int32.TryParse(txtConstructionYear.Text, out int constructionYear))
+				if (!Int16.TryParse(txtConstructionYear.Text, out short constructionYear))
 				{
 					MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim Baujahr des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					return;
 				}
 
-				if (!Int32.TryParse(txtSeats.Text, out int seats))
+				if (!Int16.TryParse(txtSeats.Text, out short seats))
 				{
 					MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim der Sitzeanzahl des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					return;
@@ -160,6 +160,12 @@ namespace Carsharing
 				if (tankFilling > maxTankFilling)
 				{
 					MessageBox.Show("Die aktuelle Tankfüllung kann nicht größer sein als die maximale Tankfüllung des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					return;
+				}
+
+				if (constructionYear < 1880)
+				{
+					MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim Baujahr des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					return;
 				}
 
@@ -175,6 +181,12 @@ namespace Carsharing
 					return;
 				}
 
+				if(dateTimeLastMaintenance.Value.Year < constructionYear)
+				{
+					MessageBox.Show("Die letzte Wartung kann nicht vor dem Baujahr sein.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					return;
+				}
+
 				if(!DBController.GetVehicleNumberPlates(out List<string> numberPlates))
 				{
 					MessageBox.Show("Bei dem Laden aller Kennzeichen ist ein Fehler aufgetreten.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -187,7 +199,7 @@ namespace Carsharing
 				}
 				#endregion
 
-				Vehicle vehicle = new Vehicle(txtNumberplate.Text, mileage, dateTimeLastMaintenance.Value, tankFilling, new PointD(posX, posY), true, comboBrand.Text, txtModel.Text, (int)Math.Round(power), constructionYear, comboGear.Text, maxTankFilling, basicPrice, pricePerKilometre, pricePerMinute, registration, seats, comboFuel.SelectedItem.ToString(), fuelConsumption, checkAirConditioner.Checked, checkCruiseControl.Checked, checkRadio.Checked, checkBluetooth.Checked, checkUSB.Checked, checkCDPlayer.Checked, checkNavigationDevice.Checked, checkABS.Checked, checkESP.Checked, checkHeatedSeat.Checked, checkWinter.Checked, checkSmoker.Checked);
+				Vehicle vehicle = new Vehicle(txtNumberplate.Text, mileage, dateTimeLastMaintenance.Value, tankFilling, new PointD(posX, posY), true, comboBrand.Text, txtModel.Text, (short)Math.Round(power), constructionYear, comboGear.Text, maxTankFilling, basicPrice, pricePerKilometre, pricePerMinute, registration, seats, comboFuel.SelectedItem.ToString(), fuelConsumption, checkAirConditioner.Checked, checkCruiseControl.Checked, checkRadio.Checked, checkBluetooth.Checked, checkUSB.Checked, checkCDPlayer.Checked, checkNavigationDevice.Checked, checkABS.Checked, checkESP.Checked, checkHeatedSeat.Checked, checkWinter.Checked, checkSmoker.Checked);
 
 				if (!DBController.AddVehicle(vehicle))
 				{

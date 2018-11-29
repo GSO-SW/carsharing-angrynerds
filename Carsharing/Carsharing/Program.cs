@@ -32,7 +32,6 @@ namespace Carsharing
 			{
 				MessageBox.Show("Es konnte keine Verbindung zur Datenbank hergestellt werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
-
 		}
 	}
 }

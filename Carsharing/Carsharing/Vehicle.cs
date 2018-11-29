@@ -18,15 +18,15 @@ namespace Carsharing
 		private bool available;
 		private string brand;
 		private string model;
-		private int power;
-		private DateTime constructionYear;
+		private short power;
+		private short constructionYear;
 		private string gearShift;
 		private double maxTankFilling;
 		private double basicPrice;
 		private double pricePerKilometre;
 		private double pricePerMinute;
 		private DateTime registration;
-		private int seats;
+		private short seats;
 		private string fuelType;
 		private double fuelConsumption;
 		private bool airConditioner;
@@ -119,7 +119,7 @@ namespace Carsharing
 		/// <summary>
 		/// Power of the vehicle
 		/// </summary>
-		public int Power
+		public short Power
 		{
 			get { return power; }
 			set { power = value; }
@@ -128,10 +128,10 @@ namespace Carsharing
 		/// <summary>
 		/// Construction year of the vehicle
 		/// </summary>
-		public DateTime ConstructionYear
+		public short ConstructionYear
 		{
 			get { return constructionYear; }
-			set { constructionYear = new DateTime(value.Year, 1, 1); }
+			set { constructionYear = value; }
 		}
 
 		/// <summary>
@@ -191,7 +191,7 @@ namespace Carsharing
 		/// <summary>
 		/// Number of seats of the vehicle
 		/// </summary>
-		public int Seats
+		public short Seats
 		{
 			get { return seats; }
 			set { seats = value; }
@@ -366,8 +366,8 @@ namespace Carsharing
 		/// <param name="smoker"></param>
 		public Vehicle(
 			string numberPlate, double mileage, DateTime lastMaintenance, double tankFilling, PointD position, bool available, string brand, string model, 
-			int power, int constructionYear, string gear, double maxTankFilling, double basicPrice, double pricePerKilometre, double pricePerMinute, DateTime registration, 
-			int seats, string fuelType, double fuelConsumption, bool airCond, bool cruiseControl, bool radio, bool bluetooth, bool usb, 
+			short power, short constructionYear, string gear, double maxTankFilling, double basicPrice, double pricePerKilometre, double pricePerMinute, DateTime registration, 
+			short seats, string fuelType, double fuelConsumption, bool airCond, bool cruiseControl, bool radio, bool bluetooth, bool usb, 
 			bool cdPlayer, bool navi, bool abs, bool esp, bool seatHeating, bool winter, bool smoker)
 		{
 			NumberPlate = numberPlate;
@@ -379,7 +379,7 @@ namespace Carsharing
 			Brand = brand;
 			Model = model;
 			Power = power;
-			ConstructionYear = new DateTime(constructionYear, 1, 1);
+			ConstructionYear = constructionYear;
 			Gear = gear;
 			MaxTankFilling = maxTankFilling;
 			BasicPrice = basicPrice;

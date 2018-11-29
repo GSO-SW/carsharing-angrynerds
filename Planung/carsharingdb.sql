@@ -1,9 +1,9 @@
-﻿-- phpMyAdmin SQL Dump
+-- phpMyAdmin SQL Dump
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 25. Okt 2018 um 00:20
+-- Erstellungszeit: 29. Nov 2018 um 11:15
 -- Server-Version: 10.1.36-MariaDB
 -- PHP-Version: 7.2.10
 
@@ -233,7 +233,7 @@ CREATE TABLE `fahrzeugtyp` (
   `Fm_ID` int(9) NOT NULL,
   `Modell` varchar(50) NOT NULL,
   `Leistung` int(9) NOT NULL,
-  `Baujahr` year(4) NOT NULL,
+  `Baujahr` int(4) NOT NULL,
   `Fg_ID` int(9) NOT NULL,
   `Max_Tankvolumen` double(10,2) NOT NULL,
   `Grundpreis` double(10,2) NOT NULL,
@@ -295,7 +295,12 @@ CREATE TABLE `kunde` (
 --
 
 INSERT INTO `kunde` (`E-Mail Adresse`, `Vorname`, `Nachname`, `Telefonnummer`, `Passwort`, `admin`, `Geburtstag`, `Strasse`, `Hausnummer`, `PLZ`, `Stadt`, `Land`) VALUES
-('admin@system.de', 'admin', 'admin', '0123456789', 'admin', 1, '2000-01-01', 'Musterstraße', '1', '12345', 'Musterstadt', 'Deutschland');
+('admin@system.de', 'admin', 'admin', '0123456789', 'admin', 1, '2000-01-01', 'Musterstraße', '1', '12345', 'Musterstadt', 'Deutschland'),
+('user@system.de', 'user', 'user', '0123456789', 'user', 0, '2000-01-01', 'Musterstraße', '1', '12345', 'Musterstadt', 'Deutschland');
+
+--
+-- Indizes der exportierten Tabellen
+--
 
 --
 -- Indizes für die Tabelle `buchung`
@@ -361,7 +366,7 @@ ALTER TABLE `buchung`
 -- AUTO_INCREMENT für Tabelle `fahrzeugtyp`
 --
 ALTER TABLE `fahrzeugtyp`
-  MODIFY `Ft_ID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `Ft_ID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints der exportierten Tabellen
