@@ -280,7 +280,7 @@ CREATE TABLE `kunde` (
   `Vorname` varchar(40) NOT NULL,
   `Nachname` varchar(40) NOT NULL,
   `Telefonnummer` varchar(20) NOT NULL,
-  `Passwort` varchar(36) NOT NULL,
+  `Passwort` varchar(100) NOT NULL,
   `admin` tinyint(1) NOT NULL,
   `Geburtstag` date NOT NULL,
   `Strasse` varchar(50) NOT NULL,
@@ -295,7 +295,7 @@ CREATE TABLE `kunde` (
 --
 
 INSERT INTO `kunde` (`E-Mail Adresse`, `Vorname`, `Nachname`, `Telefonnummer`, `Passwort`, `admin`, `Geburtstag`, `Strasse`, `Hausnummer`, `PLZ`, `Stadt`, `Land`) VALUES
-('admin@system.de', 'admin', 'admin', '0123456789', 'admin', 1, '2000-01-01', 'Musterstraße', '1', '12345', 'Musterstadt', 'Deutschland');
+('admin@system.de', 'admin', 'admin', '0123456789', '$MYHASH$V1$10000$703T1YV5ByOqKjU6V7WbokpqOsT7oacyiG8jXc9W/lhb1D4B', 1, '2000-01-01', 'Musterstraße', '1', '12345', 'Musterstadt', 'Deutschland');
 
 --
 -- Indizes für die Tabelle `buchung`
