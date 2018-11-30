@@ -51,7 +51,7 @@ namespace Carsharing
 		{
 			if (testForInvalidValues())
 			{
-				Customer c = new Customer(nameTextBox.Text, lastNameTextBox.Text, emailTextBox.Text, phoneTextBox.Text, passwordTextBox.Text, birthDatePicker.Value, streetTextBox.Text, houseNumberTextBox.Text, PLZTextBox.Text, cityTextBox.Text, countryTextBox.Text, adminCheckBox.Checked);
+				Customer c = new Customer(nameTextBox.Text, lastNameTextBox.Text, emailTextBox.Text, phoneTextBox.Text, SecurePasswordHasher.Hash(passwordTextBox.Text), birthDatePicker.Value, streetTextBox.Text, houseNumberTextBox.Text, PLZTextBox.Text, cityTextBox.Text, countryTextBox.Text, adminCheckBox.Checked);
 				if (editMode)
 				{
 					switch (DBController.UpdateCustomerInDB(c, updateCustomer.EmailAddress))
