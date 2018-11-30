@@ -280,7 +280,7 @@ CREATE TABLE `kunde` (
   `Vorname` varchar(40) NOT NULL,
   `Nachname` varchar(40) NOT NULL,
   `Telefonnummer` varchar(20) NOT NULL,
-  `Passwort` varchar(30) NOT NULL,
+  `Passwort` varchar(36) NOT NULL,
   `admin` tinyint(1) NOT NULL,
   `Geburtstag` date NOT NULL,
   `Strasse` varchar(50) NOT NULL,
