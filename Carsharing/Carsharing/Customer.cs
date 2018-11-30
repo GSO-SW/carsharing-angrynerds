@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Carsharing
 {
-	public class Customer
+	internal class Customer
 	{
 		#region Attributes
 		private string name;
 		private string lastName;
 		private string emailAddress;
 		private string phoneNumber;
-		private string password;
+		private string passwordHash;
 		private DateTime birthday;
 		private string street;
 		private string houseNumber;
@@ -27,7 +27,7 @@ namespace Carsharing
 		/// <summary>
 		/// 
 		/// </summary>
-		public string Name
+		internal string Name
 		{
 			get { return name; }
 			set { name = value; }
@@ -36,7 +36,7 @@ namespace Carsharing
 		/// <summary>
 		/// 
 		/// </summary>
-		public string LastName
+		internal string LastName
 		{
 			get { return lastName; }
 			set { lastName = value; }
@@ -45,7 +45,7 @@ namespace Carsharing
 		/// <summary>
 		/// 
 		/// </summary>
-		public string EmailAddress
+		internal string EmailAddress
 		{
 			get { return emailAddress; }
 			set { emailAddress = value; }
@@ -54,7 +54,7 @@ namespace Carsharing
 		/// <summary>
 		/// 
 		/// </summary>
-		public string PhoneNumber
+		internal string PhoneNumber
 		{
 			get { return phoneNumber; }
 			set { phoneNumber = value; }
@@ -63,16 +63,16 @@ namespace Carsharing
 		/// <summary>
 		/// 
 		/// </summary>
-		public string Password
+		internal string PasswordHash
 		{
-			get { return password; }
-			set { password = value; }
+			get { return passwordHash; }
+			set { passwordHash = value; }
 		}
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public DateTime Birthday
+		internal DateTime Birthday
 		{
 			get { return birthday; }
 			set { birthday = value; }
@@ -81,7 +81,7 @@ namespace Carsharing
 		/// <summary>
 		/// 
 		/// </summary>
-		public string Street
+		internal string Street
 		{
 			get { return street; }
 			set { street = value; }
@@ -90,7 +90,7 @@ namespace Carsharing
 		/// <summary>
 		/// 
 		/// </summary>
-		public string HouseNumber
+		internal string HouseNumber
 		{
 			get { return houseNumber; }
 			set { houseNumber = value; }
@@ -99,7 +99,7 @@ namespace Carsharing
 		/// <summary>
 		/// 
 		/// </summary>
-		public string PLZ
+		internal string PLZ
 		{
 			get { return plz; }
 			set { plz = value; }
@@ -108,7 +108,7 @@ namespace Carsharing
 		/// <summary>
 		/// 
 		/// </summary>
-		public string City
+		internal string City
 		{
 			get { return city; }
 			set { city = value; }
@@ -117,7 +117,7 @@ namespace Carsharing
 		/// <summary>
 		/// 
 		/// </summary>
-		public string Country
+		internal string Country
 		{
 			get { return country; }
 			set { country = value; }
@@ -126,20 +126,20 @@ namespace Carsharing
 		/// <summary>
 		/// 
 		/// </summary>
-		public bool IsAdmin
+		internal bool IsAdmin
 		{
 			get { return isAdmin; }
 			set { isAdmin = value; }
 		}
 		#endregion
 
-		public Customer(string name, string lastName, string emailAddress, string phoneNumber, string password, DateTime birthday, string street, string houseNumber, string plz, string city, string country, bool isAdmin)
+		internal Customer(string name, string lastName, string emailAddress, string phoneNumber, string password, DateTime birthday, string street, string houseNumber, string plz, string city, string country, bool isAdmin)
 		{
 			this.name = name;
 			this.lastName = lastName;
 			this.emailAddress = emailAddress;
 			this.phoneNumber = phoneNumber;
-			this.password = password;
+			this.passwordHash = password;
 			this.birthday = birthday;
 			this.street = street;
 			this.houseNumber = houseNumber;

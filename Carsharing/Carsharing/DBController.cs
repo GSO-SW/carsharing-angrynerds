@@ -576,7 +576,7 @@ namespace Carsharing
 						command.Parameters.AddWithValue("Vorname", c.Name);
 						command.Parameters.AddWithValue("Nachname", c.LastName);
 						command.Parameters.AddWithValue("tel", c.PhoneNumber);
-						command.Parameters.AddWithValue("pw", c.Password);
+						command.Parameters.AddWithValue("pw", c.PasswordHash);
 						command.Parameters.AddWithValue("admin", c.IsAdmin);
 						command.Parameters.AddWithValue("Geburtstag", c.Birthday);
 						command.Parameters.AddWithValue("Strasse", c.Street);
@@ -626,7 +626,7 @@ namespace Carsharing
                         command.Parameters.AddWithValue("Nachname", c.LastName);
                         command.Parameters.AddWithValue("email", c.EmailAddress);
                         command.Parameters.AddWithValue("tel", c.PhoneNumber);
-                        command.Parameters.AddWithValue("pw", c.Password);
+                        command.Parameters.AddWithValue("pw", c.PasswordHash);
                         command.Parameters.AddWithValue("admin", c.IsAdmin);
                         command.Parameters.AddWithValue("Geburtstag", c.Birthday);
                         command.Parameters.AddWithValue("Strasse", c.Street);

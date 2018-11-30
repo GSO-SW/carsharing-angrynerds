@@ -26,7 +26,7 @@ namespace Carsharing
 				bool pwIncorrect = true;
 				if (c != null)
 				{
-					if (SecurePasswordHasher.Verify(passwordTextBox.Text, c.Password))
+					if (SecurePasswordHasher.Verify(passwordTextBox.Text, c.PasswordHash))
 					{
 						FormController.CurrentCustomer = c;
 						c = null;
