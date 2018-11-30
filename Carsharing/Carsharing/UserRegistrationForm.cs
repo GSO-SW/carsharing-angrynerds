@@ -29,7 +29,7 @@ namespace Carsharing
 				this.emailTextBox.Text = c.EmailAddress;
 				this.phoneTextBox.Text = c.PhoneNumber;
 				this.birthDatePicker.Value = c.Birthday;
-				this.passwordTextBox.Text = c.Password;
+
 				this.adminCheckBox.Checked = c.IsAdmin;
 				this.streetTextBox.Text = c.Street;
 				this.houseNumberTextBox.Text = c.HouseNumber;
