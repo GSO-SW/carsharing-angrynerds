@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Carsharing
 {
-	public class Booking
+	internal class Booking
 	{
 		#region Attributes
 		private Customer customer;
@@ -22,7 +22,7 @@ namespace Carsharing
 		/// <summary>
 		/// 
 		/// </summary>
-		public Customer Customer
+		internal Customer Customer
 		{
 			get { return customer; }
 			set { customer = value; }
@@ -31,7 +31,7 @@ namespace Carsharing
 		/// <summary>
 		/// 
 		/// </summary>
-		public Vehicle Vehicle
+		internal Vehicle Vehicle
 		{
 			get { return vehicle; }
 			set { vehicle = value; }
@@ -40,7 +40,7 @@ namespace Carsharing
 		/// <summary>
 		/// 
 		/// </summary>
-		public DateTime StartTime
+		internal DateTime StartTime
 		{
 			get { return startTime; }
 			set { startTime = value; }
@@ -49,7 +49,7 @@ namespace Carsharing
 		/// <summary>
 		/// 
 		/// </summary>
-		public DateTime EndTime
+		internal DateTime EndTime
 		{
 			get { return endTime; }
 			set { endTime = value; }
@@ -58,7 +58,7 @@ namespace Carsharing
 		/// <summary>
 		/// 
 		/// </summary>
-		public double StartMileage
+		internal double StartMileage
 		{
 			get { return startMileage; }
 			set { startMileage = value; }
@@ -67,7 +67,7 @@ namespace Carsharing
 		/// <summary>
 		/// 
 		/// </summary>
-		public double EndMileage
+		internal double EndMileage
 		{
 			get { return endMileage; }
 			set { endMileage = value; }
@@ -76,14 +76,14 @@ namespace Carsharing
 		/// <summary>
 		/// 
 		/// </summary>
-		public bool Open
+		internal bool Open
 		{
 			get { return open; }
 			set { open = value; }
 		}
 		#endregion
 
-		public Booking(Customer customer, Vehicle vehicle, DateTime startTime, DateTime endTime, double startMileage,double endMileage, bool open)
+		internal Booking(Customer customer, Vehicle vehicle, DateTime startTime, DateTime endTime, double startMileage,double endMileage, bool open)
 		{
 			this.customer = customer;
 			this.vehicle = vehicle;

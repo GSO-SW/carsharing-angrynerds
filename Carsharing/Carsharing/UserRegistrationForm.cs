@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace Carsharing
 {
-	public partial class UserRegistrationForm : Form
+	internal partial class UserRegistrationForm : Form
 	{
 		private bool editMode;
 		private Customer updateCustomer;
@@ -13,7 +13,7 @@ namespace Carsharing
 		/// Create a new instance of this form to edit an exsisting customer.
 		/// </summary>
 		/// <param name="c">The customer to be processed.</param>
-		public UserRegistrationForm(Customer c)
+		internal UserRegistrationForm(Customer c)
 		{
 			InitializeComponent();
 			
@@ -42,7 +42,7 @@ namespace Carsharing
 		/// <summary>
 		/// Create a new instance of this form to create a new customer.
 		/// </summary>
-		public UserRegistrationForm()
+		internal UserRegistrationForm()
 		{
 			InitializeComponent();
 		}
