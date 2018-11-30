@@ -55,6 +55,7 @@
       <DependentUpon>AddVehicleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Booking.cs" />
+    <Compile Include="SecurePasswordHasher.cs" />
     <Compile Include="ShowVehicleForm.cs">
       <SubType>Form</SubType>
     </Compile>
