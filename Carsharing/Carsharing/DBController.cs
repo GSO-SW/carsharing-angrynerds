@@ -870,7 +870,7 @@ namespace Carsharing
 			return c;
 		}
 
-		public static bool GetCustomers(out List<Customer> customers)
+		internal static bool GetCustomers(out List<Customer> customers)
 		{
 			DataTable table = new DataTable();
 			customers = new List<Customer>();

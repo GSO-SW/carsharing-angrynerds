@@ -16,7 +16,7 @@ namespace Carsharing
 		/// <summary>
 		/// Caches the logged in Customer.
 		/// </summary>
-		public static Customer CurrentCustomer
+		internal static Customer CurrentCustomer
 		{
 			get { return currentCustomer; }
 			set { currentCustomer = value; }
@@ -25,7 +25,7 @@ namespace Carsharing
 		/// <summary>
 		/// Caches the start view.
 		/// </summary>
-		public static LoginView StartView
+		internal static LoginView StartView
 		{
 			get { return startView; }
 			set { startView = value; }
@@ -34,18 +34,18 @@ namespace Carsharing
 		/// <summary>
 		/// Caches the main View
 		/// </summary>
-		public static MainView MainView
+		internal static MainView MainView
 		{
 			get { return mainView; }
 			set { mainView = value; }
 		}
 
-		public static Color BackgroundColor
+		internal static Color BackgroundColor
 		{
 			get { return Color.FromArgb(224, 224, 224); }
 		}
 
-		public static string Placeholder
+		internal static string Placeholder
 		{
 			get { return "----------------"; }
 		}

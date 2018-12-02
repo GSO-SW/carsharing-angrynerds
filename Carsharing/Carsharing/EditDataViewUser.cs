@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Carsharing
 {
-	public partial class EditDataViewUser : UserControl
+	internal partial class EditDataViewUser : UserControl
 	{
 		private Customer customerOld;
 
-		public EditDataViewUser(Customer c)
+		internal EditDataViewUser(Customer c)
 		{
 			InitializeComponent();
 

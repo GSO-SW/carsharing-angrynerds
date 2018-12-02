@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Carsharing
 {
-	public partial class LoginViewLogin : UserControl
+	internal partial class LoginViewLogin : UserControl
 	{
-		public LoginViewLogin()
+		internal LoginViewLogin()
 		{
 			InitializeComponent();
 		}
@@ -46,7 +46,7 @@ namespace Carsharing
 			ActiveControl = buttonLogin;
 		}
 
-		public void Renew()
+		internal void Renew()
 		{
 			foreach (Control item in Controls)
 			{

@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace Carsharing
 {
-	public partial class EditDataView : Form
+	 partial class EditDataView : Form
 	{
 		/// <summary>
 		/// Create
 		/// </summary>
 		/// <param name="c"></param>
-		public EditDataView(Customer c)
+		internal EditDataView(Customer c)
 		{
 			InitializeComponent();
 
@@ -25,12 +25,16 @@ namespace Carsharing
 			Controls.Add(editDataViewUser);
 		}
 
-		//public EditDataView(Vehicle v)
-		//{
-		//	InitializeComponent();
-		//}
+		internal EditDataView(Vehicle v)
+		{
+			InitializeComponent();
 
-		public EditDataView()
+			EditDataViewVehicle editDataViewVehicle = new EditDataViewVehicle(v);
+			editDataViewVehicle.Location = new Point(0, 25);
+			Controls.Add(editDataViewVehicle);
+		}
+
+		internal EditDataView()
 		{
 			InitializeComponent();
 

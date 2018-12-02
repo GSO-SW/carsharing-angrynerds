@@ -10,12 +10,21 @@ using System.Windows.Forms;
 
 namespace Carsharing
 {
-	public partial class EditDataViewVehicle : UserControl
+	internal partial class EditDataViewVehicle : UserControl
 	{
-		public EditDataViewVehicle()
+		private Vehicle vehicle;
+
+		internal EditDataViewVehicle()
 		{
 			InitializeComponent();
 			buttonAccept.Text = "Fahrzeug hinzufügen";
+		}
+
+		internal EditDataViewVehicle(Vehicle v)
+		{
+			InitializeComponent();
+			vehicle = v;
+			buttonAccept.Text = "Fahrzeug bearbeiten";
 		}
 
 		private void EditDataViewVehicle_Load(object sender, EventArgs e)

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Carsharing
 {
-	public partial class MainViewAdminVehicle : UserControl
+	internal partial class MainViewAdminVehicle : UserControl
 	{
-		public MainViewAdminVehicle()
+		internal MainViewAdminVehicle()
 		{
 			InitializeComponent();
 			listVehicle.DrawMode = DrawMode.OwnerDrawFixed;
@@ -27,15 +27,19 @@ namespace Carsharing
 		{
 			new EditDataView().ShowDialog();
 		}
-		
+
 		private void buttonVehicleEdit_Click(object sender, EventArgs e)
 		{
-
+			if (listVehicle.SelectedItem is Vehicle)
+			{
+				Vehicle vehicle = (Vehicle)listVehicle.SelectedItem;
+				
+			}
 		}
 
 		private void buttonVehicleDelete_Click(object sender, EventArgs e)
 		{
-			if(listVehicle.SelectedItem != null)
+			if (listVehicle.SelectedItem != null)
 			{
 				//Meldung: Möchten Sie das Fahrzeug mit dem Kennzeichen: " " wirklich löschen?
 			}
@@ -109,11 +113,11 @@ namespace Carsharing
 			}
 		}
 
-		public void UpdateTable()
+		internal void UpdateTable()
 		{
 			listVehicle.Items.Clear();
 			Placeholer();
-			if(!DBController.GetAllVehiclesFromDB(out List<Vehicle> vehicles))
+			if (!DBController.GetAllVehiclesFromDB(out List<Vehicle> vehicles))
 			{
 				Feedback.ErrorDatabaseConnection();
 				return;

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Carsharing
 {
-	public partial class MainViewUserBooking : UserControl
+	internal partial class MainViewUserBooking : UserControl
 	{
-		public MainViewUserBooking()
+		internal MainViewUserBooking()
 		{
 			InitializeComponent();
 		}
@@ -71,7 +71,7 @@ namespace Carsharing
 			}
 		}
 
-		public void UpdateTable()
+		internal void UpdateTable()
 		{
 			listVehicle.Items.Clear();
 			Placeholer();
