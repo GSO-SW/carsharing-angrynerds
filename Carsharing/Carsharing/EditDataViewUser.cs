@@ -51,7 +51,7 @@ namespace Carsharing
 				c.LastName = txtLastName.TextWithoutWatermark;
 				c.EmailAddress = txtEmail.TextWithoutWatermark;
 				c.PhoneNumber = txtPhoneNumber.TextWithoutWatermark;
-				c.Password = customerOld.Password;
+				c.PasswordHash = customerOld.PasswordHash;
 				c.Birthday = DateTime.Parse(txtBirthDate.TextWithoutWatermark);
 				c.Street = txtStreet.TextWithoutWatermark;
 				c.HouseNumber = txtHouseNumber.TextWithoutWatermark;

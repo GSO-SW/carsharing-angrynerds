@@ -44,17 +44,6 @@
 			this.userRegButton.TabIndex = 0;
 			this.userRegButton.Text = "Registrieren";
 			this.userRegButton.UseVisualStyleBackColor = true;
-			this.userRegButton.Click += new System.EventHandler(this.userRegButton_Click);
-			// 
-			// loginButton
-			// 
-			this.loginButton.Location = new System.Drawing.Point(152, 39);
-			this.loginButton.Name = "loginButton";
-			this.loginButton.Size = new System.Drawing.Size(75, 23);
-			this.loginButton.TabIndex = 1;
-			this.loginButton.Text = "Login";
-			this.loginButton.UseVisualStyleBackColor = true;
-			this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
 			// 
 			// userDeleteButton
 			// 
@@ -128,7 +117,6 @@
 			this.Controls.Add(this.mangeCustomerButton);
 			this.Controls.Add(this.roundButton1);
 			this.Controls.Add(this.editCustomerButton);
-			this.Controls.Add(this.loginButton);
 			this.Controls.Add(this.userRegButton);
 			this.Controls.Add(this.userDeleteButton);
 			this.Controls.Add(this.buttonAddVehicle);
@@ -143,7 +131,6 @@
 
 		private System.Windows.Forms.Button userRegButton;
         private System.Windows.Forms.Button userDeleteButton;
-		private System.Windows.Forms.Button loginButton;
 		private System.Windows.Forms.Button editCustomerButton;
 		private System.Windows.Forms.Button buttonAddVehicle;
 		private CustomControl.RoundButton roundButton1;

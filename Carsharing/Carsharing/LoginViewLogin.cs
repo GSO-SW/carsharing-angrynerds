@@ -63,10 +63,14 @@ namespace Carsharing
 				return;
 			}
 
-			Customer c = DBController.GetCustomerByEmailFromDB(txtEmail.Text);
+			if (DBController.GetCustomerByEmailFromDB(txtEmail.Text, out Customer c))
+			{
+
+			}
+
 			if (c != null)
 			{
-				if (c.Password == txtPassword.Text)
+				if (SecurePasswordHasher.Verify(txtPassword.Text, c.PasswordHash))
 				{
 					FormController.CurrentCustomer = c;
 					c = null;
@@ -77,7 +81,6 @@ namespace Carsharing
 				}
 			}
 			MessageBox.Show("Die von dir eingegebene E-Mail-Adresse und/oder das von dir eingegebene Passwort kann keinem Konto zugeordnet werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
 		}
 	}
 }

@@ -454,6 +454,7 @@ namespace Carsharing
 		internal static bool GetAllVehiclesFromDB(out List<Vehicle> vehicles)
 		{
 			DataTable table = new DataTable();
+			vehicles = new List<Vehicle>();
 
 			using (MySqlConnection con = new MySqlConnection(connectionString))
 			{
@@ -474,7 +475,6 @@ namespace Carsharing
 					con.Close();
 				}
 			}
-			List<Vehicle> vehicleList = new List<Vehicle>();
 			foreach (DataRow item in table.Rows)
 			{
 				vehicles.Add(GetVehicleFromDataRow(item));
@@ -566,7 +566,7 @@ namespace Carsharing
                         command.Parameters.Add(new MySqlParameter("Fm_ID", brand));
                         command.Parameters.Add(new MySqlParameter("Modell", vehicle.Model));
                         command.Parameters.Add(new MySqlParameter("Leistung", vehicle.Power));
-                        command.Parameters.Add(new MySqlParameter("Baujahr", vehicle.ConstructionYear.Year));
+                        command.Parameters.Add(new MySqlParameter("Baujahr", vehicle.ConstructionYear));
                         command.Parameters.Add(new MySqlParameter("Fg_ID", gear));
                         command.Parameters.Add(new MySqlParameter("Max_Tankvolumen", vehicle.MaxTankFilling));
                         command.Parameters.Add(new MySqlParameter("Grundpreis", vehicle.BasicPrice));
@@ -903,7 +903,7 @@ namespace Carsharing
 				c.Name = item[1].ToString();
 				c.LastName = item[2].ToString();
 				c.PhoneNumber = item[3].ToString();
-				c.Password = item[4].ToString();
+				c.PasswordHash = item[4].ToString();
 				c.IsAdmin = Convert.ToBoolean(item[5].ToString());
 				c.Birthday = DateTime.Parse(item[6].ToString());
 				c.Street = item[7].ToString();

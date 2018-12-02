@@ -57,9 +57,6 @@ namespace Carsharing
 		{
 			if (customerListBox.SelectedItem is Customer && customerListBox.SelectedItem != null)
 			{
-				UserRegistrationForm urf = new UserRegistrationForm((Customer)customerListBox.SelectedItem);
-				urf.ShowDialog();
-
 				updateList();
 			}
 		}

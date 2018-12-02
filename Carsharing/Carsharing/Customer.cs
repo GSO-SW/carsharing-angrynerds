@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Carsharing
 {
-	internal class Customer
+	public class Customer
 	{
 		#region Attributes
 		private string name;
@@ -139,7 +139,7 @@ namespace Carsharing
 			this.lastName = String.Empty;
 			this.emailAddress = String.Empty;
 			this.phoneNumber = String.Empty;
-			this.password = String.Empty;
+			this.passwordHash = String.Empty;
 			this.birthday = new DateTime();
 			this.street = String.Empty;
 			this.houseNumber = String.Empty;
