@@ -44,14 +44,27 @@ namespace Carsharing
 			return dialogResult;
 		}
 
+		internal static DialogResult AskOwnCustomerDelete()
+		{
+			DialogResult dialogResult = MessageBox.Show("Wollen Sie wirklich Ihren Account löschen?", titleCare, MessageBoxButtons.YesNo);
+			return dialogResult;
+		}
+
 		internal static void SuccessCustomersDelete()
 		{
 			MessageBox.Show("Der Account wurde erfolgreich gelöscht.", titleInformation, MessageBoxButtons.OK, MessageBoxIcon.Information);
+		}
+
+		internal static void SuccessOwnCustomerDelete()
+		{
+			MessageBox.Show("Ihr Account wurde erfolgreich gelöscht.\nSie werden nun abgemeldet.", titleInformation, MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 
 		internal static void SuccessCustomersEdit()
 		{
 			MessageBox.Show("Der Account wurde erfolgreich bearbeitet.", titleInformation, MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
+
+		
 	}
 }
