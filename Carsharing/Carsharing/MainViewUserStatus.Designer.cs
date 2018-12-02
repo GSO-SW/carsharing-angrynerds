@@ -28,29 +28,20 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.labelTitle = new System.Windows.Forms.Label();
-			this.label1 = new System.Windows.Forms.Label();
+			this.labelWelcome = new System.Windows.Forms.Label();
 			this.buttonUserEdit = new CustomControl.RoundButton();
 			this.buttonUserDelete = new CustomControl.RoundButton();
 			this.SuspendLayout();
 			// 
-			// labelTitle
+			// labelWelcome
 			// 
-			this.labelTitle.AutoSize = true;
-			this.labelTitle.Location = new System.Drawing.Point(3, 0);
-			this.labelTitle.Name = "labelTitle";
-			this.labelTitle.Size = new System.Drawing.Size(59, 13);
-			this.labelTitle.TabIndex = 1;
-			this.labelTitle.Text = "UserStatus";
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(208, 182);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(35, 13);
-			this.label1.TabIndex = 2;
-			this.label1.Text = "label1";
+			this.labelWelcome.AutoSize = true;
+			this.labelWelcome.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelWelcome.Location = new System.Drawing.Point(3, 6);
+			this.labelWelcome.Name = "labelWelcome";
+			this.labelWelcome.Size = new System.Drawing.Size(118, 25);
+			this.labelWelcome.TabIndex = 2;
+			this.labelWelcome.Text = "Willkommen";
 			// 
 			// buttonUserEdit
 			// 
@@ -87,8 +78,7 @@
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
 			this.Controls.Add(this.buttonUserDelete);
 			this.Controls.Add(this.buttonUserEdit);
-			this.Controls.Add(this.label1);
-			this.Controls.Add(this.labelTitle);
+			this.Controls.Add(this.labelWelcome);
 			this.Name = "MainViewUserStatus";
 			this.Size = new System.Drawing.Size(900, 575);
 			this.ResumeLayout(false);
@@ -97,9 +87,7 @@
 		}
 
 		#endregion
-		
-		private System.Windows.Forms.Label labelTitle;
-		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label labelWelcome;
 		private CustomControl.RoundButton buttonUserEdit;
 		private CustomControl.RoundButton buttonUserDelete;
 	}

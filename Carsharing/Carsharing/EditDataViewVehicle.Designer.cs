@@ -294,12 +294,12 @@
 			this.txtSeats.Size = new System.Drawing.Size(210, 15);
 			this.txtSeats.TabIndex = 14;
 			// 
-			// textFuelCon
+			// txtFuelCon
 			// 
 			this.txtFuelCon.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.txtFuelCon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
 			this.txtFuelCon.Location = new System.Drawing.Point(275, 281);
-			this.txtFuelCon.Name = "textFuelCon";
+			this.txtFuelCon.Name = "txtFuelCon";
 			this.txtFuelCon.Size = new System.Drawing.Size(210, 15);
 			this.txtFuelCon.TabIndex = 16;
 			// 

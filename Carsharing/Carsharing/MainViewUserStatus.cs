@@ -15,6 +15,7 @@ namespace Carsharing
 		public MainViewUserStatus()
 		{
 			InitializeComponent();
+			labelWelcome.Text = "Willkommen " + FormController.CurrentCustomer.ToString();
 		}
 
 		private void buttonUserEdit_Click(object sender, EventArgs e)
