@@ -269,19 +269,19 @@ namespace Carsharing
 
 					if (!DBController.AddVehicle(vehicle))
 					{
-						MessageBox.Show("Beim Hinzufügen des Fahrzeuges ist ein Fehler unterlaufen.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						Feedback.ErrorDatabaseVehicleAdd();
 						return;
 					}
-					MessageBox.Show("Das Fahrzeug wurde hinzugefügt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					Feedback.ErrorDatabaseVehicleAdd();
 				}
 				else
 				{
 					if (!DBController.UpdateVehicleInDB(vehicle, vehicleOld))
 					{
-						MessageBox.Show("Beim Bearbeiten des Fahrzeuges ist ein Fehler unterlaufen.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						Feedback.ErrorDatabaseVehicleEdit();
 						return;
 					}
-					MessageBox.Show("Das Fahrzeug wurde bearbeitet.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					Feedback.SuccessVehicleEdit();
 				}
 				((EditDataView)Parent).Close();
 				FormController.MainView.UpdateVehicleList();
