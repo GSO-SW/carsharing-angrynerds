@@ -164,5 +164,10 @@ namespace Carsharing
 			this.country = country;
 			this.isAdmin = isAdmin;
 		}
+
+		public override string ToString()
+		{
+			return lastName + ", " + name;
+		}
 	}
 }
