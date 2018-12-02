@@ -45,5 +45,10 @@ namespace Carsharing
 			get { return Color.FromArgb(224, 224, 224); }
 		}
 
+		public static string Placeholder
+		{
+			get { return "----------------"; }
+		}
+
 	}
 }
