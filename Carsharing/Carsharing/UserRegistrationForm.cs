@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace Carsharing
 {
-	public partial class UserRegistrationForm : Form
+	internal partial class UserRegistrationForm : Form
 	{
 		private bool editMode;
 		private Customer updateCustomer;
@@ -13,7 +13,7 @@ namespace Carsharing
 		/// Create a new instance of this form to edit an exsisting customer.
 		/// </summary>
 		/// <param name="c">The customer to be processed.</param>
-		public UserRegistrationForm(Customer c)
+		internal UserRegistrationForm(Customer c)
 		{
 			InitializeComponent();
 			
@@ -29,7 +29,7 @@ namespace Carsharing
 				this.emailTextBox.Text = c.EmailAddress;
 				this.phoneTextBox.Text = c.PhoneNumber;
 				this.birthDatePicker.Value = c.Birthday;
-				this.passwordTextBox.Text = c.Password;
+
 				this.adminCheckBox.Checked = c.IsAdmin;
 				this.streetTextBox.Text = c.Street;
 				this.houseNumberTextBox.Text = c.HouseNumber;
@@ -42,7 +42,7 @@ namespace Carsharing
 		/// <summary>
 		/// Create a new instance of this form to create a new customer.
 		/// </summary>
-		public UserRegistrationForm()
+		internal UserRegistrationForm()
 		{
 			InitializeComponent();
 		}
@@ -51,7 +51,7 @@ namespace Carsharing
 		{
 			if (testForInvalidValues())
 			{
-				Customer c = new Customer(nameTextBox.Text, lastNameTextBox.Text, emailTextBox.Text, phoneTextBox.Text, passwordTextBox.Text, birthDatePicker.Value, streetTextBox.Text, houseNumberTextBox.Text, PLZTextBox.Text, cityTextBox.Text, countryTextBox.Text, adminCheckBox.Checked);
+				Customer c = new Customer(nameTextBox.Text, lastNameTextBox.Text, emailTextBox.Text, phoneTextBox.Text, SecurePasswordHasher.Hash(passwordTextBox.Text), birthDatePicker.Value, streetTextBox.Text, houseNumberTextBox.Text, PLZTextBox.Text, cityTextBox.Text, countryTextBox.Text, adminCheckBox.Checked);
 				if (editMode)
 				{
 					switch (DBController.UpdateCustomerInDB(c, updateCustomer.EmailAddress))
