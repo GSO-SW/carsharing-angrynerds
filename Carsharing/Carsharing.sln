@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carsharing", "Carsharing\Carsharing.csproj", "{AC451DE3-9488-4F6A-839B-5B16D9D906D2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomControl", "CustomControl\CustomControl.csproj", "{B9D79AF0-D8FA-4473-859C-81F90213643E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{AC451DE3-9488-4F6A-839B-5B16D9D906D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC451DE3-9488-4F6A-839B-5B16D9D906D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC451DE3-9488-4F6A-839B-5B16D9D906D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9D79AF0-D8FA-4473-859C-81F90213643E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9D79AF0-D8FA-4473-859C-81F90213643E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9D79AF0-D8FA-4473-859C-81F90213643E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9D79AF0-D8FA-4473-859C-81F90213643E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

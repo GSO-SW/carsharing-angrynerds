@@ -16,10 +16,8 @@ namespace Carsharing
 		{
 			InitializeComponent();
 
-			vehicleListBox.DisplayMember = "DisplayMember";
-
-			if (DBController.GetAllVehiclesFromDB(out List<Vehicle> vehicles))
-				vehicleListBox.Items.AddRange(vehicles.ToArray());
+			//vehicleListBox.DisplayMember = "DisplayMember";
+			//vehicleListBox.Items.AddRange(DBController.GetAllVehiclesFromDB().ToArray());
 		}
 
 		private void vehicleListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -47,7 +45,7 @@ namespace Carsharing
 				modelLabel.Text = v.Model;
 				mileageLabel.Text = v.Mileage.ToString() + " km";
 				numberPlateLabel.Text = v.NumberPlate;
-				constrYearLabel.Text = v.ConstructionYear.Year.ToString();
+				constrYearLabel.Text = v.ConstructionYear.ToString();
 				regLabel.Text = v.Registration.Date.ToString("dd.MM.yyyy");
 				gearLabel.Text = v.Gear;
 				powerLabel.Text = v.Power.ToString() + " kW";

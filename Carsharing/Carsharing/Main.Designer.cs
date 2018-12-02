@@ -28,11 +28,10 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.userRegButton = new System.Windows.Forms.Button();
-			this.loginButton = new System.Windows.Forms.Button();
 			this.userDeleteButton = new System.Windows.Forms.Button();
 			this.editCustomerButton = new System.Windows.Forms.Button();
 			this.buttonAddVehicle = new System.Windows.Forms.Button();
+			this.roundButton1 = new CustomControl.RoundButton();
 			this.createBookingButton = new System.Windows.Forms.Button();
 			this.mangeCustomerButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
@@ -87,9 +86,22 @@
 			this.buttonAddVehicle.UseVisualStyleBackColor = true;
 			this.buttonAddVehicle.Click += new System.EventHandler(this.button1_Click);
 			// 
+			// roundButton1
+			// 
+			this.roundButton1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+			this.roundButton1.FlatAppearance.BorderSize = 0;
+			this.roundButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.roundButton1.Location = new System.Drawing.Point(198, 223);
+			this.roundButton1.Name = "roundButton1";
+			this.roundButton1.Rounded = 0;
+			this.roundButton1.Size = new System.Drawing.Size(367, 32);
+			this.roundButton1.TabIndex = 5;
+			this.roundButton1.Text = "roundButton1";
+			this.roundButton1.UseVisualStyleBackColor = false;
+			// 
 			// createBookingButton
 			// 
-			this.createBookingButton.Location = new System.Drawing.Point(434, 222);
+			this.createBookingButton.Location = new System.Drawing.Point(451, 174);
 			this.createBookingButton.Name = "createBookingButton";
 			this.createBookingButton.Size = new System.Drawing.Size(75, 23);
 			this.createBookingButton.TabIndex = 4;
@@ -114,6 +126,7 @@
 			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.createBookingButton);
 			this.Controls.Add(this.mangeCustomerButton);
+			this.Controls.Add(this.roundButton1);
 			this.Controls.Add(this.editCustomerButton);
 			this.Controls.Add(this.loginButton);
 			this.Controls.Add(this.userRegButton);
@@ -133,6 +146,7 @@
 		private System.Windows.Forms.Button loginButton;
 		private System.Windows.Forms.Button editCustomerButton;
 		private System.Windows.Forms.Button buttonAddVehicle;
+		private CustomControl.RoundButton roundButton1;
 		private System.Windows.Forms.Button mangeCustomerButton;
 		private System.Windows.Forms.Button createBookingButton;
 	}

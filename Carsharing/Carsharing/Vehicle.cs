@@ -19,7 +19,7 @@ namespace Carsharing
 		private string brand;
 		private string model;
 		private int power;
-		private DateTime constructionYear;
+		private int constructionYear;
 		private string gearShift;
 		private double maxTankFilling;
 		private double basicPrice;
@@ -50,7 +50,7 @@ namespace Carsharing
 		public string NumberPlate
 		{
 			get { return numberPlate; }
-			set { numberPlate = value; }
+			set { numberPlate = value.ToUpper(); }
 		}
 
 		/// <summary>
@@ -128,10 +128,10 @@ namespace Carsharing
 		/// <summary>
 		/// Construction year of the vehicle
 		/// </summary>
-		public DateTime ConstructionYear
+		public int ConstructionYear
 		{
 			get { return constructionYear; }
-			set { constructionYear = new DateTime(value.Year, 1, 1); }
+			set { constructionYear = value; }
 		}
 
 		/// <summary>
@@ -325,7 +325,7 @@ namespace Carsharing
 
 		public string DisplayMember
 		{
-			get { return brand + " " + model + ", " + numberPlate; }
+			get { return brand + " " + model + ", \"" + numberPlate + "\""; }
 		}
 		#endregion
 
@@ -379,7 +379,7 @@ namespace Carsharing
 			Brand = brand;
 			Model = model;
 			Power = power;
-			ConstructionYear = new DateTime(constructionYear, 1, 1);
+			ConstructionYear = constructionYear;
 			Gear = gear;
 			MaxTankFilling = maxTankFilling;
 			BasicPrice = basicPrice;
@@ -402,6 +402,41 @@ namespace Carsharing
 			WinterTire = winter;
 			Smoker = smoker;
 		}
+
+		public Vehicle()
+		{
+			NumberPlate = String.Empty;
+			Mileage = 0.0;
+			LastMaintenance = DateTime.Today;
+			TankFilling = 0.0;
+			Position = new PointD(0,0);
+			Available = false;
+			Brand = String.Empty;
+			Model = String.Empty;
+			Power = 0;
+			ConstructionYear = 2000;
+			Gear = String.Empty;
+			MaxTankFilling = 0.0;
+			BasicPrice = 0.0;
+			PricePerKilometre = 0.0;
+			PricePerMinute = 0.0;
+			Registration = DateTime.Today;
+			Seats = 0;
+			FuelType = String.Empty;
+			FuelConsumption = 0.0;
+			AirConditioner = false;
+			CruiseControl = false;
+			Radio = false;
+			Bluetooth = false;
+			USB = false;
+			CDPlayer = false;
+			Navi = false;
+			ABS = false;
+			ESP = false;
+			SeatHeating = false;
+			WinterTire = false;
+			Smoker = false;
+		}
 		#endregion
 
 		#region Methods
@@ -413,6 +448,11 @@ namespace Carsharing
 		{
 			string s = Brand + ";" + Model + ";" + Power + ";" + ConstructionYear + ";" + Gear + ";" + MaxTankFilling + ";" + BasicPrice + ";" + PricePerKilometre + ";" + PricePerKilometre + ";" + FuelType + ";" + Seats;
 			return s;
+		}
+
+		public override string ToString()
+		{
+			return DisplayMember;
 		}
 		#endregion
 	}

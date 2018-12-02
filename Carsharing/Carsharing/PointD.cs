@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.Types;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -52,6 +53,12 @@ namespace Carsharing
 		{
 			this.x = point.X;
 			this.y = point.Y;
+		}
+
+		public PointD(MySqlGeometry mySqlGeometry)
+		{
+			this.x = (double)mySqlGeometry.XCoordinate;
+			this.Y = (double)mySqlGeometry.YCoordinate;
 		}
 
 		/// <summary>

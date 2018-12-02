@@ -13,7 +13,7 @@ using System.Data;
 
 namespace Carsharing
 {
-    public static class DBController
+    internal static class DBController
     {
         private static readonly string connectionString = @"host=localhost;user=root;database=carsharingdb";
 
@@ -435,7 +435,7 @@ namespace Carsharing
 						command.Parameters.Add(new MySqlParameter("Sitzheizung", vehicle.SeatHeating));
 						command.Parameters.Add(new MySqlParameter("Winter", vehicle.WinterTire));
 						command.Parameters.Add(new MySqlParameter("Raucher", vehicle.Smoker));
-						
+
 						command.ExecuteNonQuery();
 					}
 				}
@@ -454,7 +454,6 @@ namespace Carsharing
 		internal static bool GetAllVehiclesFromDB(out List<Vehicle> vehicles)
 		{
 			DataTable table = new DataTable();
-			vehicles = new List<Vehicle>();
 
 			using (MySqlConnection con = new MySqlConnection(connectionString))
 			{
@@ -483,19 +482,57 @@ namespace Carsharing
 
 			return true;
 		}
-		
+
 		private static Vehicle GetVehicleFromDataRow(DataRow row)
 		{
-			Vehicle v;
+			Vehicle v = new Vehicle();
+
 			try
 			{
-				v = new Vehicle(row.Field<string>("Kennzeichen"), row.Field<double>("Kilometerstand"), row.Field<DateTime>("Letzte Wartung"), row.Field<double>("Tankfuellung"), new PointD(0,0), row.Field<bool>("Verfuegbarkeit"), row.Field<string>("Marke"), row.Field<string>("Modell"), row.Field<int>("Leistung"), row.Field<int>("Baujahr"), row.Field<string>("Getriebeart"), row.Field<double>("Max_Tankvolumen"), row.Field<double>("Grundpreis"), row.Field<double>("Preis/km"), row.Field<double>("Preis/min"), row.Field<DateTime>("Erstzulassung"), row.Field<int>("Anzahl der Sitze"), row.Field<string>("Kraftstoffart"), row.Field<double>("Kraftstoffverbrauch"), row.Field<bool>("Klimaanlage"), row.Field<bool>("Tempomat"), row.Field<bool>("Radio"), row.Field<bool>("Bluetooth"), row.Field<bool>("USB"), row.Field<bool>("CD-Spieler"), row.Field<bool>("Navigationsgeraet"), row.Field<bool>("ABS"), row.Field<bool>("ESP"), row.Field<bool>("Sitzheizung"), row.Field<bool>("Winterreifen"), row.Field<bool>("Raucher"));
+				v.ABS = row.Field<bool>("ABS");
+				v.AirConditioner = row.Field<bool>("Klimaanlage");
+				v.Available = row.Field<bool>("Verfuegbarkeit");
+				v.BasicPrice = row.Field<double>("Grundpreis");
+				v.Bluetooth = row.Field<bool>("Bluetooth");
+				v.Brand = row.Field<string>("Marke");
+				v.CDPlayer = row.Field<bool>("CD-Spieler");
+				v.ConstructionYear = row.Field<int>("Baujahr");
+				v.CruiseControl = row.Field<bool>("Tempomat");
+				v.ESP = row.Field<bool>("ESP");
+				v.FuelConsumption = row.Field<double>("Kraftstoffverbrauch");
+				v.FuelType = row.Field<string>("Kraftstoffart");
+				v.Gear = row.Field<string>("Getriebeart");
+				v.LastMaintenance = row.Field<DateTime>("Letzte Wartung");
+				v.MaxTankFilling = row.Field<double>("Max_Tankvolumen");
+				v.Mileage = row.Field<double>("Kilometerstand");
+				v.Model = row.Field<string>("Modell");
+				v.Navi = row.Field<bool>("Navigationsgeraet");
+				v.NumberPlate = row.Field<string>("Kennzeichen");
+				v.Position = new PointD(0, 0);
+				v.Power = row.Field<int>("Leistung");
+				v.PricePerKilometre = row.Field<double>("Preis/km");
+				v.PricePerMinute = row.Field<double>("Preis/min");
+				v.Radio = row.Field<bool>("Radio");
+				v.Registration = row.Field<DateTime>("Erstzulassung");
+				v.SeatHeating = row.Field<bool>("Sitzheizung");
+				v.Seats = row.Field<int>("Anzahl der Sitze");
+				v.Smoker = row.Field<bool>("Raucher");
+				v.TankFilling = row.Field<double>("Tankfuellung");
+				v.USB = row.Field<bool>("USB");
+				v.WinterTire = row.Field<bool>("Winterreifen");
 			}
 			catch (Exception)
 			{
-				v = null;
+				v = new Vehicle();
 			}
+
 			return v;
+		}
+
+		private static PointD GetPointDFromPointMySQL(string a)
+		{
+			PointD point = new PointD(0, 0);
+			return point;
 		}
 
 		/// <summary>
@@ -506,7 +543,7 @@ namespace Carsharing
 		private static bool AddVehicleType(Vehicle vehicle)
 		{
 			//Get the brand ID from the parameter vehicle
-			if(!GetVehicleBrandID(vehicle.Brand, out int? brand))
+			if (!GetVehicleBrandID(vehicle.Brand, out int? brand))
 				return false;
 
             //Get the gear ID from the parameter vehicle
@@ -554,7 +591,7 @@ namespace Carsharing
 			return true;
 		}
 		#endregion
-		
+
 		#region Customer
 		/// <summary>
 		/// Method to add a customer to the database.
@@ -831,6 +868,53 @@ namespace Carsharing
 				c = null;
 			}
 			return c;
+		}
+
+		public static bool GetCustomers(out List<Customer> customers)
+		{
+			DataTable table = new DataTable();
+			customers = new List<Customer>();
+
+			using (MySqlConnection con = new MySqlConnection(connectionString))
+			{
+				try
+				{
+					con.Open();
+
+					using (MySqlDataAdapter a = new MySqlDataAdapter("SELECT * FROM kunde", con))
+					{
+						a.Fill(table);
+					}
+				}
+				catch (Exception)
+				{
+					return false;
+				}
+				finally
+				{
+					con.Close();
+				}
+			}
+
+			foreach (DataRow item in table.Rows)
+			{
+				Customer c = new Customer();
+				c.EmailAddress = item[0].ToString();
+				c.Name = item[1].ToString();
+				c.LastName = item[2].ToString();
+				c.PhoneNumber = item[3].ToString();
+				c.Password = item[4].ToString();
+				c.IsAdmin = Convert.ToBoolean(item[5].ToString());
+				c.Birthday = DateTime.Parse(item[6].ToString());
+				c.Street = item[7].ToString();
+				c.HouseNumber = item[8].ToString();
+				c.PLZ = item[9].ToString();
+				c.City = item[10].ToString();
+				c.Country = item[11].ToString();
+
+				customers.Add(c);
+			}
+			return true;
 		}
 		#endregion
 
