@@ -109,7 +109,7 @@ namespace Carsharing
 		{
 			if (FormController.CurrentCustomer != null)
 			{
-				if (!DBController.CheckOpenBookings(FormController.CurrentCustomer, out bool openBookings))
+				if (DBController.CheckOpenBookings(FormController.CurrentCustomer, out bool openBookings))
 				{
 					if (!openBookings)
 					{
