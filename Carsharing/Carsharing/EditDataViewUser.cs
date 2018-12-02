@@ -12,14 +12,16 @@ namespace Carsharing
 {
 	public partial class EditDataViewUser : UserControl
 	{
-		private string email;
+		private Customer customerOld;
+
 		public EditDataViewUser(Customer c)
 		{
 			InitializeComponent();
 
-			if(c != null)
+			if (c != null)
 			{
-				email = c.EmailAddress;
+				customerOld = c;
+
 				txtBirthDate.Text = c.Birthday.ToShortDateString();
 				txtCity.Text = c.City;
 				txtCountry.Text = c.Country;
@@ -27,11 +29,15 @@ namespace Carsharing
 				txtHouseNumber.Text = c.HouseNumber;
 				txtLastName.Text = c.LastName;
 				txtName.Text = c.Name;
-				txtPassword.Text = c.Password;
-				txtPassword2.Text = c.Password;
 				txtPhoneNumber.Text = c.PhoneNumber;
 				txtPlz.Text = c.PLZ;
 				txtStreet.Text = c.Street;
+
+				checkAdmin.Checked = c.IsAdmin;
+			}
+			else
+			{
+				ParentForm.Close();
 			}
 		}
 
@@ -39,9 +45,37 @@ namespace Carsharing
 		{
 			if (testForInvalidValues())
 			{
-				Customer c = new Customer(txtName.TextWithoutWatermark, txtLastName.TextWithoutWatermark, txtEmail.TextWithoutWatermark, txtPhoneNumber.TextWithoutWatermark, txtPassword.TextWithoutWatermark, DateTime.Parse(txtBirthDate.TextWithoutWatermark), txtStreet.TextWithoutWatermark, txtHouseNumber.TextWithoutWatermark, txtPlz.TextWithoutWatermark, txtCity.TextWithoutWatermark, txtCountry.TextWithoutWatermark, false);
+				Customer c = new Customer();
 
-				DBController.UpdateCustomerInDB(c, email);
+				c.Name = txtName.TextWithoutWatermark;
+				c.LastName = txtLastName.TextWithoutWatermark;
+				c.EmailAddress = txtEmail.TextWithoutWatermark;
+				c.PhoneNumber = txtPhoneNumber.TextWithoutWatermark;
+				c.Password = customerOld.Password;
+				c.Birthday = DateTime.Parse(txtBirthDate.TextWithoutWatermark);
+				c.Street = txtStreet.TextWithoutWatermark;
+				c.HouseNumber = txtHouseNumber.TextWithoutWatermark;
+				c.PLZ = txtPlz.TextWithoutWatermark;
+				c.City = txtCity.TextWithoutWatermark;
+				c.Country = txtCountry.TextWithoutWatermark;
+				c.IsAdmin = checkAdmin.Checked;
+
+				if (DBController.UpdateCustomerInDB(c, customerOld.EmailAddress) == 0)
+				{
+					FormController.MainView.UpdateCustomersList();
+					Feedback.SuccessCustomersEdit();
+
+					if (FormController.CurrentCustomer.EmailAddress == customerOld.EmailAddress)
+					{
+						FormController.CurrentCustomer = c;
+					}
+				}
+				else
+				{
+					Feedback.ErrorDatabaseCustomersEdit();
+				}
+
+				ParentForm.Close();
 			}
 		}
 
@@ -60,16 +94,6 @@ namespace Carsharing
 			if (string.IsNullOrWhiteSpace(txtEmail.TextWithoutWatermark) || !txtEmail.TextWithoutWatermark.Contains("@") || !txtEmail.TextWithoutWatermark.Contains("."))
 			{
 				MessageBox.Show("Bitte geben Sie eine gültige E-Mail-Adresse an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return false;
-			}
-			if (txtPassword.TextWithoutWatermark != txtPassword2.TextWithoutWatermark)
-			{
-				MessageBox.Show("Die Passwörter stimmen nicht überein.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return false;
-			}
-			if (txtPassword.TextWithoutWatermark.Length < 8)
-			{
-				MessageBox.Show("Bitte wählen Sie ein Passwort mit mindestens 8 Zeichen.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return false;
 			}
 			if (string.IsNullOrWhiteSpace(txtPhoneNumber.TextWithoutWatermark) || !txtPhoneNumber.TextWithoutWatermark.Any(char.IsDigit)) //nur nummern?
@@ -111,6 +135,23 @@ namespace Carsharing
 			{
 				MessageBox.Show("Bitte geben Sie ihr Heimatland an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return false;
+			}
+			if (!DBController.GetCustomers(out List<Customer> customers))
+			{
+				Feedback.ErrorDatabaseConnection();
+				return false;
+			}
+
+			if (txtEmail.TextWithoutWatermark != customerOld.EmailAddress)
+			{
+				foreach (Customer c in customers)
+				{
+					if (txtEmail.TextWithoutWatermark == c.EmailAddress)
+					{
+						MessageBox.Show("Diese Email existiert bereits in der Datenbank.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						return false;
+					}
+				}
 			}
 			return true;
 		}

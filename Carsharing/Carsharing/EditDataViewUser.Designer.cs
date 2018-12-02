@@ -35,19 +35,19 @@
 			this.txtStreet = new CustomControl.WatermarkTextBox();
 			this.txtPhoneNumber = new CustomControl.WatermarkTextBox();
 			this.txtBirthDate = new CustomControl.WatermarkTextBox();
-			this.txtPassword2 = new CustomControl.WatermarkTextBox();
-			this.txtPassword = new CustomControl.WatermarkTextBox();
 			this.txtEmail = new CustomControl.WatermarkTextBox();
 			this.txtLastName = new CustomControl.WatermarkTextBox();
 			this.txtName = new CustomControl.WatermarkTextBox();
 			this.buttonAccept = new CustomControl.RoundButton();
+			this.checkAdmin = new System.Windows.Forms.CheckBox();
+			this.labelAdmin = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// txtCountry
 			// 
 			this.txtCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtCountry.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
-			this.txtCountry.Location = new System.Drawing.Point(87, 267);
+			this.txtCountry.Location = new System.Drawing.Point(87, 250);
 			this.txtCountry.Name = "txtCountry";
 			this.txtCountry.Password = false;
 			this.txtCountry.Size = new System.Drawing.Size(350, 22);
@@ -58,7 +58,7 @@
 			// 
 			this.txtCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtCity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
-			this.txtCity.Location = new System.Drawing.Point(165, 239);
+			this.txtCity.Location = new System.Drawing.Point(165, 222);
 			this.txtCity.Name = "txtCity";
 			this.txtCity.Password = false;
 			this.txtCity.Size = new System.Drawing.Size(272, 22);
@@ -69,7 +69,7 @@
 			// 
 			this.txtPlz.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtPlz.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
-			this.txtPlz.Location = new System.Drawing.Point(87, 239);
+			this.txtPlz.Location = new System.Drawing.Point(87, 222);
 			this.txtPlz.Name = "txtPlz";
 			this.txtPlz.Password = false;
 			this.txtPlz.Size = new System.Drawing.Size(72, 22);
@@ -80,7 +80,7 @@
 			// 
 			this.txtHouseNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtHouseNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
-			this.txtHouseNumber.Location = new System.Drawing.Point(360, 211);
+			this.txtHouseNumber.Location = new System.Drawing.Point(360, 194);
 			this.txtHouseNumber.Name = "txtHouseNumber";
 			this.txtHouseNumber.Password = false;
 			this.txtHouseNumber.Size = new System.Drawing.Size(77, 22);
@@ -91,7 +91,7 @@
 			// 
 			this.txtStreet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtStreet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
-			this.txtStreet.Location = new System.Drawing.Point(87, 211);
+			this.txtStreet.Location = new System.Drawing.Point(87, 194);
 			this.txtStreet.Name = "txtStreet";
 			this.txtStreet.Password = false;
 			this.txtStreet.Size = new System.Drawing.Size(267, 22);
@@ -102,7 +102,7 @@
 			// 
 			this.txtPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtPhoneNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
-			this.txtPhoneNumber.Location = new System.Drawing.Point(87, 140);
+			this.txtPhoneNumber.Location = new System.Drawing.Point(87, 123);
 			this.txtPhoneNumber.Name = "txtPhoneNumber";
 			this.txtPhoneNumber.Password = false;
 			this.txtPhoneNumber.Size = new System.Drawing.Size(350, 22);
@@ -113,34 +113,12 @@
 			// 
 			this.txtBirthDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtBirthDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
-			this.txtBirthDate.Location = new System.Drawing.Point(87, 168);
+			this.txtBirthDate.Location = new System.Drawing.Point(87, 151);
 			this.txtBirthDate.Name = "txtBirthDate";
 			this.txtBirthDate.Password = false;
 			this.txtBirthDate.Size = new System.Drawing.Size(350, 22);
 			this.txtBirthDate.TabIndex = 48;
 			this.txtBirthDate.Watermark = "Geburtsdatum (dd/mm/yyyy)";
-			// 
-			// txtPassword2
-			// 
-			this.txtPassword2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtPassword2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
-			this.txtPassword2.Location = new System.Drawing.Point(265, 99);
-			this.txtPassword2.Name = "txtPassword2";
-			this.txtPassword2.Password = true;
-			this.txtPassword2.Size = new System.Drawing.Size(172, 22);
-			this.txtPassword2.TabIndex = 46;
-			this.txtPassword2.Watermark = "Passwort bestätigen";
-			// 
-			// txtPassword
-			// 
-			this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
-			this.txtPassword.Location = new System.Drawing.Point(87, 99);
-			this.txtPassword.Name = "txtPassword";
-			this.txtPassword.Password = true;
-			this.txtPassword.Size = new System.Drawing.Size(172, 22);
-			this.txtPassword.TabIndex = 45;
-			this.txtPassword.Watermark = "Passwort";
 			// 
 			// txtEmail
 			// 
@@ -190,11 +168,37 @@
 			this.buttonAccept.UseVisualStyleBackColor = false;
 			this.buttonAccept.Click += new System.EventHandler(this.buttonAccept_Click);
 			// 
+			// checkAdmin
+			// 
+			this.checkAdmin.AutoSize = true;
+			this.checkAdmin.Checked = true;
+			this.checkAdmin.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.checkAdmin.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.checkAdmin.Location = new System.Drawing.Point(138, 296);
+			this.checkAdmin.Name = "checkAdmin";
+			this.checkAdmin.Size = new System.Drawing.Size(15, 14);
+			this.checkAdmin.TabIndex = 245;
+			this.checkAdmin.UseVisualStyleBackColor = true;
+			// 
+			// labelAdmin
+			// 
+			this.labelAdmin.AutoSize = true;
+			this.labelAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.labelAdmin.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.labelAdmin.ForeColor = System.Drawing.Color.Black;
+			this.labelAdmin.Location = new System.Drawing.Point(83, 294);
+			this.labelAdmin.Name = "labelAdmin";
+			this.labelAdmin.Size = new System.Drawing.Size(49, 19);
+			this.labelAdmin.TabIndex = 244;
+			this.labelAdmin.Text = "Admin";
+			// 
 			// EditDataViewUser
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.Controls.Add(this.checkAdmin);
+			this.Controls.Add(this.labelAdmin);
 			this.Controls.Add(this.txtCountry);
 			this.Controls.Add(this.txtCity);
 			this.Controls.Add(this.txtPlz);
@@ -202,8 +206,6 @@
 			this.Controls.Add(this.txtStreet);
 			this.Controls.Add(this.txtPhoneNumber);
 			this.Controls.Add(this.txtBirthDate);
-			this.Controls.Add(this.txtPassword2);
-			this.Controls.Add(this.txtPassword);
 			this.Controls.Add(this.txtEmail);
 			this.Controls.Add(this.txtLastName);
 			this.Controls.Add(this.txtName);
@@ -224,11 +226,11 @@
 		private CustomControl.WatermarkTextBox txtStreet;
 		private CustomControl.WatermarkTextBox txtPhoneNumber;
 		private CustomControl.WatermarkTextBox txtBirthDate;
-		private CustomControl.WatermarkTextBox txtPassword2;
-		private CustomControl.WatermarkTextBox txtPassword;
 		private CustomControl.WatermarkTextBox txtEmail;
 		private CustomControl.WatermarkTextBox txtLastName;
 		private CustomControl.WatermarkTextBox txtName;
 		private CustomControl.RoundButton buttonAccept;
+		private System.Windows.Forms.CheckBox checkAdmin;
+		private System.Windows.Forms.Label labelAdmin;
 	}
 }
