@@ -17,6 +17,7 @@ namespace Carsharing
 		public MainView()
 		{
 			InitializeComponent();
+			DoubleBuffered = true;
 
 			FormController.MainView = this;
 		}
