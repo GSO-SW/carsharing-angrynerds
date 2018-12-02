@@ -63,5 +63,10 @@ namespace Carsharing
 		{
 			adminVehicles1.UpdateTable();
 		}
+
+		public void UpdateCustomersList()
+		{
+			adminUsers1.UpdateTable();
+		}
 	}
 }
