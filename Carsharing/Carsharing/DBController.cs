@@ -590,6 +590,68 @@ namespace Carsharing
 			}
 			return true;
 		}
+
+		internal static bool UpdateVehicleInDB(Vehicle vehicle, Vehicle vehicleOld)
+		{
+			//Get the vehicle type ID
+			if (!GetVehicleTypeID(vehicle, out int? vehicleTypeID))
+				return false;
+
+			//Checks if the vehicle type is in the DB.
+			if (vehicleTypeID == null)
+			{
+				//Adds the vehicle type to the DB
+				if (!AddVehicleType(vehicle))
+					return false;
+				//Get the vehicle type ID
+				if (!GetVehicleTypeID(vehicle, out vehicleTypeID))
+					return false;
+			}
+			using (MySqlConnection con = new MySqlConnection(connectionString))
+			{
+				try
+				{
+					// open connection to database
+					con.Open();
+					using (MySqlCommand command = new MySqlCommand("UPDATE `fahrzeug` SET `Kennzeichen`=@Kennzeichen,`Ft_ID`=@Ft_ID,`Kilometerstand`=@Kilometerstand,`Letzte Wartung`=@LetzteWartung,`Tankfuellung`=@Tankfüllung,`Standort`=@Standort,`Verfuegbarkeit`=@Verfügbarkeit,`Erstzulassung`=@Erstzulassung,`Kraftstoffverbrauch`=@Kraftstoffverbrauch,`Klimaanlage`=@Klimaanlage,`Tempomat`=@Tempomat,`Radio`=@Radio,`Bluetooth`=@Bluetooth,`USB`=@USB,`CD-Spieler`=@CDSpieler,`Navigationsgeraet`=@Navi,`ABS`=@ABS,`ESP`=@ESP,`Sitzheizung`=@Sitzheizung,`Winterreifen`=@Winter,`Raucher`=@Raucher WHERE `Kennzeichen`=@KennzeichenPre", con))
+					{
+						command.Parameters.Add(new MySqlParameter("Kennzeichen", vehicle.NumberPlate));
+						command.Parameters.Add(new MySqlParameter("Ft_ID", vehicleTypeID));
+						command.Parameters.Add(new MySqlParameter("Kilometerstand", vehicle.Mileage));
+						command.Parameters.Add(new MySqlParameter("LetzteWartung", vehicle.LastMaintenance.Date));
+						command.Parameters.Add(new MySqlParameter("Tankfüllung", vehicle.TankFilling));
+						command.Parameters.Add(new MySqlParameter("Standort", "POINT(" + vehicle.Position.ToString() + ")"));
+						command.Parameters.Add(new MySqlParameter("Verfügbarkeit", vehicle.Available));
+						command.Parameters.Add(new MySqlParameter("Erstzulassung", vehicle.LastMaintenance.Date));
+						command.Parameters.Add(new MySqlParameter("Kraftstoffverbrauch", vehicle.FuelConsumption));
+						command.Parameters.Add(new MySqlParameter("Klimaanlage", vehicle.AirConditioner));
+						command.Parameters.Add(new MySqlParameter("Tempomat", vehicle.CruiseControl));
+						command.Parameters.Add(new MySqlParameter("Radio", vehicle.Radio));
+						command.Parameters.Add(new MySqlParameter("Bluetooth", vehicle.Bluetooth));
+						command.Parameters.Add(new MySqlParameter("USB", vehicle.USB));
+						command.Parameters.Add(new MySqlParameter("CDSpieler", vehicle.CDPlayer));
+						command.Parameters.Add(new MySqlParameter("Navi", vehicle.Navi));
+						command.Parameters.Add(new MySqlParameter("ABS", vehicle.ABS));
+						command.Parameters.Add(new MySqlParameter("ESP", vehicle.ESP));
+						command.Parameters.Add(new MySqlParameter("Sitzheizung", vehicle.SeatHeating));
+						command.Parameters.Add(new MySqlParameter("Winter", vehicle.WinterTire));
+						command.Parameters.Add(new MySqlParameter("Raucher", vehicle.Smoker));
+						command.Parameters.Add(new MySqlParameter("KennzeichenPre", vehicleOld.NumberPlate));
+
+						command.ExecuteNonQuery();
+					}
+				}
+				catch (Exception)
+				{
+					return false;
+				}
+				finally
+				{
+					con.Close();
+				}
+				return true;
+			}
+		}
 		#endregion
 
 		#region Customer

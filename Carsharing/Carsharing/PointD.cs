@@ -65,7 +65,7 @@ namespace Carsharing
 		/// 
 		/// </summary>
 		/// <returns></returns>
-		internal override string ToString()
+		public override string ToString()
 		{
 			return x + " " + y;
 		}

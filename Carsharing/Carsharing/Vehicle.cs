@@ -450,7 +450,7 @@ namespace Carsharing
 			return s;
 		}
 
-		internal override string ToString()
+		public override string ToString()
 		{
 			return DisplayMember;
 		}

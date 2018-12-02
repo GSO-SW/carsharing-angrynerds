@@ -33,7 +33,8 @@ namespace Carsharing
 			if (listVehicle.SelectedItem is Vehicle)
 			{
 				Vehicle vehicle = (Vehicle)listVehicle.SelectedItem;
-				
+
+				new EditDataView(vehicle).ShowDialog();
 			}
 		}
 

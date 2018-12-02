@@ -12,19 +12,58 @@ namespace Carsharing
 {
 	internal partial class EditDataViewVehicle : UserControl
 	{
-		private Vehicle vehicle;
+		private Vehicle vehicleOld;
 
 		internal EditDataViewVehicle()
 		{
 			InitializeComponent();
 			buttonAccept.Text = "Fahrzeug hinzufügen";
+
+			vehicleOld = null;
 		}
 
 		internal EditDataViewVehicle(Vehicle v)
 		{
 			InitializeComponent();
-			vehicle = v;
 			buttonAccept.Text = "Fahrzeug bearbeiten";
+
+			if (v != null)
+			{
+				vehicleOld = v;
+
+				txtConstructionYear.Text = v.ConstructionYear.ToString();
+				txtFuelCon.Text = v.FuelConsumption.ToString();
+				txtMaxTankFilling.Text = v.MaxTankFilling.ToString();
+				txtMileage.Text = v.Mileage.ToString();
+				txtModel.Text = v.Model;
+				txtNumberplate.Text = v.NumberPlate;
+				txtPosX.Text = v.Position.X.ToString();
+				txtPosY.Text = v.Position.Y.ToString();
+				txtPower.Text = v.Power.ToString();
+				txtPrice.Text = v.BasicPrice.ToString();
+				txtPriceKilo.Text = v.PricePerKilometre.ToString();
+				txtPriceMin.Text = v.PricePerMinute.ToString();
+				txtReg.Text = v.Registration.ToShortDateString();
+				txtSeats.Text = v.Seats.ToString();
+				txtTankFilling.Text = v.TankFilling.ToString();
+
+				checkABS.Checked = v.ABS;
+				checkAirConditioner.Checked = v.AirConditioner;
+				checkBluetooth.Checked = v.Bluetooth;
+				checkCDPlayer.Checked = v.CDPlayer;
+				checkCruiseControl.Checked = v.CruiseControl;
+				checkESP.Checked = v.ESP;
+				checkHeatedSeat.Checked = v.SeatHeating;
+				checkNavigationDevice.Checked = v.Navi;
+				checkRadio.Checked = v.Radio;
+				checkSmoker.Checked = v.Smoker;
+				checkUSB.Checked = v.USB;
+				checkWinter.Checked = v.WinterTire;
+			}
+			else
+			{
+				ParentForm.Close();
+			}
 		}
 
 		private void EditDataViewVehicle_Load(object sender, EventArgs e)
@@ -81,6 +120,10 @@ namespace Carsharing
 				FormController.MainView.UpdateVehicleList();
 				return;
 			}
+
+			comboBrand.SelectedItem = vehicleOld.Brand;
+			comboFuel.SelectedItem = vehicleOld.FuelType;
+			comboGear.SelectedItem = vehicleOld.Gear;
 		}
 
 		private void buttonAccept_Click(object sender, EventArgs e)
@@ -203,20 +246,43 @@ namespace Carsharing
 
 				if (numberPlates.Contains(txtNumberplate.Text))
 				{
-					MessageBox.Show("Das Kennzeichen des Fahrzeug existiert bereits.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-					return;
+					if(vehicleOld != null)
+					{
+						if (vehicleOld.NumberPlate != txtNumberplate.Text)
+						{
+							MessageBox.Show("Das Kennzeichen des Fahrzeug existiert bereits.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+							return;
+						}							
+					}
+					else
+					{
+						MessageBox.Show("Das Kennzeichen des Fahrzeug existiert bereits.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						return;
+					}
 				}
 				#endregion
 
 				Vehicle vehicle = new Vehicle(txtNumberplate.Text, mileage, dateTimeLastMaintenance.Value, tankFilling, new PointD(posX, posY), true, comboBrand.Text, txtModel.Text, (int)Math.Round(power), constructionYear, comboGear.Text, maxTankFilling, basicPrice, pricePerKilometre, pricePerMinute, registration, seats, comboFuel.SelectedItem.ToString(), fuelConsumption, checkAirConditioner.Checked, checkCruiseControl.Checked, checkRadio.Checked, checkBluetooth.Checked, checkUSB.Checked, checkCDPlayer.Checked, checkNavigationDevice.Checked, checkABS.Checked, checkESP.Checked, checkHeatedSeat.Checked, checkWinter.Checked, checkSmoker.Checked);
 
-				if (!DBController.AddVehicle(vehicle))
+				if (vehicleOld == null)
 				{
-					MessageBox.Show("Beim Hinzufügen des Fahrzeuges ist ein Fehler unterlaufen.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-					return;
-				}
 
-				MessageBox.Show("Das Fahrzeug wurde hinzugefügt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					if (!DBController.AddVehicle(vehicle))
+					{
+						MessageBox.Show("Beim Hinzufügen des Fahrzeuges ist ein Fehler unterlaufen.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						return;
+					}
+					MessageBox.Show("Das Fahrzeug wurde hinzugefügt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				}
+				else
+				{
+					if (!DBController.UpdateVehicleInDB(vehicle, vehicleOld))
+					{
+						MessageBox.Show("Beim Bearbeiten des Fahrzeuges ist ein Fehler unterlaufen.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						return;
+					}
+					MessageBox.Show("Das Fahrzeug wurde bearbeitet.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				}
 				((EditDataView)Parent).Close();
 				FormController.MainView.UpdateVehicleList();
 			}
