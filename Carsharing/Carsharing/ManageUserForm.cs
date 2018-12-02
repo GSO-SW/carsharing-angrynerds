@@ -107,7 +107,7 @@ namespace Carsharing
 					MessageBox.Show("Bitte nutzen Sie zum löschen ihres eigenen Accounts den Knopf im Hauptmenü.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					return;
 				}
-				if (!DBController.CheckOpenBookings(c, out bool openBookings))
+				if (!DBController.CheckOpenBookingsCustomer(c, out bool openBookings))
 				{
 					MessageBox.Show("Es ist ein Fehler beim Zugriff auf die Datenbank aufgetreten.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					return;
