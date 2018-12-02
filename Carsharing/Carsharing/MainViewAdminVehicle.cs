@@ -33,20 +33,36 @@ namespace Carsharing
 
 		}
 
+		private void buttonVehicleDelete_Click(object sender, EventArgs e)
+		{
+			if(listVehicle.SelectedItem != null)
+			{
+				//Meldung: Möchten Sie das Fahrzeug mit dem Kennzeichen: " " wirklich löschen?
+			}
+			else
+			{
+				//Meldung: Kein Fahrzeug ausgewählt
+			}
+		}
+
 		private void buttonRefresh_Click(object sender, EventArgs e)
 		{
 			UpdateTable();
 		}
 
-		public void UpdateTable()
+		private void listVehicle_DrawItem(object sender, DrawItemEventArgs e)
 		{
-			listVehicle.Items.Clear();
-			if(!DBController.GetAllVehiclesFromDB(out List<Vehicle> vehicles))
-			{
-				MessageBox.Show("Bei der Verbindung zur Datenbank ist ein Fehler aufgetreten.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return;
-			}
-			listVehicle.Items.AddRange(vehicles.ToArray());
+			e.DrawBackground();
+			Brush brush = SystemBrushes.ControlText;
+			Font font = e.Font;
+
+			if (e.Index >= 0 && e.Index - 1 <= listVehicle.Items.Count)
+				if (listVehicle.Items[e.Index] is Vehicle)
+					if (!((Vehicle)listVehicle.Items[e.Index]).Available)
+					{
+						brush = Brushes.Red;
+					}
+			e.Graphics.DrawString(listVehicle.Items[e.Index].ToString(), font, brush, e.Bounds);
 		}
 
 		private void listVehicle_SelectedIndexChanged(object sender, EventArgs e)
@@ -87,21 +103,57 @@ namespace Carsharing
 				checkUSB.Checked = vehicle.USB;
 				checkWinter.Checked = vehicle.WinterTire;
 			}
+			else
+			{
+				Placeholer();
+			}
 		}
 
-		private void listVehicle_DrawItem(object sender, DrawItemEventArgs e)
+		public void UpdateTable()
 		{
-			e.DrawBackground();
-			Brush brush = SystemBrushes.ControlText;
-			Font font = e.Font;
+			listVehicle.Items.Clear();
+			Placeholer();
+			if(!DBController.GetAllVehiclesFromDB(out List<Vehicle> vehicles))
+			{
+				Feedback.ErrorDatabaseConnection();
+				return;
+			}
+			listVehicle.Items.AddRange(vehicles.ToArray());
+		}
 
-			if(e.Index >= 0 && e.Index - 1 <= listVehicle.Items.Count)
-			if (listVehicle.Items[e.Index] is Vehicle)
-				if (!((Vehicle)listVehicle.Items[e.Index]).Available)
-				{
-					brush = Brushes.Red;
-				}
-			e.Graphics.DrawString(listVehicle.Items[e.Index].ToString(), font, brush, e.Bounds);
+		private void Placeholer()
+		{
+			txtBrand.Text = FormController.Placeholder;
+			txtConstructionYear.Text = FormController.Placeholder;
+			txtPosY.Text = FormController.Placeholder;
+			txtPosX.Text = FormController.Placeholder;
+			txtFuelCon.Text = FormController.Placeholder;
+			txtGear.Text = FormController.Placeholder;
+			txtLastMaint.Text = FormController.Placeholder;
+			txtMaxTankFilling.Text = FormController.Placeholder;
+			txtMileage.Text = FormController.Placeholder;
+			txtModel.Text = FormController.Placeholder;
+			txtNumberplate.Text = FormController.Placeholder;
+			txtPower.Text = FormController.Placeholder;
+			txtReg.Text = FormController.Placeholder;
+			txtSeats.Text = FormController.Placeholder;
+			txtTankFilling.Text = FormController.Placeholder;
+			txtFuel.Text = FormController.Placeholder;
+			txtPrice.Text = FormController.Placeholder;
+			txtPriceKilo.Text = FormController.Placeholder;
+			txtPriceMin.Text = FormController.Placeholder;
+			checkABS.Checked = false;
+			checkAirConditioner.Checked = false;
+			checkBluetooth.Checked = false;
+			checkCDPlayer.Checked = false;
+			checkCruiseControl.Checked = false;
+			checkESP.Checked = false;
+			checkHeatedSeat.Checked = false;
+			checkNavigationDevice.Checked = false;
+			checkRadio.Checked = false;
+			checkSmoker.Checked = false;
+			checkUSB.Checked = false;
+			checkWinter.Checked = false;
 		}
 	}
 }

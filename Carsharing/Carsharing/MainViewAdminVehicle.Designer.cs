@@ -106,6 +106,7 @@
 			// buttonVehicleDelete
 			// 
 			this.buttonVehicleDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(90)))));
+			this.buttonVehicleDelete.Enabled = false;
 			this.buttonVehicleDelete.FlatAppearance.BorderSize = 0;
 			this.buttonVehicleDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonVehicleDelete.Location = new System.Drawing.Point(435, 544);
@@ -115,6 +116,7 @@
 			this.buttonVehicleDelete.TabIndex = 5;
 			this.buttonVehicleDelete.Text = "Fahrzeug löschen";
 			this.buttonVehicleDelete.UseVisualStyleBackColor = false;
+			this.buttonVehicleDelete.Click += new System.EventHandler(this.buttonVehicleDelete_Click);
 			// 
 			// buttonVehicleEdit
 			// 
@@ -136,7 +138,7 @@
 			this.buttonVehicleAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(90)))));
 			this.buttonVehicleAdd.FlatAppearance.BorderSize = 0;
 			this.buttonVehicleAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.buttonVehicleAdd.Location = new System.Drawing.Point(747, 544);
+			this.buttonVehicleAdd.Location = new System.Drawing.Point(746, 544);
 			this.buttonVehicleAdd.Name = "buttonVehicleAdd";
 			this.buttonVehicleAdd.Rounded = 0;
 			this.buttonVehicleAdd.Size = new System.Drawing.Size(150, 28);
@@ -149,12 +151,13 @@
 			// 
 			this.listVehicle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
 			this.listVehicle.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.listVehicle.Dock = System.Windows.Forms.DockStyle.Left;
 			this.listVehicle.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.listVehicle.FormattingEnabled = true;
 			this.listVehicle.ItemHeight = 20;
 			this.listVehicle.Location = new System.Drawing.Point(0, 0);
 			this.listVehicle.Name = "listVehicle";
-			this.listVehicle.Size = new System.Drawing.Size(242, 580);
+			this.listVehicle.Size = new System.Drawing.Size(245, 575);
 			this.listVehicle.TabIndex = 7;
 			this.listVehicle.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listVehicle_DrawItem);
 			this.listVehicle.SelectedIndexChanged += new System.EventHandler(this.listVehicle_SelectedIndexChanged);
@@ -163,10 +166,11 @@
 			// 
 			this.tabControl1.Controls.Add(this.tabPage1);
 			this.tabControl1.Controls.Add(this.tabPage2);
-			this.tabControl1.Location = new System.Drawing.Point(242, 3);
+			this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
+			this.tabControl1.Location = new System.Drawing.Point(245, 0);
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(658, 537);
+			this.tabControl1.Size = new System.Drawing.Size(655, 538);
 			this.tabControl1.TabIndex = 8;
 			// 
 			// tabPage1
@@ -213,7 +217,7 @@
 			this.tabPage1.Location = new System.Drawing.Point(4, 22);
 			this.tabPage1.Name = "tabPage1";
 			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage1.Size = new System.Drawing.Size(650, 511);
+			this.tabPage1.Size = new System.Drawing.Size(647, 512);
 			this.tabPage1.TabIndex = 0;
 			this.tabPage1.Text = "Allgemeine Fahrzeuginformationen";
 			// 
@@ -702,7 +706,7 @@
 			this.tabPage2.Location = new System.Drawing.Point(4, 22);
 			this.tabPage2.Name = "tabPage2";
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage2.Size = new System.Drawing.Size(650, 511);
+			this.tabPage2.Size = new System.Drawing.Size(647, 512);
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "Zubehör";
 			this.tabPage2.UseVisualStyleBackColor = true;
@@ -988,7 +992,7 @@
 			this.buttonRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(90)))));
 			this.buttonRefresh.FlatAppearance.BorderSize = 0;
 			this.buttonRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.buttonRefresh.Location = new System.Drawing.Point(243, 542);
+			this.buttonRefresh.Location = new System.Drawing.Point(251, 544);
 			this.buttonRefresh.Name = "buttonRefresh";
 			this.buttonRefresh.Rounded = 0;
 			this.buttonRefresh.Size = new System.Drawing.Size(94, 28);
