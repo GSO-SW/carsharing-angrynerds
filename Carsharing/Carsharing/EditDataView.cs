@@ -25,14 +25,15 @@ namespace Carsharing
 			Controls.Add(editDataViewUser);
 		}
 
-		public EditDataView(Vehicle v)
-		{
-			InitializeComponent();
-		}
+		//public EditDataView(Vehicle v)
+		//{
+		//	InitializeComponent();
+		//}
 
 		public EditDataView()
 		{
 			InitializeComponent();
+
 			EditDataViewVehicle editDataViewVehicle = new EditDataViewVehicle();
 			editDataViewVehicle.Location = new Point(0, 25);
 			Controls.Add(editDataViewVehicle);
