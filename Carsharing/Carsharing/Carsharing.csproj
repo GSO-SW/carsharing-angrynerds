@@ -66,6 +66,7 @@
     <Compile Include="EditDataViewVehicle.Designer.cs">
       <DependentUpon>EditDataViewVehicle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Feedback.cs" />
     <Compile Include="LoginViewLogin.cs">
       <SubType>UserControl</SubType>
     </Compile>
