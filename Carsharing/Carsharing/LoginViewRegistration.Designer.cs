@@ -188,6 +188,7 @@
 			this.txtPlz.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtPlz.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
 			this.txtPlz.Location = new System.Drawing.Point(87, 225);
+			this.txtPlz.MaxLength = 5;
 			this.txtPlz.Name = "txtPlz";
 			this.txtPlz.Password = false;
 			this.txtPlz.Size = new System.Drawing.Size(72, 22);
