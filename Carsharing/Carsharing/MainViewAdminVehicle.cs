@@ -35,36 +35,51 @@ namespace Carsharing
 
 		private void buttonVehicleDelete_Click(object sender, EventArgs e)
 		{
-			if (listVehicle.SelectedItem is Vehicle vehicle)
+			if (listVehicle.SelectedItem != null)
 			{
-				if (DBController.CheckOpenBookingVehicle(vehicle, out bool result))
+				if (listVehicle.SelectedItem is Vehicle vehicle)
 				{
-					if (result) //If car is booked
+					if (DBController.CheckOpenBookingVehicle(vehicle, out bool result))
 					{
-						Feedback.ErrorDatabaseBookedVehicleDelete();
-					}
-					else //If car isn't booked
-					{
-						DialogResult dialog = Feedback.AskVehicleDelete();
-						if(dialog == DialogResult.Yes)
+						//If car isn't booked
+						if (!result) 
 						{
-							if (DBController.DeleteVehicle(vehicle))
+							DialogResult dialog = Feedback.AskVehicleDelete();
+							if (dialog == DialogResult.Yes)
 							{
-								Feedback.SuccessVehicleDelete();
-							}
-							else
-							{
-								Feedback.ErrorDatabaseVehicleDelete();
+								//Try delete vehicle
+								if (DBController.TryDeleteVehicle(vehicle))
+								{
+									Feedback.SuccessVehicleDelete();
+									FormController.MainView.UpdateVehicleList();
+								}
+								else
+								{
+									Feedback.ErrorDatabaseVehicleDelete();
+								}
 							}
 						}
+						else //If car is booked
+						{							
+							Feedback.ErrorDatabaseBookedVehicleDelete();
+						}
+					}
+					else //If check fails
+					{
+						Feedback.ErrorDatabaseConnection();
 					}
 				}
-				else
+				else //If selected item isn't a vehicle
 				{
-					Feedback.ErrorDatabaseConnection();
+					Feedback.ErrorNoValidSelectedItem();
 				}
 			}
+			else //If selected item is null
+			{
+				Feedback.ErrorNoSelectedItem();
+			}
 		}
+			
 
 		private void buttonRefresh_Click(object sender, EventArgs e)
 		{
@@ -88,10 +103,8 @@ namespace Carsharing
 
 		private void listVehicle_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			if (listVehicle.SelectedItem is Vehicle)
+			if (listVehicle.SelectedItem is Vehicle vehicle)
 			{
-				Vehicle vehicle = (Vehicle)listVehicle.SelectedItem;
-
 				txtBrand.Text = vehicle.Brand;
 				txtConstructionYear.Text = vehicle.ConstructionYear.ToString();
 				txtPosY.Text = vehicle.Position.Y.ToString();

@@ -18,6 +18,16 @@ namespace Carsharing
 			MessageBox.Show("Bei der Verbindung zur Datenbank ist ein Fehler aufgetreten.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 
+		internal static void ErrorNoSelectedItem()
+		{
+			MessageBox.Show("Sie haben keine Auswahl getroffen.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorNoValidSelectedItem()
+		{
+			MessageBox.Show("Sie haben keine gültige Auswahl getroffen.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
 		internal static void ErrorDatabaseCustomersDelete()
 		{
 			MessageBox.Show("Bei dem Versuch den Nutzer zu Löschen ist ein Fehler ausgetreten.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);

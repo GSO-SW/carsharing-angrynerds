@@ -497,7 +497,12 @@ namespace Carsharing
 			return status;
 		}
 
-		internal static bool DeleteVehicle(Vehicle v)
+		/// <summary>
+		/// Try to delete a vehicle from the DB.
+		/// </summary>
+		/// <param name="v">Vehicle to be deleted</param>
+		/// <returns>Returns true if the connection to the database worked and the vehicle was deleted. False if not.</returns>
+		internal static bool TryDeleteVehicle(Vehicle v)
 		{
 			using (MySqlConnection con = new MySqlConnection(connectionString))
 			{
@@ -970,6 +975,7 @@ namespace Carsharing
 			foreach (DataRow item in table.Rows)
 			{
 				Customer c = new Customer();
+
 				c.EmailAddress = item[0].ToString();
 				c.Name = item[1].ToString();
 				c.LastName = item[2].ToString();
