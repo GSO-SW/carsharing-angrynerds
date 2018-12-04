@@ -120,7 +120,6 @@
 			// buttonVehicleEdit
 			// 
 			this.buttonVehicleEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(90)))));
-			this.buttonVehicleEdit.Enabled = false;
 			this.buttonVehicleEdit.FlatAppearance.BorderSize = 0;
 			this.buttonVehicleEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonVehicleEdit.Location = new System.Drawing.Point(591, 544);

@@ -10,7 +10,7 @@ namespace Carsharing
 	// var hash = SecurePasswordHasher.Hash("mypassword");
 	// Verify:
 	// var result = SecurePasswordHasher.Verify("mypassword", hash);
-	public static class SecurePasswordHasher
+	internal static class SecurePasswordHasher
 	{
 		/// <summary>
 		/// Size of salt.
@@ -28,7 +28,7 @@ namespace Carsharing
 		/// <param name="password">The password.</param>
 		/// <param name="iterations">Number of iterations.</param>
 		/// <returns>The hash.</returns>
-		public static string Hash(string password, int iterations)
+		internal static string Hash(string password, int iterations)
 		{
 			// Create salt
 			byte[] salt;
@@ -55,7 +55,7 @@ namespace Carsharing
 		/// </summary>
 		/// <param name="password">The password.</param>
 		/// <returns>The hash.</returns>
-		public static string Hash(string password)
+		internal static string Hash(string password)
 		{
 			return Hash(password, 10000);
 		}
@@ -65,7 +65,7 @@ namespace Carsharing
 		/// </summary>
 		/// <param name="hashString">The hash.</param>
 		/// <returns>Is supported?</returns>
-		public static bool IsHashSupported(string hashString)
+		internal static bool IsHashSupported(string hashString)
 		{
 			return hashString.Contains("$MYHASH$V1$");
 		}
@@ -76,7 +76,7 @@ namespace Carsharing
 		/// <param name="password">The password.</param>
 		/// <param name="hashedPassword">The hash.</param>
 		/// <returns>Could be verified?</returns>
-		public static bool Verify(string password, string hashedPassword)
+		internal static bool Verify(string password, string hashedPassword)
 		{
 			// Check hash
 			if (!IsHashSupported(hashedPassword))

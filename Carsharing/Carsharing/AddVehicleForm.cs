@@ -5,9 +5,9 @@ using System.Windows.Forms;
 
 namespace Carsharing
 {
-	public partial class AddVehicleForm : Form
+	internal partial class AddVehicleForm : Form
 	{
-		public AddVehicleForm()
+		internal AddVehicleForm()
 		{
 			InitializeComponent();
 

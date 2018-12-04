@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Carsharing
 {
-	public partial class ShowVehicleForm : Form
+	internal partial class ShowVehicleForm : Form
 	{
-		public ShowVehicleForm()
+		internal ShowVehicleForm()
 		{
 			InitializeComponent();
 

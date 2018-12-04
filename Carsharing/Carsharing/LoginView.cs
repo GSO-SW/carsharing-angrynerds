@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace Carsharing
 {
-	public partial class LoginView : Form
+	internal partial class LoginView : Form
 	{
-		public enum StartState { Default, Login, Registration };
+		internal enum StartState { Default, Login, Registration };
 
 		private StartState state;
-		public StartState State
+		internal StartState State
 		{
 			get { return state; }
 			set
@@ -28,7 +28,7 @@ namespace Carsharing
 			}
 		}
 
-		public LoginView(StartState startState)
+		internal LoginView(StartState startState)
 		{
 			InitializeComponent();
 			//ActiveControl = button;

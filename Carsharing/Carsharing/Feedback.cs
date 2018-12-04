@@ -48,6 +48,16 @@ namespace Carsharing
 			MessageBox.Show("Sie können sich nicht selbst auf diese Art bearbeiten.\nSie müssen dies unter dem Menü 'Status' tun.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 
+		internal static void ErrorDatabaseVehicleAdd()
+		{
+			MessageBox.Show("Beim Hinzufügen des Fahrzeuges ist ein Fehler unterlaufen.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorDatabaseVehicleEdit()
+		{
+			MessageBox.Show("Beim Bearbeiten des Fahrzeuges ist ein Fehler unterlaufen.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
 		internal static void ErrorDatabaseVehicleDelete()
 		{
 			MessageBox.Show("Bei dem Versuch das Fahrzeug zu Löschen ist ein Fehler aufgetreten.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -91,6 +101,15 @@ namespace Carsharing
 			MessageBox.Show("Der Account wurde erfolgreich bearbeitet.", titleInformation, MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 
+		internal static void SuccessVehicleAdd()
+		{
+			MessageBox.Show("Das Fahrzeug wurde hinzugefügt.", titleInformation, MessageBoxButtons.OK, MessageBoxIcon.Information);
+		}
+
+		internal static void SuccessVehicleEdit()
+		{
+			MessageBox.Show("Das Fahrzeug wurde bearbeitet.", titleInformation, MessageBoxButtons.OK, MessageBoxIcon.Information);
+		}
 		internal static void SuccessVehicleDelete()
 		{
 			MessageBox.Show("Der Fahrzeug wurde erfolgreich gelöscht.", titleInformation, MessageBoxButtons.OK, MessageBoxIcon.Information);

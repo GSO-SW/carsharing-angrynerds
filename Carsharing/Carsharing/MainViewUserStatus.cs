@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Carsharing
 {
-	public partial class MainViewUserStatus : UserControl
+	internal partial class MainViewUserStatus : UserControl
 	{
-		public MainViewUserStatus()
+		internal MainViewUserStatus()
 		{
 			InitializeComponent();
 			labelWelcome.Text = "Willkommen " + FormController.CurrentCustomer.ToString();

@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Carsharing
 {
-	public partial class MainView : Form
+	internal partial class MainView : Form
 	{
 		private Button[] selectableButtons;
 
-		public MainView()
+		internal MainView()
 		{
 			InitializeComponent();
 			DoubleBuffered = true;
@@ -59,13 +59,13 @@ namespace Carsharing
 			((UserControl)clickedButton.Tag).BringToFront();
 		}
 
-		public void UpdateVehicleList()
+		internal void UpdateVehicleList()
 		{
 			adminVehicles1.UpdateTable();
 			userBooking1.UpdateTable();
 		}
 
-		public void UpdateCustomersList()
+		internal void UpdateCustomersList()
 		{
 			adminUsers1.UpdateTable();
 		}

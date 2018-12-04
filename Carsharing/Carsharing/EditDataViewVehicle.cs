@@ -10,12 +10,61 @@ using System.Windows.Forms;
 
 namespace Carsharing
 {
-	public partial class EditDataViewVehicle : UserControl
+	internal partial class EditDataViewVehicle : UserControl
 	{
-		public EditDataViewVehicle()
+		private Vehicle vehicleOld;
+
+		internal EditDataViewVehicle()
 		{
 			InitializeComponent();
 			buttonAccept.Text = "Fahrzeug hinzufügen";
+
+			vehicleOld = null;
+		}
+
+		internal EditDataViewVehicle(Vehicle v)
+		{
+			InitializeComponent();
+			buttonAccept.Text = "Fahrzeug bearbeiten";
+
+			if (v != null)
+			{
+				vehicleOld = v;
+
+				txtConstructionYear.Text = v.ConstructionYear.ToString();
+				txtFuelCon.Text = v.FuelConsumption.ToString();
+				txtMaxTankFilling.Text = v.MaxTankFilling.ToString();
+				txtMileage.Text = v.Mileage.ToString();
+				txtModel.Text = v.Model;
+				txtNumberplate.Text = v.NumberPlate;
+				txtPosX.Text = v.Position.X.ToString();
+				txtPosY.Text = v.Position.Y.ToString();
+				txtPower.Text = v.Power.ToString();
+				txtPrice.Text = v.BasicPrice.ToString();
+				txtPriceKilo.Text = v.PricePerKilometre.ToString();
+				txtPriceMin.Text = v.PricePerMinute.ToString();
+				txtReg.Text = v.Registration.ToShortDateString();
+				txtSeats.Text = v.Seats.ToString();
+				txtTankFilling.Text = v.TankFilling.ToString();
+
+				checkABS.Checked = v.ABS;
+				checkAirConditioner.Checked = v.AirConditioner;
+				checkAvailable.Checked = v.Available;
+				checkBluetooth.Checked = v.Bluetooth;
+				checkCDPlayer.Checked = v.CDPlayer;
+				checkCruiseControl.Checked = v.CruiseControl;
+				checkESP.Checked = v.ESP;
+				checkHeatedSeat.Checked = v.SeatHeating;
+				checkNavigationDevice.Checked = v.Navi;
+				checkRadio.Checked = v.Radio;
+				checkSmoker.Checked = v.Smoker;
+				checkUSB.Checked = v.USB;
+				checkWinter.Checked = v.WinterTire;
+			}
+			else
+			{
+				ParentForm.Close();
+			}
 		}
 
 		private void EditDataViewVehicle_Load(object sender, EventArgs e)
@@ -71,6 +120,13 @@ namespace Carsharing
 				((EditDataView)Parent).Close();
 				FormController.MainView.UpdateVehicleList();
 				return;
+			}
+
+			if(vehicleOld != null)
+			{
+				comboBrand.SelectedItem = vehicleOld.Brand;
+				comboFuel.SelectedItem = vehicleOld.FuelType;
+				comboGear.SelectedItem = vehicleOld.Gear;
 			}
 		}
 
@@ -194,20 +250,42 @@ namespace Carsharing
 
 				if (numberPlates.Contains(txtNumberplate.Text))
 				{
-					MessageBox.Show("Das Kennzeichen des Fahrzeug existiert bereits.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-					return;
+					if(vehicleOld != null)
+					{
+						if (vehicleOld.NumberPlate != txtNumberplate.Text)
+						{
+							MessageBox.Show("Das Kennzeichen des Fahrzeug existiert bereits.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+							return;
+						}							
+					}
+					else
+					{
+						MessageBox.Show("Das Kennzeichen des Fahrzeug existiert bereits.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						return;
+					}
 				}
 				#endregion
 
-				Vehicle vehicle = new Vehicle(txtNumberplate.Text, mileage, dateTimeLastMaintenance.Value, tankFilling, new PointD(posX, posY), true, comboBrand.Text, txtModel.Text, (int)Math.Round(power), constructionYear, comboGear.Text, maxTankFilling, basicPrice, pricePerKilometre, pricePerMinute, registration, seats, comboFuel.SelectedItem.ToString(), fuelConsumption, checkAirConditioner.Checked, checkCruiseControl.Checked, checkRadio.Checked, checkBluetooth.Checked, checkUSB.Checked, checkCDPlayer.Checked, checkNavigationDevice.Checked, checkABS.Checked, checkESP.Checked, checkHeatedSeat.Checked, checkWinter.Checked, checkSmoker.Checked);
+				Vehicle vehicle = new Vehicle(txtNumberplate.Text, mileage, dateTimeLastMaintenance.Value, tankFilling, new PointD(posX, posY), checkAvailable.Checked, comboBrand.Text, txtModel.Text, (int)Math.Round(power), constructionYear, comboGear.Text, maxTankFilling, basicPrice, pricePerKilometre, pricePerMinute, registration, seats, comboFuel.SelectedItem.ToString(), fuelConsumption, checkAirConditioner.Checked, checkCruiseControl.Checked, checkRadio.Checked, checkBluetooth.Checked, checkUSB.Checked, checkCDPlayer.Checked, checkNavigationDevice.Checked, checkABS.Checked, checkESP.Checked, checkHeatedSeat.Checked, checkWinter.Checked, checkSmoker.Checked);
 
-				if (!DBController.AddVehicle(vehicle))
+				if (vehicleOld == null)
 				{
-					MessageBox.Show("Beim Hinzufügen des Fahrzeuges ist ein Fehler unterlaufen.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-					return;
+					if (!DBController.AddVehicle(vehicle))
+					{
+						Feedback.ErrorDatabaseVehicleAdd();
+						return;
+					}
+					Feedback.SuccessVehicleAdd();
 				}
-
-				MessageBox.Show("Das Fahrzeug wurde hinzugefügt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				else
+				{
+					if (!DBController.UpdateVehicleInDB(vehicle, vehicleOld))
+					{
+						Feedback.ErrorDatabaseVehicleEdit();
+						return;
+					}
+					Feedback.SuccessVehicleEdit();
+				}
 				((EditDataView)Parent).Close();
 				FormController.MainView.UpdateVehicleList();
 			}

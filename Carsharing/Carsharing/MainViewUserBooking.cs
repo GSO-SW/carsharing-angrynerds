@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Carsharing
 {
-	public partial class MainViewUserBooking : UserControl
+	internal partial class MainViewUserBooking : UserControl
 	{
-		public MainViewUserBooking()
+		internal MainViewUserBooking()
 		{
 			InitializeComponent();
 		}
@@ -69,7 +69,7 @@ namespace Carsharing
 			}
 		}
 
-		public void UpdateTable()
+		internal void UpdateTable()
 		{
 			listVehicle.Items.Clear();
 			Placeholer();
@@ -121,7 +121,7 @@ namespace Carsharing
 			//check, if the customer or the vehicle has open bookings
 			if (DBController.CheckOpenBookingsCustomer(FormController.CurrentCustomer, out bool cresult) && !cresult)
 			{
-				if (listVehicle.SelectedItem != null && listVehicle.SelectedItem is Vehicle v && DBController.CheckOpenBookingVehicle(v, out bool vresult) && !vresult)
+				if (listVehicle.SelectedItem != null && listVehicle.SelectedItem is Vehicle v && DBController.CheckOpenBookingVehicle(v, out bool vresult) && !vresult && v.Available)
 				{
 					Booking b = new Booking(FormController.CurrentCustomer, v, DateTime.Now, new DateTime(0), v.Mileage, 0, true);
 					if (DBController.AddBookingToDB(b))
@@ -135,7 +135,7 @@ namespace Carsharing
 				}
 				else
 				{
-					MessageBox.Show("Buchung nicht erfolgreich, da das Fahrzeug bereits verwendet wird.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show("Buchung nicht erfolgreich, da das Fahrzeug nicht verfügbar ist.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
 			else

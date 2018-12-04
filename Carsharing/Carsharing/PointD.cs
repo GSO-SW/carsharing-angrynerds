@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Carsharing
 {
-	public class PointD
+	internal class PointD
 	{
 		#region Attributes
 		private double x;
@@ -18,7 +18,7 @@ namespace Carsharing
 		/// <summary>
 		/// X-Komponente des Points.
 		/// </summary>
-		public double X
+		internal double X
 		{
 			get { return x; }
 			set { x = value; }
@@ -27,7 +27,7 @@ namespace Carsharing
 		/// <summary>
 		/// Y-Komponente des Points.
 		/// </summary>
-		public double Y
+		internal double Y
 		{
 			get { return y; }
 			set { y = value; }
@@ -39,7 +39,7 @@ namespace Carsharing
 		/// </summary>
 		/// <param name="x"></param>
 		/// <param name="y"></param>
-		public PointD(double x, double y)
+		internal PointD(double x, double y)
 		{
 			this.x = x;
 			this.y = y;
@@ -49,13 +49,13 @@ namespace Carsharing
 		/// 
 		/// </summary>
 		/// <param name="point"></param>
-		public PointD(PointD point)
+		internal PointD(PointD point)
 		{
 			this.x = point.X;
 			this.y = point.Y;
 		}
 
-		public PointD(MySqlGeometry mySqlGeometry)
+		internal PointD(MySqlGeometry mySqlGeometry)
 		{
 			this.x = (double)mySqlGeometry.XCoordinate;
 			this.Y = (double)mySqlGeometry.YCoordinate;
