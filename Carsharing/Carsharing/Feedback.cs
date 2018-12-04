@@ -20,12 +20,12 @@ namespace Carsharing
 
 		internal static void ErrorDatabaseCustomersDelete()
 		{
-			MessageBox.Show("Bei dem Versuch den Nutzer zu Löschen ist ein Fehler ausgetreten", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show("Bei dem Versuch den Nutzer zu Löschen ist ein Fehler ausgetreten.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 
 		internal static void ErrorDatabaseCustomersEdit()
 		{
-			MessageBox.Show("Bei dem Versuch den Nutzer zu Bearbeiten ist ein Fehler ausgetreten", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show("Bei dem Versuch den Nutzer zu Bearbeiten ist ein Fehler ausgetreten.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 
 		internal static void ErrorCustomersDeleteHimself()
@@ -38,9 +38,25 @@ namespace Carsharing
 			MessageBox.Show("Sie können sich nicht selbst auf diese Art bearbeiten.\nSie müssen dies unter dem Menü 'Status' tun.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 
+		internal static void ErrorDatabaseVehicleDelete()
+		{
+			MessageBox.Show("Bei dem Versuch das Fahrzeug zu Löschen ist ein Fehler aufgetreten.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorDatabaseBookedVehicleDelete()
+		{
+			MessageBox.Show("Sie können dieses Fahrzeug nicht löschen, da dies gebucht ist.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
 		internal static DialogResult AskCustomerDelete()
 		{
 			DialogResult dialogResult = MessageBox.Show("Wollen Sie wirklich diesen Account löschen?", titleCare, MessageBoxButtons.YesNo);
+			return dialogResult;
+		}
+
+		internal static DialogResult AskVehicleDelete()
+		{
+			DialogResult dialogResult = MessageBox.Show("Wollen Sie wirklich dieses Fahrzeug löschen?", titleCare, MessageBoxButtons.YesNo);
 			return dialogResult;
 		}
 
@@ -65,6 +81,11 @@ namespace Carsharing
 			MessageBox.Show("Der Account wurde erfolgreich bearbeitet.", titleInformation, MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 
-		
+		internal static void SuccessVehicleDelete()
+		{
+			MessageBox.Show("Der Fahrzeug wurde erfolgreich gelöscht.", titleInformation, MessageBoxButtons.OK, MessageBoxIcon.Information);
+		}
+
+
 	}
 }

@@ -35,13 +35,34 @@ namespace Carsharing
 
 		private void buttonVehicleDelete_Click(object sender, EventArgs e)
 		{
-			if(listVehicle.SelectedItem != null)
+			if (listVehicle.SelectedItem is Vehicle vehicle)
 			{
-				//Meldung: Möchten Sie das Fahrzeug mit dem Kennzeichen: " " wirklich löschen?
-			}
-			else
-			{
-				//Meldung: Kein Fahrzeug ausgewählt
+				if (DBController.CheckOpenBookingVehicle(vehicle, out bool result))
+				{
+					if (result) //If car is booked
+					{
+						Feedback.ErrorDatabaseBookedVehicleDelete();
+					}
+					else //If car isn't booked
+					{
+						DialogResult dialog = Feedback.AskVehicleDelete();
+						if(dialog == DialogResult.Yes)
+						{
+							if (DBController.DeleteVehicle(vehicle))
+							{
+								Feedback.SuccessVehicleDelete();
+							}
+							else
+							{
+								Feedback.ErrorDatabaseVehicleDelete();
+							}
+						}
+					}
+				}
+				else
+				{
+					Feedback.ErrorDatabaseConnection();
+				}
 			}
 		}
 

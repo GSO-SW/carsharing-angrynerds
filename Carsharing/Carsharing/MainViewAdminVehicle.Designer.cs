@@ -106,7 +106,6 @@
 			// buttonVehicleDelete
 			// 
 			this.buttonVehicleDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(90)))));
-			this.buttonVehicleDelete.Enabled = false;
 			this.buttonVehicleDelete.FlatAppearance.BorderSize = 0;
 			this.buttonVehicleDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonVehicleDelete.Location = new System.Drawing.Point(435, 544);
