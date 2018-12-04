@@ -49,6 +49,7 @@ namespace Carsharing
 
 				checkABS.Checked = v.ABS;
 				checkAirConditioner.Checked = v.AirConditioner;
+				checkAvailable.Checked = v.Available;
 				checkBluetooth.Checked = v.Bluetooth;
 				checkCDPlayer.Checked = v.CDPlayer;
 				checkCruiseControl.Checked = v.CruiseControl;
@@ -121,9 +122,12 @@ namespace Carsharing
 				return;
 			}
 
-			comboBrand.SelectedItem = vehicleOld.Brand;
-			comboFuel.SelectedItem = vehicleOld.FuelType;
-			comboGear.SelectedItem = vehicleOld.Gear;
+			if(vehicleOld != null)
+			{
+				comboBrand.SelectedItem = vehicleOld.Brand;
+				comboFuel.SelectedItem = vehicleOld.FuelType;
+				comboGear.SelectedItem = vehicleOld.Gear;
+			}
 		}
 
 		private void buttonAccept_Click(object sender, EventArgs e)
@@ -262,17 +266,16 @@ namespace Carsharing
 				}
 				#endregion
 
-				Vehicle vehicle = new Vehicle(txtNumberplate.Text, mileage, dateTimeLastMaintenance.Value, tankFilling, new PointD(posX, posY), true, comboBrand.Text, txtModel.Text, (int)Math.Round(power), constructionYear, comboGear.Text, maxTankFilling, basicPrice, pricePerKilometre, pricePerMinute, registration, seats, comboFuel.SelectedItem.ToString(), fuelConsumption, checkAirConditioner.Checked, checkCruiseControl.Checked, checkRadio.Checked, checkBluetooth.Checked, checkUSB.Checked, checkCDPlayer.Checked, checkNavigationDevice.Checked, checkABS.Checked, checkESP.Checked, checkHeatedSeat.Checked, checkWinter.Checked, checkSmoker.Checked);
+				Vehicle vehicle = new Vehicle(txtNumberplate.Text, mileage, dateTimeLastMaintenance.Value, tankFilling, new PointD(posX, posY), checkAvailable.Checked, comboBrand.Text, txtModel.Text, (int)Math.Round(power), constructionYear, comboGear.Text, maxTankFilling, basicPrice, pricePerKilometre, pricePerMinute, registration, seats, comboFuel.SelectedItem.ToString(), fuelConsumption, checkAirConditioner.Checked, checkCruiseControl.Checked, checkRadio.Checked, checkBluetooth.Checked, checkUSB.Checked, checkCDPlayer.Checked, checkNavigationDevice.Checked, checkABS.Checked, checkESP.Checked, checkHeatedSeat.Checked, checkWinter.Checked, checkSmoker.Checked);
 
 				if (vehicleOld == null)
 				{
-
 					if (!DBController.AddVehicle(vehicle))
 					{
 						Feedback.ErrorDatabaseVehicleAdd();
 						return;
 					}
-					Feedback.ErrorDatabaseVehicleAdd();
+					Feedback.SuccessVehicleAdd();
 				}
 				else
 				{

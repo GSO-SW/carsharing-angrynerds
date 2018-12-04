@@ -30,11 +30,15 @@ namespace Carsharing
 
 		private void buttonVehicleEdit_Click(object sender, EventArgs e)
 		{
-			if (listVehicle.SelectedItem is Vehicle)
+			if (listVehicle.SelectedItem is Vehicle vehicle)
 			{
-				Vehicle vehicle = (Vehicle)listVehicle.SelectedItem;
-
-				new EditDataView(vehicle).ShowDialog();
+				if(DBController.CheckOpenBookingVehicle(vehicle, out bool result))
+				{
+					if (!result)
+					{
+						new EditDataView(vehicle).ShowDialog();
+					}
+				}
 			}
 		}
 

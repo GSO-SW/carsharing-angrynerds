@@ -94,6 +94,8 @@
 			this.label17 = new System.Windows.Forms.Label();
 			this.checkAirConditioner = new System.Windows.Forms.CheckBox();
 			this.label16 = new System.Windows.Forms.Label();
+			this.checkAvailable = new System.Windows.Forms.CheckBox();
+			this.labelAvailable = new System.Windows.Forms.Label();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.tabPage2.SuspendLayout();
@@ -105,10 +107,10 @@
 			this.buttonAccept.FlatAppearance.BorderSize = 0;
 			this.buttonAccept.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.buttonAccept.Location = new System.Drawing.Point(79, 378);
+			this.buttonAccept.Location = new System.Drawing.Point(260, 378);
 			this.buttonAccept.Name = "buttonAccept";
 			this.buttonAccept.Rounded = 0;
-			this.buttonAccept.Size = new System.Drawing.Size(350, 31);
+			this.buttonAccept.Size = new System.Drawing.Size(258, 31);
 			this.buttonAccept.TabIndex = 50;
 			this.buttonAccept.Text = "Fahrzeug";
 			this.buttonAccept.UseVisualStyleBackColor = false;
@@ -871,12 +873,35 @@
 			this.label16.TabIndex = 219;
 			this.label16.Text = "Klimaanlage";
 			// 
+			// checkAvailable
+			// 
+			this.checkAvailable.AutoSize = true;
+			this.checkAvailable.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.checkAvailable.Location = new System.Drawing.Point(93, 387);
+			this.checkAvailable.Name = "checkAvailable";
+			this.checkAvailable.Size = new System.Drawing.Size(15, 14);
+			this.checkAvailable.TabIndex = 242;
+			this.checkAvailable.UseVisualStyleBackColor = true;
+			// 
+			// labelAvailable
+			// 
+			this.labelAvailable.AutoSize = true;
+			this.labelAvailable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelAvailable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.labelAvailable.Location = new System.Drawing.Point(20, 385);
+			this.labelAvailable.Name = "labelAvailable";
+			this.labelAvailable.Size = new System.Drawing.Size(67, 16);
+			this.labelAvailable.TabIndex = 243;
+			this.labelAvailable.Text = "Verfügbar";
+			// 
 			// EditDataViewVehicle
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.Controls.Add(this.checkAvailable);
 			this.Controls.Add(this.tabControl1);
+			this.Controls.Add(this.labelAvailable);
 			this.Controls.Add(this.buttonAccept);
 			this.Name = "EditDataViewVehicle";
 			this.Size = new System.Drawing.Size(525, 425);
@@ -887,6 +912,7 @@
 			this.tabPage2.ResumeLayout(false);
 			this.tabPage2.PerformLayout();
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
@@ -958,5 +984,7 @@
 		private System.Windows.Forms.Label label17;
 		private System.Windows.Forms.CheckBox checkAirConditioner;
 		private System.Windows.Forms.Label label16;
+		private System.Windows.Forms.CheckBox checkAvailable;
+		private System.Windows.Forms.Label labelAvailable;
 	}
 }
