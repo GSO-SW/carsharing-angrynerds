@@ -68,6 +68,11 @@ namespace Carsharing
 			MessageBox.Show("Sie können dieses Fahrzeug nicht löschen, da dies gebucht ist.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 
+		internal static void ErrorDatabaseVehicleTypeDelete()
+		{
+			MessageBox.Show("Bei dem Versuch den Fahrzeugtyp zu Löschen ist ein Fehler aufgetreten.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
 		internal static DialogResult AskCustomerDelete()
 		{
 			DialogResult dialogResult = MessageBox.Show("Wollen Sie wirklich diesen Account löschen?", titleCare, MessageBoxButtons.YesNo);

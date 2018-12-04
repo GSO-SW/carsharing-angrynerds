@@ -59,6 +59,10 @@ namespace Carsharing
 								//Try delete vehicle
 								if (DBController.TryDeleteVehicle(vehicle))
 								{
+									if (!DBController.TryCheckVehicleTypeIsNeeded(vehicle))
+									{
+										Feedback.ErrorDatabaseVehicleTypeDelete();
+									}
 									Feedback.SuccessVehicleDelete();
 									FormController.MainView.UpdateVehicleList();
 								}

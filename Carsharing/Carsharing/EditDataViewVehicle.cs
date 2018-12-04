@@ -284,6 +284,12 @@ namespace Carsharing
 						Feedback.ErrorDatabaseVehicleEdit();
 						return;
 					}
+
+					if (!DBController.TryCheckVehicleTypeIsNeeded(vehicleOld))
+					{
+						Feedback.ErrorDatabaseVehicleTypeDelete();
+					}
+
 					Feedback.SuccessVehicleEdit();
 				}
 				((EditDataView)Parent).Close();

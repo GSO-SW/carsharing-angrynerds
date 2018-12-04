@@ -527,6 +527,23 @@ namespace Carsharing
 			}
 		}
 
+		internal static bool TryCheckVehicleTypeIsNeeded(Vehicle vehicle)
+		{
+			if (!DBController.TryCountVehicleType(vehicle, out int count))
+			{
+				return false;
+			}
+
+			if (count == 0)
+			{
+				if (!DBController.TryDeleteVehicleType(vehicle))
+				{
+					return false;
+				}
+			}
+			return true;
+		}
+
 		internal static bool TryCountVehicleType(Vehicle vehicle, out int count)
 		{
 			count = 0;
