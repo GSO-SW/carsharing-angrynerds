@@ -20,10 +20,10 @@ namespace Carsharing
 			if (DBController.ConnectionAvailable())
 			{
 				//Show Login View
-				//Application.Run(new LoginView(LoginView.StartState.Login));
-				DBController.GetCustomerByEmailFromDB("admin@system.de", out Customer c);
-				FormController.CurrentCustomer = c;
+//				DBController.GetCustomerByEmailFromDB("admin@system.de", out Customer c);
+//				FormController.CurrentCustomer = c;
 
+				Application.Run(new LoginView(LoginView.StartState.Login));
 				//If someone is loggin in, main shows
 				if (FormController.CurrentCustomer != null)
 					Application.Run(new MainView());

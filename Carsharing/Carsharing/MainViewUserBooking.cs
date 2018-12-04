@@ -21,18 +21,16 @@ namespace Carsharing
 		{
 			UpdateTable();
 		}
-		
+
 		private void buttonRefresh_Click(object sender, EventArgs e)
 		{
 			UpdateTable();
 		}
-		
+
 		private void listVehicle_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			if (listVehicle.SelectedItem is Vehicle)
+			if (listVehicle.SelectedItem is Vehicle vehicle)
 			{
-				Vehicle vehicle = (Vehicle)listVehicle.SelectedItem;
-
 				txtBrand.Text = vehicle.Brand;
 				txtConstructionYear.Text = vehicle.ConstructionYear.ToString();
 				txtPosY.Text = vehicle.Position.Y.ToString();
@@ -44,7 +42,7 @@ namespace Carsharing
 				txtMileage.Text = vehicle.Mileage.ToString();
 				txtModel.Text = vehicle.Model;
 				txtNumberplate.Text = vehicle.NumberPlate;
-				txtPower.Text = vehicle.Power.ToString() + " kw";
+				txtPower.Text = vehicle.Power.ToString() + " kW";
 				txtReg.Text = vehicle.Registration.Month + ", " + vehicle.Registration.Year;
 				txtSeats.Text = vehicle.Seats.ToString();
 				txtTankFilling.Text = vehicle.TankFilling.ToString() + " l";
@@ -116,6 +114,34 @@ namespace Carsharing
 			checkSmoker.Checked = false;
 			checkUSB.Checked = false;
 			checkWinter.Checked = false;
+		}
+
+		private void buttonBookingAdd_Click(object sender, EventArgs e)
+		{
+			//check, if the customer or the vehicle has open bookings
+			if (DBController.CheckOpenBookingsCustomer(FormController.CurrentCustomer, out bool cresult) && !cresult)
+			{
+				if (listVehicle.SelectedItem != null && listVehicle.SelectedItem is Vehicle v && DBController.CheckOpenBookingVehicle(v, out bool vresult) && !vresult && v.Available)
+				{
+					Booking b = new Booking(FormController.CurrentCustomer, v, DateTime.Now, new DateTime(0), v.Mileage, 0, true);
+					if (DBController.AddBookingToDB(b))
+					{
+						MessageBox.Show("Buchung erfolgreich.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					}
+					else
+					{
+						MessageBox.Show("Buchung nicht erfolgreich. Bitte versuchen Sie es noch einmal.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
+				}
+				else
+				{
+					MessageBox.Show("Buchung nicht erfolgreich, da das Fahrzeug nicht verfügbar ist.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
+			else
+			{
+				MessageBox.Show("Buchung nicht erfolgreich, da Sie bereits eine offene Buchung haben.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 		}
 	}
 }

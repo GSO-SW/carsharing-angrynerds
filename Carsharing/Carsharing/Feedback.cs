@@ -9,9 +9,9 @@ namespace Carsharing
 {
 	internal static class Feedback
 	{
-		private static string titleError = "Fehler";
-		private static string titleCare = "Achtung";
-		private static string titleInformation = "Information";
+		private readonly static string titleError = "Fehler";
+		private readonly static string titleCare = "Achtung";
+		private readonly static string titleInformation = "Information";
 
 		internal static void ErrorDatabaseConnection()
 		{

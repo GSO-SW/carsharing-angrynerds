@@ -450,6 +450,52 @@ namespace Carsharing
 			}
 			return true;
 		}
+
+		/// <summary>
+		/// Method to check if a vehicle is used in open bookings.
+		/// </summary>
+		/// <param name="v">The vehicle, whose bookings require a check.</param>
+		/// <param name="result">Is true, if the customer has open bookings in the DB. Is false, if he doesn't.</param>
+		/// <returns>Returns false if there was a problem with the database connection, otherwise true.</returns>
+		internal static bool CheckOpenBookingVehicle(Vehicle v, out bool result)
+		{
+			// The result of the check is false at default
+			result = true;
+			bool status = true;
+			DataTable table = new DataTable();
+			using (MySqlConnection con = new MySqlConnection(connectionString))
+			{
+				try
+				{
+					con.Open();
+					// Get a list of all B_IDs matching the customer's email-address and checks,
+					// if the ending mileage equals NULL, indicating the booking is still open.
+					using (MySqlCommand command = new MySqlCommand("Select B_ID FROM buchung WHERE `Kennzeichen` = @kennzeichen AND Endkilometerstand IS NULL", con))
+					{
+						command.Parameters.AddWithValue("kennzeichen", v.NumberPlate);
+						// Transfer the found B_IDs into a table via the MySqlDataAdapter...
+						using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+						{
+							adapter.Fill(table);
+						}
+					}
+				}
+				catch (Exception)
+				{
+					status = false;
+				}
+				finally
+				{
+					con.Close();
+				}
+			}
+			// The rows length is > 0, when B_IDs have been found, hence give a positive result
+			if (table.Rows.Count == 0)
+			{
+				result = false;
+			}
+			return status;
+		}
 		
 		internal static bool GetAllVehiclesFromDB(out List<Vehicle> vehicles)
 		{
@@ -801,7 +847,7 @@ namespace Carsharing
 		/// <param name="c">The customer, whose bookings require a check.</param>
 		/// <param name="result">Is true, if the customer has open bookings in the DB. Is false, if he doesn't.</param>
 		/// <returns>Returns false if there was a problem with the database connection, otherwise true.</returns>
-		internal static bool CheckOpenBookings(Customer c, out bool result)
+		internal static bool CheckOpenBookingsCustomer(Customer c, out bool result)
         {
             // The result of the check is false at default
             result = true;

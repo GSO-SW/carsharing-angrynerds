@@ -24,7 +24,7 @@ namespace Carsharing
 			if (FormController.CurrentCustomer != null)
 			{
 				// Check, whether the customer has open bookings before continuing
-				if (!DBController.CheckOpenBookings(FormController.CurrentCustomer, out bool openBookings))
+				if (!DBController.CheckOpenBookingsCustomer(FormController.CurrentCustomer, out bool openBookings))
 				{
 					MessageBox.Show("Es ist ein Fehler beim Zugriff auf die Datenbank aufgetreten.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					return;
@@ -96,7 +96,7 @@ namespace Carsharing
 		{
 			if (FormController.CurrentCustomer != null)
 			{
-				if (DBController.CheckOpenBookings(FormController.CurrentCustomer, out bool openBookings))
+				if (DBController.CheckOpenBookingsCustomer(FormController.CurrentCustomer, out bool openBookings))
 				{
 					if (!openBookings)
 					{

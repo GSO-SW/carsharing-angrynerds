@@ -96,7 +96,7 @@
 			this.checkAirConditioner = new System.Windows.Forms.CheckBox();
 			this.label16 = new System.Windows.Forms.Label();
 			this.buttonRefresh = new CustomControl.RoundButton();
-			this.buttonVehicleAdd = new CustomControl.RoundButton();
+			this.buttonBookingAdd = new CustomControl.RoundButton();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.tabPage2.SuspendLayout();
@@ -964,25 +964,26 @@
 			this.buttonRefresh.UseVisualStyleBackColor = false;
 			this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
 			// 
-			// buttonVehicleAdd
+			// buttonBookingAdd
 			// 
-			this.buttonVehicleAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(90)))));
-			this.buttonVehicleAdd.FlatAppearance.BorderSize = 0;
-			this.buttonVehicleAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.buttonVehicleAdd.Location = new System.Drawing.Point(746, 544);
-			this.buttonVehicleAdd.Name = "buttonVehicleAdd";
-			this.buttonVehicleAdd.Rounded = 0;
-			this.buttonVehicleAdd.Size = new System.Drawing.Size(150, 28);
-			this.buttonVehicleAdd.TabIndex = 11;
-			this.buttonVehicleAdd.Text = "Fahrzeug buchen";
-			this.buttonVehicleAdd.UseVisualStyleBackColor = false;
+			this.buttonBookingAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(90)))));
+			this.buttonBookingAdd.FlatAppearance.BorderSize = 0;
+			this.buttonBookingAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.buttonBookingAdd.Location = new System.Drawing.Point(746, 544);
+			this.buttonBookingAdd.Name = "buttonBookingAdd";
+			this.buttonBookingAdd.Rounded = 0;
+			this.buttonBookingAdd.Size = new System.Drawing.Size(150, 28);
+			this.buttonBookingAdd.TabIndex = 11;
+			this.buttonBookingAdd.Text = "Fahrzeug buchen";
+			this.buttonBookingAdd.UseVisualStyleBackColor = false;
+			this.buttonBookingAdd.Click += new System.EventHandler(this.buttonBookingAdd_Click);
 			// 
 			// MainViewUserBooking
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.Controls.Add(this.buttonVehicleAdd);
+			this.Controls.Add(this.buttonBookingAdd);
 			this.Controls.Add(this.buttonRefresh);
 			this.Controls.Add(this.tabControl1);
 			this.Controls.Add(this.listVehicle);
@@ -1070,6 +1071,6 @@
 		private System.Windows.Forms.CheckBox checkAirConditioner;
 		private System.Windows.Forms.Label label16;
 		private CustomControl.RoundButton buttonRefresh;
-		private CustomControl.RoundButton buttonVehicleAdd;
+		private CustomControl.RoundButton buttonBookingAdd;
 	}
 }
