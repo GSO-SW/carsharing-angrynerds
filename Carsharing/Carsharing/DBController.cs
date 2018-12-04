@@ -496,7 +496,32 @@ namespace Carsharing
 			}
 			return status;
 		}
-		
+
+		internal static bool DeleteVehicle(Vehicle v)
+		{
+			using (MySqlConnection con = new MySqlConnection(connectionString))
+			{
+				try
+				{
+					con.Open();
+					using (MySqlCommand command = new MySqlCommand("DELETE FROM Fahrzeug WHERE `Kennzeichen` = @kennzeichen", con))
+					{
+						command.Parameters.AddWithValue("kennzeichen", v.NumberPlate);
+						command.ExecuteNonQuery();
+					}
+				}
+				catch (Exception)
+				{
+					return false;
+				}
+				finally
+				{
+					con.Close();
+				}
+				return true;
+			}
+		}
+
 		internal static bool GetAllVehiclesFromDB(out List<Vehicle> vehicles)
 		{
 			DataTable table = new DataTable();
