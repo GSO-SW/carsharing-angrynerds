@@ -12,8 +12,6 @@ namespace CustomControl
 {
 	public class RoundButton : Button
 	{
-		public int Rounded { get; set; }
-
 		protected override void OnPaint(PaintEventArgs pevent)
 		{
 			GraphicsPath path = new GraphicsPath();

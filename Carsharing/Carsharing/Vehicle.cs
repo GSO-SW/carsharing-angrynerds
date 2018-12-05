@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Carsharing
 {
+
 	internal class Vehicle
 	{
 		#region Attributes
@@ -403,6 +404,9 @@ namespace Carsharing
 			Smoker = smoker;
 		}
 
+		/// <summary>
+		/// Create a new instance of type vehicle
+		/// </summary>
 		internal Vehicle()
 		{
 			NumberPlate = String.Empty;
