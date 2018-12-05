@@ -53,7 +53,6 @@
 			this.buttonRegistration.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.buttonRegistration.Location = new System.Drawing.Point(87, 305);
 			this.buttonRegistration.Name = "buttonRegistration";
-			this.buttonRegistration.Rounded = 0;
 			this.buttonRegistration.Size = new System.Drawing.Size(350, 31);
 			this.buttonRegistration.TabIndex = 13;
 			this.buttonRegistration.Text = "Registrieren";
@@ -68,7 +67,6 @@
 			this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.buttonCancel.Location = new System.Drawing.Point(87, 360);
 			this.buttonCancel.Name = "buttonCancel";
-			this.buttonCancel.Rounded = 0;
 			this.buttonCancel.Size = new System.Drawing.Size(350, 31);
 			this.buttonCancel.TabIndex = 14;
 			this.buttonCancel.Text = "Abbrechen";

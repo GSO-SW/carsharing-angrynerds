@@ -86,7 +86,7 @@ namespace Carsharing
 
 
 				//Checks whether the parameter vehicle has the same vehicle type as the created vehicle.
-				if (vehicle.GetVehicleTypeString() == rowVehicle.GetVehicleTypeString())
+				if (vehicle.ToString(VehicleFormat.VehicleType) == rowVehicle.ToString(VehicleFormat.VehicleType))
 				{
 					VehicleTypeID = Convert.ToInt32(row["Ft_ID"].ToString());
 					return true;

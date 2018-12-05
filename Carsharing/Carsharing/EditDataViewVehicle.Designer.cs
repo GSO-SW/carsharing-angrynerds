@@ -109,7 +109,6 @@
 			this.buttonAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.buttonAccept.Location = new System.Drawing.Point(260, 378);
 			this.buttonAccept.Name = "buttonAccept";
-			this.buttonAccept.Rounded = 0;
 			this.buttonAccept.Size = new System.Drawing.Size(258, 31);
 			this.buttonAccept.TabIndex = 50;
 			this.buttonAccept.Text = "Fahrzeug";

@@ -110,7 +110,6 @@
 			this.buttonVehicleDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonVehicleDelete.Location = new System.Drawing.Point(435, 544);
 			this.buttonVehicleDelete.Name = "buttonVehicleDelete";
-			this.buttonVehicleDelete.Rounded = 0;
 			this.buttonVehicleDelete.Size = new System.Drawing.Size(150, 28);
 			this.buttonVehicleDelete.TabIndex = 5;
 			this.buttonVehicleDelete.Text = "Fahrzeug löschen";
@@ -124,7 +123,6 @@
 			this.buttonVehicleEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonVehicleEdit.Location = new System.Drawing.Point(591, 544);
 			this.buttonVehicleEdit.Name = "buttonVehicleEdit";
-			this.buttonVehicleEdit.Rounded = 0;
 			this.buttonVehicleEdit.Size = new System.Drawing.Size(150, 28);
 			this.buttonVehicleEdit.TabIndex = 4;
 			this.buttonVehicleEdit.Text = "Fahrzeug bearbeiten";
@@ -138,7 +136,6 @@
 			this.buttonVehicleAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonVehicleAdd.Location = new System.Drawing.Point(746, 544);
 			this.buttonVehicleAdd.Name = "buttonVehicleAdd";
-			this.buttonVehicleAdd.Rounded = 0;
 			this.buttonVehicleAdd.Size = new System.Drawing.Size(150, 28);
 			this.buttonVehicleAdd.TabIndex = 3;
 			this.buttonVehicleAdd.Text = "Fahrzeug hinzufügen";
@@ -992,7 +989,6 @@
 			this.buttonRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonRefresh.Location = new System.Drawing.Point(251, 544);
 			this.buttonRefresh.Name = "buttonRefresh";
-			this.buttonRefresh.Rounded = 0;
 			this.buttonRefresh.Size = new System.Drawing.Size(94, 28);
 			this.buttonRefresh.TabIndex = 9;
 			this.buttonRefresh.Text = "Aktualisieren";

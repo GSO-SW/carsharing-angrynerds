@@ -957,7 +957,6 @@
 			this.buttonRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonRefresh.Location = new System.Drawing.Point(251, 544);
 			this.buttonRefresh.Name = "buttonRefresh";
-			this.buttonRefresh.Rounded = 0;
 			this.buttonRefresh.Size = new System.Drawing.Size(94, 28);
 			this.buttonRefresh.TabIndex = 10;
 			this.buttonRefresh.Text = "Aktualisieren";
@@ -971,7 +970,6 @@
 			this.buttonBookingAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonBookingAdd.Location = new System.Drawing.Point(746, 544);
 			this.buttonBookingAdd.Name = "buttonBookingAdd";
-			this.buttonBookingAdd.Rounded = 0;
 			this.buttonBookingAdd.Size = new System.Drawing.Size(150, 28);
 			this.buttonBookingAdd.TabIndex = 11;
 			this.buttonBookingAdd.Text = "Fahrzeug buchen";

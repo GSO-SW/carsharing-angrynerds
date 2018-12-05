@@ -65,7 +65,6 @@
 			this.buttonUserDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonUserDelete.Location = new System.Drawing.Point(591, 544);
 			this.buttonUserDelete.Name = "buttonUserDelete";
-			this.buttonUserDelete.Rounded = 0;
 			this.buttonUserDelete.Size = new System.Drawing.Size(150, 28);
 			this.buttonUserDelete.TabIndex = 8;
 			this.buttonUserDelete.Text = "Nutzer löschen";
@@ -79,7 +78,6 @@
 			this.buttonUserEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonUserEdit.Location = new System.Drawing.Point(747, 544);
 			this.buttonUserEdit.Name = "buttonUserEdit";
-			this.buttonUserEdit.Rounded = 0;
 			this.buttonUserEdit.Size = new System.Drawing.Size(150, 28);
 			this.buttonUserEdit.TabIndex = 7;
 			this.buttonUserEdit.Text = "Nutzer bearbeiten";
@@ -107,7 +105,6 @@
 			this.buttonRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonRefresh.Location = new System.Drawing.Point(251, 544);
 			this.buttonRefresh.Name = "buttonRefresh";
-			this.buttonRefresh.Rounded = 0;
 			this.buttonRefresh.Size = new System.Drawing.Size(94, 28);
 			this.buttonRefresh.TabIndex = 10;
 			this.buttonRefresh.Text = "Aktualisieren";

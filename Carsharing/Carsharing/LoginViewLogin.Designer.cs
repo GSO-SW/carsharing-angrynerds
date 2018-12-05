@@ -63,7 +63,6 @@
 			this.buttonRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.buttonRegister.Location = new System.Drawing.Point(96, 279);
 			this.buttonRegister.Name = "buttonRegister";
-			this.buttonRegister.Rounded = 0;
 			this.buttonRegister.Size = new System.Drawing.Size(332, 31);
 			this.buttonRegister.TabIndex = 4;
 			this.buttonRegister.Text = "Registrieren";
@@ -78,7 +77,6 @@
 			this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.buttonLogin.Location = new System.Drawing.Point(96, 215);
 			this.buttonLogin.Name = "buttonLogin";
-			this.buttonLogin.Rounded = 0;
 			this.buttonLogin.Size = new System.Drawing.Size(332, 31);
 			this.buttonLogin.TabIndex = 3;
 			this.buttonLogin.Text = "Anmelden";

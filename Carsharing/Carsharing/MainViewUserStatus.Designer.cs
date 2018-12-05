@@ -50,7 +50,6 @@
 			this.buttonUserEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonUserEdit.Location = new System.Drawing.Point(775, 3);
 			this.buttonUserEdit.Name = "buttonUserEdit";
-			this.buttonUserEdit.Rounded = 0;
 			this.buttonUserEdit.Size = new System.Drawing.Size(122, 28);
 			this.buttonUserEdit.TabIndex = 5;
 			this.buttonUserEdit.Text = "Profil bearbeiten";
@@ -64,7 +63,6 @@
 			this.buttonUserDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonUserDelete.Location = new System.Drawing.Point(775, 37);
 			this.buttonUserDelete.Name = "buttonUserDelete";
-			this.buttonUserDelete.Rounded = 0;
 			this.buttonUserDelete.Size = new System.Drawing.Size(122, 28);
 			this.buttonUserDelete.TabIndex = 6;
 			this.buttonUserDelete.Text = "Profil löschen";

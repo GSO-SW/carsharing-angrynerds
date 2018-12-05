@@ -15,6 +15,8 @@ namespace Carsharing
 		internal MainViewUserBooking()
 		{
 			InitializeComponent();
+
+            listVehicle.DisplayMember = "DisplayMember";
 		}
 
 		private void MainViewUserBooking_Load(object sender, EventArgs e)
