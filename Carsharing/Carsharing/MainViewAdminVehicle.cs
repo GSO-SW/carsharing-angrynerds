@@ -46,13 +46,53 @@ namespace Carsharing
 		{
 			if (listVehicle.SelectedItem != null)
 			{
-				//Meldung: Möchten Sie das Fahrzeug mit dem Kennzeichen: " " wirklich löschen?
+				if (listVehicle.SelectedItem is Vehicle vehicle)
+				{
+					if (DBController.CheckOpenBookingVehicle(vehicle, out bool result))
+					{
+						//If car isn't booked
+						if (!result) 
+						{
+							DialogResult dialog = Feedback.AskVehicleDelete();
+							if (dialog == DialogResult.Yes)
+							{
+								//Try delete vehicle
+								if (DBController.TryDeleteVehicle(vehicle))
+								{
+									if (!DBController.TryCheckVehicleTypeIsNeeded(vehicle))
+									{
+										Feedback.ErrorDatabaseVehicleTypeDelete();
+									}
+									Feedback.SuccessVehicleDelete();
+									FormController.MainView.UpdateVehicleList();
+								}
+								else
+								{
+									Feedback.ErrorDatabaseVehicleDelete();
+								}
+							}
+						}
+						else //If car is booked
+						{							
+							Feedback.ErrorDatabaseBookedVehicleDelete();
+						}
+					}
+					else //If check fails
+					{
+						Feedback.ErrorDatabaseConnection();
+					}
+				}
+				else //If selected item isn't a vehicle
+				{
+					Feedback.ErrorNoValidSelectedItem();
+				}
 			}
-			else
+			else //If selected item is null
 			{
-				//Meldung: Kein Fahrzeug ausgewählt
+				Feedback.ErrorNoSelectedItem();
 			}
 		}
+			
 
 		private void buttonRefresh_Click(object sender, EventArgs e)
 		{
@@ -76,10 +116,8 @@ namespace Carsharing
 
 		private void listVehicle_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			if (listVehicle.SelectedItem is Vehicle)
+			if (listVehicle.SelectedItem is Vehicle vehicle)
 			{
-				Vehicle vehicle = (Vehicle)listVehicle.SelectedItem;
-
 				txtBrand.Text = vehicle.Brand;
 				txtConstructionYear.Text = vehicle.ConstructionYear.ToString();
 				txtPosY.Text = vehicle.Position.Y.ToString();
