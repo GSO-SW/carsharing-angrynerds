@@ -43,16 +43,60 @@ namespace Carsharing
 			}
 			return result;
 		}
-		#endregion
+        #endregion
 
-		#region Vehicle
-		/// <summary>
-		/// Method to get the vehicle type ID from a vehicle.
-		/// </summary>
-		/// <param name="vehicle">Vehicle from which the vehicle type ID is to be searched for</param>
-		/// <param name="VehicleTypeID">Vehicle type ID from the vehicle. 'null', if the vehicle type isn't in the DB.</param>
-		/// <returns>Returns true if the connection to the database worked. False if not.</returns>
-		internal static bool GetVehicleTypeID(Vehicle vehicle, out int? VehicleTypeID)
+        #region Vehicle
+        /// <summary>
+        /// Fetches a vehicle from the database with a corresponding number plate.
+        /// </summary>
+        /// <param name="numberPlate">The number plate of the vehicle you are looking for.</param>
+        /// <param name="vehicle">The found vehicle. Is null if no vehicle is found.</param>
+        /// <returns>Returns true, if the access to the database was successfull.</returns>
+        internal static bool GetVehicleByNumberPlate(string numberPlate, out Vehicle vehicle)
+        {
+            bool status = true;
+            DataTable fahrzeugTable = new DataTable();
+
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    con.Open();
+                    using (MySqlDataAdapter a = new MySqlDataAdapter("SELECT * FROM `fahrzeug` JOIN `fahrzeugtyp` USING(`Ft_ID`) JOIN `fahrzeugmarke` USING(`Fm_ID`) JOIN `fahrzeuggetriebe` USING(`Fg_ID`) JOIN `kraftstoffart` USING(`Ks_ID`) WHERE Kennzeichen = @kennzeichen", con))
+                    {
+                        a.SelectCommand.Parameters.AddWithValue("kennzeichen", numberPlate);
+                        a.Fill(fahrzeugTable);
+                    }
+                }
+                catch (Exception)
+                {
+                    status = false;
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+
+            if (fahrzeugTable.Rows.Count > 0)
+            {
+                vehicle = GetVehicleFromDataRow(fahrzeugTable.Rows[0]);
+            }
+            // If no vehicle has been found with the given number plate, set the returning vehicle null
+            else
+            {
+                vehicle = null;
+            }
+            return status;
+        }
+
+        /// <summary>
+        /// Method to get the vehicle type ID from a vehicle.
+        /// </summary>
+        /// <param name="vehicle">Vehicle from which the vehicle type ID is to be searched for</param>
+        /// <param name="VehicleTypeID">Vehicle type ID from the vehicle. 'null', if the vehicle type isn't in the DB.</param>
+        /// <returns>Returns true if the connection to the database worked. False if not.</returns>
+        internal static bool GetVehicleTypeID(Vehicle vehicle, out int? VehicleTypeID)
 		{
 			DataTable table = new DataTable();
 			VehicleTypeID = null;
@@ -998,6 +1042,41 @@ namespace Carsharing
 			return status;
 		}
 
+        internal static bool GetOpenBookingOfCustomer(Customer c, out Booking b)
+        {
+            // The result of the check is false at default
+            bool status = true;
+            DataTable table = new DataTable();
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    con.Open();
+                    // Get all Booking information matching the customer's email-address and checks,
+                    // if the ending mileage equals NULL, indicating the booking is still open.
+                    using (MySqlCommand command = new MySqlCommand("Select * FROM buchung WHERE `E-Mail Adresse` = @email AND Endkilometerstand IS NULL", con))
+                    {
+                        command.Parameters.AddWithValue("email", c.EmailAddress);
+                        // Transfer the found B_IDs into a table via the MySqlDataAdapter...
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                        {
+                            adapter.Fill(table);
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    status = false;
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+            b = GetBookingFromDataRow(table.Rows[0]);
+            return status;
+        }
+
 		/// <summary>
 		/// Get a customer from the database by his email address.
 		/// </summary>
@@ -1089,7 +1168,38 @@ namespace Carsharing
 			return c;
 		}
 
-		internal static bool GetCustomers(out List<Customer> customers)
+        private static Booking GetBookingFromDataRow(DataRow row)
+        {
+            // Getting the customer and vehicle first
+            Customer c;
+            GetCustomerByEmailFromDB(row.Field<string>("E-Mail Adresse"), out c);
+            Vehicle v;
+            GetVehicleByNumberPlate(row.Field<string>("Kennzeichen"), out v);
+            bool open;
+
+            // Checks, if the booking is still open. That is determined whether or not "Endkilometerstand" is null
+            if (row.Field<double?>("Endkilometerstand") == null)
+            {
+                open = true;
+            }
+            else
+            {
+                open = false;
+            }
+
+            DateTime startzeitpunkt = row.Field<DateTime>("Startzeitpunkt");
+            DateTime endzeitpunkt;
+            if (open)
+                DateTime.TryParse(row.Field<string>("Endzeitpunkt"), out endzeitpunkt);
+            else
+                endzeitpunkt = row.Field<DateTime>("Endzeitpunkt");
+            double startkilometerstand = row.Field<double>("Startkilometerstand");
+            double? endkilometerstand = row.Field<double?>("Endkilometerstand");
+
+            return new Booking(c, v, startzeitpunkt, endzeitpunkt, startkilometerstand, endkilometerstand, open);
+        }
+
+        internal static bool GetCustomers(out List<Customer> customers)
 		{
 			DataTable table = new DataTable();
 			customers = new List<Customer>();

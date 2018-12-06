@@ -14,7 +14,7 @@ namespace Carsharing
 		private DateTime startTime;
 		private DateTime endTime;
 		private double startMileage;
-		private double endMileage;
+		private double? endMileage;
 		private bool open;
 		#endregion
 
@@ -67,7 +67,7 @@ namespace Carsharing
 		/// <summary>
 		/// 
 		/// </summary>
-		internal double EndMileage
+		internal double? EndMileage
 		{
 			get { return endMileage; }
 			set { endMileage = value; }
@@ -83,7 +83,7 @@ namespace Carsharing
 		}
 		#endregion
 
-		internal Booking(Customer customer, Vehicle vehicle, DateTime startTime, DateTime endTime, double startMileage,double endMileage, bool open)
+		internal Booking(Customer customer, Vehicle vehicle, DateTime startTime, DateTime endTime, double startMileage,double? endMileage, bool open)
 		{
 			this.customer = customer;
 			this.vehicle = vehicle;
