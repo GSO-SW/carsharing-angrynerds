@@ -93,5 +93,16 @@ namespace Carsharing
 			this.endMileage = endMileage;
 			this.open = open;
 		}
+
+
+        internal void Close(DateTime endTime, double endMileage)
+        {
+            if (Open)
+            {
+                EndTime = endTime;
+                EndMileage = endMileage;
+                Open = false;
+            }
+        }
 	}
 }
