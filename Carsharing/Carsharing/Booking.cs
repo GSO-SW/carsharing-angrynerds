@@ -94,14 +94,23 @@ namespace Carsharing
 			this.open = open;
 		}
 
-
+        /// <summary>
+        /// Closes the booking locally.
+        /// </summary>
+        /// <param name="endTime">The point in time, when the booking has been closed.</param>
+        /// <param name="endMileage">The mileage of the car, after the user has returned it.</param>
         internal void Close(DateTime endTime, double endMileage)
         {
             if (Open)
             {
+                // Updates the booking's missing attributes
                 EndTime = endTime;
                 EndMileage = endMileage;
                 Open = false;
+
+                // Updates the vehicle to simulate it has been actually used
+                Vehicle.Mileage = endMileage;
+                Vehicle.TankFilling = Vehicle.TankFilling - Vehicle.FuelConsumption * (endMileage - StartMileage);
             }
         }
 	}

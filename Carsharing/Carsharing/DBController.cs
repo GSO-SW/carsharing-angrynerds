@@ -1293,6 +1293,11 @@ namespace Carsharing
             return status;
         }
 
+        /// <summary>
+        /// Closes a given booking in the database.
+        /// </summary>
+        /// <param name="b">The booking, which is being closed.</param>
+        /// <returns></returns>
         internal static bool CloseBookingInDB(Booking b)
         {
             // The delete is successful at default
@@ -1303,7 +1308,7 @@ namespace Carsharing
                 {
                     con.Open();
                     // The sql update command adds the booking's ending time in the "Buchung" table
-                    using (MySqlCommand command = new MySqlCommand("UPDATE Buchung SET Endzeitpunkt = @endzeitpunkt WHERE `E-Mail Adresse` = @email AND Kennzeichen = @kennzeichen;", con))
+                    using (MySqlCommand command = new MySqlCommand("UPDATE buchung SET Endzeitpunkt = @endzeitpunkt WHERE `E-Mail Adresse` = @email AND Kennzeichen = @kennzeichen;", con))
                     {
                         command.Parameters.AddWithValue("endzeitpunkt", b.EndTime);
                         command.Parameters.AddWithValue("email", b.Customer.EmailAddress);
@@ -1312,10 +1317,25 @@ namespace Carsharing
                     }
 
                     // The sql update command adds the booking's final mileage in the "Buchung" table
-                    using (MySqlCommand command = new MySqlCommand("UPDATE Buchung SET Endkilometerstand = @endkilometerstand WHERE `E-Mail Adresse` = @email AND Kennzeichen = @kennzeichen;", con))
+                    using (MySqlCommand command = new MySqlCommand("UPDATE buchung SET Endkilometerstand = @endkilometerstand WHERE `E-Mail Adresse` = @email AND Kennzeichen = @kennzeichen;", con))
                     {
                         command.Parameters.AddWithValue("endkilometerstand", b.EndMileage);
                         command.Parameters.AddWithValue("email", b.Customer.EmailAddress);
+                        command.Parameters.AddWithValue("kennzeichen", b.Vehicle.NumberPlate);
+                        command.ExecuteNonQuery();
+                    }
+
+                    // Both following sql commands update the vehicle in the database to match its state after the booking, to maintain the integrity of the DB.
+                    using (MySqlCommand command = new MySqlCommand("UPDATE fahrzeug SET Kilometerstand = @kilometerstand WHERE Kennzeichen = @kennzeichen;", con))
+                    {
+                        command.Parameters.AddWithValue("kilometerstand", b.Vehicle.Mileage);
+                        command.Parameters.AddWithValue("kennzeichen", b.Vehicle.NumberPlate);
+                        command.ExecuteNonQuery();
+                    }
+
+                    using (MySqlCommand command = new MySqlCommand("UPDATE fahrzeug SET Tankfuellung = @tankfuellung WHERE Kennzeichen = @kennzeichen;", con))
+                    {
+                        command.Parameters.AddWithValue("tankfuellung", b.Vehicle.TankFilling);
                         command.Parameters.AddWithValue("kennzeichen", b.Vehicle.NumberPlate);
                         command.ExecuteNonQuery();
                     }
