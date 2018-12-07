@@ -110,7 +110,7 @@ namespace Carsharing
 
                 // Updates the vehicle to simulate it has been actually used
                 Vehicle.Mileage = endMileage;
-                Vehicle.TankFilling = Vehicle.TankFilling - Vehicle.FuelConsumption * (endMileage - StartMileage);
+                Vehicle.TankFilling = Vehicle.TankFilling - Vehicle.FuelConsumption / 100 * (endMileage - StartMileage); // Fuel consumption is in 1l per 100 km, hence dividing here by 100.
             }
         }
 	}
