@@ -464,6 +464,11 @@ namespace Carsharing
                     return ToString();
             }
         }
-        #endregion
-    }
+
+		public override string ToString()
+		{
+			return DisplayMember;
+		}
+		#endregion
+	}
 }
