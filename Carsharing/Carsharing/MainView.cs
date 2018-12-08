@@ -31,7 +31,6 @@ namespace Carsharing
 
 		private void InitializeComponentBefore()
 		{
-			this.adminBookings1 = new Carsharing.MainViewAdminBookings(); //gelöscht
 			this.adminUsers1 = new Carsharing.MainViewAdminUsers();
 			this.userBooking1 = new Carsharing.MainViewUserBooking();
 			this.adminVehicles1 = new Carsharing.MainViewAdminVehicle();
@@ -40,16 +39,6 @@ namespace Carsharing
 
 		private void InitializeComponentAfter()
 		{
-			// 
-			// adminBookings1
-			// 
-			this.adminBookings1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.adminBookings1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.adminBookings1.Location = new System.Drawing.Point(0, 0);
-			this.adminBookings1.Name = "adminBookings1";
-			this.adminBookings1.Size = new System.Drawing.Size(1100, 600);
-			this.adminBookings1.TabIndex = 14;
-
 			this.buttonUsers.Tag = this.adminUsers1;
 
 			// 
@@ -102,7 +91,6 @@ namespace Carsharing
 			this.Controls.Add(this.userBooking1);
 			this.Controls.Add(this.adminVehicles1);
 			this.Controls.Add(this.adminUsers1);
-			this.Controls.Add(this.adminBookings1);
 
 		}
 

@@ -88,12 +88,6 @@
     <Compile Include="AddVehicleForm.Designer.cs">
       <DependentUpon>AddVehicleForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainViewAdminBookings.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="MainViewAdminBookings.Designer.cs">
-      <DependentUpon>MainViewAdminBookings.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainViewAdminUsers.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -174,9 +168,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddVehicleForm.resx">
       <DependentUpon>AddVehicleForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainViewAdminBookings.resx">
-      <DependentUpon>MainViewAdminBookings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainViewAdminUsers.resx">
       <DependentUpon>MainViewAdminUsers.cs</DependentUpon>

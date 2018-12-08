@@ -214,7 +214,6 @@
 		private System.Windows.Forms.PictureBox pictureLogo;
 		private MainViewUserBooking userBooking1;
 		private MainViewUserStatus userStatus1;
-		private MainViewAdminBookings adminBookings1;
 		private MainViewAdminUsers adminUsers1;
 		private MainViewAdminVehicle adminVehicles1;
 	}

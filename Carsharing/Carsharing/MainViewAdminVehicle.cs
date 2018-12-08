@@ -96,7 +96,6 @@ namespace Carsharing
 				Feedback.ErrorNoSelectedItem();
 			}
 		}
-			
 
 		private void buttonRefresh_Click(object sender, EventArgs e)
 		{
