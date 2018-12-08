@@ -14,7 +14,7 @@ namespace Carsharing
 		private DateTime startTime;
 		private DateTime endTime;
 		private double startMileage;
-		private double endMileage;
+		private double? endMileage;
 		private bool open;
 		#endregion
 
@@ -67,7 +67,7 @@ namespace Carsharing
 		/// <summary>
 		/// 
 		/// </summary>
-		internal double EndMileage
+		internal double? EndMileage
 		{
 			get { return endMileage; }
 			set { endMileage = value; }
@@ -83,7 +83,7 @@ namespace Carsharing
 		}
 		#endregion
 
-		internal Booking(Customer customer, Vehicle vehicle, DateTime startTime, DateTime endTime, double startMileage,double endMileage, bool open)
+		internal Booking(Customer customer, Vehicle vehicle, DateTime startTime, DateTime endTime, double startMileage,double? endMileage, bool open)
 		{
 			this.customer = customer;
 			this.vehicle = vehicle;
@@ -93,5 +93,43 @@ namespace Carsharing
 			this.endMileage = endMileage;
 			this.open = open;
 		}
+
+        /// <summary>
+        /// Closes the booking locally.
+        /// </summary>
+        /// <param name="endTime">The point in time, when the booking has been closed.</param>
+        /// <param name="endMileage">The mileage of the car, after the user has returned it.</param>
+        internal void Close(DateTime endTime, double endMileage)
+        {
+            if (Open)
+            {
+                // Updates the booking's missing attributes
+                EndTime = endTime;
+                EndMileage = endMileage;
+                Open = false;
+
+                // Updates the vehicle to simulate it has been actually used
+                Vehicle.Mileage = endMileage;
+                Vehicle.TankFilling = Vehicle.TankFilling - Vehicle.FuelConsumption / 100 * (endMileage - StartMileage); // Fuel consumption is in 1l per 100 km, hence dividing here by 100.
+            }
+        }
+
+        /// <summary>
+        /// Calculates the cost of a closed booking
+        /// </summary>
+        /// <returns></returns>
+        internal double CalculateCost()
+        {
+            double cost;
+            if (!open)
+            {
+                cost = Vehicle.BasicPrice + Vehicle.PricePerKilometre * ((double)EndMileage - StartMileage) + Vehicle.PricePerMinute * EndTime.Subtract(StartTime).TotalMinutes;
+            }
+            else
+            {
+                cost = 0;
+            }
+            return cost;
+        }
 	}
 }
