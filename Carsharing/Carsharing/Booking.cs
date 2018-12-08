@@ -123,7 +123,7 @@ namespace Carsharing
             double cost;
             if (!open)
             {
-                cost = Vehicle.BasicPrice + Vehicle.PricePerKilometre * ((double)EndMileage - StartMileage) + Vehicle.PricePerMinute * EndTime.Subtract(StartTime).Minutes;
+                cost = Vehicle.BasicPrice + Vehicle.PricePerKilometre * ((double)EndMileage - StartMileage) + Vehicle.PricePerMinute * EndTime.Subtract(StartTime).TotalMinutes;
             }
             else
             {
