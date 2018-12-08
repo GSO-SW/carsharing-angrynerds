@@ -131,5 +131,12 @@ namespace Carsharing
             }
             return cost;
         }
-	}
+
+        public override string ToString()
+        {
+			if (open)
+				return vehicle.Brand + " " + vehicle.Model + " am: " + startTime.ToString("dd.MM.yyyy") + ", offen";
+			return vehicle.Brand + " " + vehicle.Model + " am: " + startTime.ToString("dd.MM.yyyy") + ", geschlossen";
+		}
+    }
 }

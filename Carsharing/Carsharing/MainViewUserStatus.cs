@@ -12,9 +12,7 @@ namespace Carsharing
 {
 	internal partial class MainViewUserStatus : UserControl
 	{
-        Booking openBooking;
-
-        internal MainViewUserStatus()
+		internal MainViewUserStatus()
 		{
 			InitializeComponent();
             UpdateForm();
@@ -44,45 +42,90 @@ namespace Carsharing
         internal void UpdateForm()
         {
             labelWelcome.Text = "Willkommen " + FormController.CurrentCustomer.ToString();
-            watermarkTextBoxEndMileage.ResetText();
-            watermarkTextBoxEndMileage.ResetToWatermark();
-            watermarkTextBoxEndMileage.Watermark = "Stand in Km";
-            // GroupBox to show current booking is invisible at default
-            groupBoxCurrentBooking.Visible = false;
+			ShowCurrentBookingInformation();
+			UpdateTable();
+		}
 
-            // load booking information
-            loadBookingData();
-        }
+        private void UpdateTable()
+        {
+            listBoxBooking.Items.Clear();
+			if (!DBController.GetAllBookingsOfCustomer(FormController.CurrentCustomer, out List<Booking> bookings))
+			{
+				Feedback.ErrorDatabaseConnection();
+				return;
+			}
+			listBoxBooking.Items.AddRange(bookings.ToArray());
+		}
 
         /// <summary>
         /// Fills the labels in the groupBox with information about the booking.
         /// </summary>
         /// <param name="b">The open booking to display its information.</param>
-        private void showCurrentBookingInformation(Booking b)
+        private void ShowCurrentBookingInformation(Booking b = null)
         {
-            labelBasePriceText.Text = b.Vehicle.BasicPrice.ToString() + " €";
-            labelCarText.Text = b.Vehicle.Brand + ", " + b.Vehicle.Model;
-            labelNumberplateText.Text = b.Vehicle.NumberPlate;
-            labelPriceMinText.Text = b.Vehicle.PricePerMinute.ToString() + " €";
-            labelPricePerKilometreText.Text = b.Vehicle.PricePerKilometre.ToString() + " €";
-            labelStartMileageText.Text = b.StartMileage.ToString() + " km";
-            labelStartTimeText.Text = b.StartTime.ToString();
+            if (b != null)
+            {
+                labelBasePriceText.Text = b.Vehicle.BasicPrice.ToString() + " €";
+                labelCarText.Text = b.Vehicle.Brand + ", " + b.Vehicle.Model;
+                labelNumberplateText.Text = b.Vehicle.NumberPlate;
+                labelPriceMinText.Text = b.Vehicle.PricePerMinute.ToString() + " €";
+                labelPricePerKilometreText.Text = b.Vehicle.PricePerKilometre.ToString() + " €";
+				labelTotalCostText.Text = b.CalculateCost().ToString("F2") + " €";
+				labelStartTimeText.Text = b.StartTime.ToString();
+				labelStartMileageText.Text = b.StartMileage.ToString() + " km";
+				if (b.Open)
+				{
+					watermarkTextBoxEndMileage.Visible = true;
+					watermarkTextBoxEndMileage.Enabled = true;
+					labelEndMileageText.Visible = false;
+					labelEndTimeText.Text = "----------------";
+				}
+				else
+				{
+					watermarkTextBoxEndMileage.Visible = false;
+					watermarkTextBoxEndMileage.Enabled = false;
+					labelEndMileageText.Visible = true;
+					labelEndMileageText.Text = b.EndMileage.ToString()+ " km";
+					labelEndTimeText.Text = b.EndTime.ToString();
+				}
+
+				buttonCloseCurrentBooking.Enabled = b.Open;
+			}
+            else
+            {
+                labelBasePriceText.Text = "----------------";
+                labelCarText.Text = "----------------";
+                labelNumberplateText.Text = "----------------";
+                labelPriceMinText.Text = "----------------";
+                labelPricePerKilometreText.Text = "----------------";
+                labelStartMileageText.Text = "----------------";
+                labelStartTimeText.Text = "----------------";
+                watermarkTextBoxEndMileage.ResetText();
+                watermarkTextBoxEndMileage.ResetToWatermark();
+                watermarkTextBoxEndMileage.Watermark = "Stand in Km";
+				labelTotalCostText.Text = "----------------";
+				watermarkTextBoxEndMileage.Visible = false;
+				watermarkTextBoxEndMileage.Enabled = false;
+				labelEndMileageText.Visible = true;
+				labelEndMileageText.Text = "----------------";
+
+				buttonCloseCurrentBooking.Enabled = false;
+            }
         }
 
         private void buttonCloseCurrentBooking_Click(object sender, EventArgs e)
         {
-            double userInput;
             // Check if the user input in the textbox is valid
-            if (Double.TryParse(watermarkTextBoxEndMileage.Text, out userInput) && userInput >= openBooking.StartMileage)
+            if (double.TryParse(watermarkTextBoxEndMileage.Text, out double userInput) && listBoxBooking.SelectedItem is Booking b && userInput >= b.StartMileage)
             {
                 // Close the booking locally
-                openBooking.Close(DateTime.Now, userInput);
+                b.Close(DateTime.Now, userInput);
                 // Close the booking in the database
-                if(DBController.CloseBookingInDB(openBooking))
+                if(DBController.CloseBookingInDB(b))
                 {
-                    Feedback.SuccessCloseBooking(openBooking.CalculateCost());
-                    groupBoxCurrentBooking.Visible = false;
-                }
+                    Feedback.SuccessCloseBooking(b.CalculateCost());
+					UpdateForm();
+				}
                 else
                 {
                     Feedback.ErrorDatabaseConnection();
@@ -91,38 +134,20 @@ namespace Carsharing
             else
             {
                 Feedback.ErrorInvalidEndMileageInput();
-                watermarkTextBoxEndMileage.Text = "";
             }
+			
         }
 
-
-        private void loadBookingData()
-        {
-            // check if the customer has an open booking to display
-            bool hasOpenBooking;
-            if (DBController.CheckOpenBookingsCustomer(FormController.CurrentCustomer, out hasOpenBooking))
-            {
-                if (hasOpenBooking)
-                {
-                    // Turn the GroupBox visible
-                    groupBoxCurrentBooking.Visible = true;
-
-                    // Now fetch the open booking from the database to show it on screen
-
-                    if (DBController.GetOpenBookingOfCustomer(FormController.CurrentCustomer, out openBooking))
-                    {
-                        showCurrentBookingInformation(openBooking);
-                    }
-                    else
-                    {
-                        Feedback.ErrorDatabaseConnection();
-                    }
-                }
-            }
-            else
-            {
-                Feedback.ErrorDatabaseConnection();
-            }
-        }
-    }
+		private void listBoxBooking_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (listBoxBooking.SelectedItem is Booking b)
+			{
+				ShowCurrentBookingInformation(b);
+			}
+			else
+			{
+				ShowCurrentBookingInformation();
+			}
+		}
+	}
 }

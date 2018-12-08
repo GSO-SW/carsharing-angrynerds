@@ -1042,41 +1042,6 @@ namespace Carsharing
             return status;
         }
 
-        internal static bool GetOpenBookingOfCustomer(Customer c, out Booking b)
-        {
-            // The result of the check is false at default
-            bool status = true;
-            DataTable table = new DataTable();
-            using (MySqlConnection con = new MySqlConnection(connectionString))
-            {
-                try
-                {
-                    con.Open();
-                    // Get all Booking information matching the customer's email-address and checks,
-                    // if the ending mileage equals NULL, indicating the booking is still open.
-                    using (MySqlCommand command = new MySqlCommand("Select * FROM buchung WHERE `E-Mail Adresse` = @email AND Endkilometerstand IS NULL", con))
-                    {
-                        command.Parameters.AddWithValue("email", c.EmailAddress);
-                        // Transfer the found B_IDs into a table via the MySqlDataAdapter...
-                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
-                        {
-                            adapter.Fill(table);
-                        }
-                    }
-                }
-                catch (Exception)
-                {
-                    status = false;
-                }
-                finally
-                {
-                    con.Close();
-                }
-            }
-            b = GetBookingFromDataRow(table.Rows[0]);
-            return status;
-        }
-
         /// <summary>
         /// Get a customer from the database by his email address.
         /// </summary>
@@ -1154,51 +1119,11 @@ namespace Carsharing
             return status;
         }
 
-        private static Customer GetCustomerFromDataRow(DataRow row)
-        {
-            Customer c;
-            try
-            {
-                c = new Customer(row.Field<string>("Vorname"), row.Field<string>("Nachname"), row.Field<string>("E-Mail Adresse"), row.Field<string>("Telefonnummer"), row.Field<string>("Passwort"), row.Field<DateTime>("Geburtstag"), row.Field<string>("Strasse"), row.Field<string>("Hausnummer"), row.Field<string>("PLZ"), row.Field<string>("Stadt"), row.Field<string>("Land"), row.Field<bool>("admin"));
-            }
-            catch (Exception)
-            {
-                c = null;
-            }
-            return c;
-        }
-
-        private static Booking GetBookingFromDataRow(DataRow row)
-        {
-            // Getting the customer and vehicle first
-            Customer c;
-            GetCustomerByEmailFromDB(row.Field<string>("E-Mail Adresse"), out c);
-            Vehicle v;
-            GetVehicleByNumberPlate(row.Field<string>("Kennzeichen"), out v);
-            bool open;
-
-            // Checks, if the booking is still open. That is determined whether or not "Endkilometerstand" is null
-            if (row.Field<double?>("Endkilometerstand") == null)
-            {
-                open = true;
-            }
-            else
-            {
-                open = false;
-            }
-
-            DateTime startzeitpunkt = row.Field<DateTime>("Startzeitpunkt");
-            DateTime endzeitpunkt;
-            if (open)
-                DateTime.TryParse(row.Field<string>("Endzeitpunkt"), out endzeitpunkt);
-            else
-                endzeitpunkt = row.Field<DateTime>("Endzeitpunkt");
-            double startkilometerstand = row.Field<double>("Startkilometerstand");
-            double? endkilometerstand = row.Field<double?>("Endkilometerstand");
-
-            return new Booking(c, v, startzeitpunkt, endzeitpunkt, startkilometerstand, endkilometerstand, open);
-        }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="customers"></param>
+        /// <returns></returns>
         internal static bool GetCustomers(out List<Customer> customers)
         {
             DataTable table = new DataTable();
@@ -1245,6 +1170,20 @@ namespace Carsharing
                 customers.Add(c);
             }
             return true;
+        }
+
+        private static Customer GetCustomerFromDataRow(DataRow row)
+        {
+            Customer c;
+            try
+            {
+                c = new Customer(row.Field<string>("Vorname"), row.Field<string>("Nachname"), row.Field<string>("E-Mail Adresse"), row.Field<string>("Telefonnummer"), row.Field<string>("Passwort"), row.Field<DateTime>("Geburtstag"), row.Field<string>("Strasse"), row.Field<string>("Hausnummer"), row.Field<string>("PLZ"), row.Field<string>("Stadt"), row.Field<string>("Land"), row.Field<bool>("admin"));
+            }
+            catch (Exception)
+            {
+                c = null;
+            }
+            return c;
         }
         #endregion
 
@@ -1308,7 +1247,7 @@ namespace Carsharing
                 {
                     con.Open();
                     // The sql update command adds the booking's ending time in the "Buchung" table, aswell as the final mileage
-                    using (MySqlCommand command = new MySqlCommand("UPDATE buchung SET Endzeitpunkt = @endzeitpunkt, Endkilometerstand = @endkilometerstand WHERE `E-Mail Adresse` = @email AND Kennzeichen = @kennzeichen;", con))
+                    using (MySqlCommand command = new MySqlCommand("UPDATE buchung SET Endzeitpunkt = @endzeitpunkt, Endkilometerstand = @endkilometerstand WHERE `E-Mail Adresse` = @email AND Kennzeichen = @kennzeichen  AND Endkilometerstand IS NULL", con))
                     {
                         command.Parameters.AddWithValue("endzeitpunkt", b.EndTime);
                         command.Parameters.AddWithValue("endkilometerstand", b.EndMileage);
@@ -1318,7 +1257,7 @@ namespace Carsharing
                     }
 
                     // The following sql command updates the vehicle in the database to match its state after the booking, to maintain the integrity of the DB.
-                    using (MySqlCommand command = new MySqlCommand("UPDATE fahrzeug SET Kilometerstand = @kilometerstand, Tankfuellung = @tankfuellung WHERE Kennzeichen = @kennzeichen;", con))
+                    using (MySqlCommand command = new MySqlCommand("UPDATE fahrzeug SET Kilometerstand = @kilometerstand, Tankfuellung = @tankfuellung WHERE Kennzeichen = @kennzeichen", con))
                     {
                         command.Parameters.AddWithValue("kilometerstand", b.Vehicle.Mileage);
                         command.Parameters.AddWithValue("tankfuellung", b.Vehicle.TankFilling);
@@ -1337,6 +1276,115 @@ namespace Carsharing
                 }
                 return result;
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="c"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        internal static bool GetOpenBookingOfCustomer(Customer c, out Booking b)
+        {
+            // The result of the check is false at default
+            bool status = true;
+            DataTable table = new DataTable();
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    con.Open();
+                    // Get all Booking information matching the customer's email-address and checks,
+                    // if the ending mileage equals NULL, indicating the booking is still open.
+                    using (MySqlCommand command = new MySqlCommand("Select * FROM buchung WHERE `E-Mail Adresse` = @email AND Endkilometerstand IS NULL", con))
+                    {
+                        command.Parameters.AddWithValue("email", c.EmailAddress);
+                        // Transfer the found B_IDs into a table via the MySqlDataAdapter...
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                        {
+                            adapter.Fill(table);
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    status = false;
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+            b = GetBookingFromDataRow(table.Rows[0]);
+            return status;
+        }
+        
+        internal static bool GetAllBookingsOfCustomer(Customer c, out List<Booking> bookings)
+        {
+            bool status = true;
+            bookings = new List<Booking>();
+            DataTable table = new DataTable();
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    con.Open();
+                    // Get all Booking information matching the customer's email-address
+                    using (MySqlCommand command = new MySqlCommand("Select * FROM buchung WHERE `E-Mail Adresse` = @email ORDER BY `Endzeitpunkt` ASC", con))
+                    {
+                        command.Parameters.AddWithValue("email", c.EmailAddress);
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                        {
+                            adapter.Fill(table);
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    status = false;
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+            foreach (DataRow row in table.Rows)
+            {
+                bookings.Add(GetBookingFromDataRow(row));
+            }
+            
+            return status;
+        }
+
+        private static Booking GetBookingFromDataRow(DataRow row)
+        {
+            // Getting the customer and vehicle first
+            Customer c;
+            GetCustomerByEmailFromDB(row.Field<string>("E-Mail Adresse"), out c);
+            Vehicle v;
+            GetVehicleByNumberPlate(row.Field<string>("Kennzeichen"), out v);
+            bool open;
+
+            // Checks, if the booking is still open. That is determined whether or not "Endkilometerstand" is null
+            if (row.Field<double?>("Endkilometerstand") == null)
+            {
+                open = true;
+            }
+            else
+            {
+                open = false;
+            }
+
+            DateTime startzeitpunkt = row.Field<DateTime>("Startzeitpunkt");
+            DateTime endzeitpunkt;
+            if (open)
+                DateTime.TryParse(row.Field<string>("Endzeitpunkt"), out endzeitpunkt);
+            else
+                endzeitpunkt = row.Field<DateTime>("Endzeitpunkt");
+            double startkilometerstand = row.Field<double>("Startkilometerstand");
+            double? endkilometerstand = row.Field<double?>("Endkilometerstand");
+
+            return new Booking(c, v, startzeitpunkt, endzeitpunkt, startkilometerstand, endkilometerstand, open);
         }
         #endregion
     }
