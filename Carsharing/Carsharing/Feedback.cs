@@ -58,7 +58,7 @@ namespace Carsharing
 			MessageBox.Show("Beim Bearbeiten des Fahrzeuges ist ein Fehler unterlaufen.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 
-		internal static void ErrorDatabaseVehicleDelete()
+        internal static void ErrorDatabaseVehicleDelete()
 		{
 			MessageBox.Show("Bei dem Versuch das Fahrzeug zu Löschen ist ein Fehler aufgetreten.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
@@ -68,12 +68,17 @@ namespace Carsharing
 			MessageBox.Show("Sie können dieses Fahrzeug nicht löschen, da dies gebucht ist.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 
-		internal static void ErrorDatabaseVehicleTypeDelete()
+        internal static void ErrorDatabaseBookedVehicleEdit()
+        {
+            MessageBox.Show("Sie können dieses Fahrzeug nicht bearbeiten, da dies gebucht ist.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        internal static void ErrorDatabaseVehicleTypeDelete()
 		{
 			MessageBox.Show("Bei dem Versuch den Fahrzeugtyp zu Löschen ist ein Fehler aufgetreten.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
-
-		internal static DialogResult AskCustomerDelete()
+        
+        internal static DialogResult AskCustomerDelete()
 		{
 			DialogResult dialogResult = MessageBox.Show("Wollen Sie wirklich diesen Account löschen?", titleCare, MessageBoxButtons.YesNo);
 			return dialogResult;
@@ -115,11 +120,10 @@ namespace Carsharing
 		{
 			MessageBox.Show("Das Fahrzeug wurde bearbeitet.", titleInformation, MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
+
 		internal static void SuccessVehicleDelete()
 		{
 			MessageBox.Show("Der Fahrzeug wurde erfolgreich gelöscht.", titleInformation, MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
-
-
 	}
 }

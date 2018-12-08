@@ -38,6 +38,10 @@ namespace Carsharing
 					{
 						new EditDataView(vehicle).ShowDialog();
 					}
+                    else
+                    {
+                        Feedback.ErrorDatabaseBookedVehicleEdit();
+                    }
 				}
 			}
 		}
