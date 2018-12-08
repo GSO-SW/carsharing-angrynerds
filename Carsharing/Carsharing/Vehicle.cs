@@ -77,12 +77,22 @@ namespace Carsharing
         }
 
         /// <summary>
-        /// Tank filling of the vehicle
+        /// Tank filling of the vehicle, cannot be negative
         /// </summary>
         internal double TankFilling
         {
             get { return tankFilling; }
-            set { tankFilling = value; }
+            set
+            {
+                if (value >= 0)
+                {
+                    tankFilling = value;
+                }
+                else
+                {
+                    tankFilling = 0;
+                }
+            }
         }
 
         /// <summary>

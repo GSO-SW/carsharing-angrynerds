@@ -113,5 +113,23 @@ namespace Carsharing
                 Vehicle.TankFilling = Vehicle.TankFilling - Vehicle.FuelConsumption / 100 * (endMileage - StartMileage); // Fuel consumption is in 1l per 100 km, hence dividing here by 100.
             }
         }
+
+        /// <summary>
+        /// Calculates the cost of a closed booking
+        /// </summary>
+        /// <returns></returns>
+        internal double CalculateCost()
+        {
+            double cost;
+            if (!open)
+            {
+                cost = Vehicle.BasicPrice + Vehicle.PricePerKilometre * ((double)EndMileage - StartMileage) + Vehicle.PricePerMinute * EndTime.Subtract(StartTime).Minutes;
+            }
+            else
+            {
+                cost = 0;
+            }
+            return cost;
+        }
 	}
 }
