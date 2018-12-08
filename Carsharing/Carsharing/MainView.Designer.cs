@@ -33,18 +33,12 @@
 			this.buttonCancel = new System.Windows.Forms.Button();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.pictureLogo = new System.Windows.Forms.PictureBox();
-			this.buttonBookings = new System.Windows.Forms.Button();
-			this.adminBookings1 = new Carsharing.MainViewAdminBookings();
 			this.buttonUsers = new System.Windows.Forms.Button();
-			this.adminUsers1 = new Carsharing.MainViewAdminUsers();
 			this.buttonBooking = new System.Windows.Forms.Button();
-			this.userBooking1 = new Carsharing.MainViewUserBooking();
 			this.button3 = new System.Windows.Forms.Button();
 			this.buttonVehicles = new System.Windows.Forms.Button();
-			this.adminVehicles1 = new Carsharing.MainViewAdminVehicle();
 			this.panelSelect = new System.Windows.Forms.Panel();
 			this.buttonStatus = new System.Windows.Forms.Button();
-			this.userStatus1 = new Carsharing.MainViewUserStatus();
 			this.panel3.SuspendLayout();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).BeginInit();
@@ -59,6 +53,9 @@
 			this.panel3.Name = "panel3";
 			this.panel3.Size = new System.Drawing.Size(1100, 25);
 			this.panel3.TabIndex = 10;
+			this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseDown);
+			this.panel3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseMove);
+			this.panel3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseUp);
 			// 
 			// buttonCancel
 			// 
@@ -78,7 +75,6 @@
 			// 
 			this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(90)))));
 			this.panel1.Controls.Add(this.pictureLogo);
-			this.panel1.Controls.Add(this.buttonBookings);
 			this.panel1.Controls.Add(this.buttonUsers);
 			this.panel1.Controls.Add(this.buttonBooking);
 			this.panel1.Controls.Add(this.button3);
@@ -102,31 +98,6 @@
 			this.pictureLogo.TabIndex = 6;
 			this.pictureLogo.TabStop = false;
 			// 
-			// buttonBookings
-			// 
-			this.buttonBookings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(90)))));
-			this.buttonBookings.FlatAppearance.BorderSize = 0;
-			this.buttonBookings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.buttonBookings.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.buttonBookings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.buttonBookings.Location = new System.Drawing.Point(15, 524);
-			this.buttonBookings.Name = "buttonBookings";
-			this.buttonBookings.Size = new System.Drawing.Size(182, 40);
-			this.buttonBookings.TabIndex = 5;
-			this.buttonBookings.Tag = this.adminBookings1;
-			this.buttonBookings.Text = "Buchungen";
-			this.buttonBookings.UseVisualStyleBackColor = false;
-			this.buttonBookings.Click += new System.EventHandler(this.buttonStatus_Click);
-			// 
-			// adminBookings1
-			// 
-			this.adminBookings1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.adminBookings1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.adminBookings1.Location = new System.Drawing.Point(0, 0);
-			this.adminBookings1.Name = "adminBookings1";
-			this.adminBookings1.Size = new System.Drawing.Size(1100, 600);
-			this.adminBookings1.TabIndex = 14;
-			// 
 			// buttonUsers
 			// 
 			this.buttonUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(90)))));
@@ -138,19 +109,9 @@
 			this.buttonUsers.Name = "buttonUsers";
 			this.buttonUsers.Size = new System.Drawing.Size(182, 40);
 			this.buttonUsers.TabIndex = 4;
-			this.buttonUsers.Tag = this.adminUsers1;
 			this.buttonUsers.Text = "Nutzer";
 			this.buttonUsers.UseVisualStyleBackColor = false;
 			this.buttonUsers.Click += new System.EventHandler(this.buttonStatus_Click);
-			// 
-			// adminUsers1
-			// 
-			this.adminUsers1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.adminUsers1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.adminUsers1.Location = new System.Drawing.Point(0, 0);
-			this.adminUsers1.Name = "adminUsers1";
-			this.adminUsers1.Size = new System.Drawing.Size(1100, 600);
-			this.adminUsers1.TabIndex = 15;
 			// 
 			// buttonBooking
 			// 
@@ -163,19 +124,9 @@
 			this.buttonBooking.Name = "buttonBooking";
 			this.buttonBooking.Size = new System.Drawing.Size(182, 40);
 			this.buttonBooking.TabIndex = 3;
-			this.buttonBooking.Tag = this.userBooking1;
 			this.buttonBooking.Text = "Buchung";
 			this.buttonBooking.UseVisualStyleBackColor = false;
 			this.buttonBooking.Click += new System.EventHandler(this.buttonStatus_Click);
-			// 
-			// userBooking1
-			// 
-			this.userBooking1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.userBooking1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.userBooking1.Location = new System.Drawing.Point(200, 25);
-			this.userBooking1.Name = "userBooking1";
-			this.userBooking1.Size = new System.Drawing.Size(900, 575);
-			this.userBooking1.TabIndex = 12;
 			// 
 			// button3
 			// 
@@ -202,19 +153,9 @@
 			this.buttonVehicles.Name = "buttonVehicles";
 			this.buttonVehicles.Size = new System.Drawing.Size(182, 40);
 			this.buttonVehicles.TabIndex = 1;
-			this.buttonVehicles.Tag = this.adminVehicles1;
 			this.buttonVehicles.Text = "Fuhrpark";
 			this.buttonVehicles.UseVisualStyleBackColor = false;
 			this.buttonVehicles.Click += new System.EventHandler(this.buttonStatus_Click);
-			// 
-			// adminVehicles1
-			// 
-			this.adminVehicles1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.adminVehicles1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.adminVehicles1.Location = new System.Drawing.Point(0, 0);
-			this.adminVehicles1.Name = "adminVehicles1";
-			this.adminVehicles1.Size = new System.Drawing.Size(1100, 600);
-			this.adminVehicles1.TabIndex = 16;
 			// 
 			// panelSelect
 			// 
@@ -235,19 +176,9 @@
 			this.buttonStatus.Name = "buttonStatus";
 			this.buttonStatus.Size = new System.Drawing.Size(182, 40);
 			this.buttonStatus.TabIndex = 0;
-			this.buttonStatus.Tag = this.userStatus1;
 			this.buttonStatus.Text = "Status";
 			this.buttonStatus.UseVisualStyleBackColor = false;
 			this.buttonStatus.Click += new System.EventHandler(this.buttonStatus_Click);
-			// 
-			// userStatus1
-			// 
-			this.userStatus1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.userStatus1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.userStatus1.Location = new System.Drawing.Point(200, 25);
-			this.userStatus1.Name = "userStatus1";
-			this.userStatus1.Size = new System.Drawing.Size(900, 575);
-			this.userStatus1.TabIndex = 13;
 			// 
 			// MainView
 			// 
@@ -255,13 +186,8 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
 			this.ClientSize = new System.Drawing.Size(1100, 600);
-			this.Controls.Add(this.userStatus1);
-			this.Controls.Add(this.userBooking1);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.panel3);
-			this.Controls.Add(this.adminVehicles1);
-			this.Controls.Add(this.adminUsers1);
-			this.Controls.Add(this.adminBookings1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "MainView";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -281,7 +207,6 @@
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Button buttonStatus;
 		private System.Windows.Forms.Panel panelSelect;
-		private System.Windows.Forms.Button buttonBookings;
 		private System.Windows.Forms.Button buttonUsers;
 		private System.Windows.Forms.Button buttonBooking;
 		private System.Windows.Forms.Button button3;

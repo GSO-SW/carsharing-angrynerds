@@ -13,32 +13,110 @@ namespace Carsharing
 	internal partial class MainView : Form
 	{
 		private Button[] selectableButtons;
+		bool leftMouseDownOnPanel;
+		Point clickPoint;
 
 		internal MainView()
 		{
+			InitializeComponentBefore();
 			InitializeComponent();
+			InitializeComponentAfter();
+
 			DoubleBuffered = true;
 
             leftMouseDownOnPanel = false;
-            panel3.MouseDown += panel3_MouseDown;
-            panel3.MouseMove += panel3_MouseMove;
-            panel3.MouseUp += panel3_MouseUp;
 
             FormController.MainView = this;
 		}
 
-        private void MainView_Load(object sender, EventArgs e)
+		private void InitializeComponentBefore()
+		{
+			this.adminBookings1 = new Carsharing.MainViewAdminBookings(); //gelöscht
+			this.adminUsers1 = new Carsharing.MainViewAdminUsers();
+			this.userBooking1 = new Carsharing.MainViewUserBooking();
+			this.adminVehicles1 = new Carsharing.MainViewAdminVehicle();
+			this.userStatus1 = new Carsharing.MainViewUserStatus();
+		}
+
+		private void InitializeComponentAfter()
+		{
+			// 
+			// adminBookings1
+			// 
+			this.adminBookings1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.adminBookings1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.adminBookings1.Location = new System.Drawing.Point(0, 0);
+			this.adminBookings1.Name = "adminBookings1";
+			this.adminBookings1.Size = new System.Drawing.Size(1100, 600);
+			this.adminBookings1.TabIndex = 14;
+
+			this.buttonUsers.Tag = this.adminUsers1;
+
+			// 
+			// adminUsers1
+			// 
+			this.adminUsers1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.adminUsers1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.adminUsers1.Location = new System.Drawing.Point(0, 0);
+			this.adminUsers1.Name = "adminUsers1";
+			this.adminUsers1.Size = new System.Drawing.Size(1100, 600);
+			this.adminUsers1.TabIndex = 15;
+
+			this.buttonBooking.Tag = this.userBooking1;
+			
+			// 
+			// userBooking1
+			// 
+			this.userBooking1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.userBooking1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.userBooking1.Location = new System.Drawing.Point(200, 25);
+			this.userBooking1.Name = "userBooking1";
+			this.userBooking1.Size = new System.Drawing.Size(900, 575);
+			this.userBooking1.TabIndex = 12;
+
+			this.buttonVehicles.Tag = this.adminVehicles1;
+			
+			// 
+			// adminVehicles1
+			// 
+			this.adminVehicles1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.adminVehicles1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.adminVehicles1.Location = new System.Drawing.Point(0, 0);
+			this.adminVehicles1.Name = "adminVehicles1";
+			this.adminVehicles1.Size = new System.Drawing.Size(1100, 600);
+			this.adminVehicles1.TabIndex = 16;
+
+			this.buttonStatus.Tag = this.userStatus1;
+
+			// 
+			// userStatus1
+			// 
+			this.userStatus1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.userStatus1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.userStatus1.Location = new System.Drawing.Point(200, 25);
+			this.userStatus1.Name = "userStatus1";
+			this.userStatus1.Size = new System.Drawing.Size(900, 575);
+			this.userStatus1.TabIndex = 13;
+
+			this.Controls.Add(this.userStatus1);
+			this.Controls.Add(this.userBooking1);
+			this.Controls.Add(this.adminVehicles1);
+			this.Controls.Add(this.adminUsers1);
+			this.Controls.Add(this.adminBookings1);
+
+		}
+
+		private void MainView_Load(object sender, EventArgs e)
 		{
 			if (FormController.CurrentCustomer.IsAdmin) //admin
 			{
-				selectableButtons = new Button[] { buttonStatus, buttonBooking, buttonVehicles, buttonUsers, buttonBookings };
+				selectableButtons = new Button[] { buttonStatus, buttonBooking, buttonVehicles, buttonUsers };
 			}
 			else //user
 			{
 				selectableButtons = new Button[] { buttonStatus, buttonBooking };
 				buttonVehicles.Visible = false;
 				buttonUsers.Visible = false;
-				buttonBookings.Visible = false;
 			}
 		}
 
@@ -88,11 +166,8 @@ namespace Carsharing
 			adminUsers1.UpdateTable();
 		}
 
-
-        bool leftMouseDownOnPanel;
-        Point clickPoint;
-
-        private void panel3_MouseDown(object sender, MouseEventArgs e)
+		#region main window moveable
+		private void panel3_MouseDown(object sender, MouseEventArgs e)
         {
             if (!leftMouseDownOnPanel)
             {
@@ -117,5 +192,6 @@ namespace Carsharing
         {
             leftMouseDownOnPanel = false;
         }
-    }
+		#endregion
+	}
 }
