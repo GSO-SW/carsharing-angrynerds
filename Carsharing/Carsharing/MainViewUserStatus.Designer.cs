@@ -29,10 +29,11 @@
 		private void InitializeComponent()
 		{
             this.labelWelcome = new System.Windows.Forms.Label();
-            this.buttonUserEdit = new CustomControl.RoundButton();
-            this.buttonUserDelete = new CustomControl.RoundButton();
-            this.buttonCloseCurrentBooking = new CustomControl.RoundButton();
             this.groupBoxCurrentBooking = new System.Windows.Forms.GroupBox();
+            this.labelTotalCostText = new System.Windows.Forms.Label();
+            this.labelTotalCost = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.watermarkTextBoxEndMileage = new CustomControl.WatermarkTextBox();
             this.labelStartMileageText = new System.Windows.Forms.Label();
             this.labelStartMileage = new System.Windows.Forms.Label();
             this.labelStartTimeText = new System.Windows.Forms.Label();
@@ -47,6 +48,9 @@
             this.labelCarText = new System.Windows.Forms.Label();
             this.labelCar = new System.Windows.Forms.Label();
             this.labelNumberplate = new System.Windows.Forms.Label();
+            this.buttonCloseCurrentBooking = new CustomControl.RoundButton();
+            this.buttonUserDelete = new CustomControl.RoundButton();
+            this.buttonUserEdit = new CustomControl.RoundButton();
             this.groupBoxCurrentBooking.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,48 +64,13 @@
             this.labelWelcome.TabIndex = 2;
             this.labelWelcome.Text = "Willkommen";
             // 
-            // buttonUserEdit
-            // 
-            this.buttonUserEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(90)))));
-            this.buttonUserEdit.FlatAppearance.BorderSize = 0;
-            this.buttonUserEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonUserEdit.Location = new System.Drawing.Point(775, 3);
-            this.buttonUserEdit.Name = "buttonUserEdit";
-            this.buttonUserEdit.Size = new System.Drawing.Size(122, 28);
-            this.buttonUserEdit.TabIndex = 5;
-            this.buttonUserEdit.Text = "Profil bearbeiten";
-            this.buttonUserEdit.UseVisualStyleBackColor = false;
-            this.buttonUserEdit.Click += new System.EventHandler(this.buttonUserEdit_Click);
-            // 
-            // buttonUserDelete
-            // 
-            this.buttonUserDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(90)))));
-            this.buttonUserDelete.FlatAppearance.BorderSize = 0;
-            this.buttonUserDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonUserDelete.Location = new System.Drawing.Point(775, 37);
-            this.buttonUserDelete.Name = "buttonUserDelete";
-            this.buttonUserDelete.Size = new System.Drawing.Size(122, 28);
-            this.buttonUserDelete.TabIndex = 6;
-            this.buttonUserDelete.Text = "Profil löschen";
-            this.buttonUserDelete.UseVisualStyleBackColor = false;
-            this.buttonUserDelete.Click += new System.EventHandler(this.buttonUserDelete_Click);
-            // 
-            // buttonCloseCurrentBooking
-            // 
-            this.buttonCloseCurrentBooking.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(90)))));
-            this.buttonCloseCurrentBooking.FlatAppearance.BorderSize = 0;
-            this.buttonCloseCurrentBooking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCloseCurrentBooking.Location = new System.Drawing.Point(386, 302);
-            this.buttonCloseCurrentBooking.Name = "buttonCloseCurrentBooking";
-            this.buttonCloseCurrentBooking.Size = new System.Drawing.Size(122, 28);
-            this.buttonCloseCurrentBooking.TabIndex = 7;
-            this.buttonCloseCurrentBooking.Text = "Buchung beenden";
-            this.buttonCloseCurrentBooking.UseVisualStyleBackColor = false;
-            this.buttonCloseCurrentBooking.Click += new System.EventHandler(this.buttonCloseCurrentBooking_Click);
-            // 
             // groupBoxCurrentBooking
             // 
-            this.groupBoxCurrentBooking.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.groupBoxCurrentBooking.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.groupBoxCurrentBooking.Controls.Add(this.labelTotalCostText);
+            this.groupBoxCurrentBooking.Controls.Add(this.labelTotalCost);
+            this.groupBoxCurrentBooking.Controls.Add(this.label1);
+            this.groupBoxCurrentBooking.Controls.Add(this.watermarkTextBoxEndMileage);
             this.groupBoxCurrentBooking.Controls.Add(this.labelStartMileageText);
             this.groupBoxCurrentBooking.Controls.Add(this.labelStartMileage);
             this.groupBoxCurrentBooking.Controls.Add(this.labelStartTimeText);
@@ -125,10 +94,56 @@
             this.groupBoxCurrentBooking.TabStop = false;
             this.groupBoxCurrentBooking.Text = "Laufende Buchung";
             // 
+            // labelTotalCostText
+            // 
+            this.labelTotalCostText.AutoSize = true;
+            this.labelTotalCostText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.labelTotalCostText.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.labelTotalCostText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelTotalCostText.Location = new System.Drawing.Point(357, 204);
+            this.labelTotalCostText.Name = "labelTotalCostText";
+            this.labelTotalCostText.Size = new System.Drawing.Size(105, 19);
+            this.labelTotalCostText.TabIndex = 75;
+            this.labelTotalCostText.Text = "----------------";
+            // 
+            // labelTotalCost
+            // 
+            this.labelTotalCost.AutoSize = true;
+            this.labelTotalCost.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.labelTotalCost.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.labelTotalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelTotalCost.Location = new System.Drawing.Point(357, 185);
+            this.labelTotalCost.Name = "labelTotalCost";
+            this.labelTotalCost.Size = new System.Drawing.Size(85, 19);
+            this.labelTotalCost.TabIndex = 74;
+            this.labelTotalCost.Text = "Gesamtpreis";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(357, 134);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(123, 19);
+            this.label1.TabIndex = 73;
+            this.label1.Text = "Endkilometerstand";
+            // 
+            // watermarkTextBoxEndMileage
+            // 
+            this.watermarkTextBoxEndMileage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
+            this.watermarkTextBoxEndMileage.Location = new System.Drawing.Point(361, 156);
+            this.watermarkTextBoxEndMileage.Name = "watermarkTextBoxEndMileage";
+            this.watermarkTextBoxEndMileage.Password = false;
+            this.watermarkTextBoxEndMileage.Size = new System.Drawing.Size(91, 22);
+            this.watermarkTextBoxEndMileage.TabIndex = 72;
+            this.watermarkTextBoxEndMileage.Watermark = "Stand in Km";
+            // 
             // labelStartMileageText
             // 
             this.labelStartMileageText.AutoSize = true;
-            this.labelStartMileageText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.labelStartMileageText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.labelStartMileageText.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.labelStartMileageText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.labelStartMileageText.Location = new System.Drawing.Point(357, 101);
@@ -152,7 +167,7 @@
             // labelStartTimeText
             // 
             this.labelStartTimeText.AutoSize = true;
-            this.labelStartTimeText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.labelStartTimeText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.labelStartTimeText.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.labelStartTimeText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.labelStartTimeText.Location = new System.Drawing.Point(357, 52);
@@ -176,7 +191,7 @@
             // labelPriceMinText
             // 
             this.labelPriceMinText.AutoSize = true;
-            this.labelPriceMinText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.labelPriceMinText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.labelPriceMinText.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.labelPriceMinText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.labelPriceMinText.Location = new System.Drawing.Point(41, 255);
@@ -188,7 +203,7 @@
             // labelPricePerKilometreText
             // 
             this.labelPricePerKilometreText.AutoSize = true;
-            this.labelPricePerKilometreText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.labelPricePerKilometreText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.labelPricePerKilometreText.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.labelPricePerKilometreText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.labelPricePerKilometreText.Location = new System.Drawing.Point(41, 204);
@@ -224,7 +239,7 @@
             // labelBasePriceText
             // 
             this.labelBasePriceText.AutoSize = true;
-            this.labelBasePriceText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.labelBasePriceText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.labelBasePriceText.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.labelBasePriceText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.labelBasePriceText.Location = new System.Drawing.Point(41, 153);
@@ -248,7 +263,7 @@
             // labelNumberplateText
             // 
             this.labelNumberplateText.AutoSize = true;
-            this.labelNumberplateText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.labelNumberplateText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.labelNumberplateText.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.labelNumberplateText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.labelNumberplateText.Location = new System.Drawing.Point(41, 101);
@@ -260,7 +275,7 @@
             // labelCarText
             // 
             this.labelCarText.AutoSize = true;
-            this.labelCarText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.labelCarText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.labelCarText.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.labelCarText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.labelCarText.Location = new System.Drawing.Point(41, 52);
@@ -292,6 +307,45 @@
             this.labelNumberplate.Size = new System.Drawing.Size(85, 19);
             this.labelNumberplate.TabIndex = 31;
             this.labelNumberplate.Text = "Kennzeichen";
+            // 
+            // buttonCloseCurrentBooking
+            // 
+            this.buttonCloseCurrentBooking.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(90)))));
+            this.buttonCloseCurrentBooking.FlatAppearance.BorderSize = 0;
+            this.buttonCloseCurrentBooking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCloseCurrentBooking.Location = new System.Drawing.Point(386, 302);
+            this.buttonCloseCurrentBooking.Name = "buttonCloseCurrentBooking";
+            this.buttonCloseCurrentBooking.Size = new System.Drawing.Size(122, 28);
+            this.buttonCloseCurrentBooking.TabIndex = 7;
+            this.buttonCloseCurrentBooking.Text = "Buchung beenden";
+            this.buttonCloseCurrentBooking.UseVisualStyleBackColor = false;
+            this.buttonCloseCurrentBooking.Click += new System.EventHandler(this.buttonCloseCurrentBooking_Click);
+            // 
+            // buttonUserDelete
+            // 
+            this.buttonUserDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(90)))));
+            this.buttonUserDelete.FlatAppearance.BorderSize = 0;
+            this.buttonUserDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUserDelete.Location = new System.Drawing.Point(775, 37);
+            this.buttonUserDelete.Name = "buttonUserDelete";
+            this.buttonUserDelete.Size = new System.Drawing.Size(122, 28);
+            this.buttonUserDelete.TabIndex = 6;
+            this.buttonUserDelete.Text = "Profil löschen";
+            this.buttonUserDelete.UseVisualStyleBackColor = false;
+            this.buttonUserDelete.Click += new System.EventHandler(this.buttonUserDelete_Click);
+            // 
+            // buttonUserEdit
+            // 
+            this.buttonUserEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(90)))));
+            this.buttonUserEdit.FlatAppearance.BorderSize = 0;
+            this.buttonUserEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUserEdit.Location = new System.Drawing.Point(775, 3);
+            this.buttonUserEdit.Name = "buttonUserEdit";
+            this.buttonUserEdit.Size = new System.Drawing.Size(122, 28);
+            this.buttonUserEdit.TabIndex = 5;
+            this.buttonUserEdit.Text = "Profil bearbeiten";
+            this.buttonUserEdit.UseVisualStyleBackColor = false;
+            this.buttonUserEdit.Click += new System.EventHandler(this.buttonUserEdit_Click);
             // 
             // MainViewUserStatus
             // 
@@ -331,5 +385,9 @@
         private System.Windows.Forms.Label labelStartTime;
         private System.Windows.Forms.Label labelStartMileageText;
         private System.Windows.Forms.Label labelStartMileage;
+        private System.Windows.Forms.Label labelTotalCostText;
+        private System.Windows.Forms.Label labelTotalCost;
+        private System.Windows.Forms.Label label1;
+        private CustomControl.WatermarkTextBox watermarkTextBoxEndMileage;
     }
 }

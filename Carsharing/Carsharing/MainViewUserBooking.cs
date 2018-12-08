@@ -16,7 +16,7 @@ namespace Carsharing
 		{
 			InitializeComponent();
 
-            listVehicle.DisplayMember = "DisplayMember";
+            UpdateForm();
 		}
 
 		private void MainViewUserBooking_Load(object sender, EventArgs e)
@@ -145,5 +145,11 @@ namespace Carsharing
 				MessageBox.Show("Buchung nicht erfolgreich, da Sie bereits eine offene Buchung haben.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
+
+        internal void UpdateForm()
+        {
+            listVehicle.DisplayMember = "DisplayMember";
+            UpdateTable();
+        }
 	}
 }

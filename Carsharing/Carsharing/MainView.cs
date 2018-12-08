@@ -57,7 +57,20 @@ namespace Carsharing
 			panelSelect.Top = clickedButton.Top;
 
 			((UserControl)clickedButton.Tag).BringToFront();
-		}
+            // Updates form after switching between them
+            if (((UserControl)clickedButton.Tag) is MainViewUserStatus)
+                ((MainViewUserStatus)clickedButton.Tag).UpdateForm();
+
+            if (((UserControl)clickedButton.Tag) is MainViewUserBooking)
+                ((MainViewUserBooking)clickedButton.Tag).UpdateForm();
+
+            if (((UserControl)clickedButton.Tag) is MainViewAdminVehicle)
+                ((MainViewAdminVehicle)clickedButton.Tag).UpdateTable();
+
+            if (((UserControl)clickedButton.Tag) is MainViewAdminUsers)
+                ((MainViewAdminUsers)clickedButton.Tag).UpdateTable();
+
+        }
 
 		internal void UpdateVehicleList()
 		{

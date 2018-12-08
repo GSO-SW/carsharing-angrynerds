@@ -73,22 +73,24 @@ namespace Carsharing
 			MessageBox.Show("Bei dem Versuch den Fahrzeugtyp zu Löschen ist ein Fehler aufgetreten.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 
+        internal static void ErrorInvalidEndMileageInput()
+        {
+            MessageBox.Show("Ihre Eingabe ist ungültig.\nVergewissern Sie sich, dass ihre Eingabe größer als der Startkilometerstand ist.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
 		internal static DialogResult AskCustomerDelete()
 		{
-			DialogResult dialogResult = MessageBox.Show("Wollen Sie wirklich diesen Account löschen?", titleCare, MessageBoxButtons.YesNo);
-			return dialogResult;
+			return MessageBox.Show("Wollen Sie wirklich diesen Account löschen?", titleCare, MessageBoxButtons.YesNo);
 		}
 
 		internal static DialogResult AskVehicleDelete()
 		{
-			DialogResult dialogResult = MessageBox.Show("Wollen Sie wirklich dieses Fahrzeug löschen?", titleCare, MessageBoxButtons.YesNo);
-			return dialogResult;
+			return MessageBox.Show("Wollen Sie wirklich dieses Fahrzeug löschen?", titleCare, MessageBoxButtons.YesNo);
 		}
 
 		internal static DialogResult AskOwnCustomerDelete()
 		{
-			DialogResult dialogResult = MessageBox.Show("Wollen Sie wirklich Ihren Account löschen?", titleCare, MessageBoxButtons.YesNo);
-			return dialogResult;
+			return MessageBox.Show("Wollen Sie wirklich Ihren Account löschen?", titleCare, MessageBoxButtons.YesNo);
 		}
 
 		internal static void SuccessCustomersDelete()
@@ -120,6 +122,9 @@ namespace Carsharing
 			MessageBox.Show("Der Fahrzeug wurde erfolgreich gelöscht.", titleInformation, MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 
-
-	}
+        internal static void SuccessCloseBooking(double totalCost)
+        {
+            MessageBox.Show("Die Buchung wurde erfolgreich beendet.\nDie Gesamtkosten betragen " + totalCost.ToString("F2") + " €.", titleInformation, MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+    }
 }
