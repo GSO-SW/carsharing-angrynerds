@@ -33,24 +33,20 @@
             this.buttonUserDelete = new CustomControl.RoundButton();
             this.buttonCloseCurrentBooking = new CustomControl.RoundButton();
             this.groupBoxCurrentBooking = new System.Windows.Forms.GroupBox();
-            this.labelNumberplate = new System.Windows.Forms.Label();
-            this.labelCar = new System.Windows.Forms.Label();
-            this.labelCarText = new System.Windows.Forms.Label();
-            this.labelNumberplateText = new System.Windows.Forms.Label();
-            this.labelBasePrice = new System.Windows.Forms.Label();
-            this.labelBasePriceText = new System.Windows.Forms.Label();
-            this.labelPricePerKilometre = new System.Windows.Forms.Label();
-            this.labelPriceMin = new System.Windows.Forms.Label();
-            this.labelPricePerKilometreText = new System.Windows.Forms.Label();
-            this.labelPriceMinText = new System.Windows.Forms.Label();
-            this.labelStartTime = new System.Windows.Forms.Label();
-            this.labelStartTimeText = new System.Windows.Forms.Label();
-            this.labelEndTime = new System.Windows.Forms.Label();
-            this.labelEndTimeText = new System.Windows.Forms.Label();
-            this.labelStartMileage = new System.Windows.Forms.Label();
             this.labelStartMileageText = new System.Windows.Forms.Label();
-            this.labelEndMileage = new System.Windows.Forms.Label();
-            this.labelEndMileageText = new System.Windows.Forms.Label();
+            this.labelStartMileage = new System.Windows.Forms.Label();
+            this.labelStartTimeText = new System.Windows.Forms.Label();
+            this.labelStartTime = new System.Windows.Forms.Label();
+            this.labelPriceMinText = new System.Windows.Forms.Label();
+            this.labelPricePerKilometreText = new System.Windows.Forms.Label();
+            this.labelPriceMin = new System.Windows.Forms.Label();
+            this.labelPricePerKilometre = new System.Windows.Forms.Label();
+            this.labelBasePriceText = new System.Windows.Forms.Label();
+            this.labelBasePrice = new System.Windows.Forms.Label();
+            this.labelNumberplateText = new System.Windows.Forms.Label();
+            this.labelCarText = new System.Windows.Forms.Label();
+            this.labelCar = new System.Windows.Forms.Label();
+            this.labelNumberplate = new System.Windows.Forms.Label();
             this.groupBoxCurrentBooking.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,12 +101,8 @@
             // groupBoxCurrentBooking
             // 
             this.groupBoxCurrentBooking.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.groupBoxCurrentBooking.Controls.Add(this.labelEndMileageText);
-            this.groupBoxCurrentBooking.Controls.Add(this.labelEndMileage);
             this.groupBoxCurrentBooking.Controls.Add(this.labelStartMileageText);
             this.groupBoxCurrentBooking.Controls.Add(this.labelStartMileage);
-            this.groupBoxCurrentBooking.Controls.Add(this.labelEndTimeText);
-            this.groupBoxCurrentBooking.Controls.Add(this.labelEndTime);
             this.groupBoxCurrentBooking.Controls.Add(this.labelStartTimeText);
             this.groupBoxCurrentBooking.Controls.Add(this.labelStartTime);
             this.groupBoxCurrentBooking.Controls.Add(this.labelPriceMinText);
@@ -132,137 +124,29 @@
             this.groupBoxCurrentBooking.TabStop = false;
             this.groupBoxCurrentBooking.Text = "Laufende Buchung";
             // 
-            // labelNumberplate
+            // labelStartMileageText
             // 
-            this.labelNumberplate.AutoSize = true;
-            this.labelNumberplate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.labelNumberplate.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.labelNumberplate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelNumberplate.Location = new System.Drawing.Point(41, 82);
-            this.labelNumberplate.Name = "labelNumberplate";
-            this.labelNumberplate.Size = new System.Drawing.Size(85, 19);
-            this.labelNumberplate.TabIndex = 31;
-            this.labelNumberplate.Text = "Kennzeichen";
+            this.labelStartMileageText.AutoSize = true;
+            this.labelStartMileageText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.labelStartMileageText.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.labelStartMileageText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelStartMileageText.Location = new System.Drawing.Point(357, 101);
+            this.labelStartMileageText.Name = "labelStartMileageText";
+            this.labelStartMileageText.Size = new System.Drawing.Size(105, 19);
+            this.labelStartMileageText.TabIndex = 71;
+            this.labelStartMileageText.Text = "----------------";
             // 
-            // labelCar
+            // labelStartMileage
             // 
-            this.labelCar.AutoSize = true;
-            this.labelCar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.labelCar.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.labelCar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelCar.Location = new System.Drawing.Point(41, 33);
-            this.labelCar.Name = "labelCar";
-            this.labelCar.Size = new System.Drawing.Size(39, 19);
-            this.labelCar.TabIndex = 32;
-            this.labelCar.Text = "Auto";
-            // 
-            // labelCarText
-            // 
-            this.labelCarText.AutoSize = true;
-            this.labelCarText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.labelCarText.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.labelCarText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelCarText.Location = new System.Drawing.Point(41, 52);
-            this.labelCarText.Name = "labelCarText";
-            this.labelCarText.Size = new System.Drawing.Size(105, 19);
-            this.labelCarText.TabIndex = 43;
-            this.labelCarText.Text = "----------------";
-            // 
-            // labelNumberplateText
-            // 
-            this.labelNumberplateText.AutoSize = true;
-            this.labelNumberplateText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.labelNumberplateText.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.labelNumberplateText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelNumberplateText.Location = new System.Drawing.Point(41, 101);
-            this.labelNumberplateText.Name = "labelNumberplateText";
-            this.labelNumberplateText.Size = new System.Drawing.Size(105, 19);
-            this.labelNumberplateText.TabIndex = 44;
-            this.labelNumberplateText.Text = "----------------";
-            // 
-            // labelBasePrice
-            // 
-            this.labelBasePrice.AutoSize = true;
-            this.labelBasePrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.labelBasePrice.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.labelBasePrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelBasePrice.Location = new System.Drawing.Point(41, 134);
-            this.labelBasePrice.Name = "labelBasePrice";
-            this.labelBasePrice.Size = new System.Drawing.Size(77, 19);
-            this.labelBasePrice.TabIndex = 45;
-            this.labelBasePrice.Text = "Grundpreis";
-            // 
-            // labelBasePriceText
-            // 
-            this.labelBasePriceText.AutoSize = true;
-            this.labelBasePriceText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.labelBasePriceText.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.labelBasePriceText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelBasePriceText.Location = new System.Drawing.Point(41, 153);
-            this.labelBasePriceText.Name = "labelBasePriceText";
-            this.labelBasePriceText.Size = new System.Drawing.Size(105, 19);
-            this.labelBasePriceText.TabIndex = 46;
-            this.labelBasePriceText.Text = "----------------";
-            // 
-            // labelPricePerKilometre
-            // 
-            this.labelPricePerKilometre.AutoSize = true;
-            this.labelPricePerKilometre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.labelPricePerKilometre.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.labelPricePerKilometre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelPricePerKilometre.Location = new System.Drawing.Point(41, 185);
-            this.labelPricePerKilometre.Name = "labelPricePerKilometre";
-            this.labelPricePerKilometre.Size = new System.Drawing.Size(70, 19);
-            this.labelPricePerKilometre.TabIndex = 61;
-            this.labelPricePerKilometre.Text = "Preis / km";
-            // 
-            // labelPriceMin
-            // 
-            this.labelPriceMin.AutoSize = true;
-            this.labelPriceMin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.labelPriceMin.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.labelPriceMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelPriceMin.Location = new System.Drawing.Point(41, 236);
-            this.labelPriceMin.Name = "labelPriceMin";
-            this.labelPriceMin.Size = new System.Drawing.Size(74, 19);
-            this.labelPriceMin.TabIndex = 63;
-            this.labelPriceMin.Text = "Preis / min";
-            // 
-            // labelPricePerKilometreText
-            // 
-            this.labelPricePerKilometreText.AutoSize = true;
-            this.labelPricePerKilometreText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.labelPricePerKilometreText.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.labelPricePerKilometreText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelPricePerKilometreText.Location = new System.Drawing.Point(41, 204);
-            this.labelPricePerKilometreText.Name = "labelPricePerKilometreText";
-            this.labelPricePerKilometreText.Size = new System.Drawing.Size(105, 19);
-            this.labelPricePerKilometreText.TabIndex = 64;
-            this.labelPricePerKilometreText.Text = "----------------";
-            // 
-            // labelPriceMinText
-            // 
-            this.labelPriceMinText.AutoSize = true;
-            this.labelPriceMinText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.labelPriceMinText.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.labelPriceMinText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelPriceMinText.Location = new System.Drawing.Point(41, 255);
-            this.labelPriceMinText.Name = "labelPriceMinText";
-            this.labelPriceMinText.Size = new System.Drawing.Size(105, 19);
-            this.labelPriceMinText.TabIndex = 65;
-            this.labelPriceMinText.Text = "----------------";
-            // 
-            // labelStartTime
-            // 
-            this.labelStartTime.AutoSize = true;
-            this.labelStartTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.labelStartTime.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.labelStartTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelStartTime.Location = new System.Drawing.Point(357, 33);
-            this.labelStartTime.Name = "labelStartTime";
-            this.labelStartTime.Size = new System.Drawing.Size(95, 19);
-            this.labelStartTime.TabIndex = 66;
-            this.labelStartTime.Text = "Startzeitpunkt";
+            this.labelStartMileage.AutoSize = true;
+            this.labelStartMileage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.labelStartMileage.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.labelStartMileage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelStartMileage.Location = new System.Drawing.Point(357, 82);
+            this.labelStartMileage.Name = "labelStartMileage";
+            this.labelStartMileage.Size = new System.Drawing.Size(129, 19);
+            this.labelStartMileage.TabIndex = 70;
+            this.labelStartMileage.Text = "Startkilometerstand";
             // 
             // labelStartTimeText
             // 
@@ -276,77 +160,137 @@
             this.labelStartTimeText.TabIndex = 67;
             this.labelStartTimeText.Text = "----------------";
             // 
-            // labelEndTime
+            // labelStartTime
             // 
-            this.labelEndTime.AutoSize = true;
-            this.labelEndTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.labelEndTime.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.labelEndTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelEndTime.Location = new System.Drawing.Point(357, 82);
-            this.labelEndTime.Name = "labelEndTime";
-            this.labelEndTime.Size = new System.Drawing.Size(89, 19);
-            this.labelEndTime.TabIndex = 68;
-            this.labelEndTime.Text = "Endzeitpunkt";
+            this.labelStartTime.AutoSize = true;
+            this.labelStartTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.labelStartTime.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.labelStartTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelStartTime.Location = new System.Drawing.Point(357, 33);
+            this.labelStartTime.Name = "labelStartTime";
+            this.labelStartTime.Size = new System.Drawing.Size(95, 19);
+            this.labelStartTime.TabIndex = 66;
+            this.labelStartTime.Text = "Startzeitpunkt";
             // 
-            // labelEndTimeText
+            // labelPriceMinText
             // 
-            this.labelEndTimeText.AutoSize = true;
-            this.labelEndTimeText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.labelEndTimeText.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.labelEndTimeText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelEndTimeText.Location = new System.Drawing.Point(357, 101);
-            this.labelEndTimeText.Name = "labelEndTimeText";
-            this.labelEndTimeText.Size = new System.Drawing.Size(105, 19);
-            this.labelEndTimeText.TabIndex = 69;
-            this.labelEndTimeText.Text = "----------------";
+            this.labelPriceMinText.AutoSize = true;
+            this.labelPriceMinText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.labelPriceMinText.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.labelPriceMinText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelPriceMinText.Location = new System.Drawing.Point(41, 255);
+            this.labelPriceMinText.Name = "labelPriceMinText";
+            this.labelPriceMinText.Size = new System.Drawing.Size(105, 19);
+            this.labelPriceMinText.TabIndex = 65;
+            this.labelPriceMinText.Text = "----------------";
             // 
-            // labelStartMileage
+            // labelPricePerKilometreText
             // 
-            this.labelStartMileage.AutoSize = true;
-            this.labelStartMileage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.labelStartMileage.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.labelStartMileage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelStartMileage.Location = new System.Drawing.Point(357, 134);
-            this.labelStartMileage.Name = "labelStartMileage";
-            this.labelStartMileage.Size = new System.Drawing.Size(129, 19);
-            this.labelStartMileage.TabIndex = 70;
-            this.labelStartMileage.Text = "Startkilometerstand";
+            this.labelPricePerKilometreText.AutoSize = true;
+            this.labelPricePerKilometreText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.labelPricePerKilometreText.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.labelPricePerKilometreText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelPricePerKilometreText.Location = new System.Drawing.Point(41, 204);
+            this.labelPricePerKilometreText.Name = "labelPricePerKilometreText";
+            this.labelPricePerKilometreText.Size = new System.Drawing.Size(105, 19);
+            this.labelPricePerKilometreText.TabIndex = 64;
+            this.labelPricePerKilometreText.Text = "----------------";
             // 
-            // labelStartMileageText
+            // labelPriceMin
             // 
-            this.labelStartMileageText.AutoSize = true;
-            this.labelStartMileageText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.labelStartMileageText.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.labelStartMileageText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelStartMileageText.Location = new System.Drawing.Point(357, 153);
-            this.labelStartMileageText.Name = "labelStartMileageText";
-            this.labelStartMileageText.Size = new System.Drawing.Size(105, 19);
-            this.labelStartMileageText.TabIndex = 71;
-            this.labelStartMileageText.Text = "----------------";
+            this.labelPriceMin.AutoSize = true;
+            this.labelPriceMin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.labelPriceMin.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.labelPriceMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelPriceMin.Location = new System.Drawing.Point(41, 236);
+            this.labelPriceMin.Name = "labelPriceMin";
+            this.labelPriceMin.Size = new System.Drawing.Size(74, 19);
+            this.labelPriceMin.TabIndex = 63;
+            this.labelPriceMin.Text = "Preis / min";
             // 
-            // labelEndMileage
+            // labelPricePerKilometre
             // 
-            this.labelEndMileage.AutoSize = true;
-            this.labelEndMileage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.labelEndMileage.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.labelEndMileage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelEndMileage.Location = new System.Drawing.Point(357, 185);
-            this.labelEndMileage.Name = "labelEndMileage";
-            this.labelEndMileage.Size = new System.Drawing.Size(123, 19);
-            this.labelEndMileage.TabIndex = 72;
-            this.labelEndMileage.Text = "Endkilometerstand";
+            this.labelPricePerKilometre.AutoSize = true;
+            this.labelPricePerKilometre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.labelPricePerKilometre.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.labelPricePerKilometre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelPricePerKilometre.Location = new System.Drawing.Point(41, 185);
+            this.labelPricePerKilometre.Name = "labelPricePerKilometre";
+            this.labelPricePerKilometre.Size = new System.Drawing.Size(70, 19);
+            this.labelPricePerKilometre.TabIndex = 61;
+            this.labelPricePerKilometre.Text = "Preis / km";
             // 
-            // labelEndMileageText
+            // labelBasePriceText
             // 
-            this.labelEndMileageText.AutoSize = true;
-            this.labelEndMileageText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.labelEndMileageText.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.labelEndMileageText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelEndMileageText.Location = new System.Drawing.Point(357, 204);
-            this.labelEndMileageText.Name = "labelEndMileageText";
-            this.labelEndMileageText.Size = new System.Drawing.Size(105, 19);
-            this.labelEndMileageText.TabIndex = 73;
-            this.labelEndMileageText.Text = "----------------";
+            this.labelBasePriceText.AutoSize = true;
+            this.labelBasePriceText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.labelBasePriceText.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.labelBasePriceText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelBasePriceText.Location = new System.Drawing.Point(41, 153);
+            this.labelBasePriceText.Name = "labelBasePriceText";
+            this.labelBasePriceText.Size = new System.Drawing.Size(105, 19);
+            this.labelBasePriceText.TabIndex = 46;
+            this.labelBasePriceText.Text = "----------------";
+            // 
+            // labelBasePrice
+            // 
+            this.labelBasePrice.AutoSize = true;
+            this.labelBasePrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.labelBasePrice.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.labelBasePrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelBasePrice.Location = new System.Drawing.Point(41, 134);
+            this.labelBasePrice.Name = "labelBasePrice";
+            this.labelBasePrice.Size = new System.Drawing.Size(77, 19);
+            this.labelBasePrice.TabIndex = 45;
+            this.labelBasePrice.Text = "Grundpreis";
+            // 
+            // labelNumberplateText
+            // 
+            this.labelNumberplateText.AutoSize = true;
+            this.labelNumberplateText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.labelNumberplateText.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.labelNumberplateText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelNumberplateText.Location = new System.Drawing.Point(41, 101);
+            this.labelNumberplateText.Name = "labelNumberplateText";
+            this.labelNumberplateText.Size = new System.Drawing.Size(105, 19);
+            this.labelNumberplateText.TabIndex = 44;
+            this.labelNumberplateText.Text = "----------------";
+            // 
+            // labelCarText
+            // 
+            this.labelCarText.AutoSize = true;
+            this.labelCarText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.labelCarText.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.labelCarText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelCarText.Location = new System.Drawing.Point(41, 52);
+            this.labelCarText.Name = "labelCarText";
+            this.labelCarText.Size = new System.Drawing.Size(105, 19);
+            this.labelCarText.TabIndex = 43;
+            this.labelCarText.Text = "----------------";
+            // 
+            // labelCar
+            // 
+            this.labelCar.AutoSize = true;
+            this.labelCar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.labelCar.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.labelCar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelCar.Location = new System.Drawing.Point(41, 33);
+            this.labelCar.Name = "labelCar";
+            this.labelCar.Size = new System.Drawing.Size(39, 19);
+            this.labelCar.TabIndex = 32;
+            this.labelCar.Text = "Auto";
+            // 
+            // labelNumberplate
+            // 
+            this.labelNumberplate.AutoSize = true;
+            this.labelNumberplate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.labelNumberplate.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.labelNumberplate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelNumberplate.Location = new System.Drawing.Point(41, 82);
+            this.labelNumberplate.Name = "labelNumberplate";
+            this.labelNumberplate.Size = new System.Drawing.Size(85, 19);
+            this.labelNumberplate.TabIndex = 31;
+            this.labelNumberplate.Text = "Kennzeichen";
             // 
             // MainViewUserStatus
             // 
@@ -382,12 +326,8 @@
         private System.Windows.Forms.Label labelPricePerKilometreText;
         private System.Windows.Forms.Label labelPriceMin;
         private System.Windows.Forms.Label labelPriceMinText;
-        private System.Windows.Forms.Label labelEndTimeText;
-        private System.Windows.Forms.Label labelEndTime;
         private System.Windows.Forms.Label labelStartTimeText;
         private System.Windows.Forms.Label labelStartTime;
-        private System.Windows.Forms.Label labelEndMileageText;
-        private System.Windows.Forms.Label labelEndMileage;
         private System.Windows.Forms.Label labelStartMileageText;
         private System.Windows.Forms.Label labelStartMileage;
     }
