@@ -19,10 +19,15 @@ namespace Carsharing
 			InitializeComponent();
 			DoubleBuffered = true;
 
-			FormController.MainView = this;
+            leftMouseDownOnPanel = false;
+            panel3.MouseDown += panel3_MouseDown;
+            panel3.MouseMove += panel3_MouseMove;
+            panel3.MouseUp += panel3_MouseUp;
+
+            FormController.MainView = this;
 		}
 
-		private void MainView_Load(object sender, EventArgs e)
+        private void MainView_Load(object sender, EventArgs e)
 		{
 			if (FormController.CurrentCustomer.IsAdmin) //admin
 			{
@@ -69,5 +74,35 @@ namespace Carsharing
 		{
 			adminUsers1.UpdateTable();
 		}
-	}
+
+
+        bool leftMouseDownOnPanel;
+        Point clickPoint;
+
+        private void panel3_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (!leftMouseDownOnPanel)
+            {
+                clickPoint = e.Location;
+            }
+            if (e.Button == MouseButtons.Left)
+            {
+                leftMouseDownOnPanel = true;
+            }
+        }
+
+        private void panel3_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (leftMouseDownOnPanel)
+            {
+                var x = e.Location - (Size)clickPoint;
+                Location += (Size)x;
+            }
+        }
+
+        private void panel3_MouseUp(object sender, MouseEventArgs e)
+        {
+            leftMouseDownOnPanel = false;
+        }
+    }
 }
