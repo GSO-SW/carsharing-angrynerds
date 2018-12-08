@@ -44,6 +44,8 @@ namespace Carsharing
         internal void UpdateForm()
         {
             labelWelcome.Text = "Willkommen " + FormController.CurrentCustomer.ToString();
+            watermarkTextBoxEndMileage.ResetText();
+            watermarkTextBoxEndMileage.ResetToWatermark();
             watermarkTextBoxEndMileage.Watermark = "Stand in Km";
             // GroupBox to show current booking is invisible at default
             groupBoxCurrentBooking.Visible = false;
