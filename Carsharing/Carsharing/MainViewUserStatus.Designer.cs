@@ -97,6 +97,7 @@
             this.buttonCloseCurrentBooking.TabIndex = 7;
             this.buttonCloseCurrentBooking.Text = "Buchung beenden";
             this.buttonCloseCurrentBooking.UseVisualStyleBackColor = false;
+            this.buttonCloseCurrentBooking.Click += new System.EventHandler(this.buttonCloseCurrentBooking_Click);
             // 
             // groupBoxCurrentBooking
             // 

@@ -12,7 +12,9 @@ namespace Carsharing
 {
 	internal partial class MainViewUserStatus : UserControl
 	{
-		internal MainViewUserStatus()
+        Booking openBooking;
+
+        internal MainViewUserStatus()
 		{
 			InitializeComponent();
 			labelWelcome.Text = "Willkommen " + FormController.CurrentCustomer.ToString();
@@ -29,7 +31,7 @@ namespace Carsharing
                     groupBoxCurrentBooking.Visible = true;
 
                     // Now fetch the open booking from the database to show it on screen
-                    Booking openBooking;
+                    
                     if(DBController.GetOpenBookingOfCustomer(FormController.CurrentCustomer, out openBooking))
                     {
                         showCurrentBookingInformation(openBooking);
@@ -74,13 +76,18 @@ namespace Carsharing
         /// <param name="b">The open booking to display its information.</param>
         private void showCurrentBookingInformation(Booking b)
         {
-            labelBasePriceText.Text = b.Vehicle.BasicPrice.ToString();
+            labelBasePriceText.Text = b.Vehicle.BasicPrice.ToString() + " €";
             labelCarText.Text = b.Vehicle.Brand + ", " + b.Vehicle.Model;
             labelNumberplateText.Text = b.Vehicle.NumberPlate;
             labelPriceMinText.Text = b.Vehicle.PricePerMinute.ToString() + " €";
             labelPricePerKilometreText.Text = b.Vehicle.PricePerKilometre.ToString() + " €";
-            labelStartMileageText.Text = b.StartMileage.ToString();
+            labelStartMileageText.Text = b.StartMileage.ToString() + " km";
             labelStartTimeText.Text = b.StartTime.ToString();
+        }
+
+        private void buttonCloseCurrentBooking_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
