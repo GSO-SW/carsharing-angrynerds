@@ -15,7 +15,7 @@ namespace Carsharing
 		internal MainViewAdminVehicle()
 		{
 			InitializeComponent();
-			listVehicle.DrawMode = DrawMode.OwnerDrawFixed;
+			listBoxVehicle.DrawMode = DrawMode.OwnerDrawFixed;
 		}
 
 		private void AdminVehicles_Load(object sender, EventArgs e)
@@ -30,7 +30,7 @@ namespace Carsharing
 
 		private void buttonVehicleEdit_Click(object sender, EventArgs e)
 		{
-			if (listVehicle.SelectedItem is Vehicle vehicle)
+			if (listBoxVehicle.SelectedItem is Vehicle vehicle)
 			{
 				if(DBController.CheckOpenBookingVehicle(vehicle, out bool result))
 				{
@@ -48,9 +48,9 @@ namespace Carsharing
 
 		private void buttonVehicleDelete_Click(object sender, EventArgs e)
 		{
-			if (listVehicle.SelectedItem != null)
+			if (listBoxVehicle.SelectedItem != null)
 			{
-				if (listVehicle.SelectedItem is Vehicle vehicle)
+				if (listBoxVehicle.SelectedItem is Vehicle vehicle)
 				{
 					if (DBController.CheckOpenBookingVehicle(vehicle, out bool result))
 					{
@@ -109,18 +109,18 @@ namespace Carsharing
 			Brush brush = SystemBrushes.ControlText;
 			Font font = e.Font;
 
-			if (e.Index >= 0 && e.Index - 1 <= listVehicle.Items.Count)
-				if (listVehicle.Items[e.Index] is Vehicle)
-					if (!((Vehicle)listVehicle.Items[e.Index]).Available)
+			if (e.Index >= 0 && e.Index - 1 <= listBoxVehicle.Items.Count)
+				if (listBoxVehicle.Items[e.Index] is Vehicle)
+					if (!((Vehicle)listBoxVehicle.Items[e.Index]).Available)
 					{
 						brush = Brushes.Red;
 					}
-			e.Graphics.DrawString(listVehicle.Items[e.Index].ToString(), font, brush, e.Bounds);
+			e.Graphics.DrawString(listBoxVehicle.Items[e.Index].ToString(), font, brush, e.Bounds);
 		}
 
-		private void listVehicle_SelectedIndexChanged(object sender, EventArgs e)
+		private void listBoxVehicle_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			if (listVehicle.SelectedItem is Vehicle vehicle)
+			if (listBoxVehicle.SelectedItem is Vehicle vehicle)
 			{
 				txtBrand.Text = vehicle.Brand;
 				txtConstructionYear.Text = vehicle.ConstructionYear.ToString();
@@ -162,14 +162,14 @@ namespace Carsharing
 
 		internal void UpdateTable()
 		{
-			listVehicle.Items.Clear();
+			listBoxVehicle.Items.Clear();
 			Placeholer();
 			if (!DBController.GetAllVehiclesFromDB(out List<Vehicle> vehicles))
 			{
 				Feedback.ErrorDatabaseConnection();
 				return;
 			}
-			listVehicle.Items.AddRange(vehicles.ToArray());
+			listBoxVehicle.Items.AddRange(vehicles.ToArray());
 		}
 
 		private void Placeholer()

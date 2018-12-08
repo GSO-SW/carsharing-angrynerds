@@ -20,9 +20,9 @@ namespace Carsharing
 
 		private void buttonUserDelete_Click(object sender, EventArgs e)
 		{
-			if (listUser.SelectedItem is Customer)
+			if (listBoxUser.SelectedItem is Customer)
 			{
-				Customer customer = (Customer)listUser.SelectedItem;
+				Customer customer = (Customer)listBoxUser.SelectedItem;
 
 				if(customer.EmailAddress != FormController.CurrentCustomer.EmailAddress)
 				{
@@ -48,9 +48,9 @@ namespace Carsharing
 
 		private void buttonUserEdit_Click(object sender, EventArgs e)
 		{
-			if (listUser.SelectedItem is Customer)
+			if (listBoxUser.SelectedItem is Customer)
 			{
-				Customer c = (Customer)listUser.SelectedItem;
+				Customer c = (Customer)listBoxUser.SelectedItem;
 				if(c.EmailAddress != FormController.CurrentCustomer.EmailAddress)
 				{
 					new EditDataView(c).ShowDialog();
@@ -67,11 +67,11 @@ namespace Carsharing
 			UpdateTable();
 		}
 
-		private void listUser_SelectedIndexChanged(object sender, EventArgs e)
+		private void listBoxUser_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			if (listUser.SelectedItem is Customer)
+			if (listBoxUser.SelectedItem is Customer)
 			{
-				Customer c = (Customer)listUser.SelectedItem;
+				Customer c = (Customer)listBoxUser.SelectedItem;
 
 				txtBirth.Text = c.Birthday.ToShortDateString();
 				txtCity.Text = c.City;
@@ -94,14 +94,14 @@ namespace Carsharing
 
 		internal void UpdateTable()
 		{
-			listUser.Items.Clear();
+			listBoxUser.Items.Clear();
 			Placeholer();
 			if (!DBController.GetCustomers(out List<Customer> customers))
 			{
 				Feedback.ErrorDatabaseConnection();
 				return;
 			}
-			listUser.Items.AddRange(customers.ToArray());
+			listBoxUser.Items.AddRange(customers.ToArray());
 		}
 
 		private void Placeholer()

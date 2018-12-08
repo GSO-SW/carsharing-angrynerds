@@ -29,9 +29,9 @@ namespace Carsharing
 			UpdateTable();
 		}
 
-		private void listVehicle_SelectedIndexChanged(object sender, EventArgs e)
+		private void listBoxVehicle_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			if (listVehicle.SelectedItem is Vehicle vehicle)
+			if (listBoxVehicle.SelectedItem is Vehicle vehicle)
 			{
 				txtBrand.Text = vehicle.Brand;
 				txtConstructionYear.Text = vehicle.ConstructionYear.ToString();
@@ -73,14 +73,14 @@ namespace Carsharing
 
 		internal void UpdateTable()
 		{
-			listVehicle.Items.Clear();
+			listBoxVehicle.Items.Clear();
 			Placeholer();
 			if (!DBController.GetAllVehiclesFromDB(out List<Vehicle> vehicles))
 			{
 				Feedback.ErrorDatabaseConnection();
 				return;
 			}
-			listVehicle.Items.AddRange(vehicles.ToArray());
+			listBoxVehicle.Items.AddRange(vehicles.ToArray());
 		}
 
 		private void Placeholer()
@@ -123,7 +123,7 @@ namespace Carsharing
 			//check, if the customer or the vehicle has open bookings
 			if (DBController.CheckOpenBookingsCustomer(FormController.CurrentCustomer, out bool cresult) && !cresult)
 			{
-				if (listVehicle.SelectedItem != null && listVehicle.SelectedItem is Vehicle v && DBController.CheckOpenBookingVehicle(v, out bool vresult) && !vresult && v.Available)
+				if (listBoxVehicle.SelectedItem != null && listBoxVehicle.SelectedItem is Vehicle v && DBController.CheckOpenBookingVehicle(v, out bool vresult) && !vresult && v.Available)
 				{
 					Booking b = new Booking(FormController.CurrentCustomer, v, DateTime.Now, new DateTime(0), v.Mileage, 0, true);
 					if (DBController.AddBookingToDB(b))
@@ -148,7 +148,7 @@ namespace Carsharing
 
         internal void UpdateForm()
         {
-            listVehicle.DisplayMember = "DisplayMember";
+            listBoxVehicle.DisplayMember = "DisplayMember";
             UpdateTable();
         }
 	}
