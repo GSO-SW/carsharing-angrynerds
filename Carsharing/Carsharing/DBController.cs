@@ -690,6 +690,38 @@ namespace Carsharing
             return true;
         }
 
+        internal static bool GetAvailableVehiclesFromDB(out List<Vehicle> vehicles)
+        {
+            DataTable table = new DataTable();
+            vehicles = new List<Vehicle>();
+
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    con.Open();
+                    using (MySqlDataAdapter a = new MySqlDataAdapter("SELECT * FROM `fahrzeug` JOIN `fahrzeugtyp` USING(`Ft_ID`) JOIN `fahrzeugmarke` USING(`Fm_ID`) JOIN `fahrzeuggetriebe` USING(`Fg_ID`) JOIN `kraftstoffart` USING(`Ks_ID`) WHERE Kennzeichen NOT IN (SELECT Kennzeichen FROM buchung WHERE Endkilometerstand IS NULL)", con))
+                    {
+                        a.Fill(table);
+                    }
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+            foreach (DataRow item in table.Rows)
+            {
+                vehicles.Add(GetVehicleFromDataRow(item));
+            }
+
+            return true;
+        }
+
         private static Vehicle GetVehicleFromDataRow(DataRow row)
         {
             Vehicle v = new Vehicle();

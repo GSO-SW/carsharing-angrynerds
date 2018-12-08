@@ -75,7 +75,7 @@ namespace Carsharing
 		{
 			listBoxVehicle.Items.Clear();
 			Placeholer();
-			if (!DBController.GetAllVehiclesFromDB(out List<Vehicle> vehicles))
+			if (!DBController.GetAvailableVehiclesFromDB(out List<Vehicle> vehicles))
 			{
 				Feedback.ErrorDatabaseConnection();
 				return;
@@ -144,6 +144,8 @@ namespace Carsharing
 			{
 				MessageBox.Show("Buchung nicht erfolgreich, da Sie bereits eine offene Buchung haben.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
+
+            UpdateTable();
 		}
 
         internal void UpdateForm()
