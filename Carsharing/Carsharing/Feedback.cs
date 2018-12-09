@@ -8,6 +8,67 @@ namespace Carsharing
 		private readonly static string titleCare = "Achtung";
 		private readonly static string titleInformation = "Information";
 
+		internal static void ErrorInvalidName()
+		{
+			MessageBox.Show("Bitte geben Sie ihren Vornamen an.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorInvaliLastdName()
+		{
+			MessageBox.Show("Bitte geben Sie ihren Nachnamen an.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorInvaliEmail()
+		{
+			MessageBox.Show("Bitte geben Sie eine gültige E-Mail-Adresse an.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorInvalidTel()
+		{
+			MessageBox.Show("Bitte geben Sie eine gültige Telefonnummer an.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorInvalidDate()
+		{
+			MessageBox.Show("Bitte geben sie ein gültiges Geburtsdatum ein.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorInvalidAge()
+		{
+			MessageBox.Show("Sie müssen älter als 18 Jahre sein.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorInvalidStreet()
+		{
+			MessageBox.Show("Bitte geben Sie ihre Straße an.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorInvalidHouseNumber()
+		{
+			MessageBox.Show("Bitte geben Sie ihre Hausnummer an.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorInvalidPLZ()
+		{
+			MessageBox.Show("Bitte geben Sie eine gültige Postleitzahl an.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorInvalidCity()
+		{
+			MessageBox.Show("Bitte geben Sie ihren Wohnort an.", titleError
+, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorInvalidCountry()
+		{
+			MessageBox.Show("Bitte geben Sie ihr Heimatland an.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorAlreadyExistingEmail()
+		{
+			MessageBox.Show("Diese Email existiert bereits in der Datenbank.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
 		internal static void ErrorDatabaseConnection()
 		{
 			MessageBox.Show("Bei der Verbindung zur Datenbank ist ein Fehler aufgetreten.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -58,7 +119,7 @@ namespace Carsharing
 			MessageBox.Show("Beim Bearbeiten des Fahrzeuges ist ein Fehler unterlaufen.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 
-        internal static void ErrorDatabaseVehicleDelete()
+		internal static void ErrorDatabaseVehicleDelete()
 		{
 			MessageBox.Show("Bei dem Versuch das Fahrzeug zu Löschen ist ein Fehler aufgetreten.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
@@ -68,20 +129,20 @@ namespace Carsharing
 			MessageBox.Show("Sie können dieses Fahrzeug nicht löschen, da dies gebucht ist.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 
-        internal static void ErrorDatabaseBookedVehicleEdit()
-        {
-            MessageBox.Show("Sie können dieses Fahrzeug nicht bearbeiten, da dies gebucht ist.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
+		internal static void ErrorDatabaseBookedVehicleEdit()
+		{
+			MessageBox.Show("Sie können dieses Fahrzeug nicht bearbeiten, da dies gebucht ist.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
 
-        internal static void ErrorDatabaseVehicleTypeDelete()
+		internal static void ErrorDatabaseVehicleTypeDelete()
 		{
 			MessageBox.Show("Bei dem Versuch den Fahrzeugtyp zu Löschen ist ein Fehler aufgetreten.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 
-        internal static void ErrorInvalidEndMileageInput()
-        {
-            MessageBox.Show("Ihre Eingabe ist ungültig.\nVergewissern Sie sich, dass ihre Eingabe größer als der Startkilometerstand ist.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
+		internal static void ErrorInvalidEndMileageInput()
+		{
+			MessageBox.Show("Ihre Eingabe ist ungültig.\nVergewissern Sie sich, dass ihre Eingabe größer als der Startkilometerstand ist.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
 
 		internal static void ErrorInvalidLogin()
 		{
@@ -133,9 +194,9 @@ namespace Carsharing
 			MessageBox.Show("Der Fahrzeug wurde erfolgreich gelöscht.", titleInformation, MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 
-        internal static void SuccessCloseBooking(double totalCost)
-        {
-            MessageBox.Show("Die Buchung wurde erfolgreich beendet.\nDie Gesamtkosten betragen " + totalCost.ToString("F2") + " €.", titleInformation, MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-    }
+		internal static void SuccessCloseBooking(double totalCost)
+		{
+			MessageBox.Show("Die Buchung wurde erfolgreich beendet.\nDie Gesamtkosten betragen " + totalCost.ToString("F2") + " €.", titleInformation, MessageBoxButtons.OK, MessageBoxIcon.Information);
+		}
+	}
 }
