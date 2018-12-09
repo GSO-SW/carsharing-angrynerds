@@ -128,21 +128,21 @@ namespace Carsharing
 						Booking b = new Booking(FormController.CurrentCustomer, v, DateTime.Now, new DateTime(0), v.Mileage, 0, true);
 						if (DBController.TryAddBooking(b))
 						{
-							MessageBox.Show("Buchung erfolgreich.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+							Feedback.SuccessOpenBooking();
 						}
 						else
 						{
-							MessageBox.Show("Buchung nicht erfolgreich. Bitte versuchen Sie es noch einmal.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+							Feedback.ErrorDatabaseConnection();
 						}
 					}
 					else
 					{
-						MessageBox.Show("Buchung nicht erfolgreich, da das Fahrzeug nicht verfügbar ist.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						Feedback.ErrorNotAvailableVehicle();
 					}
 				}
 				else
 				{
-					MessageBox.Show("Buchung nicht erfolgreich, da Sie bereits eine offene Buchung haben.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					Feedback.ErrorAlreadyOpenBooking();
 				}
 			}
 			else

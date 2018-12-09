@@ -13,6 +13,16 @@ namespace Carsharing
 			MessageBox.Show("Sie können ihren Account nicht löschen, während noch offene Buchungen vorhanden sind.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 
+		internal static void ErrorNotAvailableVehicle()
+		{
+			MessageBox.Show("Buchung nicht erfolgreich, da das Fahrzeug nicht verfügbar ist.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorAlreadyOpenBooking()
+		{
+			MessageBox.Show("Buchung nicht erfolgreich, da Sie bereits eine offene Buchung haben.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
 		internal static void ErrorInvalidName()
 		{
 			MessageBox.Show("Bitte geben Sie ihren Vornamen an.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -202,6 +212,11 @@ namespace Carsharing
 		internal static void SuccessCloseBooking(double totalCost)
 		{
 			MessageBox.Show("Die Buchung wurde erfolgreich beendet.\nDie Gesamtkosten betragen " + totalCost.ToString("F2") + " €.", titleInformation, MessageBoxButtons.OK, MessageBoxIcon.Information);
+		}
+
+		internal static void SuccessOpenBooking()
+		{
+			MessageBox.Show("Buchung erfolgreich,", titleInformation, MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 	}
 }
