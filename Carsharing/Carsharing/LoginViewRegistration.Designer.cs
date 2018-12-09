@@ -94,7 +94,7 @@
 			this.txtLastName.Password = false;
 			this.txtLastName.Size = new System.Drawing.Size(172, 22);
 			this.txtLastName.TabIndex = 28;
-			this.txtLastName.Watermark = "Zuname";
+			this.txtLastName.Watermark = "Nachname";
 			this.txtLastName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_KeyDown);
 			// 
 			// txtEmail
