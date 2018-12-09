@@ -94,7 +94,7 @@
 			this.pictureLogo.Location = new System.Drawing.Point(5, 6);
 			this.pictureLogo.Name = "pictureLogo";
 			this.pictureLogo.Size = new System.Drawing.Size(192, 128);
-			this.pictureLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pictureLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pictureLogo.TabIndex = 6;
 			this.pictureLogo.TabStop = false;
 			// 
@@ -189,6 +189,7 @@
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.panel3);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "MainView";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "MainView";

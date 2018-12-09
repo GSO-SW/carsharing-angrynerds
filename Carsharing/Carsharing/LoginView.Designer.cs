@@ -66,6 +66,7 @@
 			this.pictureLogo.Location = new System.Drawing.Point(28, 92);
 			this.pictureLogo.Name = "pictureLogo";
 			this.pictureLogo.Size = new System.Drawing.Size(220, 161);
+			this.pictureLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pictureLogo.TabIndex = 0;
 			this.pictureLogo.TabStop = false;
 			// 
@@ -93,35 +94,17 @@
 			this.panel3.Size = new System.Drawing.Size(800, 25);
 			this.panel3.TabIndex = 9;
 			// 
-			// login
-			// 
-			this.login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.login.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.login.Location = new System.Drawing.Point(275, 25);
-			this.login.Name = "login";
-			this.login.Size = new System.Drawing.Size(525, 425);
-			this.login.TabIndex = 1;
-			// 
-			// registration
-			// 
-			this.registration.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.registration.Location = new System.Drawing.Point(275, 25);
-			this.registration.Name = "registration";
-			this.registration.Size = new System.Drawing.Size(525, 425);
-			this.registration.TabIndex = 11;
-			// 
 			// LoginView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
 			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Controls.Add(this.login);
-			this.Controls.Add(this.registration);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.panel3);
 			this.DoubleBuffered = true;
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.KeyPreview = true;
 			this.Name = "LoginView";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
