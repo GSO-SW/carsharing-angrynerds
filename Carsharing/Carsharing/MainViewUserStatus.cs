@@ -15,6 +15,7 @@ namespace Carsharing
 		private void buttonUserEdit_Click(object sender, EventArgs e)
 		{
 			new EditDataView(FormController.CurrentCustomer).ShowDialog();
+			UpdateForm();
 		}
 
 		private void buttonUserDelete_Click(object sender, EventArgs e)
