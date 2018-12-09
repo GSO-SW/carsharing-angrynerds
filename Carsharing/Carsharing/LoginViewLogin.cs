@@ -62,9 +62,7 @@ namespace Carsharing
 				{
 					FormController.CurrentCustomer = c;
 					c = null;
-					//MessageBox.Show("Sie wurden erfolgreich angemeldet.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 					FormController.StartView.Close();
-					System.Media.SystemSounds.Asterisk.Play();
 					return;
 				}
 			}
