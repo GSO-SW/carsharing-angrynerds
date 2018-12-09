@@ -106,7 +106,7 @@
 			this.buttonAccept.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(90)))));
 			this.buttonAccept.FlatAppearance.BorderSize = 0;
 			this.buttonAccept.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.buttonAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.buttonAccept.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.buttonAccept.Location = new System.Drawing.Point(260, 378);
 			this.buttonAccept.Name = "buttonAccept";
 			this.buttonAccept.Size = new System.Drawing.Size(258, 31);
@@ -119,7 +119,7 @@
 			// 
 			this.tabControl1.Controls.Add(this.tabPage1);
 			this.tabControl1.Controls.Add(this.tabPage2);
-			this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.tabControl1.Location = new System.Drawing.Point(0, 0);
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
@@ -241,7 +241,7 @@
 			// comboGear
 			// 
 			this.comboGear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboGear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.comboGear.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.comboGear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
 			this.comboGear.FormattingEnabled = true;
 			this.comboGear.Location = new System.Drawing.Point(19, 242);
@@ -254,7 +254,7 @@
 			this.comboFuel.BackColor = System.Drawing.SystemColors.Window;
 			this.comboFuel.CausesValidation = false;
 			this.comboFuel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboFuel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.comboFuel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.comboFuel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
 			this.comboFuel.FormattingEnabled = true;
 			this.comboFuel.Location = new System.Drawing.Point(275, 242);
@@ -264,10 +264,10 @@
 			// 
 			// dateTimeLastMaintenance
 			// 
-			this.dateTimeLastMaintenance.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.dateTimeLastMaintenance.CalendarFont = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.dateTimeLastMaintenance.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
 			this.dateTimeLastMaintenance.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-			this.dateTimeLastMaintenance.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.dateTimeLastMaintenance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.dateTimeLastMaintenance.Location = new System.Drawing.Point(275, 171);
 			this.dateTimeLastMaintenance.Name = "dateTimeLastMaintenance";
 			this.dateTimeLastMaintenance.Size = new System.Drawing.Size(210, 20);
@@ -278,7 +278,7 @@
 			this.comboBrand.BackColor = System.Drawing.SystemColors.Window;
 			this.comboBrand.CausesValidation = false;
 			this.comboBrand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.comboBrand.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.comboBrand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
 			this.comboBrand.FormattingEnabled = true;
 			this.comboBrand.Location = new System.Drawing.Point(19, 61);
@@ -623,7 +623,7 @@
 			// checkSmoker
 			// 
 			this.checkSmoker.AutoSize = true;
-			this.checkSmoker.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.checkSmoker.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.checkSmoker.Location = new System.Drawing.Point(24, 292);
 			this.checkSmoker.Name = "checkSmoker";
 			this.checkSmoker.Size = new System.Drawing.Size(15, 14);
@@ -633,7 +633,7 @@
 			// label22
 			// 
 			this.label22.AutoSize = true;
-			this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label22.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.label22.Location = new System.Drawing.Point(45, 286);
 			this.label22.Name = "label22";
@@ -644,7 +644,7 @@
 			// checkWinter
 			// 
 			this.checkWinter.AutoSize = true;
-			this.checkWinter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.checkWinter.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.checkWinter.Location = new System.Drawing.Point(24, 268);
 			this.checkWinter.Name = "checkWinter";
 			this.checkWinter.Size = new System.Drawing.Size(15, 14);
@@ -654,7 +654,7 @@
 			// label23
 			// 
 			this.label23.AutoSize = true;
-			this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label23.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.label23.Location = new System.Drawing.Point(45, 262);
 			this.label23.Name = "label23";
@@ -665,7 +665,7 @@
 			// checkHeatedSeat
 			// 
 			this.checkHeatedSeat.AutoSize = true;
-			this.checkHeatedSeat.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.checkHeatedSeat.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.checkHeatedSeat.Location = new System.Drawing.Point(24, 245);
 			this.checkHeatedSeat.Name = "checkHeatedSeat";
 			this.checkHeatedSeat.Size = new System.Drawing.Size(15, 14);
@@ -675,7 +675,7 @@
 			// label24
 			// 
 			this.label24.AutoSize = true;
-			this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label24.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.label24.Location = new System.Drawing.Point(45, 239);
 			this.label24.Name = "label24";
@@ -686,7 +686,7 @@
 			// checkESP
 			// 
 			this.checkESP.AutoSize = true;
-			this.checkESP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.checkESP.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.checkESP.Location = new System.Drawing.Point(24, 221);
 			this.checkESP.Name = "checkESP";
 			this.checkESP.Size = new System.Drawing.Size(15, 14);
@@ -696,7 +696,7 @@
 			// label25
 			// 
 			this.label25.AutoSize = true;
-			this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label25.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.label25.Location = new System.Drawing.Point(45, 215);
 			this.label25.Name = "label25";
@@ -707,7 +707,7 @@
 			// checkABS
 			// 
 			this.checkABS.AutoSize = true;
-			this.checkABS.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.checkABS.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.checkABS.Location = new System.Drawing.Point(24, 197);
 			this.checkABS.Name = "checkABS";
 			this.checkABS.Size = new System.Drawing.Size(15, 14);
@@ -717,7 +717,7 @@
 			// label26
 			// 
 			this.label26.AutoSize = true;
-			this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label26.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.label26.Location = new System.Drawing.Point(45, 191);
 			this.label26.Name = "label26";
@@ -728,7 +728,7 @@
 			// checkNavigationDevice
 			// 
 			this.checkNavigationDevice.AutoSize = true;
-			this.checkNavigationDevice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.checkNavigationDevice.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.checkNavigationDevice.Location = new System.Drawing.Point(24, 173);
 			this.checkNavigationDevice.Name = "checkNavigationDevice";
 			this.checkNavigationDevice.Size = new System.Drawing.Size(15, 14);
@@ -738,7 +738,7 @@
 			// label27
 			// 
 			this.label27.AutoSize = true;
-			this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label27.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.label27.Location = new System.Drawing.Point(45, 167);
 			this.label27.Name = "label27";
@@ -749,7 +749,7 @@
 			// checkCDPlayer
 			// 
 			this.checkCDPlayer.AutoSize = true;
-			this.checkCDPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.checkCDPlayer.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.checkCDPlayer.Location = new System.Drawing.Point(24, 149);
 			this.checkCDPlayer.Name = "checkCDPlayer";
 			this.checkCDPlayer.Size = new System.Drawing.Size(15, 14);
@@ -759,7 +759,7 @@
 			// label19
 			// 
 			this.label19.AutoSize = true;
-			this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label19.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.label19.Location = new System.Drawing.Point(45, 143);
 			this.label19.Name = "label19";
@@ -770,7 +770,7 @@
 			// checkUSB
 			// 
 			this.checkUSB.AutoSize = true;
-			this.checkUSB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.checkUSB.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.checkUSB.Location = new System.Drawing.Point(24, 125);
 			this.checkUSB.Name = "checkUSB";
 			this.checkUSB.Size = new System.Drawing.Size(15, 14);
@@ -780,7 +780,7 @@
 			// label20
 			// 
 			this.label20.AutoSize = true;
-			this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label20.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.label20.Location = new System.Drawing.Point(45, 119);
 			this.label20.Name = "label20";
@@ -791,7 +791,7 @@
 			// checkBluetooth
 			// 
 			this.checkBluetooth.AutoSize = true;
-			this.checkBluetooth.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.checkBluetooth.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.checkBluetooth.Location = new System.Drawing.Point(24, 102);
 			this.checkBluetooth.Name = "checkBluetooth";
 			this.checkBluetooth.Size = new System.Drawing.Size(15, 14);
@@ -801,7 +801,7 @@
 			// label21
 			// 
 			this.label21.AutoSize = true;
-			this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label21.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.label21.Location = new System.Drawing.Point(45, 96);
 			this.label21.Name = "label21";
@@ -812,7 +812,7 @@
 			// checkRadio
 			// 
 			this.checkRadio.AutoSize = true;
-			this.checkRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.checkRadio.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.checkRadio.Location = new System.Drawing.Point(24, 78);
 			this.checkRadio.Name = "checkRadio";
 			this.checkRadio.Size = new System.Drawing.Size(15, 14);
@@ -822,7 +822,7 @@
 			// label18
 			// 
 			this.label18.AutoSize = true;
-			this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label18.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.label18.Location = new System.Drawing.Point(45, 72);
 			this.label18.Name = "label18";
@@ -833,7 +833,7 @@
 			// checkCruiseControl
 			// 
 			this.checkCruiseControl.AutoSize = true;
-			this.checkCruiseControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.checkCruiseControl.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.checkCruiseControl.Location = new System.Drawing.Point(24, 54);
 			this.checkCruiseControl.Name = "checkCruiseControl";
 			this.checkCruiseControl.Size = new System.Drawing.Size(15, 14);
@@ -843,7 +843,7 @@
 			// label17
 			// 
 			this.label17.AutoSize = true;
-			this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label17.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.label17.Location = new System.Drawing.Point(45, 48);
 			this.label17.Name = "label17";
@@ -854,7 +854,7 @@
 			// checkAirConditioner
 			// 
 			this.checkAirConditioner.AutoSize = true;
-			this.checkAirConditioner.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.checkAirConditioner.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.checkAirConditioner.Location = new System.Drawing.Point(24, 30);
 			this.checkAirConditioner.Name = "checkAirConditioner";
 			this.checkAirConditioner.Size = new System.Drawing.Size(15, 14);
@@ -864,7 +864,7 @@
 			// label16
 			// 
 			this.label16.AutoSize = true;
-			this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label16.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.label16.Location = new System.Drawing.Point(45, 24);
 			this.label16.Name = "label16";
@@ -875,7 +875,7 @@
 			// checkAvailable
 			// 
 			this.checkAvailable.AutoSize = true;
-			this.checkAvailable.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.checkAvailable.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.checkAvailable.Location = new System.Drawing.Point(93, 387);
 			this.checkAvailable.Name = "checkAvailable";
 			this.checkAvailable.Size = new System.Drawing.Size(15, 14);
@@ -885,7 +885,7 @@
 			// labelAvailable
 			// 
 			this.labelAvailable.AutoSize = true;
-			this.labelAvailable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelAvailable.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelAvailable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.labelAvailable.Location = new System.Drawing.Point(20, 385);
 			this.labelAvailable.Name = "labelAvailable";
