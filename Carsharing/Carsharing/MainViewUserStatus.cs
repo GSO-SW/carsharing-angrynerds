@@ -84,7 +84,7 @@ namespace Carsharing
 					labelEndTimeText.Text = b.EndTime.ToString();
 				}
 
-				buttonCloseCurrentBooking.Enabled = b.Open;
+				buttonCloseCurrentBooking.Visible = b.Open;
 			}
             else
             {
@@ -104,7 +104,7 @@ namespace Carsharing
 				labelEndMileageText.Visible = true;
 				labelEndMileageText.Text = "----------------";
 
-				buttonCloseCurrentBooking.Enabled = false;
+				buttonCloseCurrentBooking.Visible = false;
             }
         }
 
