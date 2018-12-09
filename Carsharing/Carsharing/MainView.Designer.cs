@@ -124,7 +124,7 @@
 			this.buttonBooking.Name = "buttonBooking";
 			this.buttonBooking.Size = new System.Drawing.Size(182, 40);
 			this.buttonBooking.TabIndex = 3;
-			this.buttonBooking.Text = "Buchung";
+			this.buttonBooking.Text = "Fahrzeug buchen";
 			this.buttonBooking.UseVisualStyleBackColor = false;
 			this.buttonBooking.Click += new System.EventHandler(this.buttonStatus_Click);
 			// 
@@ -176,7 +176,7 @@
 			this.buttonStatus.Name = "buttonStatus";
 			this.buttonStatus.Size = new System.Drawing.Size(182, 40);
 			this.buttonStatus.TabIndex = 0;
-			this.buttonStatus.Text = "Status";
+			this.buttonStatus.Text = "Buchungen";
 			this.buttonStatus.UseVisualStyleBackColor = false;
 			this.buttonStatus.Click += new System.EventHandler(this.buttonStatus_Click);
 			// 
