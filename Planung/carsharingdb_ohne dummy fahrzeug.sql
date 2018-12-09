@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 09. Dez 2018 um 16:01
--- Server-Version: 10.1.35-MariaDB
--- PHP-Version: 7.2.9
+-- Erstellungszeit: 29. Nov 2018 um 11:15
+-- Server-Version: 10.1.36-MariaDB
+-- PHP-Version: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -67,13 +67,6 @@ CREATE TABLE `fahrzeug` (
   `Winterreifen` tinyint(1) NOT NULL,
   `Raucher` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Daten für Tabelle `fahrzeug`
---
-
-INSERT INTO `fahrzeug` (`Kennzeichen`, `Ft_ID`, `Kilometerstand`, `Letzte Wartung`, `Tankfuellung`, `Standort`, `Verfuegbarkeit`, `Erstzulassung`, `Kraftstoffverbrauch`, `Klimaanlage`, `Tempomat`, `Radio`, `Bluetooth`, `USB`, `CD-Spieler`, `Navigationsgeraet`, `ABS`, `ESP`, `Sitzheizung`, `Winterreifen`, `Raucher`) VALUES
-('NICHT VERFÜGBAR', 16, 0.00, '2001-01-01', 0.00, '\0\0\0\0\0\0\0\0', 0, '2001-01-01', 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -250,13 +243,6 @@ CREATE TABLE `fahrzeugtyp` (
   `Anzahl der Sitze` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Daten für Tabelle `fahrzeugtyp`
---
-
-INSERT INTO `fahrzeugtyp` (`Ft_ID`, `Fm_ID`, `Modell`, `Leistung`, `Baujahr`, `Fg_ID`, `Max_Tankvolumen`, `Grundpreis`, `Preis/km`, `Preis/min`, `Ks_ID`, `Anzahl der Sitze`) VALUES
-(16, 114, 'nicht verfügbar', 0, 2000, 1, 0.00, 0.00, 0.00, 0.00, 1, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -310,10 +296,6 @@ CREATE TABLE `kunde` (
 
 INSERT INTO `kunde` (`E-Mail Adresse`, `Vorname`, `Nachname`, `Telefonnummer`, `Passwort`, `admin`, `Geburtstag`, `Strasse`, `Hausnummer`, `PLZ`, `Stadt`, `Land`) VALUES
 ('admin@system.de', 'admin', 'admin', '0123456789', '$MYHASH$V1$10000$703T1YV5ByOqKjU6V7WbokpqOsT7oacyiG8jXc9W/lhb1D4B', 1, '2000-01-01', 'Musterstraße', '1', '12345', 'Musterstadt', 'Deutschland');
-
---
--- Indizes der exportierten Tabellen
---
 
 --
 -- Indizes für die Tabelle `buchung`
@@ -379,7 +361,7 @@ ALTER TABLE `buchung`
 -- AUTO_INCREMENT für Tabelle `fahrzeugtyp`
 --
 ALTER TABLE `fahrzeugtyp`
-  MODIFY `Ft_ID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `Ft_ID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints der exportierten Tabellen
