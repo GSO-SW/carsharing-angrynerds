@@ -128,6 +128,10 @@ namespace Carsharing
             return cost;
         }
 
+		/// <summary>
+		/// Convert the object into a string for display purpose.
+		/// </summary>
+		/// <returns>Displayable string.</returns>
         public override string ToString()
         {
 			if (open)
