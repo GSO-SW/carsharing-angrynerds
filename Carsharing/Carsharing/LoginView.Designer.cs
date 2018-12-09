@@ -34,8 +34,6 @@
 			this.pictureLogo = new System.Windows.Forms.PictureBox();
 			this.buttonCancel = new System.Windows.Forms.Button();
 			this.panel3 = new System.Windows.Forms.Panel();
-			this.login = new Carsharing.LoginViewLogin();
-			this.registration = new Carsharing.LoginViewRegistration();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).BeginInit();
 			this.panel3.SuspendLayout();

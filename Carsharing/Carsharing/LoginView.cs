@@ -23,8 +23,9 @@ namespace Carsharing
 
 		internal LoginView(StartState startState)
 		{
+			this.login = new Carsharing.LoginViewLogin();
+			this.registration = new Carsharing.LoginViewRegistration();
 			InitializeComponent();
-			//ActiveControl = button;
 
 			State = startState;
 
