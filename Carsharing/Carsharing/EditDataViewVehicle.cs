@@ -293,81 +293,81 @@ namespace Carsharing
 
 		private bool test()
 		{
-			if (String.IsNullOrWhiteSpace(txtNumberplate.Text))
+			if (string.IsNullOrWhiteSpace(txtNumberplate.Text))
 			{
-				MessageBox.Show("Bitte geben Sie das Kennzeichen des Fahrzeuges an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Feedback.ErrorInvalidNumberPlate();
 				return false;
 			}
 
-			if (String.IsNullOrWhiteSpace(txtMileage.Text))
+			if (string.IsNullOrWhiteSpace(txtMileage.Text))
 			{
-				MessageBox.Show("Bitte geben Sie den aktuellen Kilometerstand des Fahrzeuges an, dieser kann auch 0 sein.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Feedback.ErrorInvalidKM();
 				return false;
 			}
 
-			if (String.IsNullOrWhiteSpace(txtTankFilling.Text))
+			if (string.IsNullOrWhiteSpace(txtTankFilling.Text))
 			{
-				MessageBox.Show("Bitte geben Sie die Tankfüllung des Fahrzeuges an, diese kann auch 0 sein.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Feedback.ErrorInvalidCurrentFuel();
 				return false;
 			}
 
-			if (String.IsNullOrWhiteSpace(comboBrand.Text))
+			if (string.IsNullOrWhiteSpace(comboBrand.Text))
 			{
-				MessageBox.Show("Bitte geben Sie die Marke des Fahrzeuges an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Feedback.ErrorInvalidBrand();
 				return false;
 			}
 
-			if (String.IsNullOrWhiteSpace(txtModel.Text))
+			if (string.IsNullOrWhiteSpace(txtModel.Text))
 			{
-				MessageBox.Show("Bitte geben Sie das Modell des Fahrzeuges an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Feedback.ErrorInvalidModel();
 				return false;
 			}
 
-			if (String.IsNullOrWhiteSpace(txtPower.Text))
+			if (string.IsNullOrWhiteSpace(txtPower.Text))
 			{
-				MessageBox.Show("Bitte geben Sie die Leistung des Fahrzeuges an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Feedback.ErrorInvalidPower();
 				return false;
 			}
 
-			if (String.IsNullOrWhiteSpace(comboGear.Text))
+			if (string.IsNullOrWhiteSpace(comboGear.Text))
 			{
-				MessageBox.Show("Bitte geben Sie die Schaltart des Fahrzeuges an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Feedback.ErrorInvalidShift();
 				return false;
 			}
 
-			if (String.IsNullOrWhiteSpace(txtMaxTankFilling.Text))
+			if (string.IsNullOrWhiteSpace(txtMaxTankFilling.Text))
 			{
-				MessageBox.Show("Bitte geben Sie die maximale Tankfüllung des Fahrzeuges an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Feedback.ErrorInvalidMaxFuel();
 				return false;
 			}
 
-			if (String.IsNullOrWhiteSpace(txtPrice.Text))
+			if (string.IsNullOrWhiteSpace(txtPrice.Text))
 			{
-				MessageBox.Show("Bitte geben Sie den Basispreises des Fahrzeuges an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Feedback.ErrorInvalidBasePrice();
 				return false;
 			}
 
-			if (String.IsNullOrWhiteSpace(txtPriceKilo.Text))
+			if (string.IsNullOrWhiteSpace(txtPriceKilo.Text))
 			{
-				MessageBox.Show("Bitte geben Sie den Preis pro Kilometer des Fahrzeuges an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Feedback.ErrorInvalidPricePerKm();
 				return false;
 			}
 
-			if (String.IsNullOrWhiteSpace(txtPriceMin.Text))
+			if (string.IsNullOrWhiteSpace(txtPriceMin.Text))
 			{
-				MessageBox.Show("Bitte geben Sie den Preis pro Minute des Fahrzeuges an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Feedback.ErrorInvalidPricePerMin();
 				return false;
 			}
 
-			if (String.IsNullOrWhiteSpace(txtPosX.Text))
+			if (string.IsNullOrWhiteSpace(txtPosX.Text))
 			{
-				MessageBox.Show("Bitte geben Sie die X-Koordinate des Fahrzeuges an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Feedback.ErrorInvalidXCoord();
 				return false;
 			}
 
-			if (String.IsNullOrWhiteSpace(txtPosY.Text))
+			if (string.IsNullOrWhiteSpace(txtPosY.Text))
 			{
-				MessageBox.Show("Bitte geben Sie die Y-Koordinate des Fahrzeuges an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Feedback.ErrorInvalidYCoord();
 				return false;
 			}
 			return true;

@@ -218,5 +218,70 @@ namespace Carsharing
 		{
 			MessageBox.Show("Buchung erfolgreich,", titleInformation, MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
+
+		internal static void ErrorInvalidNumberPlate()
+		{
+			MessageBox.Show("Bitte geben Sie das Kennzeichen des Fahrzeuges an.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorInvalidKM()
+		{
+			MessageBox.Show("Bitte geben Sie den aktuellen Kilometerstand des Fahrzeuges an, dieser kann auch 0 sein.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorInvalidCurrentFuel()
+		{
+			MessageBox.Show("Bitte geben Sie die Tankfüllung des Fahrzeuges an, diese kann auch 0 sein.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorInvalidBrand()
+		{
+			MessageBox.Show("Bitte geben Sie die Marke des Fahrzeuges an.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorInvalidModel()
+		{
+			MessageBox.Show("Bitte geben Sie das Modell des Fahrzeuges an.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorInvalidPower()
+		{
+			MessageBox.Show("Bitte geben Sie die Leistung des Fahrzeuges an.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorInvalidShift()
+		{
+			MessageBox.Show("Bitte geben Sie die Schaltart des Fahrzeuges an.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorInvalidMaxFuel()
+		{
+			MessageBox.Show("Bitte geben Sie die maximale Tankfüllung des Fahrzeuges an.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorInvalidBasePrice()
+		{
+			MessageBox.Show("Bitte geben Sie den Basispreises des Fahrzeuges an.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorInvalidPricePerKm()
+		{
+			MessageBox.Show("Bitte geben Sie den Preis pro Kilometer des Fahrzeuges an.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorInvalidPricePerMin()
+		{
+			MessageBox.Show("Bitte geben Sie den Preis pro Minute des Fahrzeuges an.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorInvalidXCoord()
+		{
+			MessageBox.Show("Bitte geben Sie die X-Koordinate des Fahrzeuges an.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorInvalidYCoord()
+		{
+			MessageBox.Show("Bitte geben Sie die Y-Koordinate des Fahrzeuges an.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}	
 	}
 }
