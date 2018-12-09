@@ -15,6 +15,8 @@ namespace Carsharing
 			InitializeComponentBefore();
 			InitializeComponent();
 			InitializeComponentAfter();
+			// to prevent graphic glitch
+			((UserControl)userStatus1).BringToFront();
 
 			DoubleBuffered = true;
 
