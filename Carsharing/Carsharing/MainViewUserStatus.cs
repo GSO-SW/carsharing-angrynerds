@@ -20,17 +20,24 @@ namespace Carsharing
 
 		private void buttonUserDelete_Click(object sender, EventArgs e)
 		{
-			if (Feedback.AskOwnCustomerDelete() == DialogResult.Yes)
+			if (DBController.TryCheckOpenBookingsCustomer(FormController.CurrentCustomer, out bool result) && !result)
 			{
-				if (DBController.TryDeleteUser(FormController.CurrentCustomer))
+				if (Feedback.AskOwnCustomerDelete() == DialogResult.Yes)
 				{
-					Feedback.SuccessOwnCustomerDelete();
-					FormController.MainView.Close();
+					if (DBController.TryDeleteUser(FormController.CurrentCustomer))
+					{
+						Feedback.SuccessOwnCustomerDelete();
+						FormController.MainView.Close();
+					}
+					else
+					{
+						Feedback.ErrorDatabaseCustomersDelete();
+					}
 				}
-				else
-				{
-					Feedback.ErrorDatabaseCustomersDelete();
-				}
+			}
+			else
+			{
+				Feedback.ErrorCustomerDeleteHimselfOpenBookings();
 			}
 		}
 

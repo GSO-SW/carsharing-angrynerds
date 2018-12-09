@@ -8,6 +8,11 @@ namespace Carsharing
 		private readonly static string titleCare = "Achtung";
 		private readonly static string titleInformation = "Information";
 
+		internal static void ErrorCustomerDeleteHimselfOpenBookings()
+		{
+			MessageBox.Show("Sie können ihren Account nicht löschen, während noch offene Buchungen vorhanden sind.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
 		internal static void ErrorInvalidName()
 		{
 			MessageBox.Show("Bitte geben Sie ihren Vornamen an.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
