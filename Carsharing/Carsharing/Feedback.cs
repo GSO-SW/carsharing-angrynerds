@@ -60,13 +60,107 @@ namespace Carsharing
 
 		internal static void ErrorInvalidCity()
 		{
-			MessageBox.Show("Bitte geben Sie ihren Wohnort an.", titleError
-, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show("Bitte geben Sie ihren Wohnort an.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 
 		internal static void ErrorInvalidCountry()
 		{
 			MessageBox.Show("Bitte geben Sie ihr Heimatland an.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorConvertMileage()
+		{
+			MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim Kilometerstand des Fahrzeuges.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorConvertTankFilling()
+		{
+			MessageBox.Show("Bitte überprüfen Sie ihre Eingabe bei der aktuellen Tankfüllung des Fahrzeuges.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorConvertPower()
+		{
+			MessageBox.Show("Bitte überprüfen Sie ihre Eingabe bei der Leistung des Fahrzeuges.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorConvertMaxTankFilling()
+		{
+			MessageBox.Show("Bitte überprüfen Sie ihre Eingabe bei maximalen Tankfüllung des Fahrzeuges.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorConvertBasicPrice()
+		{
+			MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim Basispreis des Fahrzeuges.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorConvertPriceKilo()
+		{
+			MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim Preis pro Kilometer des Fahrzeuges.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorConvertPriceMin()
+		{
+			MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim Preis pro Minute des Fahrzeuges.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorConvertLocationX()
+		{
+			MessageBox.Show("Bitte überprüfen Sie ihre Eingabe der X-Koordinate des Standortes des Fahrzeuges.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorConvertLocationY()
+		{
+			MessageBox.Show("Bitte überprüfen Sie ihre Eingabe der Y-Koordinate des Standortes des Fahrzeuges.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorConvertFuelCon()
+		{
+			MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim Kraftstoffverbrauch des Fahrzeuges.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorConvertRegi()
+		{
+			MessageBox.Show("Bitte überprüfen Sie ihre Eingabe bei der Erstzulassung des Fahrzeuges.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorConvertConstructionYear()
+		{
+			MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim Baujahr des Fahrzeuges.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorConvertSeats()
+		{
+			MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim der Sitzeanzahl des Fahrzeuges.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorPhysikTankFilling()
+		{
+			MessageBox.Show("Die aktuelle Tankfüllung kann nicht größer sein als die maximale Tankfüllung des Fahrzeuges.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorConstructionYearTooEarly()
+		{
+			MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim Baujahr des Fahrzeuges.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorConstructionYearTooLate()
+		{
+			MessageBox.Show("Das Baujahr des Fahrzeuges kann nicht in der Zukunft liegen.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorRegiBeforeConstruction()
+		{
+			MessageBox.Show("Das Erstzulassungsjahr kann nicht vor dem Baujahr sein.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorMaintanceBeforeConstruction()
+		{
+			MessageBox.Show("Die letzte Wartung kann nicht vor dem Baujahr sein.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorNumberPlateAlreadyExist()
+		{
+			MessageBox.Show("Das Kennzeichen des Fahrzeug existiert bereits.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 
 		internal static void ErrorAlreadyExistingEmail()
@@ -89,6 +183,26 @@ namespace Carsharing
 			MessageBox.Show("Sie haben keine gültige Auswahl getroffen.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 
+		internal static void ErrorDatabaseLoadNumberPlates()
+		{
+			MessageBox.Show("Bei dem Laden aller Kennzeichen ist ein Fehler aufgetreten.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error); ;
+		}
+
+		internal static void ErrorDatabaseLoadBrands()
+		{
+			MessageBox.Show("Bei dem Laden aller Fahrzeugmarken ist ein Fehler aufgetreten.\nSie werden zum Hauptfenster zurückgeleitet.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorDatabaseLoadGears()
+		{
+			MessageBox.Show("Bei dem Laden aller Getriebearten ist ein Fehler aufgetreten.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorDatabaseLoadFuels()
+		{
+			MessageBox.Show("Bei dem Laden aller Kraftstoffarten ist ein Fehler aufgetreten.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
 		internal static void ErrorDatabaseCustomersDelete()
 		{
 			MessageBox.Show("Bei dem Versuch den Nutzer zu Löschen ist ein Fehler ausgetreten.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -104,6 +218,16 @@ namespace Carsharing
 			MessageBox.Show("Sie können sich nicht selbst auf diese Art löschen.\nSie müssen dies unter dem Menü 'Status' tun.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 
+		internal static void ErrorCustomerIsntLoggedIn()
+		{
+			MessageBox.Show("Sie sind nicht angemeldet.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		internal static void ErrorCustomerIsntAdmin()
+		{
+			MessageBox.Show("Sie sind nicht als Admin angemeldet.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
 		internal static void ErrorCustomersEditHimself()
 		{
 			MessageBox.Show("Sie können sich nicht selbst auf diese Art bearbeiten.\nSie müssen dies unter dem Menü 'Status' tun.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -116,12 +240,12 @@ namespace Carsharing
 
 		internal static void ErrorDatabaseVehicleAdd()
 		{
-			MessageBox.Show("Beim Hinzufügen des Fahrzeuges ist ein Fehler unterlaufen.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show("Beim Hinzufügen des Fahrzeuges ist ein Fehler unterlaufen.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 
 		internal static void ErrorDatabaseVehicleEdit()
 		{
-			MessageBox.Show("Beim Bearbeiten des Fahrzeuges ist ein Fehler unterlaufen.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show("Beim Bearbeiten des Fahrzeuges ist ein Fehler unterlaufen.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 
 		internal static void ErrorDatabaseVehicleDelete()

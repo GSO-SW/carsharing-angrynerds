@@ -66,16 +66,16 @@ namespace Carsharing
 			//Checks wether the current user isn't logged in.
 			if (FormController.CurrentCustomer == null)
 			{
-				MessageBox.Show("Sie sind nicht angemeldet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				((EditDataView)Parent).Close();
+				Feedback.ErrorCustomerIsntLoggedIn();
+				ParentForm.Close();
 				return;
 			}
 
 			//Checks wether the current user is admin.
 			if (!FormController.CurrentCustomer.IsAdmin)
 			{
-				MessageBox.Show("Sie sind nicht als Admin angemeldet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				((EditDataView)Parent).Close();
+				Feedback.ErrorCustomerIsntAdmin();
+				ParentForm.Close();
 				return;
 			}
 
@@ -86,8 +86,8 @@ namespace Carsharing
 			}
 			else
 			{
-				MessageBox.Show("Bei dem Laden aller Fahrzeugmarken ist ein Fehler aufgetreten.\nSie werden zum Hauptfenster zurückgeleitet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				((EditDataView)Parent).Close();
+				Feedback.ErrorDatabaseLoadBrands();
+				ParentForm.Close();
 				return;
 			}
 
@@ -98,8 +98,8 @@ namespace Carsharing
 			}
 			else
 			{
-				MessageBox.Show("Bei dem Laden aller Getriebearten ist ein Fehler aufgetreten.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				((EditDataView)Parent).Close();
+				Feedback.ErrorDatabaseLoadGears();
+				ParentForm.Close();
 				return;
 			}
 
@@ -110,9 +110,8 @@ namespace Carsharing
 			}
 			else
 			{
-				MessageBox.Show("Bei dem Laden aller Kraftstoffarten ist ein Fehler aufgetreten.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				((EditDataView)Parent).Close();
-				FormController.MainView.UpdateVehicleList();
+				Feedback.ErrorDatabaseLoadFuels();
+				ParentForm.Close();
 				return;
 			}
 
@@ -131,115 +130,116 @@ namespace Carsharing
 				#region check
 				if (!Double.TryParse(txtMileage.Text, out double mileage))
 				{
-					MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim Kilometerstand des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					Feedback.ErrorConvertMileage();
 					return;
 				}
 
 				if (!Double.TryParse(txtTankFilling.Text, out double tankFilling))
 				{
-					MessageBox.Show("Bitte überprüfen Sie ihre Eingabe bei der aktuellen Tankfüllung des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					Feedback.ErrorConvertTankFilling();
 					return;
 				}
 
 				if (!Double.TryParse(txtPower.Text, out double power))
 				{
-					MessageBox.Show("Bitte überprüfen Sie ihre Eingabe bei der Leistung des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					Feedback.ErrorConvertPower();
 					return;
 				}
 
 				if (!Double.TryParse(txtMaxTankFilling.Text, out double maxTankFilling))
 				{
-					MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim Kilometerstand des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					Feedback.ErrorConvertMaxTankFilling();
 					return;
 				}
 
 				if (!Double.TryParse(txtPrice.Text, out double basicPrice))
 				{
-					MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim Basispreis des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					Feedback.ErrorConvertBasicPrice();
 					return;
 				}
 
 				if (!Double.TryParse(txtPriceKilo.Text, out double pricePerKilometre))
 				{
-					MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim Preis pro Kilometer des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					Feedback.ErrorConvertPriceKilo();
 					return;
 				}
 
 				if (!Double.TryParse(txtPriceMin.Text, out double pricePerMinute))
 				{
-					MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim Preis pro Minute des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					Feedback.ErrorConvertPriceMin();
 					return;
 				}
 
 				if (!Double.TryParse(txtPosX.Text, out double posX))
 				{
-					MessageBox.Show("Bitte überprüfen Sie ihre Eingabe der X-Koordinate des Standortes des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					Feedback.ErrorConvertLocationX();
 					return;
 				}
 
 				if (!Double.TryParse(txtPosY.Text, out double posY))
 				{
-					MessageBox.Show("Bitte überprüfen Sie ihre Eingabe der Y-Koordinate des Standortes des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					Feedback.ErrorConvertLocationY();
 					return;
 				}
 
 				if (!Double.TryParse(txtFuelCon.Text, out double fuelConsumption))
 				{
-					MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim Kraftstoffverbrauch des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					Feedback.ErrorConvertFuelCon();
 					return;
 				}
 
 				if (!DateTime.TryParse(txtReg.Text, out DateTime registration))
 				{
-					MessageBox.Show("Bitte überprüfen Sie ihre Eingabe bei der Erstzulassung des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					Feedback.ErrorConvertRegi();
 					return;
 				}
 
 				if (!Int32.TryParse(txtConstructionYear.Text, out int constructionYear))
 				{
-					MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim Baujahr des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					Feedback.ErrorConvertConstructionYear();
 					return;
 				}
 
 				if (!Int32.TryParse(txtSeats.Text, out int seats))
 				{
-					MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim der Sitzeanzahl des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					Feedback.ErrorConvertSeats();
 					return;
 				}
 
 				if (tankFilling > maxTankFilling)
 				{
-					MessageBox.Show("Die aktuelle Tankfüllung kann nicht größer sein als die maximale Tankfüllung des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					Feedback.ErrorPhysikTankFilling();
 					return;
 				}
 
 				if (constructionYear < 1880)
 				{
-					MessageBox.Show("Bitte überprüfen Sie ihre Eingabe beim Baujahr des Fahrzeuges.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					Feedback.ErrorConstructionYearTooEarly();
 					return;
 				}
 
 				if (constructionYear > DateTime.Today.Year)
 				{
-					MessageBox.Show("Das Baujahr des Fahrzeuges kann nicht in der Zukunft liegen.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					Feedback.ErrorConstructionYearTooLate();
 					return;
 				}
 
 				if (registration.Year < constructionYear)
 				{
-					MessageBox.Show("Das Erstzulassungsjahr kann nicht vor dem Baujahr sein.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					Feedback.ErrorRegiBeforeConstruction();
 					return;
 				}
 
 				if(dateTimeLastMaintenance.Value.Year < constructionYear)
 				{
-					MessageBox.Show("Die letzte Wartung kann nicht vor dem Baujahr sein.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					Feedback.ErrorMaintanceBeforeConstruction();
 					return;
 				}
 
 				if(!DBController.TryGetVehicleNumberPlates(out List<string> numberPlates))
 				{
-					MessageBox.Show("Bei dem Laden aller Kennzeichen ist ein Fehler aufgetreten.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					Feedback.ErrorDatabaseLoadNumberPlates();
+					return;
 				}
 
 				if (numberPlates.Contains(txtNumberplate.Text))
@@ -248,13 +248,13 @@ namespace Carsharing
 					{
 						if (vehicleOld.NumberPlate != txtNumberplate.Text)
 						{
-							MessageBox.Show("Das Kennzeichen des Fahrzeug existiert bereits.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+							Feedback.ErrorNumberPlateAlreadyExist();
 							return;
 						}							
 					}
 					else
 					{
-						MessageBox.Show("Das Kennzeichen des Fahrzeug existiert bereits.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						Feedback.ErrorNumberPlateAlreadyExist();
 						return;
 					}
 				}
