@@ -78,57 +78,57 @@ namespace Carsharing
 		{
 			if (string.IsNullOrWhiteSpace(txtName.TextWithoutWatermark))
 			{
-				MessageBox.Show("Bitte geben Sie ihren Vornamen an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Feedback.ErrorInvalidName();
 				return false;
 			}
 			if (string.IsNullOrWhiteSpace(txtLastName.TextWithoutWatermark))
 			{
-				MessageBox.Show("Bitte geben Sie ihren Nachnamen an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Feedback.ErrorInvaliLastdName();
 				return false;
 			}
 			if (string.IsNullOrWhiteSpace(txtEmail.TextWithoutWatermark) || !txtEmail.TextWithoutWatermark.Contains("@") || !txtEmail.TextWithoutWatermark.Contains("."))
 			{
-				MessageBox.Show("Bitte geben Sie eine gültige E-Mail-Adresse an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Feedback.ErrorInvaliEmail();
 				return false;
 			}
-			if (string.IsNullOrWhiteSpace(txtPhoneNumber.TextWithoutWatermark) || !txtPhoneNumber.TextWithoutWatermark.Any(char.IsDigit)) //nur nummern?
+			if (string.IsNullOrWhiteSpace(txtPhoneNumber.TextWithoutWatermark) || !txtPhoneNumber.TextWithoutWatermark.Any(char.IsDigit))
 			{
-				MessageBox.Show("Bitte geben Sie eine gültige Telefonnummer an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Feedback.ErrorInvalidTel();
 				return false;
 			}
 			if (!DateTime.TryParse(txtBirthDate.TextWithoutWatermark, out DateTime birthDate))
 			{
-				MessageBox.Show("Bitte geben sie ein gültiges Geburtsdatum ein.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Feedback.ErrorInvalidDate();
 				return false;
 			}
 			if ((DateTime.Today.Date - birthDate.Date) < new TimeSpan(365 * 18, 6 * 18, 0, 0))//min. Alter
 			{
-				MessageBox.Show("Sie müssen älter als 18 Jahre sein.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Feedback.ErrorInvalidAge();
 				return false;
 			}
 			if (string.IsNullOrWhiteSpace(txtStreet.TextWithoutWatermark))
 			{
-				MessageBox.Show("Bitte geben Sie ihre Straße an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Feedback.ErrorInvalidStreet();
 				return false;
 			}
 			if (string.IsNullOrWhiteSpace(txtHouseNumber.TextWithoutWatermark))
 			{
-				MessageBox.Show("Bitte geben Sie ihre Hausnummer an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Feedback.ErrorInvalidHouseNumber();
 				return false;
 			}
 			if (string.IsNullOrWhiteSpace(txtPlz.TextWithoutWatermark) || !txtPlz.TextWithoutWatermark.All(char.IsDigit))
 			{
-				MessageBox.Show("Bitte geben Sie eine gültige Postleitzahl an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Feedback.ErrorInvalidPLZ();
 				return false;
 			}
 			if (string.IsNullOrWhiteSpace(txtCity.TextWithoutWatermark))
 			{
-				MessageBox.Show("Bitte geben Sie ihren Wohnort an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Feedback.ErrorInvalidCity();
 				return false;
 			}
 			if (string.IsNullOrWhiteSpace(txtCountry.TextWithoutWatermark))
 			{
-				MessageBox.Show("Bitte geben Sie ihr Heimatland an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Feedback.ErrorInvalidCountry();
 				return false;
 			}
 			if (!DBController.TryGetAllCustomers(out List<Customer> customers))
@@ -143,7 +143,7 @@ namespace Carsharing
 				{
 					if (txtEmail.TextWithoutWatermark == c.EmailAddress)
 					{
-						MessageBox.Show("Diese Email existiert bereits in der Datenbank.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						Feedback.ErrorAlreadyExistingEmail();
 						return false;
 					}
 				}

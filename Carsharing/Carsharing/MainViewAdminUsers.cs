@@ -45,7 +45,7 @@ namespace Carsharing
 			if (listBoxUser.SelectedItem is Customer)
 			{
 				Customer c = (Customer)listBoxUser.SelectedItem;
-				if(c.EmailAddress != FormController.CurrentCustomer.EmailAddress)
+				if (c.EmailAddress != FormController.CurrentCustomer.EmailAddress)
 				{
 					new EditDataView(c).ShowDialog();
 				}

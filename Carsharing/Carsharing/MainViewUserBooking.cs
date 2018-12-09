@@ -74,7 +74,11 @@ namespace Carsharing
 				Feedback.ErrorDatabaseConnection();
 				return;
 			}
-			listBoxVehicle.Items.AddRange(vehicles.ToArray());
+			foreach (Vehicle item in vehicles)
+			{
+				if (item.Available)
+					listBoxVehicle.Items.Add(item);
+			}
 		}
 
 		private void Placeholer()
