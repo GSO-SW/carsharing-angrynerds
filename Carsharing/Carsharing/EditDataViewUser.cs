@@ -55,7 +55,7 @@ namespace Carsharing
 				c.Country = txtCountry.TextWithoutWatermark;
 				c.IsAdmin = checkAdmin.Checked;
 
-				if (DBController.UpdateCustomerInDB(c, customerOld.EmailAddress) == 0)
+				if (DBController.TryUpdateCustomer(c, customerOld.EmailAddress) == 0)
 				{
 					FormController.MainView.UpdateCustomersList();
 					Feedback.SuccessCustomersEdit();
@@ -131,7 +131,7 @@ namespace Carsharing
 				MessageBox.Show("Bitte geben Sie ihr Heimatland an.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return false;
 			}
-			if (!DBController.GetCustomers(out List<Customer> customers))
+			if (!DBController.TryGetAllCustomers(out List<Customer> customers))
 			{
 				Feedback.ErrorDatabaseConnection();
 				return false;

@@ -22,7 +22,7 @@ namespace Carsharing
 		{
 			if (Feedback.AskOwnCustomerDelete() == DialogResult.Yes)
 			{
-				if (DBController.DeleteUserFromDB(FormController.CurrentCustomer))
+				if (DBController.TryDeleteUser(FormController.CurrentCustomer))
 				{
 					Feedback.SuccessOwnCustomerDelete();
 					FormController.MainView.Close();
@@ -44,7 +44,7 @@ namespace Carsharing
         private void UpdateTable()
         {
             listBoxBooking.Items.Clear();
-			if (!DBController.GetAllBookingsOfCustomer(FormController.CurrentCustomer, out List<Booking> bookings))
+			if (!DBController.TryGetAllBookingsOfCustomer(FormController.CurrentCustomer, out List<Booking> bookings))
 			{
 				Feedback.ErrorDatabaseConnection();
 				return;
@@ -116,7 +116,7 @@ namespace Carsharing
                 // Close the booking locally
                 b.Close(DateTime.Now, userInput);
                 // Close the booking in the database
-                if(DBController.CloseBookingInDB(b))
+                if(DBController.TryCloseBooking(b))
                 {
                     Feedback.SuccessCloseBooking(b.CalculateCost());
 					UpdateForm();

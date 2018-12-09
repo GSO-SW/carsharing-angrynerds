@@ -50,7 +50,7 @@ namespace Carsharing
 
 		private void login()
 		{
-			if (!DBController.GetCustomerByEmailFromDB(txtEmail.Text, out Customer c))
+			if (!DBController.TryGetCustomerByEmail(txtEmail.Text, out Customer c))
 			{
 				Feedback.ErrorDatabaseConnection();
 				return;

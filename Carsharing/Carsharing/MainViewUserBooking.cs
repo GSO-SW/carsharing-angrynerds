@@ -69,7 +69,7 @@ namespace Carsharing
 		{
 			listBoxVehicle.Items.Clear();
 			Placeholer();
-			if (!DBController.GetAvailableVehiclesFromDB(out List<Vehicle> vehicles))
+			if (!DBController.TryGetAvailableVehicles(out List<Vehicle> vehicles))
 			{
 				Feedback.ErrorDatabaseConnection();
 				return;
@@ -115,12 +115,12 @@ namespace Carsharing
 		private void buttonBookingAdd_Click(object sender, EventArgs e)
 		{
 			//check, if the customer or the vehicle has open bookings
-			if (DBController.CheckOpenBookingsCustomer(FormController.CurrentCustomer, out bool cresult) && !cresult)
+			if (DBController.TryCheckOpenBookingsCustomer(FormController.CurrentCustomer, out bool cresult) && !cresult)
 			{
-				if (listBoxVehicle.SelectedItem != null && listBoxVehicle.SelectedItem is Vehicle v && DBController.CheckOpenBookingVehicle(v, out bool vresult) && !vresult && v.Available)
+				if (listBoxVehicle.SelectedItem != null && listBoxVehicle.SelectedItem is Vehicle v && DBController.TryCheckOpenBookingVehicle(v, out bool vresult) && !vresult && v.Available)
 				{
 					Booking b = new Booking(FormController.CurrentCustomer, v, DateTime.Now, new DateTime(0), v.Mileage, 0, true);
-					if (DBController.AddBookingToDB(b))
+					if (DBController.TryAddBooking(b))
 					{
 						MessageBox.Show("Buchung erfolgreich.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 					}

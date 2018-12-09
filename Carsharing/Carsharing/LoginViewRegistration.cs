@@ -50,7 +50,7 @@ namespace Carsharing
 			{
 				Customer c = new Customer(txtName.TextWithoutWatermark, txtLastName.TextWithoutWatermark, txtEmail.TextWithoutWatermark, txtPhoneNumber.TextWithoutWatermark, SecurePasswordHasher.Hash(txtPassword.TextWithoutWatermark), DateTime.Parse(txtBirthDate.TextWithoutWatermark), txtStreet.TextWithoutWatermark, txtHouseNumber.TextWithoutWatermark, txtPlz.TextWithoutWatermark, txtCity.TextWithoutWatermark, txtCountry.TextWithoutWatermark, false);
 
-				switch (DBController.AddCustomerToDB(c))
+				switch (DBController.TryAddCustomer(c))
 				{
 					case 1:
 						MessageBox.Show("Es ist ein Fehler mit der Datenbank aufgetreten.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);

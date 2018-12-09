@@ -80,7 +80,7 @@ namespace Carsharing
 			}
 
 			//Get a list with all brands and add them to the brand-combobox.
-			if (DBController.GetVehicleBrands(out List<string> brands))
+			if (DBController.TryGetVehicleBrands(out List<string> brands))
 			{
 				comboBrand.Items.AddRange(brands.ToArray());
 			}
@@ -92,7 +92,7 @@ namespace Carsharing
 			}
 
 			//Get a list with all gears and add them to the gear-combobox.
-			if (DBController.GetVehicleGears(out List<string> gears))
+			if (DBController.TryGetVehicleGears(out List<string> gears))
 			{
 					comboGear.Items.AddRange(gears.ToArray());
 			}
@@ -104,7 +104,7 @@ namespace Carsharing
 			}
 
 			//Get a list with all fuel types and add them to the fuel-combobox.
-			if (DBController.GetFuelTypes(out List<string> fuel))
+			if (DBController.TryGetFuelTypes(out List<string> fuel))
 			{
 				comboFuel.Items.AddRange(fuel.ToArray());
 			}
@@ -237,7 +237,7 @@ namespace Carsharing
 					return;
 				}
 
-				if(!DBController.GetVehicleNumberPlates(out List<string> numberPlates))
+				if(!DBController.TryGetVehicleNumberPlates(out List<string> numberPlates))
 				{
 					MessageBox.Show("Bei dem Laden aller Kennzeichen ist ein Fehler aufgetreten.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
@@ -264,7 +264,7 @@ namespace Carsharing
 
 				if (vehicleOld == null)
 				{
-					if (!DBController.AddVehicle(vehicle))
+					if (!DBController.TryAddVehicle(vehicle))
 					{
 						Feedback.ErrorDatabaseVehicleAdd();
 						return;
@@ -273,7 +273,7 @@ namespace Carsharing
 				}
 				else
 				{
-					if (!DBController.UpdateVehicleInDB(vehicle, vehicleOld))
+					if (!DBController.TryUpdateVehicleInDB(vehicle, vehicleOld))
 					{
 						Feedback.ErrorDatabaseVehicleEdit();
 						return;

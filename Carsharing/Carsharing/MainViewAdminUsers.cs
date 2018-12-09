@@ -22,7 +22,7 @@ namespace Carsharing
 				{
 					if (Feedback.AskCustomerDelete() == DialogResult.Yes)
 					{
-						if (DBController.DeleteUserFromDB(customer))
+						if (DBController.TryDeleteUser(customer))
 						{
 							UpdateTable();
 							Feedback.SuccessCustomersDelete();
@@ -90,7 +90,7 @@ namespace Carsharing
 		{
 			listBoxUser.Items.Clear();
 			Placeholer();
-			if (!DBController.GetCustomers(out List<Customer> customers))
+			if (!DBController.TryGetAllCustomers(out List<Customer> customers))
 			{
 				Feedback.ErrorDatabaseConnection();
 				return;

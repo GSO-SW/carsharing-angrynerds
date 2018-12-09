@@ -11,7 +11,7 @@ namespace Carsharing
 
         #region Database information
         /// <summary>
-        /// Test, if the connection to the Database is available.
+        /// Test, if the connection to the database is available.
         /// </summary>
         /// <returns>Return true, if the connection is available, otherwise false.</returns>
         internal static bool ConnectionAvailable()
@@ -39,15 +39,15 @@ namespace Carsharing
 
         #region Vehicle
         /// <summary>
-        /// Fetches a vehicle from the database with a corresponding number plate.
+        /// Try to fetches a vehicle from the database with a corresponding number plate.
         /// </summary>
         /// <param name="numberPlate">The number plate of the vehicle you are looking for.</param>
         /// <param name="vehicle">The found vehicle. Is null if no vehicle is found.</param>
         /// <returns>Returns true, if the access to the database was successfull.</returns>
-        internal static bool GetVehicleByNumberPlate(string numberPlate, out Vehicle vehicle)
+        internal static bool TryGetVehicleByNumberPlate(string numberPlate, out Vehicle vehicle)
         {
             bool status = true;
-            DataTable fahrzeugTable = new DataTable();
+            DataTable table = new DataTable();
 
             using (MySqlConnection con = new MySqlConnection(connectionString))
             {
@@ -57,7 +57,7 @@ namespace Carsharing
                     using (MySqlDataAdapter a = new MySqlDataAdapter("SELECT * FROM `fahrzeug` JOIN `fahrzeugtyp` USING(`Ft_ID`) JOIN `fahrzeugmarke` USING(`Fm_ID`) JOIN `fahrzeuggetriebe` USING(`Fg_ID`) JOIN `kraftstoffart` USING(`Ks_ID`) WHERE Kennzeichen = @kennzeichen", con))
                     {
                         a.SelectCommand.Parameters.AddWithValue("kennzeichen", numberPlate);
-                        a.Fill(fahrzeugTable);
+                        a.Fill(table);
                     }
                 }
                 catch (Exception)
@@ -70,9 +70,9 @@ namespace Carsharing
                 }
             }
 
-            if (fahrzeugTable.Rows.Count > 0)
+            if (table.Rows.Count > 0)
             {
-                vehicle = GetVehicleFromDataRow(fahrzeugTable.Rows[0]);
+                vehicle = GetVehicleFromDataRow(table.Rows[0]);
             }
             // If no vehicle has been found with the given number plate, set the returning vehicle null
             else
@@ -83,15 +83,15 @@ namespace Carsharing
         }
 
         /// <summary>
-        /// Method to get the vehicle type ID from a vehicle.
+        /// Try to get the vehicle type ID from a vehicle.
         /// </summary>
         /// <param name="vehicle">Vehicle from which the vehicle type ID is to be searched for</param>
-        /// <param name="VehicleTypeID">Vehicle type ID from the vehicle. 'null', if the vehicle type isn't in the DB.</param>
+        /// <param name="vehicleTypeID">Vehicle type ID from the vehicle. 'null', if the vehicle type isn't in the DB.</param>
         /// <returns>Returns true if the connection to the database worked. False if not.</returns>
-        internal static bool GetVehicleTypeID(Vehicle vehicle, out int? VehicleTypeID)
+        internal static bool TryGetVehicleTypeID(Vehicle vehicle, out int? vehicleTypeID)
         {
             DataTable table = new DataTable();
-            VehicleTypeID = null;
+            vehicleTypeID = null;
 
             using (MySqlConnection con = new MySqlConnection(connectionString))
             {
@@ -124,7 +124,8 @@ namespace Carsharing
                 //Checks whether the parameter vehicle has the same vehicle type as the created vehicle.
                 if (vehicle.ToString(VehicleFormat.VehicleType) == rowVehicle.ToString(VehicleFormat.VehicleType))
                 {
-                    VehicleTypeID = Convert.ToInt32(row["Ft_ID"].ToString());
+					//Returns
+                    vehicleTypeID = Convert.ToInt32(row["Ft_ID"].ToString());
                     return true;
                 }
             }
@@ -132,12 +133,12 @@ namespace Carsharing
         }
 
         /// <summary>
-        /// Method to get the brand ID from a brand-string.
+        /// Try to get the brand ID from a brand-string.
         /// </summary>
         /// <param name="brand">Brand from which the brand ID is to be searched for</param>
         /// <param name="vehicleBrandID">brand ID from the brand. 'null', if the brand isn't in the DB.</param>
         /// <returns>Returns true if the connection to the database worked. False if not.</returns>
-        internal static bool GetVehicleBrandID(string brand, out int? vehicleBrandID)
+        internal static bool TryGetVehicleBrandID(string brand, out int? vehicleBrandID)
         {
             DataTable table = new DataTable();
             vehicleBrandID = null;
@@ -176,12 +177,12 @@ namespace Carsharing
         }
 
         /// <summary>
-        /// Method to get the gear ID from a gear-string.
+        /// Try to get the gear ID from a gear-string.
         /// </summary>
         /// <param name="gear">Gear from which the gear ID is to be searched for</param>
         /// <param name="gearID">Gear ID from the gear, 'null', if the gear isn't in the DB.</param>
         /// <returns>Returns true if the connection to the database worked. False if not.</returns>
-        internal static bool GetVehicleGearID(string gear, out int? gearID)
+        internal static bool TryGetVehicleGearID(string gear, out int? gearID)
         {
             DataTable table = new DataTable();
             gearID = null;
@@ -220,12 +221,12 @@ namespace Carsharing
         }
 
         /// <summary>
-        /// Method to get the fuel type ID from a gear-string.
+        /// Try to get the fuel type ID from a gear-string.
         /// </summary>
         /// <param name="fuel">Fuel type from which the fuel type ID is to be searched for</param>
         /// <param name="fuelID">Fuel type ID from the fuel typ, 'null', if the fuel typ isn't in the DB.</param>
         /// <returns>Returns true if the connection to the database worked. False if not.</returns>
-        internal static bool GetFuelTypeID(string fuel, out int? fuelID)
+        internal static bool TryGetFuelTypeID(string fuel, out int? fuelID)
         {
             DataTable table = new DataTable();
             fuelID = null;
@@ -264,11 +265,11 @@ namespace Carsharing
         }
 
         /// <summary>
-        /// Method to get a list with all number plates.
+        /// Try to get a list with all number plates.
         /// </summary>
         /// <param name="numberPlates">List with all number plates</param>
         /// <returns>Returns true if the connection to the database worked. False if not.</returns>
-        internal static bool GetVehicleNumberPlates(out List<string> numberPlates)
+        internal static bool TryGetVehicleNumberPlates(out List<string> numberPlates)
         {
             DataTable table = new DataTable();
             numberPlates = new List<string>();
@@ -304,11 +305,11 @@ namespace Carsharing
         }
 
         /// <summary>
-        /// Method to get a list with all brands.
+        /// Try to get a list with all brands.
         /// </summary>
         /// <param name="brand">List with all brands</param>
         /// <returns>Returns true if the connection to the database worked. False if not.</returns>
-        internal static bool GetVehicleBrands(out List<string> brand)
+        internal static bool TryGetVehicleBrands(out List<string> brand)
         {
             DataTable table = new DataTable();
             brand = new List<string>();
@@ -344,11 +345,11 @@ namespace Carsharing
         }
 
         /// <summary>
-        /// Method to get a list with all gears.
+        /// Try to get a list with all gears.
         /// </summary>
         /// <param name="gear">List with all gears</param>
         /// <returns>Returns true if the connection to the database worked. False if not.</returns>
-        internal static bool GetVehicleGears(out List<string> gear)
+        internal static bool TryGetVehicleGears(out List<string> gear)
         {
             DataTable table = new DataTable();
             gear = new List<string>();
@@ -383,11 +384,11 @@ namespace Carsharing
         }
 
         /// <summary>
-        /// Method to get a list with all fuel types.
+        /// Try to get a list with all fuel types.
         /// </summary>
         /// <param name="fuel">List with all fuel types</param>
         /// <returns>Returns true if the connection to the database worked. False if not.</returns>
-        internal static bool GetFuelTypes(out List<string> fuel)
+        internal static bool TryGetFuelTypes(out List<string> fuel)
         {
             DataTable table = new DataTable();
             fuel = new List<string>();
@@ -422,26 +423,27 @@ namespace Carsharing
         }
 
         /// <summary>
-        /// Method to add a vehicle to the DB.
+        /// Try to add a vehicle to the database.
         /// </summary>
         /// <param name="vehicle">Vehicle to be added</param>
         /// <returns>Returns true if the connection to the database worked and the vehicle was added. False if not.</returns>
-        internal static bool AddVehicle(Vehicle vehicle)
+        internal static bool TryAddVehicle(Vehicle vehicle)
         {
             //Get the vehicle type ID
-            if (!GetVehicleTypeID(vehicle, out int? vehicleTypeID))
+            if (!TryGetVehicleTypeID(vehicle, out int? vehicleTypeID))
                 return false;
 
-            //Checks if the vehicle type is in the DB.
-            if (vehicleTypeID == null)
+			//Checks if the vehicle type is in the database.
+			if (vehicleTypeID == null)
             {
-                //Adds the vehicle type to the DB
-                if (!AddVehicleType(vehicle))
+				//Adds the vehicle type to the database
+				if (!TryAddVehicleType(vehicle))
                     return false;
                 //Get the vehicle type ID
-                if (!GetVehicleTypeID(vehicle, out vehicleTypeID))
+                if (!TryGetVehicleTypeID(vehicle, out vehicleTypeID))
                     return false;
             }
+
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 try
@@ -488,12 +490,12 @@ namespace Carsharing
         }
 
         /// <summary>
-        /// Method to check if a vehicle is used in open bookings.
+        /// Try to check if a vehicle is used in open bookings.
         /// </summary>
         /// <param name="v">The vehicle, whose bookings require a check.</param>
         /// <param name="result">Is true, if the customer has open bookings in the DB. Is false, if he doesn't.</param>
         /// <returns>Returns false if there was a problem with the database connection, otherwise true.</returns>
-        internal static bool CheckOpenBookingVehicle(Vehicle v, out bool result)
+        internal static bool TryCheckOpenBookingVehicle(Vehicle v, out bool result)
         {
             // The result of the check is false at default
             result = true;
@@ -504,13 +506,13 @@ namespace Carsharing
                 try
                 {
                     con.Open();
-                    // Get a list of all B_IDs matching the customer's email-address and checks,
+                    // Get a list of all booking IDs matching the customer's email-address and checks,
                     // if the ending mileage equals NULL, indicating the booking is still open.
                     using (MySqlCommand command = new MySqlCommand("Select B_ID FROM buchung WHERE `Kennzeichen` = @kennzeichen AND Endkilometerstand IS NULL", con))
                     {
                         command.Parameters.AddWithValue("kennzeichen", v.NumberPlate);
-                        // Transfer the found B_IDs into a table via the MySqlDataAdapter...
-                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+						// Transfer the found booking IDs into a table via the MySqlDataAdapter...
+						using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
                         {
                             adapter.Fill(table);
                         }
@@ -534,7 +536,7 @@ namespace Carsharing
         }
 
         /// <summary>
-        /// Try to delete a vehicle from the DB.
+        /// Try to delete a vehicle from the database.
         /// </summary>
         /// <param name="v">Vehicle to be deleted</param>
         /// <returns>Returns true if the connection to the database worked and the vehicle was deleted. False if not.</returns>
@@ -548,6 +550,8 @@ namespace Carsharing
                     using (MySqlCommand command = new MySqlCommand("DELETE FROM Fahrzeug WHERE `Kennzeichen` = @kennzeichen", con))
                     {
                         command.Parameters.AddWithValue("kennzeichen", v.NumberPlate);
+
+						//Delete vehicle
                         command.ExecuteNonQuery();
                     }
                 }
@@ -563,13 +567,20 @@ namespace Carsharing
             }
         }
 
-        internal static bool TryCheckVehicleTypeIsNeeded(Vehicle vehicle)
+		/// <summary>
+		/// Try to check if a vehicle type is needed
+		/// </summary>
+		/// <param name="vehicle">Vehicle to check</param>
+		/// <returns>Returns false if there was a problem with the database connection, otherwise true.</returns>
+		internal static bool TryCheckVehicleTypeIsNeeded(Vehicle vehicle)
         {
+			//Count how many vehicle types from vehicle parameter are used in the database
             if (!DBController.TryCountVehicleType(vehicle, out int count))
             {
                 return false;
             }
 
+			//If the vehicle type isn't used, delete it
             if (count == 0)
             {
                 if (!DBController.TryDeleteVehicleType(vehicle))
@@ -580,12 +591,19 @@ namespace Carsharing
             return true;
         }
 
-        internal static bool TryCountVehicleType(Vehicle vehicle, out int count)
+		/// <summary>
+		/// Try to count how often the vehicletype is used in the database
+		/// </summary>
+		/// <param name="vehicle">Vehicle to check</param>
+		/// <param name="count">How often it's used</param>
+		/// <returns>Returns false if there was a problem with the database connection, otherwise true.</returns>
+		internal static bool TryCountVehicleType(Vehicle vehicle, out int count)
         {
             count = 0;
             DataTable table = new DataTable();
 
-            if (!GetVehicleTypeID(vehicle, out int? id))
+			//Get the vehicle tpye ID
+            if (!TryGetVehicleTypeID(vehicle, out int? id))
             {
                 return false;
             }
@@ -620,9 +638,15 @@ namespace Carsharing
             return true;
         }
 
-        internal static bool TryDeleteVehicleType(Vehicle vehicle)
+		/// <summary>
+		/// Try to delete the vehicle type
+		/// </summary>
+		/// <param name="vehicle">vehicle type to delete</param>
+		/// <returns>Returns true if the connection to the database worked and the vehicle type was deleted. False if not.</returns>
+		internal static bool TryDeleteVehicleType(Vehicle vehicle)
         {
-            if (!GetVehicleTypeID(vehicle, out int? id))
+			//Get the vehicle type ID
+            if (!TryGetVehicleTypeID(vehicle, out int? id))
             {
                 return false;
             }
@@ -635,6 +659,8 @@ namespace Carsharing
                     using (MySqlCommand command = new MySqlCommand("DELETE FROM Fahrzeugtyp WHERE `Ft_ID` = @Ft_ID", con))
                     {
                         command.Parameters.AddWithValue("Ft_ID", id);
+
+						//Delete the vehicle type
                         command.ExecuteNonQuery();
                     }
                 }
@@ -650,7 +676,12 @@ namespace Carsharing
             }
         }
 
-        internal static bool GetAllVehiclesFromDB(out List<Vehicle> vehicles)
+		/// <summary>
+		/// Try tot get all vehicles
+		/// </summary>
+		/// <param name="vehicles">All vehicles</param>
+		/// <returns>Returns false if there was a problem with the database connection, otherwise true.</returns>
+		internal static bool TryGetAllVehicles(out List<Vehicle> vehicles)
         {
             DataTable table = new DataTable();
             vehicles = new List<Vehicle>();
@@ -674,6 +705,7 @@ namespace Carsharing
                     con.Close();
                 }
             }
+
             foreach (DataRow item in table.Rows)
             {
                 vehicles.Add(GetVehicleFromDataRow(item));
@@ -682,7 +714,12 @@ namespace Carsharing
             return true;
         }
 
-        internal static bool GetAvailableVehiclesFromDB(out List<Vehicle> vehicles)
+		/// <summary>
+		/// Try to get all available vehicles
+		/// </summary>
+		/// <param name="vehicles">All available vehicles</param>
+		/// <returns>Returns false if there was a problem with the database connection, otherwise true.</returns>
+		internal static bool TryGetAvailableVehicles(out List<Vehicle> vehicles)
         {
             DataTable table = new DataTable();
             vehicles = new List<Vehicle>();
@@ -706,6 +743,7 @@ namespace Carsharing
                     con.Close();
                 }
             }
+
             foreach (DataRow item in table.Rows)
             {
                 vehicles.Add(GetVehicleFromDataRow(item));
@@ -714,6 +752,11 @@ namespace Carsharing
             return true;
         }
 
+		/// <summary>
+		/// Convert a dataRow to vehicle
+		/// </summary>
+		/// <param name="row">Row to convert</param>
+		/// <returns>Returns the vehicle from a dataRow, null if the convert fails</returns>
         private static Vehicle GetVehicleFromDataRow(DataRow row)
         {
             Vehicle v = new Vehicle();
@@ -754,29 +797,29 @@ namespace Carsharing
             }
             catch (Exception)
             {
-                v = new Vehicle();
+                v = null;
             }
 
             return v;
         }
 
         /// <summary>
-        /// Method to add a vehicle type to the DB.
+        /// Try to add a vehicle type to the database.
         /// </summary>
         /// <param name="vehicle">Vehicle whose type is to be added</param>
         /// <returns>Returns true if the connection to the database worked and the vehicle type was added. False if not.</returns>
-        private static bool AddVehicleType(Vehicle vehicle)
+        private static bool TryAddVehicleType(Vehicle vehicle)
         {
             //Get the brand ID from the parameter vehicle
-            if (!GetVehicleBrandID(vehicle.Brand, out int? brand))
+            if (!TryGetVehicleBrandID(vehicle.Brand, out int? brand))
                 return false;
 
             //Get the gear ID from the parameter vehicle
-            if (!GetVehicleGearID(vehicle.Gear, out int? gear))
+            if (!TryGetVehicleGearID(vehicle.Gear, out int? gear))
                 return false;
 
             //Get the fuel type ID from the parameter vehicle
-            if (!GetFuelTypeID(vehicle.FuelType, out int? fuel))
+            if (!TryGetFuelTypeID(vehicle.FuelType, out int? fuel))
                 return false;
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -816,20 +859,26 @@ namespace Carsharing
             return true;
         }
 
-        internal static bool UpdateVehicleInDB(Vehicle vehicle, Vehicle vehicleOld)
+		/// <summary>
+		/// Try to update a vehicle
+		/// </summary>
+		/// <param name="vehicle">New vehicle</param>
+		/// <param name="vehicleOld">Old vehicle</param>
+		/// <returns>Returns true if the connection to the database worked and the vehicle was updated. False if not.</returns>
+		internal static bool TryUpdateVehicleInDB(Vehicle vehicle, Vehicle vehicleOld)
         {
             //Get the vehicle type ID
-            if (!GetVehicleTypeID(vehicle, out int? vehicleTypeID))
+            if (!TryGetVehicleTypeID(vehicle, out int? vehicleTypeID))
                 return false;
 
             //Checks if the vehicle type is in the DB.
             if (vehicleTypeID == null)
             {
                 //Adds the vehicle type to the DB
-                if (!AddVehicleType(vehicle))
+                if (!TryAddVehicleType(vehicle))
                     return false;
                 //Get the vehicle type ID
-                if (!GetVehicleTypeID(vehicle, out vehicleTypeID))
+                if (!TryGetVehicleTypeID(vehicle, out vehicleTypeID))
                     return false;
             }
             using (MySqlConnection con = new MySqlConnection(connectionString))
@@ -881,18 +930,17 @@ namespace Carsharing
 
         #region Customer
         /// <summary>
-        /// Method to add a customer to the database.
+        /// Try to add a customer to the database.
         /// </summary>
         /// <param name="c">The customer who should be added to the database.</param>
         /// <returns>Returns 0 if the operation was successful, 1 if a connection to the database could not be established or 2 if the email isn't unique.</returns>
-        internal static int AddCustomerToDB(Customer c)
+        internal static int TryAddCustomer(Customer c)
         {
             int status = 0;
             using (MySqlConnection con = new MySqlConnection(connectionString))
             {
                 try
                 {
-                    // open connection to database
                     con.Open();
                     using (MySqlCommand command = new MySqlCommand("INSERT INTO `kunde`(`E-Mail Adresse`, `Vorname`, `Nachname`, `Telefonnummer`, `Passwort`, `admin`, `Geburtstag`, `Strasse`, `Hausnummer`, `PLZ`, `Stadt`, `Land`) VALUES(@email, @Vorname, @Nachname, @tel, @pw, @admin, @Geburtstag, @Straße, @Hausnummer, @PLZ, @Stadt, @Land)", con))
                     {
@@ -915,6 +963,8 @@ namespace Carsharing
                 catch (Exception e)
                 {
                     status = 1;
+					
+					//Ask if the email is already in the database
                     if (((MySqlException)e).Number == 1062)
                     {
                         status = 2;
@@ -922,7 +972,6 @@ namespace Carsharing
                 }
                 finally
                 {
-                    // close connection to database
                     con.Close();
                 }
                 return status;
@@ -930,19 +979,18 @@ namespace Carsharing
         }
 
         /// <summary>
-        /// Method to update a customer in the database.
+        /// Try to update a customer in the database.
         /// </summary>
         /// <param name="c">The object that contains the new information of the customer.</param>
         /// <param name="email">Email address from the customer, which should be updated.</param>
         /// <returns></returns>
-        internal static int UpdateCustomerInDB(Customer c, string email)
+        internal static int TryUpdateCustomer(Customer c, string email)
         {
             int status = 0;
             using (MySqlConnection con = new MySqlConnection(connectionString))
             {
                 try
                 {
-                    // open connection to database
                     con.Open();
                     using (MySqlCommand command = new MySqlCommand("UPDATE `kunde` SET `E-Mail Adresse`=@email,`Vorname`=@Vorname,`Nachname`=@Nachname,`Telefonnummer`=@tel,`Passwort`=@pw,`admin`=@admin,`Geburtstag`=@Geburtstag,`Strasse`=@Strasse,`Hausnummer`=@Hausnummer,`PLZ`=@PLZ,`Stadt`=@Stadt,`Land`=@Land WHERE `E-Mail Adresse`=@reqemail", con))
                     {
@@ -966,14 +1014,15 @@ namespace Carsharing
                 catch (Exception e)
                 {
                     status = 1;
-                    if (((MySqlException)e).Number == 1062)
+
+					//Ask if the email is already in the database
+					if (((MySqlException)e).Number == 1062)
                     {
                         status = 2;
                     }
                 }
                 finally
                 {
-                    // close connection to database
                     con.Close();
                 }
                 return status;
@@ -981,11 +1030,11 @@ namespace Carsharing
         }
 
         /// <summary>
-        /// Method to delete a customer from the DB.
+        /// Try to delete a customer from the DB.
         /// </summary>
         /// <param name="c">The customer, who is being deleted from the DB.</param>
         /// <returns>Returns a bool to determine the delete's success. True = successful delete, false = unsuccessful delete.</returns>
-        internal static bool DeleteUserFromDB(Customer c)
+        internal static bool TryDeleteUser(Customer c)
         {
             // The delete is successful at default
             bool result = true;
@@ -1021,12 +1070,12 @@ namespace Carsharing
         }
 
         /// <summary>
-        /// Method to check if a customer has open bookings.
+        /// Try to check if a customer has open bookings.
         /// </summary>
         /// <param name="c">The customer, whose bookings require a check.</param>
         /// <param name="result">Is true, if the customer has open bookings in the DB. Is false, if he doesn't.</param>
         /// <returns>Returns false if there was a problem with the database connection, otherwise true.</returns>
-        internal static bool CheckOpenBookingsCustomer(Customer c, out bool result)
+        internal static bool TryCheckOpenBookingsCustomer(Customer c, out bool result)
         {
             // The result of the check is false at default
             result = true;
@@ -1067,16 +1116,17 @@ namespace Carsharing
         }
 
         /// <summary>
-        /// Get a customer from the database by his email address.
+        /// Try to get a customer from the database by his email address.
         /// </summary>
         /// <param name="email">The email from the customer who is requested.</param>
         /// <param name="customer">The customer, who is requested. If the object is null,if there isn't a customer with this email.</param>
         /// <returns>Returns false if there was a problem with the database connection, otherwise true.</returns>
-        internal static bool GetCustomerByEmailFromDB(string email, out Customer customer)
+        internal static bool TryGetCustomerByEmail(string email, out Customer customer)
         {
             customer = null;
             bool status = true;
             DataTable t = new DataTable();
+
             using (MySqlConnection con = new MySqlConnection(connectionString))
             {
                 try
@@ -1102,53 +1152,16 @@ namespace Carsharing
             {
                 customer = GetCustomerFromDataRow(t.Rows[0]);
             }
+
             return status;
         }
 
         /// <summary>
-        /// Get all customer from the database.
+        /// Try to get all customer from the database.
         /// </summary>
         /// <param name="customers">List of all customers.</param>
         /// <returns>Returns false if there was a problem with the database connection, otherwise true.</returns>
-        internal static bool GetAllCustomerFromDB(out List<Customer> customers)
-        {
-            customers = new List<Customer>();
-            bool status = true;
-            DataTable t = new DataTable();
-            using (MySqlConnection con = new MySqlConnection(connectionString))
-            {
-                try
-                {
-                    con.Open();
-                    using (MySqlDataAdapter a = new MySqlDataAdapter("SELECT * FROM kunde", con))
-                    {
-                        a.Fill(t);
-                    }
-                }
-                catch (Exception)
-                {
-                    status = false;
-                }
-                finally
-                {
-                    con.Close();
-                }
-            }
-
-            foreach (DataRow item in t.Rows)
-            {
-                customers.Add(GetCustomerFromDataRow(item));
-            }
-
-            return status;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="customers"></param>
-        /// <returns></returns>
-        internal static bool GetCustomers(out List<Customer> customers)
+        internal static bool TryGetAllCustomers(out List<Customer> customers)
         {
             DataTable table = new DataTable();
             customers = new List<Customer>();
@@ -1175,27 +1188,17 @@ namespace Carsharing
             }
 
             foreach (DataRow item in table.Rows)
-            {
-                Customer c = new Customer();
-
-                c.EmailAddress = item[0].ToString();
-                c.Name = item[1].ToString();
-                c.LastName = item[2].ToString();
-                c.PhoneNumber = item[3].ToString();
-                c.PasswordHash = item[4].ToString();
-                c.IsAdmin = Convert.ToBoolean(item[5].ToString());
-                c.Birthday = DateTime.Parse(item[6].ToString());
-                c.Street = item[7].ToString();
-                c.HouseNumber = item[8].ToString();
-                c.PLZ = item[9].ToString();
-                c.City = item[10].ToString();
-                c.Country = item[11].ToString();
-
-                customers.Add(c);
+			{ 
+				customers.Add(GetCustomerFromDataRow(item));
             }
             return true;
         }
 
+		/// <summary>
+		/// Convert the datarow to a customer
+		/// </summary>
+		/// <param name="row">Datarow to convert</param>
+		/// <returns>Returns the customer from a datarow, null if the convert fails</returns>
         private static Customer GetCustomerFromDataRow(DataRow row)
         {
             Customer c;
@@ -1213,11 +1216,11 @@ namespace Carsharing
 
         #region Booking
         /// <summary>
-        /// Method to add a booking into the database.
+        /// Try to add a booking into the database.
         /// </summary>
         /// <param name="b">The booking, which should be added.</param>
         /// <returns>Returns true, if the insertion was successful, otherwise false.</returns>
-        internal static bool AddBookingToDB(Booking b)
+        internal static bool TryAddBooking(Booking b)
         {
             //return value, true means, successful
             bool status = true;
@@ -1256,12 +1259,12 @@ namespace Carsharing
             return status;
         }
 
-        /// <summary>
-        /// Closes a given booking in the database.
-        /// </summary>
-        /// <param name="b">The booking, which is being closed.</param>
-        /// <returns></returns>
-        internal static bool CloseBookingInDB(Booking b)
+		/// <summary>
+		/// Try to close a given booking in the database.
+		/// </summary>
+		/// <param name="b">The booking, which is being closed.</param>
+		/// <returns>Returns true, if the closing of a booking was successful, otherwise false.</returns>
+		internal static bool TryCloseBooking(Booking b)
         {
             // The delete is successful at default
             bool result = true;
@@ -1302,48 +1305,13 @@ namespace Carsharing
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="c"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
-        internal static bool GetOpenBookingOfCustomer(Customer c, out Booking b)
-        {
-            // The result of the check is false at default
-            bool status = true;
-            DataTable table = new DataTable();
-            using (MySqlConnection con = new MySqlConnection(connectionString))
-            {
-                try
-                {
-                    con.Open();
-                    // Get all Booking information matching the customer's email-address and checks,
-                    // if the ending mileage equals NULL, indicating the booking is still open.
-                    using (MySqlCommand command = new MySqlCommand("Select * FROM buchung WHERE `E-Mail Adresse` = @email AND Endkilometerstand IS NULL", con))
-                    {
-                        command.Parameters.AddWithValue("email", c.EmailAddress);
-                        // Transfer the found B_IDs into a table via the MySqlDataAdapter...
-                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
-                        {
-                            adapter.Fill(table);
-                        }
-                    }
-                }
-                catch (Exception)
-                {
-                    status = false;
-                }
-                finally
-                {
-                    con.Close();
-                }
-            }
-            b = GetBookingFromDataRow(table.Rows[0]);
-            return status;
-        }
-        
-        internal static bool GetAllBookingsOfCustomer(Customer c, out List<Booking> bookings)
+		/// <summary>
+		/// Try to get all bookings of a customer
+		/// </summary>
+		/// <param name="c">The customer from which all the bookings are to be fetch.</param>
+		/// <param name="bookings">List of all booking from a customer.</param>
+		/// <returns>Returns false if there was a problem with the database connection, otherwise true.</returns>
+		internal static bool TryGetAllBookingsOfCustomer(Customer c, out List<Booking> bookings)
         {
             bool status = true;
             bookings = new List<Booking>();
@@ -1380,13 +1348,16 @@ namespace Carsharing
             return status;
         }
 
-        private static Booking GetBookingFromDataRow(DataRow row)
+		/// <summary>
+		/// Convert the datarow to a booking
+		/// </summary>
+		/// <param name="row">Datarow to convert</param>
+		/// <returns>Returns the customer from a datarow.</returns>
+		private static Booking GetBookingFromDataRow(DataRow row)
         {
             // Getting the customer and vehicle first
-            Customer c;
-            GetCustomerByEmailFromDB(row.Field<string>("E-Mail Adresse"), out c);
-            Vehicle v;
-            GetVehicleByNumberPlate(row.Field<string>("Kennzeichen"), out v);
+            TryGetCustomerByEmail(row.Field<string>("E-Mail Adresse"), out Customer c);
+            TryGetVehicleByNumberPlate(row.Field<string>("Kennzeichen"), out Vehicle v);
             bool open;
 
             // Checks, if the booking is still open. That is determined whether or not "Endkilometerstand" is null
@@ -1398,7 +1369,7 @@ namespace Carsharing
             {
                 open = false;
             }
-
+		 
             DateTime startzeitpunkt = row.Field<DateTime>("Startzeitpunkt");
             DateTime endzeitpunkt;
             if (open)

@@ -27,7 +27,7 @@ namespace Carsharing
 		{
 			if (listBoxVehicle.SelectedItem is Vehicle vehicle)
 			{
-				if(DBController.CheckOpenBookingVehicle(vehicle, out bool result))
+				if(DBController.TryCheckOpenBookingVehicle(vehicle, out bool result))
 				{
 					if (!result)
 					{
@@ -47,7 +47,7 @@ namespace Carsharing
 			{
 				if (listBoxVehicle.SelectedItem is Vehicle vehicle)
 				{
-					if (DBController.CheckOpenBookingVehicle(vehicle, out bool result))
+					if (DBController.TryCheckOpenBookingVehicle(vehicle, out bool result))
 					{
 						//If car isn't booked
 						if (!result) 
@@ -158,7 +158,7 @@ namespace Carsharing
 		{
 			listBoxVehicle.Items.Clear();
 			Placeholer();
-			if (!DBController.GetAllVehiclesFromDB(out List<Vehicle> vehicles))
+			if (!DBController.TryGetAllVehicles(out List<Vehicle> vehicles))
 			{
 				Feedback.ErrorDatabaseConnection();
 				return;
