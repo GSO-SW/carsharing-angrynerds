@@ -17,20 +17,26 @@ namespace Carsharing
 			if (listBoxUser.SelectedItem is Customer)
 			{
 				Customer customer = (Customer)listBoxUser.SelectedItem;
-
-				if(customer.EmailAddress != FormController.CurrentCustomer.EmailAddress)
+				if (customer.EmailAddress != FormController.CurrentCustomer.EmailAddress)
 				{
-					if (Feedback.AskCustomerDelete() == DialogResult.Yes)
+					if (DBController.CheckOpenBookingsCustomer(customer, out bool result) && !result)
 					{
-						if (DBController.DeleteUserFromDB(customer))
+						if (Feedback.AskCustomerDelete() == DialogResult.Yes)
 						{
-							UpdateTable();
-							Feedback.SuccessCustomersDelete();
+							if (DBController.DeleteUserFromDB(customer))
+							{
+								UpdateTable();
+								Feedback.SuccessCustomersDelete();
+							}
+							else
+							{
+								Feedback.ErrorDatabaseCustomersDelete();
+							}
 						}
-						else
-						{
-							Feedback.ErrorDatabaseCustomersDelete();
-						}
+					}
+					else
+					{
+						Feedback.ErrorCustomersDeleteOpenBooking();
 					}
 				}
 				else
@@ -45,7 +51,7 @@ namespace Carsharing
 			if (listBoxUser.SelectedItem is Customer)
 			{
 				Customer c = (Customer)listBoxUser.SelectedItem;
-				if(c.EmailAddress != FormController.CurrentCustomer.EmailAddress)
+				if (c.EmailAddress != FormController.CurrentCustomer.EmailAddress)
 				{
 					new EditDataView(c).ShowDialog();
 				}

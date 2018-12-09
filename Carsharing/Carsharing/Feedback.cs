@@ -43,6 +43,11 @@ namespace Carsharing
 			MessageBox.Show("Sie können sich nicht selbst auf diese Art bearbeiten.\nSie müssen dies unter dem Menü 'Status' tun.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 
+		internal static void ErrorCustomersDeleteOpenBooking()
+		{
+			MessageBox.Show("Sie können diesen Kunden nicht löschen, da er noch offene Buchungen hat.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
 		internal static void ErrorDatabaseVehicleAdd()
 		{
 			MessageBox.Show("Beim Hinzufügen des Fahrzeuges ist ein Fehler unterlaufen.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
