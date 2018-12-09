@@ -105,7 +105,7 @@
 			this.buttonUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonUsers.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.buttonUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.buttonUsers.Location = new System.Drawing.Point(15, 484);
+			this.buttonUsers.Location = new System.Drawing.Point(15, 530);
 			this.buttonUsers.Name = "buttonUsers";
 			this.buttonUsers.Size = new System.Drawing.Size(182, 40);
 			this.buttonUsers.TabIndex = 4;
@@ -149,7 +149,7 @@
 			this.buttonVehicles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonVehicles.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.buttonVehicles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.buttonVehicles.Location = new System.Drawing.Point(15, 444);
+			this.buttonVehicles.Location = new System.Drawing.Point(15, 490);
 			this.buttonVehicles.Name = "buttonVehicles";
 			this.buttonVehicles.Size = new System.Drawing.Size(182, 40);
 			this.buttonVehicles.TabIndex = 1;

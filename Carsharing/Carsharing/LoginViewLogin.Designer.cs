@@ -45,7 +45,7 @@
 			// 
 			// txtEmail
 			// 
-			this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
 			this.txtEmail.Location = new System.Drawing.Point(96, 115);
 			this.txtEmail.Name = "txtEmail";
@@ -60,7 +60,7 @@
 			this.buttonRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(90)))));
 			this.buttonRegister.FlatAppearance.BorderSize = 0;
 			this.buttonRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.buttonRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.buttonRegister.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.buttonRegister.Location = new System.Drawing.Point(96, 279);
 			this.buttonRegister.Name = "buttonRegister";
 			this.buttonRegister.Size = new System.Drawing.Size(332, 31);
@@ -74,7 +74,7 @@
 			this.buttonLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(90)))));
 			this.buttonLogin.FlatAppearance.BorderSize = 0;
 			this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.buttonLogin.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.buttonLogin.Location = new System.Drawing.Point(96, 215);
 			this.buttonLogin.Name = "buttonLogin";
 			this.buttonLogin.Size = new System.Drawing.Size(332, 31);
@@ -85,7 +85,7 @@
 			// 
 			// txtPassword
 			// 
-			this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
 			this.txtPassword.Location = new System.Drawing.Point(96, 156);
 			this.txtPassword.Name = "txtPassword";
