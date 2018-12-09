@@ -82,12 +82,6 @@
     <Compile Include="LoginViewRegistration.Designer.cs">
       <DependentUpon>LoginViewRegistration.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddVehicleForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddVehicleForm.Designer.cs">
-      <DependentUpon>AddVehicleForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainViewAdminUsers.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -102,27 +96,9 @@
     </Compile>
     <Compile Include="Booking.cs" />
     <Compile Include="SecurePasswordHasher.cs" />
-    <Compile Include="ShowVehicleForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ShowVehicleForm.Designer.cs">
-      <DependentUpon>ShowVehicleForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Customer.cs" />
     <Compile Include="DBController.cs" />
-    <Compile Include="Main.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormController.cs" />
-    <Compile Include="ManageUserForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ManageUserForm.Designer.cs">
-      <DependentUpon>ManageUserForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,26 +142,14 @@
     <EmbeddedResource Include="LoginViewRegistration.resx">
       <DependentUpon>LoginViewRegistration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddVehicleForm.resx">
-      <DependentUpon>AddVehicleForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MainViewAdminUsers.resx">
       <DependentUpon>MainViewAdminUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainViewAdminVehicle.resx">
       <DependentUpon>MainViewAdminVehicle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ShowVehicleForm.resx">
-      <DependentUpon>ShowVehicleForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ManageUserForm.resx">
-      <DependentUpon>ManageUserForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

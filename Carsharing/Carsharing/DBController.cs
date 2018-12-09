@@ -1,19 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using System.Data.SqlClient;
-using System.Data.OleDb;
-using System.Data.Odbc;
-using MySql.Data;
 using MySql.Data.MySqlClient;
 using System.Data;
 
 namespace Carsharing
 {
-    internal static class DBController
+	internal static class DBController
     {
         private static readonly string connectionString = @"host=localhost;user=root;database=carsharingdb";
 

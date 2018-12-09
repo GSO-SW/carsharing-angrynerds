@@ -6,10 +6,10 @@ namespace Carsharing
 	// Author: Christian Gollhardt
 	// Source: https://stackoverflow.com/questions/4181198/how-to-hash-a-password/32191537#32191537
 	// Usage:
-	// Hash:
-	// var hash = SecurePasswordHasher.Hash("mypassword");
-	// Verify:
-	// var result = SecurePasswordHasher.Verify("mypassword", hash);
+	//       Hash:
+	//         var hash = SecurePasswordHasher.Hash("mypassword");
+	//       Verify:
+	//         var result = SecurePasswordHasher.Verify("mypassword", hash);
 	internal static class SecurePasswordHasher
 	{
 		/// <summary>
