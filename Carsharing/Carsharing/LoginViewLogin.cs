@@ -50,15 +50,10 @@ namespace Carsharing
 
 		private void login()
 		{
-			if (!DBController.ConnectionAvailable())
+			if (!DBController.GetCustomerByEmailFromDB(txtEmail.Text, out Customer c))
 			{
-				MessageBox.Show("Es konnte keine Verbindung zur Datenbank hergestellt werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Feedback.ErrorDatabaseConnection();
 				return;
-			}
-
-			if (DBController.GetCustomerByEmailFromDB(txtEmail.Text, out Customer c))
-			{
-
 			}
 
 			if (c != null)
@@ -73,7 +68,7 @@ namespace Carsharing
 					return;
 				}
 			}
-			MessageBox.Show("Die von dir eingegebene E-Mail-Adresse und/oder das von dir eingegebene Passwort kann keinem Konto zugeordnet werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			Feedback.ErrorInvalidLogin();
 		}
 	}
 }

@@ -78,6 +78,11 @@ namespace Carsharing
             MessageBox.Show("Ihre Eingabe ist ungültig.\nVergewissern Sie sich, dass ihre Eingabe größer als der Startkilometerstand ist.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+		internal static void ErrorInvalidLogin()
+		{
+			MessageBox.Show("Die von dir eingegebene E-Mail-Adresse und/oder das von dir eingegebene Passwort kann keinem Konto zugeordnet werden.", titleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
 		internal static DialogResult AskCustomerDelete()
 		{
 			return MessageBox.Show("Wollen Sie wirklich diesen Account löschen?", titleCare, MessageBoxButtons.YesNo);
