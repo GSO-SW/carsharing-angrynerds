@@ -7,6 +7,7 @@ namespace Carsharing
 	internal partial class MainView : Form
 	{
 		private Button[] selectableButtons;
+		//vars for movability of the main window
 		bool leftMouseDownOnPanel;
 		Point clickPoint;
 
@@ -16,7 +17,7 @@ namespace Carsharing
 			InitializeComponent();
 			InitializeComponentAfter();
 			// to prevent graphic glitch
-			((UserControl)userStatus1).BringToFront();
+			userStatus1.BringToFront();
 
 			DoubleBuffered = true;
 
@@ -167,8 +168,7 @@ namespace Carsharing
         {
             if (leftMouseDownOnPanel)
             {
-                var x = e.Location - (Size)clickPoint;
-                Location += (Size)x;
+                Location += (Size)(e.Location - (Size)clickPoint);
             }
         }
 

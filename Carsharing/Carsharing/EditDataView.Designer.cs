@@ -94,12 +94,17 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
 			this.ClientSize = new System.Drawing.Size(527, 451);
+			this.ControlBox = false;
 			this.Controls.Add(this.panel3);
 			this.Controls.Add(this.panel4);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "EditDataView";
+			this.ShowIcon = false;
+			this.ShowInTaskbar = false;
 			this.Text = "EditDataView";
 			this.panel3.ResumeLayout(false);
 			this.ResumeLayout(false);
