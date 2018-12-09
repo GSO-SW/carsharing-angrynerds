@@ -118,31 +118,37 @@ namespace Carsharing
 
 		private void buttonBookingAdd_Click(object sender, EventArgs e)
 		{
-			//check, if the customer or the vehicle has open bookings
-			if (DBController.TryCheckOpenBookingsCustomer(FormController.CurrentCustomer, out bool cresult) && !cresult)
+			if (listBoxVehicle.SelectedItem != null)
 			{
-				if (listBoxVehicle.SelectedItem != null && listBoxVehicle.SelectedItem is Vehicle v && DBController.TryCheckOpenBookingVehicle(v, out bool vresult) && !vresult && v.Available)
+				//check, if the customer or the vehicle has open bookings
+				if (DBController.TryCheckOpenBookingsCustomer(FormController.CurrentCustomer, out bool cresult) && !cresult)
 				{
-					Booking b = new Booking(FormController.CurrentCustomer, v, DateTime.Now, new DateTime(0), v.Mileage, 0, true);
-					if (DBController.TryAddBooking(b))
+					if (listBoxVehicle.SelectedItem is Vehicle v && DBController.TryCheckOpenBookingVehicle(v, out bool vresult) && !vresult && v.Available)
 					{
-						MessageBox.Show("Buchung erfolgreich.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+						Booking b = new Booking(FormController.CurrentCustomer, v, DateTime.Now, new DateTime(0), v.Mileage, 0, true);
+						if (DBController.TryAddBooking(b))
+						{
+							MessageBox.Show("Buchung erfolgreich.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+						}
+						else
+						{
+							MessageBox.Show("Buchung nicht erfolgreich. Bitte versuchen Sie es noch einmal.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						}
 					}
 					else
 					{
-						MessageBox.Show("Buchung nicht erfolgreich. Bitte versuchen Sie es noch einmal.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						MessageBox.Show("Buchung nicht erfolgreich, da das Fahrzeug nicht verfügbar ist.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					}
 				}
 				else
 				{
-					MessageBox.Show("Buchung nicht erfolgreich, da das Fahrzeug nicht verfügbar ist.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show("Buchung nicht erfolgreich, da Sie bereits eine offene Buchung haben.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
 			else
 			{
-				MessageBox.Show("Buchung nicht erfolgreich, da Sie bereits eine offene Buchung haben.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Feedback.ErrorNoSelectedItem();
 			}
-
             UpdateTable();
 		}
 

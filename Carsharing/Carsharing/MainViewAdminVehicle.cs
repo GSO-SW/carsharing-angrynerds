@@ -39,6 +39,10 @@ namespace Carsharing
                     }
 				}
 			}
+			else
+			{
+				Feedback.ErrorNoSelectedItem();
+			}
 		}
 
 		private void buttonVehicleDelete_Click(object sender, EventArgs e)

@@ -38,6 +38,10 @@ namespace Carsharing
 					Feedback.ErrorCustomersDeleteHimself();
 				}
 			}
+			else
+			{
+				Feedback.ErrorNoSelectedItem();
+			}
 		}
 
 		private void buttonUserEdit_Click(object sender, EventArgs e)
@@ -53,6 +57,10 @@ namespace Carsharing
 				{
 					Feedback.ErrorCustomersEditHimself();
 				}
+			}
+			else
+			{
+				Feedback.ErrorNoSelectedItem();
 			}
 		}
 
