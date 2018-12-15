@@ -37,17 +37,17 @@ Falls ein neuer User einen Account erstellen möchte, kann er das in der Registi
 Im Hauptfenster befinden sich an der linken Seite die einzelnen Reiter der Features des Programms.
 Durch klicken der einzelnen Reiter wechselt man zwischen diesen.
 
-Insgesamt gibt es folgende Reiter: "Status" und "Buchung".
+Insgesamt gibt es folgende Reiter: "Buchungen" und "Fahrzeug buchen".
 Ein Account mit Adminrechten verfügt exklusiv noch über die Reiter "Fuhrpark" und "Nutzer".
 
-### Status
+### Buchungen
 In diesen Reiter kann der Nutzer sich über alle vergangenen getätigten Buchungen informieren.
 Eine offene Buchung kann hier ausgewählt werden und nach der Eintragung des Endkilometerstands beendet werden (Buchung beenden-Button).
 
 Ebenfalls kann der Nutzer seine Account Informationen (Profil bearbeiten-Button) und sein Account löschen (Profil löschen-Button).
 
-### Buchung
-Im "Buchung" Reiter kann der Nutzer ein Fahrzeug buchen.
+### Fahrzeug buchen
+Im "Fahrzeug buchen" Reiter kann der Nutzer ein Fahrzeug buchen.
 Alle verfügbaren Fahrzeuge werden hier aufgeführt, aus denen der Nutzer wählen kann.
 Anschließend kann der Nutzer das ausgesuchte Fahrzeug buchen (Fahrzeug buchen-Button).
 Der Nutzer kann immer nur eine Buchung gleichzeitig offen haben.
