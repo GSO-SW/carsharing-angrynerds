@@ -547,11 +547,16 @@ namespace Carsharing
                 try
                 {
                     con.Open();
-                    using (MySqlCommand command = new MySqlCommand("DELETE FROM Fahrzeug WHERE `Kennzeichen` = @kennzeichen", con))
-                    {
-                        command.Parameters.AddWithValue("kennzeichen", v.NumberPlate);
-                        command.ExecuteNonQuery();
-                    }
+					using (MySqlCommand command = new MySqlCommand("UPDATE `buchung` SET `Kennzeichen`='NICHT VERFÜGBAR' WHERE `Kennzeichen`=@kennzeichen ", con))
+					{
+						command.Parameters.AddWithValue("kennzeichen", v.NumberPlate);
+						command.ExecuteNonQuery();
+					}
+					using (MySqlCommand command = new MySqlCommand("DELETE FROM Fahrzeug WHERE `Kennzeichen` = @kennzeichen", con))
+					{
+						command.Parameters.AddWithValue("kennzeichen", v.NumberPlate);
+						command.ExecuteNonQuery();
+					}
                 }
                 catch (Exception)
                 {
